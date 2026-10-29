@@ -13,7 +13,7 @@ BASE_PATH="${BASE_PATH%/}"
 
 if [[ -z "${VHOST}" ]]; then
   mapfile -t candidates < <(
-    grep -RslE "server_name[[:space:]][^;]*${DOMAIN//./\\.}" \
+    grep -RslE "server_name[[:space:]][^;]*[[:space:]]${DOMAIN//./\\.}([[:space:];]|$)" \
       /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null || true
   )
   [[ "${#candidates[@]}" -gt 0 ]] || {
@@ -76,7 +76,9 @@ for start in starts:
             depth -= 1
             if depth == 0:
                 block = text[start : pos + 1]
-                if re.search(r"server_name\s+[^;]*\b" + re.escape(domain) + r"\b", block):
+                directive = re.search(r"\bserver_name\s+([^;]+);", block)
+                names = directive.group(1).split() if directive else []
+                if domain in names:
                     blocks.append((start, pos))
                 break
 
