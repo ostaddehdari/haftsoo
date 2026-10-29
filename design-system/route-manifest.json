@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "basePath": "/haftsoo",
+  "routes": [
+    { "id": "home", "path": "/", "family": "discovery", "auth": false, "states": ["default", "city-search", "offline"] },
+    { "id": "listing", "path": "/s/:city/:category?", "family": "search", "auth": false, "states": ["loading", "results", "empty", "error", "map"] },
+    { "id": "post", "path": "/v/:slug/:token", "family": "post", "auth": false, "states": ["loading", "ready", "expired", "removed", "contact-revealed"] },
+    { "id": "submit", "path": "/new", "family": "submission", "auth": true, "states": ["category", "form", "media", "preview", "success", "rejected"] },
+    { "id": "login", "path": "/auth", "family": "identity", "auth": false, "states": ["phone", "otp", "resend", "blocked", "success"] },
+    { "id": "chat", "path": "/chat/:conversation?", "family": "communication", "auth": true, "states": ["list", "empty", "conversation", "sending", "offline", "blocked"] },
+    { "id": "account", "path": "/my", "family": "account", "auth": true, "states": ["guest", "member"] },
+    { "id": "my-posts", "path": "/my/posts", "family": "account", "auth": true, "states": ["active", "pending", "rejected", "expired", "empty"] },
+    { "id": "bookmarks", "path": "/my/bookmarks", "family": "account", "auth": true, "states": ["posts", "searches", "empty"] },
+    { "id": "recent", "path": "/my/recent", "family": "account", "auth": true, "states": ["ready", "empty"] },
+    { "id": "wallet", "path": "/my/wallet", "family": "finance", "auth": true, "states": ["balance", "transactions", "payment", "failed"] },
+    { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["profile", "sessions", "privacy", "theme"] },
+    { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
+    { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },
+    { "id": "design-system", "path": "/system", "family": "internal", "auth": false, "states": ["tokens", "components", "motion"] }
+  ],
+  "overlays": [
+    { "id": "city-picker", "type": "modal-bottom-sheet", "trigger": "location" },
+    { "id": "category-picker", "type": "mega-menu-bottom-sheet", "trigger": "category" },
+    { "id": "filters", "type": "side-panel-fullscreen", "trigger": "filter" },
+    { "id": "district-picker", "type": "modal-bottom-sheet", "trigger": "district" },
+    { "id": "contact", "type": "modal-bottom-sheet", "trigger": "contact" },
+    { "id": "share", "type": "popover-bottom-sheet", "trigger": "share" },
+    { "id": "report", "type": "step-modal", "trigger": "report" },
+    { "id": "login", "type": "modal-fullscreen", "trigger": "protected-action" },
+    { "id": "image-gallery", "type": "lightbox", "trigger": "media" },
+    { "id": "confirm", "type": "alert-dialog", "trigger": "destructive-action" }
+  ]
+}
+

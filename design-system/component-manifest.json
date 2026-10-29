@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "components": [
+    { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
+    { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
+    { "name": "SelectRow", "variants": ["plain", "icon", "description", "active"], "states": ["default", "hover", "focus", "disabled"] },
+    { "name": "PostCard", "variants": ["grid", "list", "compact"], "states": ["loading", "ready", "bookmarked", "promoted"] },
+    { "name": "Chip", "variants": ["filter", "choice", "dismissible", "status"], "states": ["default", "selected", "disabled"] },
+    { "name": "Modal", "variants": ["dialog", "sticky-footer", "fullscreen"], "states": ["opening", "open", "closing"] },
+    { "name": "BottomSheet", "variants": ["content", "menu", "form"], "states": ["opening", "open", "dragging", "closing"] },
+    { "name": "Toast", "variants": ["info", "success", "warning", "danger"], "states": ["visible", "dismissed"] },
+    { "name": "Skeleton", "variants": ["text", "card", "avatar", "image"], "states": ["loading"] },
+    { "name": "EmptyState", "variants": ["search", "account", "network", "permission"], "states": ["ready"] },
+    { "name": "Header", "variants": ["desktop", "mobile", "detail"], "states": ["top", "sticky", "searching"] },
+    { "name": "BottomNavigation", "variants": ["guest", "member"], "states": ["default", "active"] }
+  ]
+}
+

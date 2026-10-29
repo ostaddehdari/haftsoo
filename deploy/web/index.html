@@ -1,28 +1,150 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#a62626">
-  <title>هفت‌سو | بازارگاه آگهی ایران</title>
-  <style>
-    :root{color-scheme:dark;--bg:#18181b;--card:#242427;--text:#fafafa;--muted:#a1a1aa;--brand:#d33c3c;--line:#3f3f46}
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 0,#2f2020 0,var(--bg) 42%);color:var(--text);font-family:Tahoma,Arial,sans-serif}
-    main{width:min(92vw,680px);padding:48px;border:1px solid var(--line);border-radius:24px;background:color-mix(in srgb,var(--card) 92%,transparent);box-shadow:0 28px 80px #0008}
-    .logo{display:grid;place-items:center;width:72px;height:72px;border-radius:22px;background:var(--brand);font-size:34px;font-weight:700;box-shadow:0 12px 32px #d33c3c45}
-    h1{margin:28px 0 10px;font-size:clamp(30px,6vw,50px)}p{color:var(--muted);font-size:17px;line-height:2;margin:0}
-    .status{display:flex;align-items:center;gap:10px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:#86efac}.dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px #22c55e20}
-    code{direction:ltr;display:inline-block;color:#fda4af}
-    @media(max-width:560px){main{padding:28px;border-radius:18px}.logo{width:60px;height:60px;border-radius:18px}}
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="نمونه تعاملی بازار آگهی هفت‌سو">
+  <title>هفت‌سو — بازار آگهی</title>
+  <link rel="stylesheet" href="./app.css">
 </head>
 <body>
-  <main>
-    <div class="logo" aria-hidden="true">هـ</div>
-    <h1>هفت‌سو</h1>
-    <p>زیرساخت استقرار هفت‌سو آماده است. رابط Nuxt، API مبتنی بر NestJS و سرویس چت Go در استیج‌های بعدی به همین محیط متصل می‌شوند.</p>
-    <div class="status"><span class="dot"></span><span>استیج ۱ با موفقیت مستقر شد — <code>/haftsoo/</code></span></div>
+  <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#/home" aria-label="هفت‌سو، صفحه اصلی">
+        <span class="brand-mark" aria-hidden="true">۷</span><span>هفت‌سو</span>
+      </a>
+      <button class="location-button" type="button" data-open="city-dialog" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-pin"/></svg><span id="selected-city">اصفهان</span>
+      </button>
+      <form class="header-search" id="header-search" role="search">
+        <label class="visually-hidden" for="q">جست‌وجوی آگهی</label>
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="q" name="q" autocomplete="off" placeholder="جست‌وجو در همه آگهی‌ها">
+      </form>
+      <nav class="desktop-nav" aria-label="ناوبری اصلی">
+        <a href="#/account"><svg aria-hidden="true"><use href="#i-user"/></svg>حساب من</a>
+        <a href="#/account"><svg aria-hidden="true"><use href="#i-chat"/></svg>گفتگو</a>
+        <a href="#/system"><svg aria-hidden="true"><use href="#i-help"/></svg>راهنما</a>
+      </nav>
+      <button class="theme-button icon-button" type="button" aria-label="تغییر پوسته" title="تغییر پوسته">
+        <svg aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <button class="primary-button submit-button" type="button">ثبت آگهی</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="view view-home" data-view="home">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">خرید و فروش بی‌واسطه</span>
+          <h1>چیزی که می‌خواهی، همین نزدیکی‌هاست.</h1>
+          <p>بین هزاران آگهی محلی بگرد یا کالایت را در چند دقیقه به فروش بگذار.</p>
+          <form class="hero-search" id="hero-search" role="search">
+            <label class="visually-hidden" for="hero-q">چه چیزی می‌خواهید؟</label>
+            <svg aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="hero-q" placeholder="مثلاً آپارتمان، خودرو یا لپ‌تاپ">
+            <button class="primary-button" type="submit">جست‌وجو</button>
+          </form>
+          <div class="quick-actions" aria-label="جست‌وجوهای پیشنهادی">
+            <button class="chip" data-query="آپارتمان">آپارتمان</button>
+            <button class="chip" data-query="خودرو">خودرو</button>
+            <button class="chip" data-query="موبایل">موبایل</button>
+            <button class="chip" data-query="استخدام">استخدام</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div>
+          <div class="floating-card fc-one"><svg><use href="#i-home"/></svg><span>خانه</span></div>
+          <div class="floating-card fc-two"><svg><use href="#i-car"/></svg><span>خودرو</span></div>
+          <div class="floating-card fc-three"><svg><use href="#i-phone"/></svg><span>دیجیتال</span></div>
+          <div class="visual-logo">۷</div>
+        </div>
+      </div>
+      <div class="content-shell">
+        <div class="section-heading"><div><span class="eyebrow">دسته‌بندی‌ها</span><h2>از کجا شروع کنیم؟</h2></div><a href="#/search">مشاهده همه</a></div>
+        <div class="category-grid" id="category-grid"></div>
+        <div class="section-heading"><div><span class="eyebrow">تازه‌ها</span><h2>آگهی‌های نزدیک شما</h2></div><a href="#/search">مشاهده همه آگهی‌ها</a></div>
+        <div class="post-grid home-posts" id="home-posts"></div>
+      </div>
+    </section>
+
+    <section class="view" data-view="search" hidden>
+      <div class="listing-layout content-shell">
+        <aside class="filter-sidebar" aria-label="فیلترهای جست‌وجو">
+          <div class="sidebar-title"><h2>فیلترها</h2><button class="text-button clear-filters">پاک کردن</button></div>
+          <label class="field"><span>دسته‌بندی</span><select><option>همه دسته‌ها</option><option>املاک</option><option>وسایل نقلیه</option><option>کالای دیجیتال</option></select></label>
+          <label class="field"><span>محدوده قیمت</span><input type="text" inputmode="numeric" placeholder="حداقل قیمت"></label>
+          <label class="toggle-row"><span><strong>فقط عکس‌دار</strong><small>آگهی‌های دارای تصویر</small></span><input type="checkbox"></label>
+          <label class="toggle-row"><span><strong>آگهی‌های فوری</strong><small>نمایش موارد ویژه</small></span><input type="checkbox"></label>
+        </aside>
+        <div class="listing-main">
+          <div class="listing-toolbar">
+            <div><nav class="breadcrumb" aria-label="مسیر صفحه"><a href="#/home">خانه</a><span>/</span><span>همه آگهی‌ها</span></nav><h1 id="listing-title">آگهی‌های اصفهان</h1><p><span id="result-count">۲۴</span> نتیجه تازه</p></div>
+            <div class="toolbar-actions"><button class="secondary-button mobile-filter" data-open="filter-dialog"><svg aria-hidden="true"><use href="#i-filter"/></svg>فیلتر</button><button class="secondary-button"><svg aria-hidden="true"><use href="#i-map"/></svg>نقشه</button></div>
+          </div>
+          <div class="active-filters"><button class="chip selected">اصفهان <span aria-hidden="true">×</span></button><button class="chip">مرتب‌سازی: جدیدترین</button></div>
+          <div class="post-grid" id="search-posts"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="post" hidden>
+      <div class="post-detail content-shell">
+        <nav class="breadcrumb" aria-label="مسیر صفحه"><a href="#/home">خانه</a><span>/</span><a href="#/search">املاک</a><span>/</span><span>آگهی</span></nav>
+        <div class="detail-grid">
+          <div class="detail-gallery">
+            <div class="gallery-main image-flat"><span>نمای روشن آپارتمان</span><button class="gallery-count">۶ تصویر</button></div>
+            <div class="gallery-thumb image-warm"></div><div class="gallery-thumb image-cool"></div>
+          </div>
+          <article class="detail-content">
+            <div class="detail-actions"><button class="icon-button bookmark-button" aria-label="نشان کردن آگهی"><svg aria-hidden="true"><use href="#i-bookmark"/></svg></button><button class="icon-button" aria-label="اشتراک‌گذاری"><svg aria-hidden="true"><use href="#i-share"/></svg></button></div>
+            <span class="status-badge">دقایقی پیش</span>
+            <h1>آپارتمان ۹۵ متری نورگیر در مرکز شهر</h1>
+            <p class="detail-location"><svg aria-hidden="true"><use href="#i-pin"/></svg>اصفهان، محله عباس‌آباد</p>
+            <div class="price-card"><span>قیمت کل</span><strong>۶٬۸۰۰٬۰۰۰٬۰۰۰ تومان</strong><small>متری ۷۱٬۵۷۸٬۰۰۰ تومان</small></div>
+            <dl class="property-stats"><div><dt>متراژ</dt><dd>۹۵ متر</dd></div><div><dt>ساخت</dt><dd>۱۴۰۰</dd></div><div><dt>اتاق</dt><dd>۲</dd></div></dl>
+            <div class="contact-actions"><button class="primary-button reveal-contact">نمایش شماره تماس</button><button class="secondary-button">ارسال پیام</button></div>
+            <div class="contact-box" hidden role="status"><span>شماره آزمایشی فروشنده</span><strong dir="ltr">۰۹۱۲ ۰۰۰ ۰۰۰۰</strong></div>
+            <hr><h2>توضیحات</h2><p>واحدی روشن و خوش‌نقشه با دسترسی مناسب. اطلاعات این نمونه کاملاً ساختگی است و صرفاً برای آزمون تجربه کاربری نمایش داده می‌شود.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="account" hidden>
+      <div class="account-shell content-shell">
+        <aside class="account-nav">
+          <div class="account-person"><span class="avatar">ه</span><div><strong>کاربر هفت‌سو</strong><small dir="ltr">۰۹۱۲ ۰۰۰ ۰۰۰۰</small></div></div>
+          <nav aria-label="منوی حساب"><button class="active"><svg><use href="#i-list"/></svg>آگهی‌های من</button><button><svg><use href="#i-bookmark"/></svg>نشان‌ها</button><button><svg><use href="#i-wallet"/></svg>کیف‌پول و پرداخت‌ها</button><button><svg><use href="#i-settings"/></svg>تنظیمات</button></nav>
+        </aside>
+        <div class="account-content"><span class="eyebrow">حساب کاربری</span><h1>آگهی‌های من</h1><div class="tabs" role="tablist"><button role="tab" aria-selected="true">فعال <span>۲</span></button><button role="tab">در انتظار <span>۱</span></button><button role="tab">پایان‌یافته <span>۰</span></button></div><div class="my-post-list" id="my-posts"></div></div>
+      </div>
+    </section>
+
+    <section class="view" data-view="system" hidden>
+      <div class="system-page content-shell"><span class="eyebrow">Haftsoo Design System 0.2.0</span><h1>زبان مشترک محصول</h1><p>توکن‌ها و کنترل‌های پایه برای تجربه‌ای یکپارچه، فارسی و دسترس‌پذیر.</p>
+        <section><h2>رنگ‌های اصلی</h2><div class="swatches"><div style="--swatch:#c93636"><span></span><strong>Brand</strong><small>#c93636</small></div><div style="--swatch:#15803d"><span></span><strong>Success</strong><small>#15803d</small></div><div style="--swatch:#b45309"><span></span><strong>Warning</strong><small>#b45309</small></div><div style="--swatch:#1d4ed8"><span></span><strong>Info</strong><small>#1d4ed8</small></div></div></section>
+        <section><h2>کنترل‌ها</h2><div class="component-demo"><button class="primary-button">دکمه اصلی</button><button class="secondary-button">دکمه ثانویه</button><button class="text-button">دکمه متنی</button><label class="field"><span>ورودی نمونه</span><input placeholder="متن را وارد کنید"></label><button class="chip selected">فیلتر فعال</button></div></section>
+      </div>
+    </section>
   </main>
+
+  <nav class="bottom-nav" aria-label="ناوبری موبایل"><a href="#/home"><svg><use href="#i-home"/></svg><span>خانه</span></a><a href="#/search"><svg><use href="#i-search"/></svg><span>جست‌وجو</span></a><button class="bottom-submit" aria-label="ثبت آگهی"><svg><use href="#i-plus"/></svg></button><a href="#/account"><svg><use href="#i-chat"/></svg><span>گفتگو</span></a><a href="#/account"><svg><use href="#i-user"/></svg><span>حساب</span></a></nav>
+
+  <div class="dialog-backdrop" id="city-dialog" hidden>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="city-title"><header><div><span class="eyebrow">موقعیت شما</span><h2 id="city-title">انتخاب شهر</h2></div><button class="icon-button dialog-close" aria-label="بستن"><svg><use href="#i-close"/></svg></button></header><label class="dialog-search"><svg><use href="#i-search"/></svg><input id="city-search" placeholder="جست‌وجوی شهر"></label><div class="city-list" role="listbox" aria-label="شهرها"></div></section>
+  </div>
+  <div class="dialog-backdrop" id="filter-dialog" hidden>
+    <section class="dialog bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="filter-title"><header><h2 id="filter-title">فیلترها</h2><button class="icon-button dialog-close" aria-label="بستن"><svg><use href="#i-close"/></svg></button></header><label class="field"><span>حداقل قیمت</span><input inputmode="numeric" placeholder="از ۱۰۰ میلیون"></label><label class="toggle-row"><span><strong>فقط عکس‌دار</strong><small>نتایج دارای تصویر</small></span><input type="checkbox"></label><footer><button class="secondary-button dialog-close">انصراف</button><button class="primary-button apply-filter">نمایش نتایج</button></footer></section>
+  </div>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+
+  <svg class="svg-sprite" aria-hidden="true"><defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H5l-3 2 1-5a9 9 0 1 1 18-5Z"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1.3 1-1.3 2.2M12 17h.01"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 15a9 9 0 1 1-12-12 7 7 0 0 0 12 12Z"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3Z"/></symbol><symbol id="i-car" viewBox="0 0 24 24"><path d="m5 11 2-5h10l2 5 2 2v5h-2v2h-3v-2H8v2H5v-2H3v-5Z"/><circle cx="7" cy="14.5" r="1"/><circle cx="17" cy="14.5" r="1"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 5h4M11 19h2"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z"/><path d="M9 3v15M15 6v15"/></symbol><symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4Z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3" cy="6" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="3" cy="18" r="1"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 6h16a2 2 0 0 1 2 2v11H5a2 2 0 0 1-2-2Z"/><path d="M16 11h5v4h-5a2 2 0 0 1 0-4ZM5 6V4h12"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 13.5v-3l-2-.7-.7-1.7.9-2-2.2-2.2-2 .9-1.7-.7-.7-2h-3l-.7 2-1.7.7-2-.9L1 6.1l.9 2-.7 1.7-2 .7v3l2 .7.7 1.7-.9 2L3.2 20l2-.9 1.7.7.7 2h3l.7-2 1.7-.7 2 .9 2.2-2.2-.9-2 .7-1.7Z"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </defs></svg>
+  <script src="./app.js" defer></script>
 </body>
 </html>
-
