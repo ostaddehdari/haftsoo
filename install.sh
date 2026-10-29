@@ -61,7 +61,11 @@ fi
 if [[ -d "${INSTALL_DIR}/.git" ]]; then
   log "Updating existing repository"
   git -C "${INSTALL_DIR}" diff --quiet || die "Local changes exist in ${INSTALL_DIR}; refusing to overwrite them."
-  git -C "${INSTALL_DIR}" fetch --depth 1 origin "${REPOSITORY_REF}"
+  if [[ "$(git -C "${INSTALL_DIR}" rev-parse --is-shallow-repository)" == "true" ]]; then
+    git -C "${INSTALL_DIR}" fetch --unshallow origin "${REPOSITORY_REF}"
+  else
+    git -C "${INSTALL_DIR}" fetch origin "${REPOSITORY_REF}"
+  fi
   git -C "${INSTALL_DIR}" checkout -q "${REPOSITORY_REF}"
   git -C "${INSTALL_DIR}" merge --ff-only FETCH_HEAD
 else
