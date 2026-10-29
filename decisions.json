@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "decisions": [
+    {
+      "id": "ADR-0001",
+      "status": "accepted",
+      "title": "پشته فنی و مسیر تکامل معماری",
+      "document": "docs/adr/0001-platform-stack.md"
+    },
+    {
+      "id": "DEC-0002",
+      "status": "accepted",
+      "title": "استقرار عمومی زیر مسیر /haftsoo/",
+      "decision": "تمام URLها، Assetها و Callbackهای وب باید Base Path را پشتیبانی کنند."
+    },
+    {
+      "id": "DEC-0003",
+      "status": "accepted",
+      "title": "عدم ذخیره اسرار در مخزن",
+      "decision": "Secretها فقط در Secret Manager یا Environment امن محیط اجرا نگهداری می‌شوند."
+    }
+  ]
+}
+

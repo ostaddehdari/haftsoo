@@ -1,0 +1,21 @@
+{
+  "project": "haftsoo",
+  "planVersion": "1.0.0",
+  "currentStage": "S01",
+  "stageStatus": "complete",
+  "works": [
+    { "id": "S01-W01", "status": "complete", "evidence": "docs/stage-01/product-baseline.md" },
+    { "id": "S01-W02", "status": "complete", "evidence": "docs/stage-01/governance-raci.md" },
+    { "id": "S01-W03", "status": "complete", "evidence": "docs/stage-01/domain-map.md" },
+    { "id": "S01-W04", "status": "complete", "evidence": "docs/stage-01/legal-boundaries.md" },
+    { "id": "S01-W05", "status": "complete", "evidence": "docs/stage-01/product-baseline.md" },
+    { "id": "S01-W06", "status": "complete", "evidence": "docs/stage-01/nfr-slo-capacity.md" },
+    { "id": "S01-W07", "status": "complete", "evidence": "docs/adr/0001-platform-stack.md" },
+    { "id": "S01-W08", "status": "complete", "evidence": "docs/stage-01/risk-register.md" },
+    { "id": "S01-W09", "status": "complete", "evidence": "docs/stage-01/epics-outcomes.md" },
+    { "id": "S01-W10", "status": "complete", "evidence": "docs/stage-01/acceptance.md" }
+  ],
+  "nextStage": "S02",
+  "updatedAt": "2026-10-29T22:00:00+03:30"
+}
+

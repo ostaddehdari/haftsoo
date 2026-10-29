@@ -1,0 +1,23 @@
+{
+  "environment": "production",
+  "publicUrl": "https://srun.ir/haftsoo/",
+  "basePath": "/haftsoo/",
+  "server": {
+    "host": "5.61.27.185",
+    "sshPort": 2233,
+    "sshUser": "root",
+    "deployPath": "/var/www/haftsoo"
+  },
+  "runtime": {
+    "webPort": 3100,
+    "apiPort": 3101,
+    "chatPort": 3102,
+    "processManager": "systemd",
+    "reverseProxy": "nginx"
+  },
+  "secrets": {
+    "strategy": "external-environment-or-secret-manager",
+    "committed": false
+  }
+}
+

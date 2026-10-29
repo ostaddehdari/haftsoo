@@ -1,0 +1,13 @@
+{
+  "name": "haftsoo",
+  "version": "0.1.0-stage.1",
+  "private": true,
+  "description": "Haftsoo national classifieds marketplace",
+  "scripts": {
+    "verify:stage1": "node scripts/verify-stage-01.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

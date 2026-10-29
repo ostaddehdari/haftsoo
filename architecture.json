@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "style": "modular-monolith-first-with-extractable-services",
+  "principles": [
+    "domain-boundaries-before-service-boundaries",
+    "api-first-and-event-aware",
+    "outbox-inbox-for-reliable-events",
+    "idempotency-for-mutating-operations",
+    "privacy-and-audit-by-design",
+    "rtl-and-accessibility-by-default"
+  ],
+  "boundedContexts": [
+    "identity-access",
+    "profile-account",
+    "geo-places",
+    "taxonomy-dynamic-forms",
+    "listings-media",
+    "search-discovery",
+    "moderation-trust-fraud",
+    "chat-realtime",
+    "notifications",
+    "payments-wallet-ledger",
+    "crm-support",
+    "analytics-audit"
+  ],
+  "initialDeployables": [
+    "web-nuxt",
+    "api-nestjs",
+    "chat-go",
+    "worker-nestjs"
+  ]
+}
+

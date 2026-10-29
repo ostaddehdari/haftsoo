@@ -1,0 +1,45 @@
+{
+  "$schema": "./schemas/project-design.schema.json",
+  "project": {
+    "name": "Haftsoo",
+    "nameFa": "هفت‌سو",
+    "type": "national-classifieds-marketplace",
+    "locale": "fa-IR",
+    "direction": "rtl",
+    "timezone": "Asia/Tehran"
+  },
+  "delivery": {
+    "stageCount": 40,
+    "worksPerStage": 10,
+    "currentStage": "S01",
+    "definitionOfDone": [
+      "acceptance-criteria-met",
+      "relevant-tests-pass",
+      "diff-reviewed",
+      "secret-review-pass",
+      "documentation-updated",
+      "commit-pushed",
+      "github-sha-verified"
+    ]
+  },
+  "architecture": {
+    "frontend": "Nuxt 3",
+    "coreBackend": "NestJS",
+    "realtimeChat": "Go",
+    "primaryDatabase": "PostgreSQL + PostGIS",
+    "search": "OpenSearch",
+    "cache": "Redis",
+    "eventBus": "Kafka",
+    "objectStorage": "S3-compatible"
+  },
+  "deploymentTarget": {
+    "publicUrl": "https://srun.ir/haftsoo/",
+    "host": "5.61.27.185",
+    "sshPort": 2233,
+    "sshUser": "root",
+    "deployPath": "/var/www/haftsoo",
+    "servicePrefix": "haftsoo",
+    "secretsStoredInRepository": false
+  }
+}
+

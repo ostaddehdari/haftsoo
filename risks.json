@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "scoring": "probability(1-5) * impact(1-5)",
+  "risks": [
+    { "id": "R-001", "title": "ابهام حقوقی در شباهت با رقبا", "score": 20, "owner": "Product/Legal", "response": "مرزبندی برند، کد و داده و بازبینی حقوقی پیش از انتشار" },
+    { "id": "R-002", "title": "کیفیت نامتوازن داده مکانی", "score": 16, "owner": "Geo", "response": "اعتبارسنجی هندسه، منبع جایگزین و گزارش پوشش" },
+    { "id": "R-003", "title": "تقلب و آگهی تکراری", "score": 20, "owner": "Trust & Safety", "response": "کنترل چندسیگناله، AI و بازبینی انسانی" },
+    { "id": "R-004", "title": "رشد هزینه پیامک و AI", "score": 12, "owner": "FinOps", "response": "بودجه، Routing چند Provider و سقف مصرف" },
+    { "id": "R-005", "title": "وابستگی به یک PSP یا BNPL", "score": 15, "owner": "Payments", "response": "Adapter استاندارد و Failover" },
+    { "id": "R-006", "title": "افشای PII یا Secret", "score": 25, "owner": "Security", "response": "طبقه‌بندی، رمزنگاری، Secret Scan و حداقل دسترسی" },
+    { "id": "R-007", "title": "افت عملکرد جست‌وجو و نقشه", "score": 16, "owner": "Search/Geo", "response": "SLO، Load Test، Cache و Query Budget" },
+    { "id": "R-008", "title": "پیچیدگی زودهنگام Microservice", "score": 12, "owner": "Architecture", "response": "Modular Monolith و استخراج سرویس فقط با شواهد" }
+  ]
+}
+
