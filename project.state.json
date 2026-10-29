@@ -3,6 +3,25 @@
   "planVersion": "1.0.0",
   "currentStage": "S02",
   "stageStatus": "complete",
+  "completedStages": [
+    {
+      "id": "S01",
+      "status": "complete",
+      "works": [
+        { "id": "S01-W01", "evidence": "docs/stage-01/product-baseline.md" },
+        { "id": "S01-W02", "evidence": "docs/stage-01/governance-raci.md" },
+        { "id": "S01-W03", "evidence": "docs/stage-01/domain-map.md" },
+        { "id": "S01-W04", "evidence": "docs/stage-01/legal-boundaries.md" },
+        { "id": "S01-W05", "evidence": "docs/stage-01/product-baseline.md" },
+        { "id": "S01-W06", "evidence": "docs/stage-01/nfr-slo-capacity.md" },
+        { "id": "S01-W07", "evidence": "docs/adr/0001-platform-stack.md" },
+        { "id": "S01-W08", "evidence": "docs/stage-01/risk-register.md" },
+        { "id": "S01-W09", "evidence": "docs/stage-01/epics-outcomes.md" },
+        { "id": "S01-W10", "evidence": "docs/stage-01/acceptance.md" }
+      ]
+    },
+    { "id": "S02", "status": "complete" }
+  ],
   "works": [
     { "id": "S02-W01", "status": "complete", "evidence": "docs/stage-02/ui-audit.md" },
     { "id": "S02-W02", "status": "complete", "evidence": "docs/stage-02/routes-overlays.md" },
