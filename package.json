@@ -1,10 +1,12 @@
 {
   "name": "haftsoo",
-  "version": "0.1.0-stage.1",
+  "version": "0.1.1-stage.1",
   "private": true,
   "description": "Haftsoo national classifieds marketplace",
   "scripts": {
-    "verify:stage1": "node scripts/verify-stage-01.mjs"
+    "verify:stage1": "node scripts/verify-stage-01.mjs",
+    "verify:install": "node scripts/verify-install-assets.mjs",
+    "verify:all": "npm run verify:stage1 && npm run verify:install"
   },
   "engines": {
     "node": ">=20"

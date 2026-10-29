@@ -2,6 +2,45 @@
 
 هفت‌سو یک بازارگاه آگهی سراسری و فارسی‌زبان است که با تمرکز بر تجربهٔ RTL، جست‌وجوی ساختاریافته، دادهٔ مکانی دقیق، چت امن و عملیات قابل ممیزی طراحی می‌شود.
 
+## نصب خودکار روی سرور
+
+روی Ubuntu 22.04/24.04 یا Debian 12 با کاربر دارای دسترسی `sudo` فقط این دستور را اجرا کنید:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ostaddehdari/haftsoo/main/install.sh | sudo bash
+```
+
+نصاب به‌طور خودکار Git، Docker Engine، افزونهٔ Docker Compose، مخزن هفت‌سو، کانتینر وب، Health Check و مسیر Nginx مربوط به `https://srun.ir/haftsoo/` را آماده می‌کند. هیچ رمز، Token یا کلید SSH داخل مخزن نیست.
+
+اگر فایل Virtual Host به‌صورت خودکار شناسایی نشد، مسیر آن را مشخص کنید:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ostaddehdari/haftsoo/main/install.sh | \
+  sudo env HAFTSOO_NGINX_VHOST=/etc/nginx/sites-enabled/srun.ir bash
+```
+
+تنظیمات اختیاری:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ostaddehdari/haftsoo/main/install.sh | \
+  sudo env HAFTSOO_DOMAIN=srun.ir HAFTSOO_BASE_PATH=/haftsoo HAFTSOO_WEB_PORT=3100 bash
+```
+
+به‌روزرسانی نسخهٔ نصب‌شده:
+
+```bash
+sudo bash /opt/haftsoo/scripts/update.sh
+```
+
+بررسی سرویس:
+
+```bash
+curl -fsS http://127.0.0.1:3100/healthz
+docker compose -f /opt/haftsoo/compose.yaml ps
+```
+
+> نصب سریع با `curl | bash` برای سرور اختصاصی پروژه فراهم شده است. در محیط حساس، ابتدا `install.sh` را دانلود و بازبینی و سپس اجرا کنید.
+
 ## وضعیت پروژه
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
@@ -36,13 +75,13 @@
 - [Epicها و Outcomeها](docs/stage-01/epics-outcomes.md)
 - [پذیرش استیج ۱](docs/stage-01/acceptance.md)
 
-## تأیید استیج ۱
+## تأیید پروژه
 
 ```bash
-npm run verify:stage1
+npm run verify:all
 ```
 
-این دستور وجود همه خروجی‌ها، اعتبار JSONها، تعداد دقیق ۱۰ ورک، نبود الگوهای رایج Secret و تنظیم مقصد استقرار را بررسی می‌کند.
+این دستور خروجی‌های استیج ۱، فایل‌های نصب، تنظیم مقصد استقرار و نبود الگوهای رایج Secret را بررسی می‌کند. GitHub Actions همین کنترل را روی هر Push و Pull Request اجرا می‌کند.
 
 ## سیاست امنیت
 
