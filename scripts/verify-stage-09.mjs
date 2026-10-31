@@ -24,4 +24,6 @@ for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence
 if (design.delivery.currentStage !== "S09" || design.engineering.version !== "0.9.0") fail("design manifest is not at S09");
 const workflow = readFileSync(".github/workflows/verify.yml", "utf8");
 if (!workflow.includes("geo:national:contract") || !workflow.includes("geo:national:qa")) fail("national geography CI gates are absent");
+const nationalRuntime = readFileSync("scripts/geo-national-lib.mjs", "utf8");
+if (nationalRuntime.includes('from "typescript"')) fail("national runtime must not depend on development-only TypeScript");
 console.log(`Stage 09 verified: ${works.length} works, 1177 cities, 2826 neighborhoods, precision-5 polygons, hierarchy API and selector.`);
