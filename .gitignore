@@ -14,4 +14,9 @@ coverage/
 *.sql
 *.dump
 .DS_Store
-
+ops/secrets/runtime/*
+!ops/secrets/runtime/.gitkeep
+ops/backups/
+.terraform/
+*.tfstate
+*.tfstate.*

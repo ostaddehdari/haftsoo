@@ -20,9 +20,9 @@ const state = JSON.parse(read("project.state.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S03");
 const works = stage?.works ?? (state.currentStage === "S03" ? state.works : []);
 
-if (rootPackage.version !== "0.3.0-stage.3") fail("root package version must be 0.3.0-stage.3");
+if (!/^0\.[3-9]\./.test(rootPackage.version)) fail("root package version must not predate stage 3");
 if (!rootPackage.workspaces?.includes("apps/*") || !rootPackage.workspaces?.includes("packages/*")) fail("npm workspaces are incomplete");
-if (state.currentStage !== "S03" || state.stageStatus !== "complete") fail("project state must close S03");
+if (stage?.status !== "complete") fail("project state must retain completed S03 history");
 if (works.length !== 10 || works.some((work) => work.status !== "complete")) fail("S03 must have exactly 10 completed works");
 if (works.some((work, index) => work.id !== `S03-W${String(index + 1).padStart(2, "0")}`)) fail("S03 work identifiers are not sequential");
 for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence for ${work.id}: ${work.evidence}`);

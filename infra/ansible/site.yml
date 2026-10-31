@@ -1,0 +1,60 @@
+---
+- name: Prepare Haftsoo container host
+  hosts: haftsoo
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Require Debian family
+      ansible.builtin.assert:
+        that: ansible_os_family == "Debian"
+        fail_msg: "Haftsoo hosts must run Debian or Ubuntu."
+
+    - name: Install host utilities
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - jq
+          - openssl
+        state: present
+        update_cache: true
+
+    - name: Create service group
+      ansible.builtin.group:
+        name: "{{ haftsoo_service_group }}"
+        system: true
+
+    - name: Create service user
+      ansible.builtin.user:
+        name: "{{ haftsoo_service_user }}"
+        group: "{{ haftsoo_service_group }}"
+        system: true
+        create_home: false
+        shell: /usr/sbin/nologin
+
+    - name: Create runtime directories
+      ansible.builtin.file:
+        path: "{{ item.path }}"
+        state: directory
+        owner: "{{ item.owner }}"
+        group: "{{ item.group }}"
+        mode: "{{ item.mode }}"
+      loop:
+        - { path: "{{ haftsoo_runtime_root }}", owner: "{{ haftsoo_service_user }}", group: "{{ haftsoo_service_group }}", mode: "0750" }
+        - { path: "{{ haftsoo_backup_root }}", owner: "{{ haftsoo_service_user }}", group: "{{ haftsoo_service_group }}", mode: "0750" }
+        - { path: "/etc/haftsoo", owner: root, group: "{{ haftsoo_service_group }}", mode: "0750" }
+        - { path: "{{ haftsoo_secret_directory }}", owner: root, group: "{{ haftsoo_service_group }}", mode: "0750" }
+
+    - name: Install stack systemd unit
+      ansible.builtin.template:
+        src: templates/haftsoo-stack.service.j2
+        dest: /etc/systemd/system/haftsoo-stack.service
+        owner: root
+        group: root
+        mode: "0644"
+      notify: Reload systemd
+
+  handlers:
+    - name: Reload systemd
+      ansible.builtin.systemd_service:
+        daemon_reload: true

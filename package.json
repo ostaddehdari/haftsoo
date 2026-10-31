@@ -1,6 +1,6 @@
 {
   "name": "haftsoo",
-  "version": "0.3.0-stage.3",
+  "version": "0.4.0-stage.4",
   "private": true,
   "description": "Haftsoo national classifieds marketplace monorepo",
   "workspaces": [
@@ -22,8 +22,10 @@
     "verify:stage1": "node scripts/verify-stage-01.mjs",
     "verify:stage2": "node scripts/verify-stage-02.mjs",
     "verify:stage3": "node scripts/verify-stage-03.mjs",
+    "verify:stage4": "node scripts/verify-stage-04.mjs",
+    "test:capacity": "node scripts/test-capacity.mjs",
     "verify:install": "node scripts/verify-install-assets.mjs",
-    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:install"
+    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:install"
   },
   "engines": {
     "node": ">=22 <23",

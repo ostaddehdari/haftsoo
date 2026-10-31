@@ -1,0 +1,34 @@
+{
+  "provider": "ArvanCloud",
+  "hosts": ["srun.ir", "www.srun.ir"],
+  "applicationBasePath": "/haftsoo/",
+  "origin": {
+    "protocol": "https",
+    "healthPath": "/haftsoo/healthz",
+    "connectTimeoutSeconds": 5,
+    "responseTimeoutSeconds": 60
+  },
+  "tls": {
+    "minimumVersion": "1.2",
+    "redirectHttp": true,
+    "hstsSeconds": 31536000,
+    "includeSubdomains": true
+  },
+  "cdn": {
+    "cacheStaticSeconds": 2592000,
+    "cacheHtmlSeconds": 0,
+    "respectOriginHeaders": true,
+    "bypassPaths": ["/haftsoo/api/", "/haftsoo/chat/"]
+  },
+  "waf": {
+    "managedRules": true,
+    "blockKnownBots": false,
+    "requestBodyLimitMb": 10,
+    "rateLimits": [
+      { "path": "/haftsoo/api/v1/auth/", "requests": 10, "windowSeconds": 60 },
+      { "path": "/haftsoo/api/", "requests": 300, "windowSeconds": 60 }
+    ]
+  },
+  "websocketPaths": ["/haftsoo/chat/"],
+  "requiredHeaders": ["Content-Security-Policy", "Referrer-Policy", "X-Content-Type-Options"]
+}

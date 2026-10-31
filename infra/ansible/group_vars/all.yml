@@ -1,0 +1,10 @@
+---
+haftsoo_root: /opt/haftsoo
+haftsoo_runtime_root: /var/lib/haftsoo
+haftsoo_backup_root: /var/backups/haftsoo
+haftsoo_service_user: haftsoo
+haftsoo_service_group: haftsoo
+haftsoo_compose_file: ops/compose/staging.yaml
+haftsoo_environment_file: /etc/haftsoo/environment
+haftsoo_secret_directory: /etc/haftsoo/secrets
+haftsoo_registry: ghcr.io/ostaddehdari

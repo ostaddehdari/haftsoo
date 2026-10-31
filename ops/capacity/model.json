@@ -1,0 +1,31 @@
+{
+  "currency": "EUR",
+  "baseline": {
+    "monthlyActiveUsers": 100000,
+    "peakRequestsPerSecond": 150,
+    "activeListings": 500000,
+    "averageImagesPerListing": 5,
+    "averageImageMegabytes": 0.6,
+    "chatMessagesPerDay": 250000
+  },
+  "unitCosts": {
+    "computeNodeMonthly": 95,
+    "databaseMonthly": 220,
+    "searchNodeMonthly": 140,
+    "kafkaBrokerMonthly": 110,
+    "redisMonthly": 80,
+    "objectStorageGbMonthly": 0.018,
+    "cdnTransferGbMonthly": 0.04
+  },
+  "minimums": {
+    "productionComputeNodes": 2,
+    "productionSearchNodes": 3,
+    "productionKafkaBrokers": 3
+  },
+  "scalingThresholds": {
+    "cpuPercent": 65,
+    "apiP95Milliseconds": 400,
+    "queueLagSeconds": 30,
+    "databaseStoragePercent": 70
+  }
+}

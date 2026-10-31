@@ -1,0 +1,12 @@
+{
+  "registry": "ghcr.io",
+  "namespace": "ostaddehdari",
+  "images": [
+    { "service": "web", "name": "haftsoo-web", "dockerfile": "apps/web/Dockerfile" },
+    { "service": "api", "name": "haftsoo-api", "dockerfile": "apps/api/Dockerfile" },
+    { "service": "chat", "name": "haftsoo-chat", "dockerfile": "services/chat/Dockerfile" }
+  ],
+  "tagPolicy": ["sha-<12>", "v<semver>", "staging", "production"],
+  "mutableTagsAllowedForDeployment": false,
+  "signatureRequiredForProduction": true
+}

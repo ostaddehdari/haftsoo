@@ -1,0 +1,17 @@
+{
+  "environment": "production",
+  "purpose": "public marketplace workload",
+  "availabilityTarget": "99.9%",
+  "orchestrator": "managed-containers-or-multi-node-kubernetes",
+  "edge": { "public": true, "tls": true, "host": "srun.ir", "basePath": "/haftsoo/", "cdn": "ArvanCloud", "waf": true },
+  "compute": { "minimumNodes": 2, "webReplicas": 2, "apiReplicas": 2, "chatReplicas": 2 },
+  "data": {
+    "postgres": "managed-postgresql-postgis-multi-az",
+    "redis": "managed-ha",
+    "kafka": "managed-three-broker-minimum",
+    "opensearch": "managed-three-node-minimum",
+    "objectStorage": "managed-s3-compatible-versioned"
+  },
+  "secrets": "external-secret-manager",
+  "backup": { "enabled": true, "pitr": true, "crossRegionCopy": true }
+}

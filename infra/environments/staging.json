@@ -1,0 +1,17 @@
+{
+  "environment": "staging",
+  "purpose": "release validation and recovery drills",
+  "availabilityTarget": "99.0%",
+  "orchestrator": "docker-compose-single-node",
+  "edge": { "public": false, "tls": true, "suggestedHost": "staging.srun.ir", "basePath": "/haftsoo/" },
+  "compute": { "nodes": 1, "webReplicas": 1, "apiReplicas": 1, "chatReplicas": 1 },
+  "data": {
+    "postgres": "container-postgis-with-pitr-drill",
+    "redis": "container",
+    "kafka": "container-kraft",
+    "opensearch": "single-node-container",
+    "objectStorage": "container-minio"
+  },
+  "secrets": "docker-compose-file-secrets",
+  "backup": { "enabled": true, "restoreDrill": "per-release" }
+}

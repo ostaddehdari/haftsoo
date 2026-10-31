@@ -1,0 +1,26 @@
+{
+  "objectPrefix": "haftsoo/postgres",
+  "encryptionRequired": true,
+  "checksum": "sha256",
+  "rpoMinutes": 15,
+  "rtoMinutes": 60,
+  "postgres": {
+    "continuousWalArchive": true,
+    "pitrWindowDays": 7,
+    "baseBackup": {
+      "dailyCopies": 7,
+      "weeklyCopies": 4,
+      "monthlyCopies": 6
+    }
+  },
+  "objectStorage": {
+    "versioning": true,
+    "crossRegionCopy": true,
+    "deleteProtectionDays": 30
+  },
+  "recoveryDrill": {
+    "frequency": "per-release",
+    "requiresPostgisVerification": true,
+    "requiresRowCountVerification": true
+  }
+}

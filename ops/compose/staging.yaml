@@ -1,0 +1,205 @@
+name: haftsoo-staging
+
+x-app-common: &app-common
+  restart: unless-stopped
+  networks:
+    - edge
+    - data
+  logging:
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: "3"
+
+services:
+  web:
+    <<: *app-common
+    image: ghcr.io/ostaddehdari/haftsoo-web:${HAFTSOO_IMAGE_TAG:?set HAFTSOO_IMAGE_TAG}
+    ports:
+      - "127.0.0.1:${HAFTSOO_WEB_PORT:-3200}:3000"
+    environment:
+      NUXT_APP_BASE_URL: ${HAFTSOO_BASE_PATH:-/haftsoo/}
+      NUXT_PUBLIC_API_BASE: /api/v1
+    depends_on:
+      api:
+        condition: service_healthy
+
+  api:
+    <<: *app-common
+    image: ghcr.io/ostaddehdari/haftsoo-api:${HAFTSOO_IMAGE_TAG:?set HAFTSOO_IMAGE_TAG}
+    ports:
+      - "127.0.0.1:${HAFTSOO_API_PORT:-3201}:3001"
+    environment:
+      NODE_ENV: staging
+      PORT: "3001"
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: haftsoo
+      POSTGRES_USER: haftsoo
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      REDIS_URL: redis://redis:6379
+      KAFKA_BROKERS: kafka:9092
+      OPENSEARCH_URL: http://opensearch:9200
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY_FILE: /run/secrets/minio_root_user
+      S3_SECRET_KEY_FILE: /run/secrets/minio_root_password
+      APP_SIGNING_KEY_FILE: /run/secrets/app_signing_key
+    secrets:
+      - postgres_password
+      - minio_root_user
+      - minio_root_password
+      - app_signing_key
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/v1/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+
+  chat:
+    <<: *app-common
+    image: ghcr.io/ostaddehdari/haftsoo-chat:${HAFTSOO_IMAGE_TAG:?set HAFTSOO_IMAGE_TAG}
+    ports:
+      - "127.0.0.1:${HAFTSOO_CHAT_PORT:-3202}:3002"
+    environment:
+      CHAT_ADDRESS: :3002
+      HAFTSOO_REDIS_URL: redis://redis:6379
+      HAFTSOO_KAFKA_BROKERS: kafka:9092
+      HAFTSOO_SIGNING_KEY_FILE: /run/secrets/app_signing_key
+    secrets:
+      - app_signing_key
+    depends_on:
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  postgres:
+    image: postgis/postgis:17-3.5-alpine
+    restart: unless-stopped
+    networks:
+      - data
+    environment:
+      POSTGRES_DB: haftsoo
+      POSTGRES_USER: haftsoo
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets:
+      - postgres_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U haftsoo -d haftsoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7.4.6-alpine
+    restart: unless-stopped
+    networks:
+      - data
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1000"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  kafka:
+    image: apache/kafka:4.1.0
+    restart: unless-stopped
+    networks:
+      - data
+    environment:
+      KAFKA_NODE_ID: "1"
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+
+  opensearch:
+    image: opensearchproject/opensearch:3.2.0
+    restart: unless-stopped
+    networks:
+      - data
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: "true"
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health >/dev/null"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+
+  minio:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    restart: unless-stopped
+    networks:
+      - data
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER_FILE: /run/secrets/minio_root_user
+      MINIO_ROOT_PASSWORD_FILE: /run/secrets/minio_root_password
+    secrets:
+      - minio_root_user
+      - minio_root_password
+    volumes:
+      - object-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+secrets:
+  postgres_password:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/postgres_password
+  minio_root_user:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/minio_root_user
+  minio_root_password:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/minio_root_password
+  app_signing_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/app_signing_key
+
+networks:
+  edge:
+  data:
+    internal: true
+
+volumes:
+  postgres-data:
+  redis-data:
+  kafka-data:
+  opensearch-data:
+  object-data:

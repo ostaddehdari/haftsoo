@@ -1,0 +1,17 @@
+{
+  "environment": "development",
+  "purpose": "local developer feedback",
+  "availabilityTarget": "best-effort",
+  "orchestrator": "docker-compose-local",
+  "edge": { "public": false, "tls": false, "basePath": "/" },
+  "compute": { "nodes": 1, "webReplicas": 1, "apiReplicas": 1, "chatReplicas": 1 },
+  "data": {
+    "postgres": "container-postgis",
+    "redis": "container",
+    "kafka": "container-optional",
+    "opensearch": "container-optional",
+    "objectStorage": "container-minio"
+  },
+  "secrets": "local-files-ignored-by-git",
+  "backup": { "enabled": false }
+}
