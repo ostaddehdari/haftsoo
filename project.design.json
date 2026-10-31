@@ -4,8 +4,8 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S02",
-    "definitionOfDone": ["acceptance-criteria-met","relevant-tests-pass","diff-reviewed","secret-review-pass","documentation-updated","commit-pushed","github-sha-verified"]
+    "currentStage": "S03",
+    "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
     "version": "0.2.0",
@@ -14,6 +14,15 @@
     "components": "design-system/component-manifest.json",
     "prototype": "deploy/web/index.html",
     "accessibilityTarget": "WCAG-2.2-AA"
+  },
+  "engineering": {
+    "version": "0.3.0",
+    "monorepo": "npm-workspaces",
+    "node": "22",
+    "go": "1.24",
+    "deployables": ["apps/web", "apps/api", "services/chat"],
+    "sharedPackages": ["packages/contracts"],
+    "localCompose": "compose.dev.yaml"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

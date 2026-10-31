@@ -9,13 +9,64 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  node:
+    name: Node monorepo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
-      - run: npm run verify:all
+          node-version: 22
+      - name: Validate shell scripts
+        run: bash -n install.sh scripts/configure-nginx.sh scripts/update.sh scripts/build-stage-03.sh
+      - name: Install exact direct dependencies
+        run: npm install --no-audit --no-fund
+      - name: Verify stage evidence
+        run: npm run verify:all
+      - name: Lint and formatting
+        run: npm run lint && npm run format:check
+      - name: Typecheck, test and build workspaces
+        run: npm run typecheck && npm run test && npm run build
+      - name: Validate commit message
+        if: github.event_name == 'push'
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: npm run commitlint -- "$(printf '%s' "$COMMIT_MESSAGE" | head -n 1)"
+      - name: Preserve generated dependency graph
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage-03-package-lock
+          path: package-lock.json
+          retention-days: 7
 
+  go:
+    name: Go chat service
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/chat
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.7"
+          cache-dependency-path: services/chat/go.mod
+      - name: Verify formatting
+        run: test -z "$(gofmt -l .)"
+      - name: Test
+        run: go test ./...
+      - name: Build
+        run: go build -trimpath ./cmd/server
+
+  compose:
+    name: Container contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Compose model
+        run: docker compose -f compose.dev.yaml config --quiet
+      - name: Validate Dockerfiles
+        run: |
+          docker build --check -f apps/web/Dockerfile .
+          docker build --check -f apps/api/Dockerfile .
+          docker build --check -f services/chat/Dockerfile .
