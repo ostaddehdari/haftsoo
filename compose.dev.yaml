@@ -25,6 +25,10 @@ services:
       dockerfile: apps/api/Dockerfile
     environment:
       PORT: 3001
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: haftsoo
+      POSTGRES_USER: haftsoo
+      POSTGRES_PASSWORD: haftsoo-local-only
     ports:
       - "3001:3001"
     healthcheck:
@@ -32,6 +36,9 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+    depends_on:
+      postgres:
+        condition: service_healthy
 
   chat:
     build:
@@ -47,3 +54,22 @@ services:
       timeout: 3s
       retries: 5
       start_period: 5s
+
+  postgres:
+    image: postgis/postgis:17-3.5-alpine
+    environment:
+      POSTGRES_DB: haftsoo
+      POSTGRES_USER: haftsoo
+      POSTGRES_PASSWORD: haftsoo-local-only
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U haftsoo -d haftsoo"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+volumes:
+  postgres-data:

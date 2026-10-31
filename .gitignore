@@ -12,6 +12,7 @@ coverage/
 *.p12
 *.pfx
 *.sql
+!database/migrations/*.sql
 *.dump
 .DS_Store
 ops/secrets/runtime/*

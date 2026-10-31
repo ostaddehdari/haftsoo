@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "tables": [
+    {
+      "name": "platform.outbox_events",
+      "strategy": "range",
+      "key": "occurred_at",
+      "interval": "month",
+      "hotRetentionDays": 30,
+      "archiveAfterDays": 90,
+      "purgeAfterDays": 365
+    }
+  ],
+  "archive": {
+    "format": "parquet",
+    "target": "s3-compatible-worm",
+    "checksum": "sha256",
+    "restoreTest": "per-release"
+  }
+}

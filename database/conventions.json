@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "identifiers": {
+    "primaryKey": "id",
+    "type": "uuid",
+    "generator": "gen_random_uuid()",
+    "foreignKeyPattern": "<entity>_id",
+    "databaseNames": "snake_case",
+    "apiNames": "camelCase"
+  },
+  "time": {
+    "storageType": "timestamptz",
+    "storageZone": "UTC",
+    "displayZone": "Asia/Tehran",
+    "createdColumn": "created_at",
+    "updatedColumn": "updated_at"
+  },
+  "softDelete": {
+    "column": "deleted_at",
+    "activePredicate": "deleted_at IS NULL",
+    "hardDeleteAllowedFor": ["expired-inbox", "approved-archive-purge"]
+  },
+  "tenancy": {
+    "column": "tenant_id",
+    "sessionSetting": "app.current_tenant_id",
+    "rowLevelSecurity": "forced"
+  },
+  "spatial": {
+    "srid": 4326,
+    "coordinateOrder": ["longitude", "latitude"],
+    "polygonType": "geometry(MultiPolygon,4326)",
+    "pointType": "geography(Point,4326)"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "schemas": [
+    { "name": "platform", "owner": "platform", "purpose": "tenancy, migrations and integration events" },
+    { "name": "identity", "owner": "identity", "purpose": "principals, sessions and authorization" },
+    { "name": "catalog", "owner": "catalog", "purpose": "categories and dynamic fields" },
+    { "name": "geo", "owner": "geo", "purpose": "cities, districts and boundaries" },
+    { "name": "listing", "owner": "listing", "purpose": "classified ads and lifecycle" },
+    { "name": "messaging", "owner": "chat", "purpose": "conversation metadata" },
+    { "name": "finance", "owner": "finance", "purpose": "ledger, payment and settlement" },
+    { "name": "moderation", "owner": "moderation", "purpose": "review, duplicate and AI decisions" },
+    { "name": "audit", "owner": "security", "purpose": "append-only audit evidence" }
+  ],
+  "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
+  "directWrites": "A service may write only to schemas it owns."
+}

@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S05`؛ آخرین خروجی امنیت و مدیریت هویت پایه است
-- استیج بعدی: `S06 — پایه داده و PostGIS`
+- تکمیل‌شده: `S01` تا `S06`؛ آخرین خروجی Schema پایه و PostGIS است
+- استیج بعدی: `S07 — فهرست موضوعی و دسته‌بندی`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -81,21 +81,28 @@ RUN_RECOVERY_DRILL=1 bash scripts/build-stage-04.sh
 bash scripts/build-stage-05.sh
 ```
 
+گیت Schema و PostGIS استیج ۶:
+
+```bash
+bash scripts/build-stage-06.sh
+RUN_DATABASE_DRILL=1 bash scripts/build-stage-06.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
-## خروجی استیج ۵
+## خروجی استیج ۶
 
 | ورک | خروجی |
 |---|---|
-| S05-W01 | دامنه Identity و پنج نوع Principal |
-| S05-W02 | کاتالوگ Role، Permission و Scope با Default-deny |
-| S05-W03 | Session، Token rotation و Device trust |
-| S05-W04 | احراز هویت HMAC سرویس‌به‌سرویس و دفاع Replay |
-| S05-W05 | Security header و CORS allowlist |
-| S05-W06 | Rate limit و سیاست Abuse چندبعدی |
-| S05-W07 | Audit hash-chain امضاشده و سیاست WORM |
-| S05-W08 | Threat model کامل STRIDE و Data flow |
-| S05-W09 | تست‌های Unit و HTTP امنیتی و Baseline scanner |
-| S05-W10 | گیت CI مستقل امنیت و پذیرش IAM |
+| S06-W01 | قرارداد Naming، UUID، زمان UTC و Soft delete |
+| S06-W02 | PostGIS، pgcrypto، citext و btree_gist |
+| S06-W03 | ۹ Schema با مرز مالکیت سرویس |
+| S06-W04 | Migration و Rollback تراکنشی با تشخیص Drift |
+| S06-W05 | PostgreSQL Repository و Unit of Work Tenant-aware |
+| S06-W06 | Outbox/Inbox idempotent و RLS اجباری |
+| S06-W07 | Range partition و Archive manifest |
+| S06-W08 | Indexهای پایه و Query budget ماشین‌خوان |
+| S06-W09 | Drill واقعی Backup، Restore، Rollback و Reapply |
+| S06-W10 | گیت CI و پذیرش Schema baseline |
 
-جزئیات پذیرش در [docs/stage-05/acceptance.md](docs/stage-05/acceptance.md) ثبت شده است. هیچ رمز، Token، کلید SSH، فایل `.env` یا داده شخصی نباید وارد Git شود.
+جزئیات پذیرش در [docs/stage-06/acceptance.md](docs/stage-06/acceptance.md) ثبت شده است. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.

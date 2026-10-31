@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S05",
+  "currentStage": "S06",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -83,20 +83,36 @@
         { "id": "S05-W09", "status": "complete", "evidence": "docs/stage-05/security-tests.md" },
         { "id": "S05-W10", "status": "complete", "evidence": "docs/stage-05/acceptance.md" }
       ]
+    },
+    {
+      "id": "S06",
+      "status": "complete",
+      "works": [
+        { "id": "S06-W01", "status": "complete", "evidence": "docs/stage-06/data-conventions.md" },
+        { "id": "S06-W02", "status": "complete", "evidence": "docs/stage-06/postgis-extensions.md" },
+        { "id": "S06-W03", "status": "complete", "evidence": "docs/stage-06/schema-ownership.md" },
+        { "id": "S06-W04", "status": "complete", "evidence": "docs/stage-06/migrations-rollback.md" },
+        { "id": "S06-W05", "status": "complete", "evidence": "docs/stage-06/repository-uow.md" },
+        { "id": "S06-W06", "status": "complete", "evidence": "docs/stage-06/outbox-inbox.md" },
+        { "id": "S06-W07", "status": "complete", "evidence": "docs/stage-06/partition-archive.md" },
+        { "id": "S06-W08", "status": "complete", "evidence": "docs/stage-06/index-query-budget.md" },
+        { "id": "S06-W09", "status": "complete", "evidence": "docs/stage-06/backup-restore-drill.md" },
+        { "id": "S06-W10", "status": "complete", "evidence": "docs/stage-06/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S05-W01", "status": "complete", "evidence": "docs/stage-05/identity-principals.md" },
-    { "id": "S05-W02", "status": "complete", "evidence": "docs/stage-05/authorization-catalog.md" },
-    { "id": "S05-W03", "status": "complete", "evidence": "docs/stage-05/session-device-trust.md" },
-    { "id": "S05-W04", "status": "complete", "evidence": "docs/stage-05/service-authentication.md" },
-    { "id": "S05-W05", "status": "complete", "evidence": "docs/stage-05/http-security.md" },
-    { "id": "S05-W06", "status": "complete", "evidence": "docs/stage-05/rate-limit-abuse.md" },
-    { "id": "S05-W07", "status": "complete", "evidence": "docs/stage-05/audit-trail.md" },
-    { "id": "S05-W08", "status": "complete", "evidence": "docs/stage-05/threat-model-data-flow.md" },
-    { "id": "S05-W09", "status": "complete", "evidence": "docs/stage-05/security-tests.md" },
-    { "id": "S05-W10", "status": "complete", "evidence": "docs/stage-05/acceptance.md" }
+    { "id": "S06-W01", "status": "complete", "evidence": "docs/stage-06/data-conventions.md" },
+    { "id": "S06-W02", "status": "complete", "evidence": "docs/stage-06/postgis-extensions.md" },
+    { "id": "S06-W03", "status": "complete", "evidence": "docs/stage-06/schema-ownership.md" },
+    { "id": "S06-W04", "status": "complete", "evidence": "docs/stage-06/migrations-rollback.md" },
+    { "id": "S06-W05", "status": "complete", "evidence": "docs/stage-06/repository-uow.md" },
+    { "id": "S06-W06", "status": "complete", "evidence": "docs/stage-06/outbox-inbox.md" },
+    { "id": "S06-W07", "status": "complete", "evidence": "docs/stage-06/partition-archive.md" },
+    { "id": "S06-W08", "status": "complete", "evidence": "docs/stage-06/index-query-budget.md" },
+    { "id": "S06-W09", "status": "complete", "evidence": "docs/stage-06/backup-restore-drill.md" },
+    { "id": "S06-W10", "status": "complete", "evidence": "docs/stage-06/acceptance.md" }
   ],
-  "nextStage": "S06",
-  "updatedAt": "2026-10-31T21:30:00+03:30"
+  "nextStage": "S07",
+  "updatedAt": "2026-11-01T01:30:00+03:30"
 }
