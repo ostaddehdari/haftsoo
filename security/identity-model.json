@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "principalTypes": [
+    { "id": "anonymous", "identifier": "request-id", "canAuthenticate": false },
+    { "id": "user", "identifier": "user-id", "canAuthenticate": true },
+    { "id": "business", "identifier": "business-id", "canAuthenticate": true },
+    { "id": "workforce", "identifier": "employee-id", "canAuthenticate": true },
+    { "id": "service", "identifier": "service-name", "canAuthenticate": true }
+  ],
+  "boundaries": {
+    "tenantRequired": true,
+    "defaultTenant": "public",
+    "impersonation": "deny-unless-explicitly-audited",
+    "humanAndServiceIdentitySeparated": true
+  },
+  "identifiers": {
+    "public": "opaque-random-id",
+    "phone": "normalized-e164-encrypted",
+    "email": "normalized-encrypted-optional"
+  }
+}

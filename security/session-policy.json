@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "accessToken": { "format": "opaque-or-asymmetric-jwt", "ttlMinutes": 10, "audienceRequired": true },
+  "refreshToken": { "rotation": "one-time", "absoluteTtlDays": 30, "reuseDetection": true, "storedAsHash": true },
+  "browserSession": {
+    "cookie": { "secure": true, "httpOnly": true, "sameSite": "lax", "path": "/haftsoo/" },
+    "csrf": "signed-double-submit",
+    "idleTimeoutMinutes": 60
+  },
+  "deviceTrust": {
+    "knownDeviceBonus": true,
+    "attestationSignal": true,
+    "stepUpThreshold": 35,
+    "denyThreshold": 70,
+    "activeSessionVisibility": true,
+    "remoteRevocation": true
+  }
+}

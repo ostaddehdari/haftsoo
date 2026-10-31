@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S04",
+  "currentStage": "S05",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -67,20 +67,36 @@
         { "id": "S04-W09", "status": "complete", "evidence": "docs/stage-04/capacity-cost-scaling.md" },
         { "id": "S04-W10", "status": "complete", "evidence": "docs/stage-04/acceptance.md" }
       ]
+    },
+    {
+      "id": "S05",
+      "status": "complete",
+      "works": [
+        { "id": "S05-W01", "status": "complete", "evidence": "docs/stage-05/identity-principals.md" },
+        { "id": "S05-W02", "status": "complete", "evidence": "docs/stage-05/authorization-catalog.md" },
+        { "id": "S05-W03", "status": "complete", "evidence": "docs/stage-05/session-device-trust.md" },
+        { "id": "S05-W04", "status": "complete", "evidence": "docs/stage-05/service-authentication.md" },
+        { "id": "S05-W05", "status": "complete", "evidence": "docs/stage-05/http-security.md" },
+        { "id": "S05-W06", "status": "complete", "evidence": "docs/stage-05/rate-limit-abuse.md" },
+        { "id": "S05-W07", "status": "complete", "evidence": "docs/stage-05/audit-trail.md" },
+        { "id": "S05-W08", "status": "complete", "evidence": "docs/stage-05/threat-model-data-flow.md" },
+        { "id": "S05-W09", "status": "complete", "evidence": "docs/stage-05/security-tests.md" },
+        { "id": "S05-W10", "status": "complete", "evidence": "docs/stage-05/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S04-W01", "status": "complete", "evidence": "docs/stage-04/topology.md" },
-    { "id": "S04-W02", "status": "complete", "evidence": "docs/stage-04/infrastructure-as-code.md" },
-    { "id": "S04-W03", "status": "complete", "evidence": "docs/stage-04/registry-orchestration.md" },
-    { "id": "S04-W04", "status": "complete", "evidence": "docs/stage-04/postgres-postgis.md" },
-    { "id": "S04-W05", "status": "complete", "evidence": "docs/stage-04/platform-services.md" },
-    { "id": "S04-W06", "status": "complete", "evidence": "docs/stage-04/secrets-rotation.md" },
-    { "id": "S04-W07", "status": "complete", "evidence": "docs/stage-04/edge-security.md" },
-    { "id": "S04-W08", "status": "complete", "evidence": "docs/stage-04/backup-pitr-retention.md" },
-    { "id": "S04-W09", "status": "complete", "evidence": "docs/stage-04/capacity-cost-scaling.md" },
-    { "id": "S04-W10", "status": "complete", "evidence": "docs/stage-04/acceptance.md" }
+    { "id": "S05-W01", "status": "complete", "evidence": "docs/stage-05/identity-principals.md" },
+    { "id": "S05-W02", "status": "complete", "evidence": "docs/stage-05/authorization-catalog.md" },
+    { "id": "S05-W03", "status": "complete", "evidence": "docs/stage-05/session-device-trust.md" },
+    { "id": "S05-W04", "status": "complete", "evidence": "docs/stage-05/service-authentication.md" },
+    { "id": "S05-W05", "status": "complete", "evidence": "docs/stage-05/http-security.md" },
+    { "id": "S05-W06", "status": "complete", "evidence": "docs/stage-05/rate-limit-abuse.md" },
+    { "id": "S05-W07", "status": "complete", "evidence": "docs/stage-05/audit-trail.md" },
+    { "id": "S05-W08", "status": "complete", "evidence": "docs/stage-05/threat-model-data-flow.md" },
+    { "id": "S05-W09", "status": "complete", "evidence": "docs/stage-05/security-tests.md" },
+    { "id": "S05-W10", "status": "complete", "evidence": "docs/stage-05/acceptance.md" }
   ],
-  "nextStage": "S05",
-  "updatedAt": "2026-10-31T18:00:00+03:30"
+  "nextStage": "S06",
+  "updatedAt": "2026-10-31T21:30:00+03:30"
 }

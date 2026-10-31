@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "scheme": "hmac-sha256-canonical-request",
+  "requiredHeaders": ["x-haftsoo-service", "x-haftsoo-timestamp", "x-haftsoo-nonce", "x-haftsoo-signature"],
+  "maximumClockSkewSeconds": 60,
+  "nonce": { "minimumLength": 16, "singleUse": true },
+  "trustedServices": ["web", "api", "chat"],
+  "transport": { "tlsRequired": true, "mtlsTargetForProduction": true },
+  "bodyIntegrity": "required-before-non-idempotent-service-routes",
+  "keySource": "SERVICE_AUTH_KEY_FILE",
+  "rotation": "dual-key-overlap"
+}

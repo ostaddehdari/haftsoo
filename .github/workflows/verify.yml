@@ -20,7 +20,7 @@ jobs:
       - name: Validate shell scripts
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
-          scripts/build-stage-03.sh scripts/build-stage-04.sh
+          scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh
           scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
@@ -39,9 +39,24 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-04-package-lock
+          name: stage-05-package-lock
           path: package-lock.json
           retention-days: 7
+
+  security:
+    name: Security baseline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install frozen dependency graph
+        run: npm ci --no-audit --no-fund
+      - name: Verify machine-readable security policies
+        run: npm run security:baseline
+      - name: Run Nest security unit and HTTP tests
+        run: npm run test:security
 
   go:
     name: Go chat service

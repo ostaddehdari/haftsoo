@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "model": "RBAC-with-scoped-constraints",
+  "defaultDecision": "deny",
+  "roles": [
+    { "id": "guest", "principalTypes": ["anonymous", "user"], "permissions": ["listing:read"] },
+    { "id": "member", "principalTypes": ["user"], "permissions": ["listing:read", "listing:create", "profile:self:read", "profile:self:update", "chat:self:use"] },
+    { "id": "business_owner", "principalTypes": ["business"], "permissions": ["listing:read", "listing:create", "listing:business:manage", "profile:self:read", "profile:self:update"] },
+    { "id": "moderator", "principalTypes": ["workforce"], "permissions": ["listing:read", "moderation:queue:read", "moderation:decision:create"] },
+    { "id": "support_agent", "principalTypes": ["workforce"], "permissions": ["listing:read", "support:case:read", "support:case:update", "profile:masked:read"] },
+    { "id": "finance_operator", "principalTypes": ["workforce"], "permissions": ["finance:ledger:read", "finance:reconciliation:execute"] },
+    { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:configuration:manage", "audit:read", "iam:assignment:manage"] },
+    { "id": "service", "principalTypes": ["service"], "permissions": ["service:internal:invoke"] }
+  ],
+  "scopes": ["self", "business", "tenant", "assigned-queue", "platform"],
+  "separationOfDuties": [
+    ["moderator", "platform_admin"],
+    ["finance_operator", "platform_admin"]
+  ]
+}

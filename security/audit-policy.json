@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "requiredFields": ["id", "occurredAt", "actorId", "actorType", "action", "resource", "requestId", "outcome"],
+  "integrity": { "hash": "sha256", "signature": "hmac-sha256", "chainPreviousHash": true },
+  "privacy": { "secretValuesForbidden": true, "rawPhoneForbidden": true, "requestBodyDefault": "do-not-record" },
+  "storage": { "appendOnly": true, "wormArchive": true, "retentionDays": 2555 },
+  "clock": "utc-rfc3339",
+  "productionVerification": "scheduled-chain-check"
+}

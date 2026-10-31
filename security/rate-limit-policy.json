@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "algorithm": "sliding-window",
+  "dimensions": ["principal", "device", "ip", "route"],
+  "tiers": [
+    { "id": "public-read", "requests": 300, "windowSeconds": 60 },
+    { "id": "authentication", "requests": 10, "windowSeconds": 60 },
+    { "id": "contact-reveal", "requests": 20, "windowSeconds": 3600 },
+    { "id": "internal-service", "requests": 30, "windowSeconds": 60 }
+  ],
+  "response": { "status": 429, "retryAfterHeader": true },
+  "productionStore": "redis-atomic-script",
+  "failMode": "route-specific"
+}

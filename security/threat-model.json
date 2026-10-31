@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "method": "STRIDE",
+  "assets": ["account", "session", "listing", "contact-data", "media", "financial-ledger", "audit-trail"],
+  "threats": [
+    { "id": "T01", "category": "spoofing", "scenario": "stolen or replayed service request", "controls": ["hmac", "timestamp", "single-use-nonce"], "residualRisk": "low" },
+    { "id": "T02", "category": "tampering", "scenario": "audit event modification", "controls": ["hash-chain", "signed-record", "worm-archive"], "residualRisk": "low" },
+    { "id": "T03", "category": "repudiation", "scenario": "workforce action denied by actor", "controls": ["principal-id", "request-id", "signed-audit"], "residualRisk": "medium" },
+    { "id": "T04", "category": "information-disclosure", "scenario": "cross-tenant profile access", "controls": ["tenant-scope", "default-deny", "masked-profile"], "residualRisk": "medium" },
+    { "id": "T05", "category": "denial-of-service", "scenario": "auth or contact endpoint abuse", "controls": ["route-rate-limit", "waf", "backpressure"], "residualRisk": "medium" },
+    { "id": "T06", "category": "elevation-of-privilege", "scenario": "role assignment bypass", "controls": ["separation-of-duties", "audit", "step-up"], "residualRisk": "medium" }
+  ],
+  "reviewTriggers": ["new-trust-boundary", "new-payment-flow", "new-sensitive-field", "security-incident", "quarterly-review"]
+}

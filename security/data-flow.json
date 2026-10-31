@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "trustBoundaries": ["browser-to-edge", "edge-to-web", "web-to-api", "api-to-data", "api-to-chat", "workforce-to-admin"],
+  "flows": [
+    { "id": "public-read", "from": "browser", "to": "api", "data": ["query", "location"], "controls": ["tls", "waf", "rate-limit"] },
+    { "id": "human-session", "from": "browser", "to": "identity", "data": ["session-cookie", "csrf-token"], "controls": ["secure-cookie", "rotation", "device-trust"] },
+    { "id": "service-call", "from": "web-or-chat", "to": "api", "data": ["canonical-request"], "controls": ["tls", "hmac", "timestamp", "nonce"] },
+    { "id": "audit-write", "from": "api", "to": "audit-store", "data": ["security-event"], "controls": ["hash-chain", "signature", "append-only"] }
+  ]
+}

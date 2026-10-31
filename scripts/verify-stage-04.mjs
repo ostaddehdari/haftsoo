@@ -28,12 +28,12 @@ const retention = JSON.parse(read("ops/backup/retention.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S04");
 const works = stage?.works ?? [];
 
-if (state.currentStage !== "S04" || state.stageStatus !== "complete") fail("project state must close S04");
+if (stage?.status !== "complete") fail("project state must retain completed S04 history");
 if (works.length !== 10 || works.some((work) => work.status !== "complete")) fail("S04 must have exactly 10 completed works");
 if (works.some((work, index) => work.id !== `S04-W${String(index + 1).padStart(2, "0")}`)) fail("S04 work identifiers are not sequential");
 for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence for ${work.id}: ${work.evidence}`);
 
-if (design.delivery.currentStage !== "S04") fail("design manifest does not reference S04");
+if (!/^0\.[4-9]\./.test(design.engineering.version)) fail("engineering version must not predate S04");
 if (!production.data.postgres.includes("managed")) fail("production PostGIS must be managed");
 if (!production.backup.pitr) fail("production PITR must be enabled");
 if (registry.images.length !== 3 || registry.mutableTagsAllowedForDeployment) fail("registry policy must define three immutable deployables");

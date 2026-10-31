@@ -43,11 +43,17 @@ services:
       S3_ACCESS_KEY_FILE: /run/secrets/minio_root_user
       S3_SECRET_KEY_FILE: /run/secrets/minio_root_password
       APP_SIGNING_KEY_FILE: /run/secrets/app_signing_key
+      SERVICE_AUTH_KEY_FILE: /run/secrets/service_auth_key
+      AUDIT_SIGNING_KEY_FILE: /run/secrets/audit_signing_key
+      TRUSTED_SERVICE_NAMES: web,api,chat
+      CORS_ALLOWED_ORIGINS: https://staging.srun.ir
     secrets:
       - postgres_password
       - minio_root_user
       - minio_root_password
       - app_signing_key
+      - service_auth_key
+      - audit_signing_key
     depends_on:
       postgres:
         condition: service_healthy
@@ -75,8 +81,10 @@ services:
       HAFTSOO_REDIS_URL: redis://redis:6379
       HAFTSOO_KAFKA_BROKERS: kafka:9092
       HAFTSOO_SIGNING_KEY_FILE: /run/secrets/app_signing_key
+      HAFTSOO_SERVICE_AUTH_KEY_FILE: /run/secrets/service_auth_key
     secrets:
       - app_signing_key
+      - service_auth_key
     depends_on:
       redis:
         condition: service_healthy
@@ -191,6 +199,10 @@ secrets:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/minio_root_password
   app_signing_key:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/app_signing_key
+  service_auth_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/service_auth_key
+  audit_signing_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/audit_signing_key
 
 networks:
   edge:

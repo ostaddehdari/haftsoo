@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "cors": {
+    "allowedOriginsEnvironment": "CORS_ALLOWED_ORIGINS",
+    "defaultOrigins": ["https://srun.ir"],
+    "credentials": true,
+    "wildcardForbidden": true,
+    "preflightMaxAgeSeconds": 600
+  },
+  "headers": {
+    "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'; base-uri 'none'",
+    "Cross-Origin-Resource-Policy": "same-site",
+    "Referrer-Policy": "no-referrer",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Cache-Control": "no-store"
+  }
+}
