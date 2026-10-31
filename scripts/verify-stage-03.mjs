@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 
 const required = [
   "CODEOWNERS", ".editorconfig", ".nvmrc", ".tool-versions", "compose.dev.yaml",
-  "apps/web/package.json", "apps/web/nuxt.config.ts", "apps/web/app.vue", "apps/web/Dockerfile",
+  "apps/web/package.json", "apps/web/nuxt.config.ts", "apps/web/tsconfig.json", "apps/web/app.vue", "apps/web/Dockerfile",
   "apps/api/package.json", "apps/api/nest-cli.json", "apps/api/src/main.ts", "apps/api/Dockerfile",
   "services/chat/go.mod", "services/chat/cmd/server/main.go", "services/chat/internal/server/server_test.go", "services/chat/Dockerfile",
   "packages/contracts/package.json", "packages/contracts/src/index.ts",
