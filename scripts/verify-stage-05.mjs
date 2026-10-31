@@ -23,11 +23,13 @@ const state = JSON.parse(read("project.state.json"));
 const design = JSON.parse(read("project.design.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S05");
 const works = stage?.works ?? [];
-if (state.currentStage !== "S05" || state.stageStatus !== "complete") fail("project state must close S05");
+if (state.stageStatus !== "complete") fail("project state must be complete");
 if (stage?.status !== "complete" || works.length !== 10 || works.some((work) => work.status !== "complete")) fail("S05 must have exactly 10 completed works");
 if (works.some((work, index) => work.id !== `S05-W${String(index + 1).padStart(2, "0")}`)) fail("S05 work identifiers are not sequential");
 for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence for ${work.id}: ${work.evidence}`);
-if (design.delivery.currentStage !== "S05" || design.engineering.version !== "0.5.0") fail("design manifest is not at S05");
+const deliveryStage = Number(design.delivery.currentStage?.slice(1));
+const engineeringMinor = Number(design.engineering.version?.split(".")[1]);
+if (deliveryStage < 5 || engineeringMinor < 5) fail("design manifest predates S05");
 
 const identity = JSON.parse(read("security/identity-model.json"));
 const auth = JSON.parse(read("security/authorization-catalog.json"));
