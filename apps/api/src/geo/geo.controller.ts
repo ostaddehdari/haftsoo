@@ -18,6 +18,14 @@ export class GeoController {
     return { data: result.data, meta: { requestId, version: "v1", geoVersion: result.release.version } };
   }
 
+  @Get("hierarchy")
+  async hierarchy(@Headers("x-tenant-id") tenantId: string | undefined, @Query("provinceKey") provinceKey?: string,
+    @Headers("x-request-id") requestId = "not-provided", @Res({ passthrough: true }) reply?: FastifyReply) {
+    const result = await this.geo.hierarchy(tenant(tenantId), provinceKey);
+    this.cache(reply, result.release.checksum, `hierarchy-${provinceKey ?? "all"}`, 900);
+    return { data: result.data, meta: { requestId, version: "v1", geoVersion: result.release.version } };
+  }
+
   @Get("places/:key")
   async place(@Headers("x-tenant-id") tenantId: string | undefined, @Param("key") key: string,
     @Headers("x-request-id") requestId = "not-provided", @Res({ passthrough: true }) reply?: FastifyReply) {

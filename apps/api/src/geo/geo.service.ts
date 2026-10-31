@@ -27,6 +27,12 @@ export class GeoService {
     return this.withPublished(tenantId, (repository, releaseId) => repository.children(releaseId, parentKey, type));
   }
 
+  async hierarchy(tenantId: string, provinceKey?: string) {
+    this.requireUuid(tenantId, "tenantId");
+    if (provinceKey && !keyPattern.test(provinceKey)) throw new BadRequestException("provinceKey is invalid");
+    return this.withPublished(tenantId, (repository, releaseId) => repository.hierarchy(releaseId, provinceKey));
+  }
+
   async place(tenantId: string, key: string) {
     this.requireUuid(tenantId, "tenantId");
     this.requireKey(key);
@@ -70,7 +76,7 @@ export class GeoService {
     if (actorId) this.requireUuid(actorId, "actorId");
     const validation = this.validate(document);
     if (!validation.valid) throw new BadRequestException({ code: "geo_import_invalid", issues: validation.issues });
-    const releaseId = await this.unitOfWork.run({ tenantId, isolationLevel: "serializable", statementTimeoutMs: 30_000 }, async (client) => {
+    const releaseId = await this.unitOfWork.run({ tenantId, isolationLevel: "serializable", statementTimeoutMs: 120_000 }, async (client) => {
       const createdId = await new GeoRepository(client).createDraft(document, validation.checksum, actorId);
       await new OutboxRepository(client).enqueue({ aggregateType: "geo_release", aggregateId: createdId, eventType: "geo.release.imported", eventVersion: 1,
         payload: { releaseId: createdId, checksum: validation.checksum, state: "draft" } });

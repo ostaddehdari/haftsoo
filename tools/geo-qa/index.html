@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>کنترل بصری محدوده‌های هفت‌سو</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:Tahoma,sans-serif;background:#18181b;color:#fafafa}.layout{display:grid;grid-template-columns:340px 1fr;height:100vh}.panel{padding:20px;overflow:auto;border-left:1px solid #3f3f46}.panel>*{width:100%;margin:0 0 12px}select,input{min-height:42px;padding:8px;border:1px solid #52525b;border-radius:8px;background:#27272a;color:#fff}#map{height:100%}.stats{line-height:2;color:#d4d4d8}.ok{color:#4ade80}@media(max-width:720px){.layout{grid-template-columns:1fr;grid-template-rows:44vh 56vh}.panel{border:0;border-bottom:1px solid #3f3f46}}
+  </style>
+</head>
+<body><main class="layout"><section class="panel">
+  <h1>کنترل Polygon محله‌ها</h1>
+  <p>فایل <code>haftsoo-iran-districts.json</code> را انتخاب کنید.</p>
+  <input id="file" type="file" accept="application/json,.json">
+  <label>استان<select id="province" disabled><option>انتخاب استان</option></select></label>
+  <label>شهر<select id="city" disabled><option>انتخاب شهر</option></select></label>
+  <label>محله<select id="district" disabled><option>انتخاب محله</option></select></label>
+  <div class="stats" id="stats">هنوز داده‌ای بارگذاری نشده است.</div>
+</section><div id="map" aria-label="نقشه کنترل محدوده"></div></main>
+<script src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+<script>
+const map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]},center:[53.7,32.4],zoom:4});
+let rows=[];const $=id=>document.getElementById(id);const unique=(items,key)=>[...new Map(items.map(x=>[x[key],x])).values()].sort((a,b)=>a.name.localeCompare(b.name,'fa'));
+function options(el,items,key,name){el.innerHTML='<option value="">انتخاب</option>'+items.map(x=>`<option value="${x[key]}">${x[name]}</option>`).join('');el.disabled=false}
+$('file').onchange=async event=>{const doc=JSON.parse(await event.target.files[0].text());rows=doc.districts;options($('province'),unique(rows.map(x=>({id:x.province_id,name:x.province_name})),'id'),'id','name');$('stats').innerHTML=`<span class="ok">${rows.length.toLocaleString('fa-IR')} محله</span> — ${rows.filter(x=>x.geometry).length.toLocaleString('fa-IR')} محدوده موجود`;};
+$('province').onchange=()=>{const id=Number($('province').value);options($('city'),unique(rows.filter(x=>x.province_id===id).map(x=>({id:x.city_id,name:x.city_name})),'id'),'id','name');$('district').disabled=true};
+$('city').onchange=()=>{const id=Number($('city').value);options($('district'),rows.filter(x=>x.city_id===id).sort((a,b)=>a.name.localeCompare(b.name,'fa')),'id','name')};
+$('district').onchange=()=>{const item=rows.find(x=>x.id===Number($('district').value));if(!item?.geometry){$('stats').textContent='برای این محله محدوده در منبع موجود نیست.';return}const data={type:'Feature',properties:{id:item.id,name:item.name},geometry:item.geometry};if(map.getSource('district'))map.getSource('district').setData(data);else{map.addSource('district',{type:'geojson',data});map.addLayer({id:'district-fill',type:'fill',source:'district',paint:{'fill-color':'#d83939','fill-opacity':.2}});map.addLayer({id:'district-line',type:'line',source:'district',paint:{'line-color':'#f87171','line-width':3}})}const b=item.polygon_meta.bbox;map.fitBounds([[b.min_longitude,b.min_latitude],[b.max_longitude,b.max_latitude]],{padding:60});$('stats').innerHTML=`<b>${item.name}</b><br>شناسه: ${item.id}<br>نقاط: ${item.polygon_meta.point_count}<br>Precision: ${item.polygon_meta.precision}`};
+</script></body></html>

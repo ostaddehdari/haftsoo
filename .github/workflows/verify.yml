@@ -20,7 +20,7 @@ jobs:
       - name: Validate shell scripts
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
-          scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh
+          scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh
           scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
@@ -33,6 +33,8 @@ jobs:
         run: npm run catalog:contract && npm run catalog:validate
       - name: Validate geography contracts and fixture
         run: npm run geo:contract && npm run geo:validate
+      - name: Validate national geography and visual QA report
+        run: npm run geo:national:contract && npm run geo:national:qa
       - name: Lint and formatting
         run: npm run lint && npm run format:check
       - name: Typecheck, test and build workspaces
@@ -45,7 +47,7 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-08-package-lock
+          name: stage-09-package-lock
           path: package-lock.json
           retention-days: 7
 

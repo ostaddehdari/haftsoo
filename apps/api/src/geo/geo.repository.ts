@@ -40,6 +40,29 @@ export class GeoRepository {
     return result.rows;
   }
 
+  async hierarchy(releaseId: string, provinceKey?: string): Promise<SqlRow[]> {
+    const result = await this.client.query(
+      `SELECT province.external_key AS province_key, province.name AS province_name,
+              city.external_key AS city_key, city.name AS city_name,
+              COALESCE(neighborhood.items, '[]'::jsonb) AS neighborhoods,
+              COALESCE(neighborhood.count, 0)::integer AS neighborhood_count
+         FROM geo.places province
+         JOIN geo.places city ON city.parent_id = province.id AND city.type = 'city' AND city.is_active
+         LEFT JOIN LATERAL (
+           SELECT jsonb_agg(jsonb_build_object('key', place.external_key, 'name', place.name, 'slug', place.slug,
+                              'hasBoundary', place.boundary IS NOT NULL) ORDER BY place.name) AS items,
+                  count(*) AS count
+             FROM geo.places place
+            WHERE place.parent_id = city.id AND place.type = 'neighborhood' AND place.is_active
+         ) neighborhood ON true
+        WHERE province.release_id = $1::uuid AND province.type = 'province' AND province.is_active
+          AND ($2::text IS NULL OR province.external_key = $2)
+        ORDER BY province.name, city.name`,
+      [releaseId, provinceKey ?? null]
+    );
+    return result.rows;
+  }
+
   async place(releaseId: string, key: string): Promise<SqlRow | undefined> {
     const result = await this.client.query(
       `SELECT place.external_key AS key, parent.external_key AS parent_key, place.type, place.slug::text,
@@ -122,6 +145,14 @@ export class GeoRepository {
     const releaseId = releaseResult.rows[0]?.id;
     if (!releaseId) throw new Error("geo release insert returned no id");
 
+    for (const artifact of document.source.artifacts ?? []) {
+      await this.client.query(
+        `INSERT INTO geo.source_artifacts (tenant_id, release_id, name, sha256, record_count, metadata)
+         VALUES (current_setting('app.current_tenant_id')::uuid, $1::uuid, $2, $3, $4, $5::jsonb)`,
+        [releaseId, artifact.name, artifact.sha256, artifact.recordCount, JSON.stringify(artifact.metadata ?? {})]
+      );
+    }
+
     const placeIds = new Map<string, string>();
     const pending = [...document.places];
     while (pending.length) {
@@ -157,8 +188,16 @@ export class GeoRepository {
     await this.client.query(
       `INSERT INTO geo.import_jobs (tenant_id, release_id, checksum, source_name, status, counts, quality, created_by, finished_at)
        VALUES (current_setting('app.current_tenant_id')::uuid, $1::uuid, $2, $3, 'imported', $4::jsonb, $5::jsonb, $6::uuid, clock_timestamp())`,
-      [releaseId, checksum, document.source.name, JSON.stringify({ places: document.places.length }),
-        JSON.stringify({ withBoundary: document.places.filter((place) => place.boundary).length }), actorId ?? null]
+      [releaseId, checksum, document.source.name, JSON.stringify({
+        places: document.places.length,
+        country: document.places.filter((place) => place.type === "country").length,
+        provinces: document.places.filter((place) => place.type === "province").length,
+        cities: document.places.filter((place) => place.type === "city").length,
+        neighborhoods: document.places.filter((place) => place.type === "neighborhood").length
+      }), JSON.stringify({
+        withBoundary: document.places.filter((place) => place.boundary).length,
+        withoutBoundary: document.places.filter((place) => place.type === "neighborhood" && !place.boundary).length
+      }), actorId ?? null]
     );
     return releaseId;
   }

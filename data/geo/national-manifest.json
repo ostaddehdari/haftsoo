@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "country": "IR",
+  "generatedAt": "2026-10-29T09:31:13.176Z",
+  "expected": {
+    "provinces": 32,
+    "cities": 1177,
+    "neighborhoods": 2826,
+    "places": 4036,
+    "polygonsAvailable": 2695,
+    "polygonsMissing": 131
+  },
+  "sources": [
+    {
+      "name": "places-web.json.gz",
+      "path": "data/geo/source/places-web.json.gz",
+      "partsPattern": "data/geo/source/places-web.json.gz.b64.part-*",
+      "sha256": "3dbfb63505b518050af765431155c6c84f04f50fad78fd5585289bb659e4abe2",
+      "rawSha256": "40b9bfad17c9af12c6efdf24becf6bd868bfdf892c2c4165d21e4f8eb8323eb3",
+      "recordCount": 4038,
+      "sourceUrl": "https://map.divarcdn.com/places-web.json"
+    },
+    {
+      "name": "iran-districts.json.gz",
+      "path": "data/geo/source/iran-districts.json.gz",
+      "partsPattern": "data/geo/source/iran-districts.json.gz.b64.part-*",
+      "sha256": "d580b405b85ffd50c210ecad11524d9468bc05f63d3f7b9429c3f457dfcae605",
+      "rawSha256": "cc5e46613584760f2bd1064a8c4637e8bd585d026cdcc4ec44738a3d330bd75b",
+      "recordCount": 2826,
+      "sourceUrl": "derived from public Divar search boundary responses"
+    }
+  ],
+  "attribution": "Divar public place hierarchy and derived district boundaries",
+  "licenseStatus": "review-required-before-production-redistribution"
+}

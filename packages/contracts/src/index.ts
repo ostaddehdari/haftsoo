@@ -82,8 +82,23 @@ export interface GeoPlace {
   name: string;
   aliases: string[];
   depth: number;
-  center: { longitude: number; latitude: number };
+  center?: { longitude: number; latitude: number };
   bbox?: { type: "Polygon"; coordinates: number[][][] };
+}
+
+export interface GeoSelection {
+  provinceKey?: string;
+  cityKey?: string;
+  neighborhoodKeys: string[];
+}
+
+export interface GeoHierarchyCity {
+  provinceKey: string;
+  provinceName: string;
+  cityKey: string;
+  cityName: string;
+  neighborhoodCount: number;
+  neighborhoods: Array<{ key: string; name: string; slug: string; hasBoundary: boolean }>;
 }
 
 export interface GeoBoundary {

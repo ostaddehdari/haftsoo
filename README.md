@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S08`؛ آخرین خروجی سکوی جغرافیا، شهر، محله و Polygon است
-- استیج بعدی: `S09 — آگهی و چرخهٔ انتشار`
+- تکمیل‌شده: `S01` تا `S09`؛ آخرین خروجی دادهٔ ملی شهر، محله و Polygon است
+- استیج بعدی: `S10 — پوسته عمومی و صفحه نخست`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -102,6 +102,13 @@ bash scripts/build-stage-08.sh
 RUN_DATABASE_DRILL=1 bash scripts/build-stage-08.sh
 ```
 
+گیت دادهٔ ملی و کنترل Polygon در استیج ۹:
+
+```bash
+bash scripts/build-stage-09.sh
+RUN_DATABASE_DRILL=1 bash scripts/build-stage-09.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
 ## خروجی استیج ۸
@@ -120,3 +127,20 @@ RUN_DATABASE_DRILL=1 bash scripts/build-stage-08.sh
 | S08-W10 | گیت CI و پذیرش سکوی جغرافیا |
 
 جزئیات پذیرش در [docs/stage-08/acceptance.md](docs/stage-08/acceptance.md) ثبت شده است. Fixture جغرافیا مصنوعی است؛ دادهٔ کامل کشور از مسیر Import کنترل‌شده بارگذاری می‌شود. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.
+
+## خروجی استیج ۹
+
+| ورک | خروجی |
+|---|---|
+| S09-W01 | ۱۱۷۷ شهر و شناسه‌های مرجع نسخه‌دار |
+| S09-W02 | ۲۸۲۶ محله با اتصال بدون orphan به شهر |
+| S09-W03 | Decode کامل Polyline با Precision 5 |
+| S09-W04 | Validation و Repair هندسه در برنامه و PostGIS |
+| S09-W05 | روابط کشور، استان، شهر و محله |
+| S09-W06 | GiSTهای release، boundary، center و bbox |
+| S09-W07 | API سلسله‌مراتب مکانی و Cache versioned |
+| S09-W08 | Selector آبشاری استان، شهر و چندمحله |
+| S09-W09 | ابزار MapLibre و گزارش QA سراسری |
+| S09-W10 | گیت دقیق شمار، پوشش، checksum و CI |
+
+گزارش پذیرش در [docs/stage-09/acceptance.md](docs/stage-09/acceptance.md) و گزارش ماشین‌خوان در [reports/geo/national-quality.json](reports/geo/national-quality.json) است. دادهٔ مرجع برای بازتولید به قطعات Base64 فشرده و checksum‌شده تقسیم شده است؛ وضعیت مجوز بازتوزیع پیش از تولید باید بازبینی حقوقی شود.

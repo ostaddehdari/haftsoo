@@ -20,5 +20,13 @@ h1 { margin: 4px 0; font-size: clamp(2rem, 5vw, 3.5rem); }
 .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0; list-style: none; }
 .category-grid a { display: block; padding: 20px; border: 1px solid #e4e4e7; border-radius: 12px; background: white; }
 footer { margin-top: 64px; color: #71717a; }
+.geo-selector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 20px; border: 1px solid #e4e4e7; border-radius: 12px; }
+.geo-selector legend { padding: 0 8px; font-weight: 700; }
+.geo-selector label { display: grid; gap: 8px; font-weight: 600; }
+.geo-selector select { width: 100%; min-height: 44px; padding: 8px; border: 1px solid #d4d4d8; border-radius: 8px; background: inherit; color: inherit; font: inherit; }
+.geo-selector select[multiple] { min-height: 132px; }
+.geo-selector small, .geo-selector__error { grid-column: 1 / -1; margin: 0; }
+.geo-selector__error { color: #b91c1c; }
 @media (max-width: 640px) { .shell { padding-top: 32px; } .category-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .geo-selector { grid-template-columns: 1fr; } }
 @media (prefers-color-scheme: dark) { :root, body { background: #18181b; color: #fafafa; } .category-grid a { background: #27272a; border-color: #3f3f46; } }

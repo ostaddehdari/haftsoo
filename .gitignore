@@ -21,3 +21,5 @@ ops/backups/
 .terraform/
 *.tfstate
 *.tfstate.*
+# Reconstructed from committed deterministic base64 parts by national geo scripts.
+data/geo/source/*.json.gz

@@ -41,7 +41,13 @@ export interface PlaceInput {
 
 export interface GeoImportDocument {
   schemaVersion: 1;
-  source: { name: string; generatedAt: string; license?: string; attribution?: string };
+  source: {
+    name: string;
+    generatedAt: string;
+    license?: string;
+    attribution?: string;
+    artifacts?: Array<{ name: string; sha256: string; recordCount: number; metadata?: Record<string, unknown> }>;
+  };
   places: PlaceInput[];
 }
 
@@ -66,7 +72,7 @@ const allowedParents: Readonly<Record<PlaceType, readonly PlaceType[]>> = {
   county: ["province"],
   district: ["county"],
   rural_district: ["district"],
-  city: ["county", "district"],
+  city: ["province", "county", "district"],
   neighborhood: ["city"]
 };
 
@@ -145,8 +151,8 @@ export function validateGeoImport(document: GeoImportDocument): GeoValidationIss
     const siblingKey = `${place.parentKey ?? "root"}:${place.slug}`;
     if (siblingSlugs.has(siblingKey)) add("error", "place.duplicate_slug", `${path}.slug`, "slug must be unique below its parent");
     siblingSlugs.add(siblingKey);
-    if (!place.center && !place.boundary) add("error", "place.spatial_required", path, "center or boundary is required");
-    if (place.type === "neighborhood" && !place.boundary) add("error", "place.boundary_required", `${path}.boundary`, "neighborhood boundary is required");
+    const boundaryUnavailable = place.metadata?.boundaryStatus === "not_available";
+    if (place.type === "neighborhood" && !place.boundary && !boundaryUnavailable) add("error", "place.boundary_required", `${path}.boundary`, "neighborhood boundary or explicit not_available status is required");
     if (place.center && (place.center.longitude < 44 || place.center.longitude > 64 || place.center.latitude < 24 || place.center.latitude > 40)) {
       add("error", "place.center_bounds", `${path}.center`, "center is outside Iran bounds");
     }
@@ -161,6 +167,12 @@ export function validateGeoImport(document: GeoImportDocument): GeoValidationIss
       add("warning", "place.center_outside", `${path}.center`, "center is outside the supplied boundary");
     }
   });
+
+  for (const [artifactIndex, artifact] of (document.source?.artifacts ?? []).entries()) {
+    if (!artifact.name?.trim() || !/^[a-f0-9]{64}$/.test(artifact.sha256) || !Number.isInteger(artifact.recordCount) || artifact.recordCount < 1) {
+      add("error", "source.artifact", `source.artifacts[${artifactIndex}]`, "source artifact needs name, SHA-256 and positive recordCount");
+    }
+  }
 
   document.places.forEach((place, index) => {
     const path = `places[${index}]`;

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "data/geo/national-manifest.json",
+  "checksum": "1f720bbb453269340f9be36a6830f8953d862968527506d9c0e143f469467608",
+  "counts": {
+    "places": 4036,
+    "provinces": 32,
+    "cities": 1177,
+    "neighborhoods": 2826,
+    "polygonsAvailable": 2695,
+    "polygonsMissing": 131,
+    "decodedPolylines": 2695,
+    "decodeMismatches": 0,
+    "orphanCities": 0,
+    "orphanNeighborhoods": 0
+  },
+  "validation": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "gates": {
+    "exactNationalCounts": true,
+    "noOrphans": true,
+    "polylinePrecision5Decoded": true,
+    "missingBoundariesExplicit": true
+  }
+}
