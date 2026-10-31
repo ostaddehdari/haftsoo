@@ -19,7 +19,7 @@ docker run -d --name "$container_name" \
   postgis/postgis:17-3.5-alpine >/dev/null
 
 for attempt in $(seq 1 60); do
-  if docker exec "$container_name" pg_isready -U haftsoo -d haftsoo >/dev/null 2>&1; then
+  if docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT 1;' >/dev/null 2>&1; then
     break
   fi
   if [[ "$attempt" == "60" ]]; then
