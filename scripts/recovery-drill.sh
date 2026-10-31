@@ -19,10 +19,13 @@ docker run -d --name "$container_name" \
   postgis/postgis:17-3.5-alpine >/dev/null
 
 for attempt in $(seq 1 60); do
-  if docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT 1;' >/dev/null 2>&1; then
+  initialization_complete="$(docker logs "$container_name" 2>&1 | grep -c 'PostgreSQL init process complete' || true)"
+  if [[ "$initialization_complete" -ge 1 ]] && \
+    docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT 1;' >/dev/null 2>&1; then
     break
   fi
   if [[ "$attempt" == "60" ]]; then
+    docker logs "$container_name" >&2 || true
     echo "PostGIS did not become ready" >&2
     exit 1
   fi
