@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S07",
+  "currentStage": "S08",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -115,20 +115,36 @@
         { "id": "S07-W09", "status": "complete", "evidence": "docs/stage-07/testing-observability.md" },
         { "id": "S07-W10", "status": "complete", "evidence": "docs/stage-07/acceptance.md" }
       ]
+    },
+    {
+      "id": "S08",
+      "status": "complete",
+      "works": [
+        { "id": "S08-W01", "status": "complete", "evidence": "docs/stage-08/hierarchy-domain.md" },
+        { "id": "S08-W02", "status": "complete", "evidence": "docs/stage-08/release-lifecycle.md" },
+        { "id": "S08-W03", "status": "complete", "evidence": "docs/stage-08/geometry-quality.md" },
+        { "id": "S08-W04", "status": "complete", "evidence": "docs/stage-08/import-contract.md" },
+        { "id": "S08-W05", "status": "complete", "evidence": "docs/stage-08/spatial-persistence.md" },
+        { "id": "S08-W06", "status": "complete", "evidence": "docs/stage-08/public-api.md" },
+        { "id": "S08-W07", "status": "complete", "evidence": "docs/stage-08/resolve-search.md" },
+        { "id": "S08-W08", "status": "complete", "evidence": "docs/stage-08/admin-import-publish.md" },
+        { "id": "S08-W09", "status": "complete", "evidence": "docs/stage-08/testing-observability.md" },
+        { "id": "S08-W10", "status": "complete", "evidence": "docs/stage-08/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S07-W01", "status": "complete", "evidence": "docs/stage-07/taxonomy-domain.md" },
-    { "id": "S07-W02", "status": "complete", "evidence": "docs/stage-07/release-lifecycle.md" },
-    { "id": "S07-W03", "status": "complete", "evidence": "docs/stage-07/dynamic-fields.md" },
-    { "id": "S07-W04", "status": "complete", "evidence": "docs/stage-07/form-rules.md" },
-    { "id": "S07-W05", "status": "complete", "evidence": "docs/stage-07/catalog-persistence.md" },
-    { "id": "S07-W06", "status": "complete", "evidence": "docs/stage-07/public-api.md" },
-    { "id": "S07-W07", "status": "complete", "evidence": "docs/stage-07/admin-import-publish.md" },
-    { "id": "S07-W08", "status": "complete", "evidence": "docs/stage-07/import-contract.md" },
-    { "id": "S07-W09", "status": "complete", "evidence": "docs/stage-07/testing-observability.md" },
-    { "id": "S07-W10", "status": "complete", "evidence": "docs/stage-07/acceptance.md" }
+    { "id": "S08-W01", "status": "complete", "evidence": "docs/stage-08/hierarchy-domain.md" },
+    { "id": "S08-W02", "status": "complete", "evidence": "docs/stage-08/release-lifecycle.md" },
+    { "id": "S08-W03", "status": "complete", "evidence": "docs/stage-08/geometry-quality.md" },
+    { "id": "S08-W04", "status": "complete", "evidence": "docs/stage-08/import-contract.md" },
+    { "id": "S08-W05", "status": "complete", "evidence": "docs/stage-08/spatial-persistence.md" },
+    { "id": "S08-W06", "status": "complete", "evidence": "docs/stage-08/public-api.md" },
+    { "id": "S08-W07", "status": "complete", "evidence": "docs/stage-08/resolve-search.md" },
+    { "id": "S08-W08", "status": "complete", "evidence": "docs/stage-08/admin-import-publish.md" },
+    { "id": "S08-W09", "status": "complete", "evidence": "docs/stage-08/testing-observability.md" },
+    { "id": "S08-W10", "status": "complete", "evidence": "docs/stage-08/acceptance.md" }
   ],
-  "nextStage": "S08",
-  "updatedAt": "2026-10-31T23:45:00+03:30"
+  "nextStage": "S09",
+  "updatedAt": "2026-11-01T01:20:00+03:30"
 }

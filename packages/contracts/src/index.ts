@@ -71,3 +71,31 @@ export interface CatalogResponseMeta {
   version: "v1";
   catalogVersion: number;
 }
+
+export type GeoPlaceType = "country" | "province" | "county" | "district" | "rural_district" | "city" | "neighborhood";
+
+export interface GeoPlace {
+  key: string;
+  parentKey?: string;
+  type: GeoPlaceType;
+  slug: string;
+  name: string;
+  aliases: string[];
+  depth: number;
+  center: { longitude: number; latitude: number };
+  bbox?: { type: "Polygon"; coordinates: number[][][] };
+}
+
+export interface GeoBoundary {
+  key: string;
+  name: string;
+  type: GeoPlaceType;
+  geometry: { type: "MultiPolygon"; coordinates: number[][][][] };
+  bbox: { type: "Polygon"; coordinates: number[][][] };
+}
+
+export interface GeoResponseMeta {
+  requestId: string;
+  version: "v1";
+  geoVersion: number;
+}

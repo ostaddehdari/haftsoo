@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S07",
+    "currentStage": "S08",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -36,7 +36,10 @@
     "queryBudget": "database/query-budget.json",
     "migrationDirectory": "database/migrations",
     "catalogImportContract": "fixtures/catalog/sample-catalog.json",
-    "catalogReleasePolicy": "docs/stage-07/release-lifecycle.md"
+    "catalogReleasePolicy": "docs/stage-07/release-lifecycle.md",
+    "geoImportContract": "fixtures/geo/sample-geo.json",
+    "geoReleasePolicy": "docs/stage-08/release-lifecycle.md",
+    "spatialQualityPolicy": "docs/stage-08/geometry-quality.md"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

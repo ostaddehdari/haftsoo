@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S07`؛ آخرین خروجی کاتالوگ دسته‌بندی و فرم پویا است
-- استیج بعدی: `S08 — جغرافیا، شهر و محله`
+- تکمیل‌شده: `S01` تا `S08`؛ آخرین خروجی سکوی جغرافیا، شهر، محله و Polygon است
+- استیج بعدی: `S09 — آگهی و چرخهٔ انتشار`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -95,21 +95,28 @@ bash scripts/build-stage-07.sh
 RUN_DATABASE_DRILL=1 bash scripts/build-stage-07.sh
 ```
 
+گیت جغرافیا، شهر، محله و Polygon در استیج ۸:
+
+```bash
+bash scripts/build-stage-08.sh
+RUN_DATABASE_DRILL=1 bash scripts/build-stage-08.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
-## خروجی استیج ۷
+## خروجی استیج ۸
 
 | ورک | خروجی |
 |---|---|
-| S07-W01 | درخت دسته‌بندی پایدار با Cycle/Depth guard |
-| S07-W02 | نسخه‌بندی Draft/Published/Retired و Checksum |
-| S07-W03 | فیلدها، گزینه‌ها و Validatorهای پویا |
-| S07-W04 | فرم‌های دسته و Ruleهای شرطی |
-| S07-W05 | ۷ جدول کاتالوگ، Index و RLS Tenant |
-| S07-W06 | API عمومی درخت و فرم با ETag |
-| S07-W07 | API مدیریتی Validate/Import/Publish |
-| S07-W08 | قرارداد JSON و ابزار بررسی آفلاین |
-| S07-W09 | تست Core، Contract و مشاهده‌پذیری نسخه |
-| S07-W10 | گیت CI و پذیرش کاتالوگ |
+| S08-W01 | سلسله‌مراتب کشور، استان، شهرستان، بخش، شهر و محله |
+| S08-W02 | نسخه‌بندی Draft/Published/Retired و Checksum |
+| S08-W03 | نرمال‌سازی و کنترل کیفیت Polygon/MultiPolygon |
+| S08-W04 | قرارداد JSON مستقل از Provider و ابزار بررسی آفلاین |
+| S08-W05 | PostGIS، GiST، Trigram و RLS Tenant |
+| S08-W06 | API عمومی مکان، مرکز، bbox و GeoJSON مرز |
+| S08-W07 | جست‌وجو و Reverse Resolve با `ST_Covers` |
+| S08-W08 | API مدیریتی Validate/Import/Publish و Outbox |
+| S08-W09 | تست Core، Contract، Recovery و مشاهده‌پذیری GIS |
+| S08-W10 | گیت CI و پذیرش سکوی جغرافیا |
 
-جزئیات پذیرش در [docs/stage-07/acceptance.md](docs/stage-07/acceptance.md) ثبت شده است. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.
+جزئیات پذیرش در [docs/stage-08/acceptance.md](docs/stage-08/acceptance.md) ثبت شده است. Fixture جغرافیا مصنوعی است؛ دادهٔ کامل کشور از مسیر Import کنترل‌شده بارگذاری می‌شود. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.

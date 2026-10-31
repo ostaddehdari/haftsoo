@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "haftsoo-stage-08-fixture",
+    "generatedAt": "2026-10-31T00:00:00.000Z",
+    "license": "CC0-1.0",
+    "attribution": "Synthetic geometry for contract tests; not an official administrative boundary."
+  },
+  "places": [
+    {
+      "key": "iran",
+      "type": "country",
+      "slug": "iran",
+      "name": "ایران",
+      "aliases": ["جمهوری اسلامی ایران"],
+      "center": { "longitude": 53.688, "latitude": 32.4279 },
+      "identifiers": [{ "provider": "iso3166", "externalId": "IR" }],
+      "sortOrder": 1
+    },
+    {
+      "key": "isfahan-province",
+      "parentKey": "iran",
+      "type": "province",
+      "slug": "isfahan",
+      "name": "استان اصفهان",
+      "aliases": ["اصفهان"],
+      "center": { "longitude": 51.667, "latitude": 32.6546 },
+      "identifiers": [{ "provider": "fixture", "externalId": "province-04" }],
+      "sortOrder": 4
+    },
+    {
+      "key": "isfahan-county",
+      "parentKey": "isfahan-province",
+      "type": "county",
+      "slug": "isfahan-county",
+      "name": "شهرستان اصفهان",
+      "center": { "longitude": 51.667, "latitude": 32.6546 },
+      "identifiers": [{ "provider": "fixture", "externalId": "county-0401" }]
+    },
+    {
+      "key": "isfahan-city",
+      "parentKey": "isfahan-county",
+      "type": "city",
+      "slug": "isfahan",
+      "name": "اصفهان",
+      "aliases": ["سپاهان"],
+      "center": { "longitude": 51.667, "latitude": 32.6546 },
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [[[51.58, 32.58], [51.76, 32.58], [51.76, 32.73], [51.58, 32.73], [51.58, 32.58]]]
+      },
+      "identifiers": [{ "provider": "fixture", "externalId": "city-4" }]
+    },
+    {
+      "key": "isfahan-neighborhood-east",
+      "parentKey": "isfahan-city",
+      "type": "neighborhood",
+      "slug": "fixture-east",
+      "name": "محله آزمایشی شرقی",
+      "center": { "longitude": 51.705, "latitude": 32.655 },
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [[[51.67, 32.62], [51.74, 32.62], [51.74, 32.69], [51.67, 32.69], [51.67, 32.62]]]
+      },
+      "identifiers": [{ "provider": "fixture", "externalId": "district-east" }],
+      "sortOrder": 1
+    },
+    {
+      "key": "isfahan-neighborhood-west",
+      "parentKey": "isfahan-city",
+      "type": "neighborhood",
+      "slug": "fixture-west",
+      "name": "محله آزمایشی غربی",
+      "center": { "longitude": 51.63, "latitude": 32.655 },
+      "boundary": {
+        "type": "MultiPolygon",
+        "coordinates": [[[[51.595, 32.62], [51.665, 32.62], [51.665, 32.69], [51.595, 32.69], [51.595, 32.62]]]]
+      },
+      "identifiers": [{ "provider": "fixture", "externalId": "district-west" }],
+      "sortOrder": 2
+    }
+  ]
+}
