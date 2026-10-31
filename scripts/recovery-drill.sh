@@ -35,12 +35,11 @@ docker exec "$container_name" psql -v ON_ERROR_STOP=1 -U haftsoo -d haftsoo -c \
 docker exec "$container_name" pg_dump -U haftsoo -d haftsoo -Fc >"$temporary_directory/haftsoo.dump"
 test -s "$temporary_directory/haftsoo.dump"
 
-docker exec "$container_name" dropdb --force -U haftsoo haftsoo
-docker exec "$container_name" createdb --template=template0 -U haftsoo haftsoo
-docker exec -i "$container_name" pg_restore -U haftsoo -d haftsoo --exit-on-error <"$temporary_directory/haftsoo.dump"
+docker exec "$container_name" createdb --template=template0 -U haftsoo haftsoo_restore
+docker exec -i "$container_name" pg_restore -U haftsoo -d haftsoo_restore --exit-on-error <"$temporary_directory/haftsoo.dump"
 
-row_count="$(docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT count(*) FROM recovery_probe;')"
-postgis_version="$(docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT PostGIS_Version();')"
+row_count="$(docker exec "$container_name" psql -At -U haftsoo -d haftsoo_restore -c 'SELECT count(*) FROM recovery_probe;')"
+postgis_version="$(docker exec "$container_name" psql -At -U haftsoo -d haftsoo_restore -c 'SELECT PostGIS_Version();')"
 
 [[ "$row_count" == "1" ]]
 [[ -n "$postgis_version" ]]
