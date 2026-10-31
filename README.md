@@ -41,7 +41,7 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## توسعه محلی
 
 ```bash
-npm install
+npm ci
 npm run verify:all
 npm run lint
 npm run typecheck

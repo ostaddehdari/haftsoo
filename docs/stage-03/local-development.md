@@ -5,7 +5,7 @@
 اجرای Native:
 
 ```bash
-npm install
+npm ci
 npm run dev:web
 npm run dev:api
 cd services/chat && go run ./cmd/server

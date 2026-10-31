@@ -19,8 +19,8 @@ jobs:
           node-version: 22
       - name: Validate shell scripts
         run: bash -n install.sh scripts/configure-nginx.sh scripts/update.sh scripts/build-stage-03.sh
-      - name: Install exact direct dependencies
-        run: npm install --no-audit --no-fund
+      - name: Install frozen dependency graph
+        run: npm ci --no-audit --no-fund
       - name: Verify stage evidence
         run: npm run verify:all
       - name: Lint and formatting

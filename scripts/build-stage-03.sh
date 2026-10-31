@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-npm install --no-audit --no-fund
+npm ci --no-audit --no-fund
 npm run lint
 npm run format:check
 npm run typecheck

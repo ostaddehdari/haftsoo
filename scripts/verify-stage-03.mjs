@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 
 const required = [
-  "CODEOWNERS", ".editorconfig", ".nvmrc", ".tool-versions", "compose.dev.yaml",
+  "CODEOWNERS", ".editorconfig", ".nvmrc", ".tool-versions", "package-lock.json", "compose.dev.yaml",
   "apps/web/package.json", "apps/web/nuxt.config.ts", "apps/web/tsconfig.json", "apps/web/app.vue", "apps/web/Dockerfile",
   "apps/api/package.json", "apps/api/nest-cli.json", "apps/api/src/main.ts", "apps/api/Dockerfile",
   "services/chat/go.mod", "services/chat/cmd/server/main.go", "services/chat/internal/server/server_test.go", "services/chat/Dockerfile",
@@ -34,6 +34,7 @@ if (!apiPackage.dependencies["@nestjs/core"]) fail("NestJS core is not configure
 if (!read("services/chat/go.mod").includes("go 1.24")) fail("Go toolchain is not pinned");
 if (!read("apps/web/nuxt.config.ts").includes("NUXT_APP_BASE_URL")) fail("Nuxt base path support is absent");
 if (!read(".github/workflows/verify.yml").includes("go-version")) fail("CI does not verify Go");
+if (!read(".github/workflows/verify.yml").includes("npm ci")) fail("CI dependency graph is not frozen");
 if (!read("compose.dev.yaml").includes("services/chat/Dockerfile")) fail("local Compose does not build chat");
 
 console.log(`Stage 03 verified: ${works.length} works, Nuxt/NestJS/Go scaffolds, contracts, quality gates and local Compose.`);
