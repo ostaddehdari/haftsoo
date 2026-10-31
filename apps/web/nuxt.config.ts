@@ -18,6 +18,5 @@ export default defineNuxtConfig({
       apiBase: process.env.NUXT_PUBLIC_API_BASE ?? "/api/v1"
     }
   },
-  typescript: { strict: true, typeCheck: true },
-  nitro: { preset: "node-server" }
+  typescript: { strict: true, typeCheck: true }
 });
