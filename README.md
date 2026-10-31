@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S06`؛ آخرین خروجی Schema پایه و PostGIS است
-- استیج بعدی: `S07 — فهرست موضوعی و دسته‌بندی`
+- تکمیل‌شده: `S01` تا `S07`؛ آخرین خروجی کاتالوگ دسته‌بندی و فرم پویا است
+- استیج بعدی: `S08 — جغرافیا، شهر و محله`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -88,21 +88,28 @@ bash scripts/build-stage-06.sh
 RUN_DATABASE_DRILL=1 bash scripts/build-stage-06.sh
 ```
 
+گیت کاتالوگ و فیلدهای پویا در استیج ۷:
+
+```bash
+bash scripts/build-stage-07.sh
+RUN_DATABASE_DRILL=1 bash scripts/build-stage-07.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
-## خروجی استیج ۶
+## خروجی استیج ۷
 
 | ورک | خروجی |
 |---|---|
-| S06-W01 | قرارداد Naming، UUID، زمان UTC و Soft delete |
-| S06-W02 | PostGIS، pgcrypto، citext و btree_gist |
-| S06-W03 | ۹ Schema با مرز مالکیت سرویس |
-| S06-W04 | Migration و Rollback تراکنشی با تشخیص Drift |
-| S06-W05 | PostgreSQL Repository و Unit of Work Tenant-aware |
-| S06-W06 | Outbox/Inbox idempotent و RLS اجباری |
-| S06-W07 | Range partition و Archive manifest |
-| S06-W08 | Indexهای پایه و Query budget ماشین‌خوان |
-| S06-W09 | Drill واقعی Backup، Restore، Rollback و Reapply |
-| S06-W10 | گیت CI و پذیرش Schema baseline |
+| S07-W01 | درخت دسته‌بندی پایدار با Cycle/Depth guard |
+| S07-W02 | نسخه‌بندی Draft/Published/Retired و Checksum |
+| S07-W03 | فیلدها، گزینه‌ها و Validatorهای پویا |
+| S07-W04 | فرم‌های دسته و Ruleهای شرطی |
+| S07-W05 | ۷ جدول کاتالوگ، Index و RLS Tenant |
+| S07-W06 | API عمومی درخت و فرم با ETag |
+| S07-W07 | API مدیریتی Validate/Import/Publish |
+| S07-W08 | قرارداد JSON و ابزار بررسی آفلاین |
+| S07-W09 | تست Core، Contract و مشاهده‌پذیری نسخه |
+| S07-W10 | گیت CI و پذیرش کاتالوگ |
 
-جزئیات پذیرش در [docs/stage-06/acceptance.md](docs/stage-06/acceptance.md) ثبت شده است. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.
+جزئیات پذیرش در [docs/stage-07/acceptance.md](docs/stage-07/acceptance.md) ثبت شده است. هیچ رمز، Token، کلید SSH، فایل `.env`، Dump یا داده شخصی نباید وارد Git شود.

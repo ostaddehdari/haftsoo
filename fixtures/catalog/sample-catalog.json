@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "haftsoo-stage-07-fixture",
+    "generatedAt": "2026-10-31T00:00:00+03:30",
+    "license": "internal-test-data"
+  },
+  "categories": [
+    {
+      "key": "vehicles",
+      "slug": "vehicles",
+      "title": "وسایل نقلیه",
+      "sortOrder": 10,
+      "icon": { "name": "car" },
+      "searchKeywords": ["خودرو", "موتور"]
+    },
+    {
+      "key": "cars",
+      "parentKey": "vehicles",
+      "slug": "cars",
+      "title": "خودرو",
+      "sortOrder": 10
+    },
+    {
+      "key": "apartments-rent",
+      "slug": "apartments-rent",
+      "title": "اجاره آپارتمان",
+      "sortOrder": 20
+    }
+  ],
+  "fields": [
+    {
+      "key": "title",
+      "type": "text",
+      "title": "عنوان آگهی",
+      "validators": { "minLength": 5, "maxLength": 80 },
+      "searchable": true
+    },
+    {
+      "key": "transmission",
+      "type": "single_select",
+      "title": "گیربکس",
+      "filterable": true,
+      "options": [
+        { "value": "manual", "title": "دنده‌ای", "sortOrder": 10 },
+        { "value": "automatic", "title": "اتوماتیک", "sortOrder": 20 }
+      ]
+    },
+    {
+      "key": "has-elevator",
+      "type": "boolean",
+      "title": "آسانسور",
+      "filterable": true
+    },
+    {
+      "key": "floor",
+      "type": "integer",
+      "title": "طبقه",
+      "validators": { "minimum": -2, "maximum": 100 },
+      "filterable": true
+    }
+  ],
+  "forms": [
+    {
+      "categoryKey": "cars",
+      "fields": [
+        { "fieldKey": "title", "section": "main", "position": 10, "required": true },
+        { "fieldKey": "transmission", "section": "details", "position": 10, "required": true }
+      ]
+    },
+    {
+      "categoryKey": "apartments-rent",
+      "fields": [
+        { "fieldKey": "title", "section": "main", "position": 10, "required": true },
+        { "fieldKey": "floor", "section": "details", "position": 10 },
+        {
+          "fieldKey": "has-elevator",
+          "section": "details",
+          "position": 20,
+          "rules": [
+            { "dependsOn": "floor", "operator": "gt", "operand": 0, "effect": "require", "priority": 10 }
+          ]
+        }
+      ]
+    }
+  ]
+}

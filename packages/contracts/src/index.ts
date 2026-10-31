@@ -40,3 +40,34 @@ export interface AuthorizationDecision {
   reason: "role-grant" | "missing-permission" | "missing-scope" | "device-risk";
   policyVersion: "1.0.0";
 }
+
+export type CatalogFieldType = "text" | "textarea" | "integer" | "decimal" | "boolean" | "single_select" | "multi_select" | "date" | "location" | "media";
+
+export interface CatalogCategoryNode {
+  key: string;
+  slug: string;
+  title: string;
+  description: string;
+  depth: number;
+  icon: Record<string, unknown>;
+  children: CatalogCategoryNode[];
+}
+
+export interface CatalogFormField {
+  key: string;
+  type: CatalogFieldType;
+  title: string;
+  section: string;
+  position: number;
+  required: boolean;
+  disabled: boolean;
+  validators: Record<string, unknown>;
+  ui: Record<string, unknown>;
+  options: Array<{ value: string; title: string; sortOrder: number }>;
+}
+
+export interface CatalogResponseMeta {
+  requestId: string;
+  version: "v1";
+  catalogVersion: number;
+}

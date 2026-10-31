@@ -19,11 +19,13 @@ const state = JSON.parse(read("project.state.json"));
 const design = JSON.parse(read("project.design.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S06");
 const works = stage?.works ?? [];
-if (state.currentStage !== "S06" || state.stageStatus !== "complete") fail("project state must close S06");
+if (state.stageStatus !== "complete") fail("project state must be complete");
 if (stage?.status !== "complete" || works.length !== 10 || works.some((work) => work.status !== "complete")) fail("S06 must have exactly 10 completed works");
 if (works.some((work, index) => work.id !== `S06-W${String(index + 1).padStart(2, "0")}`)) fail("S06 work identifiers are not sequential");
 for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence for ${work.id}: ${work.evidence}`);
-if (state.nextStage !== "S07" || design.delivery.currentStage !== "S06" || design.engineering.version !== "0.6.0") fail("design/state manifests are not at S06");
+const deliveryStage = Number(design.delivery.currentStage?.slice(1));
+const engineeringMinor = Number(design.engineering.version?.split(".")[1]);
+if (deliveryStage < 6 || engineeringMinor < 6) fail("design manifest predates S06");
 
 const conventions = JSON.parse(read("database/conventions.json"));
 const ownership = JSON.parse(read("database/ownership.json"));
