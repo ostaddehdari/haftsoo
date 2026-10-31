@@ -36,7 +36,7 @@ docker exec "$container_name" pg_dump -U haftsoo -d haftsoo -Fc >"$temporary_dir
 test -s "$temporary_directory/haftsoo.dump"
 
 docker exec "$container_name" dropdb --force -U haftsoo haftsoo
-docker exec "$container_name" createdb -U haftsoo haftsoo
+docker exec "$container_name" createdb --template=template0 -U haftsoo haftsoo
 docker exec -i "$container_name" pg_restore -U haftsoo -d haftsoo --exit-on-error <"$temporary_directory/haftsoo.dump"
 
 row_count="$(docker exec "$container_name" psql -At -U haftsoo -d haftsoo -c 'SELECT count(*) FROM recovery_probe;')"
