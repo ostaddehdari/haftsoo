@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "steps": ["category", "details", "location", "media", "contact", "preview"],
+  "autosaveDebounceMs": 700,
+  "maximumMediaItems": 10,
+  "minimumDescriptionLength": 10,
+  "idempotencyKeyMinimumLength": 16,
+  "defaultPrivacy": { "preciseLocationVisible": false, "phoneVisible": false, "chatEnabled": true },
+  "submissionStatus": "pending_review"
+}

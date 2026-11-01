@@ -188,3 +188,20 @@ export interface MapViewportResponse {
   cameraHash: string;
   showSearchThisArea: boolean;
 }
+
+export type SubmissionStep = "category" | "details" | "location" | "media" | "contact" | "preview";
+export interface SubmissionMediaDraft { clientId: string; kind: "image" | "video"; name: string; size: number; contentType: string; status: "staged" | "uploaded" }
+export interface SubmissionPayload {
+  category?: { key: string; slug: string; path: string[] };
+  fields?: Record<string, string | number | boolean | string[]>;
+  location?: { provinceKey: string; cityKey: string; neighborhoodKeys: string[]; latitude?: number; longitude?: number };
+  media?: SubmissionMediaDraft[];
+  description?: string;
+  contact?: { phone: string; chatEnabled: boolean; phoneVisible: boolean };
+  privacy?: { preciseLocationVisible: boolean };
+  consents?: { terms: boolean; safeTrade: boolean };
+}
+export interface SubmissionDraft { id: string; status: "draft" | "ready" | "submitted"; currentStep: SubmissionStep; revision: number; payload: SubmissionPayload; updatedAt: string }
+export interface SubmissionSaveRequest { revision: number; currentStep: SubmissionStep; payload: SubmissionPayload }
+export interface SubmissionPreview { valid: boolean; issues: Array<{ path: string; code: string; message: string }>; checksum: string; draft: SubmissionDraft }
+export interface SubmissionResult { postId: string; status: "pending_review"; replayed: boolean }

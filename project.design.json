@@ -4,11 +4,11 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S13",
+    "currentStage": "S14",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
-    "version": "0.5.0",
+    "version": "0.6.0",
     "tokens": "design-system/tokens.json",
     "routes": "design-system/route-manifest.json",
     "components": "design-system/component-manifest.json",
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.13.0",
+    "version": "0.14.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -57,7 +57,11 @@
     "mapClient": "apps/web/components/ClassifiedsMap.client.vue",
     "mapStyle": "apps/web/public/maps/style.json",
     "mapPerformanceBudget": "maps/performance-budget.json",
-    "mapQualityReport": "reports/map/stage-13-quality.json"
+    "mapQualityReport": "reports/map/stage-13-quality.json",
+    "submissionWizard": "apps/web/pages/new/index.vue",
+    "submissionApi": "apps/api/src/submission/submission.module.ts",
+    "submissionPolicy": "submission/policy.json",
+    "submissionQualityReport": "reports/submission/stage-14-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

@@ -1,0 +1,6 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import test from "node:test";
+test("submission route composes all guarded wizard stages", () => { const page = readFileSync(new URL("../pages/new/index.vue", import.meta.url), "utf8"); for (const component of ["SubmissionStepper", "CategoryWizard", "DynamicSubmissionForm", "GeoSelector", "MediaDescriptionStep", "ContactPrivacyStep", "SubmissionPreview"]) assert.ok(page.includes(component)); assert.ok(page.includes("wizard.submit")); });
+test("wizard preserves draft and idempotency state", () => { const source = readFileSync(new URL("../composables/useSubmissionWizard.ts", import.meta.url), "utf8"); for (const marker of ["localStorage", "revision: revision.value", "idempotency-key", "setTimeout(save, 700)"]) assert.ok(source.includes(marker)); });
+test("installable shell exposes a restorable six-step submission flow", () => { const html = readFileSync(new URL("../../../deploy/web/index.html", import.meta.url), "utf8"); const script = readFileSync(new URL("../../../deploy/web/app.js", import.meta.url), "utf8"); assert.equal((html.match(/data-submit-step=/g) ?? []).length, 6); for (const marker of ["#/submit", "haftsoo-static-submission", "staticSubmitStep", "post_submitted"]) assert.ok(script.includes(marker)); });

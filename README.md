@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S13`؛ آخرین خروجی نقشه و جست‌وجوی GIS است
-- استیج بعدی: `S14 — جزئیات آگهی و تماس امن`
+- تکمیل‌شده: `S01` تا `S14`؛ آخرین خروجی ویزارد کامل ثبت آگهی است
+- استیج بعدی: `S15 — رسانه، تصویر و ویدیو`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -131,6 +131,12 @@ bash scripts/build-stage-12.sh
 
 ```bash
 bash scripts/build-stage-13.sh
+```
+
+گیت ویزارد ثبت، Draft و ارسال Idempotent در استیج ۱۴:
+
+```bash
+bash scripts/build-stage-14.sh
 ```
 
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.

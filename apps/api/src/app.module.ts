@@ -6,6 +6,7 @@ import { HealthModule } from "./health/health.module";
 import { PlatformModule } from "./platform/platform.module";
 import { SearchModule } from "./search/search.module";
 import { SecurityModule } from "./security/security.module";
+import { SubmissionModule } from "./submission/submission.module";
 
-@Module({ imports: [CatalogModule, DatabaseModule, GeoModule, HealthModule, PlatformModule, SearchModule, SecurityModule] })
+@Module({ imports: [CatalogModule, DatabaseModule, GeoModule, HealthModule, PlatformModule, SearchModule, SecurityModule, SubmissionModule] })
 export class AppModule {}

@@ -1,0 +1,9 @@
+<script setup lang="ts">
+const props = defineProps<{ categorySlug?: string; modelValue: Record<string, string | number | boolean | string[]>; error?: string }>();
+const emit = defineEmits<{ "update:modelValue": [value: Record<string, string | number | boolean | string[]>] }>();
+const form = reactive({ ...props.modelValue });
+const vehicle = computed(() => props.categorySlug === "cars" || props.categorySlug === "motorcycles");
+const estate = computed(() => props.categorySlug?.includes("apartment"));
+watch(form, () => emit("update:modelValue", { ...form }), { deep: true });
+</script>
+<template><section><h2>مشخصات آگهی</h2><p class="submission-hint">فیلدها متناسب با دسته «{{ categorySlug }}» تنظیم شده‌اند.</p><div class="submission-fields"><label><span>عنوان آگهی *</span><input v-model="form.title" maxlength="80" placeholder="عنوان کوتاه و روشن"><small v-if="error" class="field-error">{{ error }}</small></label><label><span>قیمت (تومان)</span><input v-model.number="form.price" type="number" min="0" inputmode="numeric" placeholder="قیمت پیشنهادی"></label><label v-if="vehicle"><span>سال ساخت</span><input v-model.number="form.year" type="number" min="1300" max="1500"></label><label v-if="vehicle"><span>کارکرد (کیلومتر)</span><input v-model.number="form.mileage" type="number" min="0"></label><label v-if="estate"><span>متراژ</span><input v-model.number="form.area" type="number" min="1"></label><label v-if="estate"><span>تعداد اتاق</span><select v-model="form.rooms"><option value="1">۱</option><option value="2">۲</option><option value="3">۳ و بیشتر</option></select></label><label><span>وضعیت</span><select v-model="form.condition"><option value="new">نو</option><option value="like-new">در حد نو</option><option value="used">کارکرده</option></select></label></div></section></template>

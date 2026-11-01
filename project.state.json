@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S13",
+  "currentStage": "S14",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -211,20 +211,36 @@
         { "id": "S13-W09", "status": "complete", "evidence": "docs/stage-13/spatial-performance.md" },
         { "id": "S13-W10", "status": "complete", "evidence": "docs/stage-13/acceptance.md" }
       ]
+    },
+    {
+      "id": "S14",
+      "status": "complete",
+      "works": [
+        { "id": "S14-W01", "status": "complete", "evidence": "docs/stage-14/state-machine.md" },
+        { "id": "S14-W02", "status": "complete", "evidence": "docs/stage-14/category-selection.md" },
+        { "id": "S14-W03", "status": "complete", "evidence": "docs/stage-14/dynamic-category-form.md" },
+        { "id": "S14-W04", "status": "complete", "evidence": "docs/stage-14/location-neighborhood.md" },
+        { "id": "S14-W05", "status": "complete", "evidence": "docs/stage-14/media-description.md" },
+        { "id": "S14-W06", "status": "complete", "evidence": "docs/stage-14/contact-privacy-consent.md" },
+        { "id": "S14-W07", "status": "complete", "evidence": "docs/stage-14/draft-autosave.md" },
+        { "id": "S14-W08", "status": "complete", "evidence": "docs/stage-14/preview.md" },
+        { "id": "S14-W09", "status": "complete", "evidence": "docs/stage-14/idempotent-submit.md" },
+        { "id": "S14-W10", "status": "complete", "evidence": "docs/stage-14/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S13-W01", "status": "complete", "evidence": "docs/stage-13/maplibre-setup.md" },
-    { "id": "S13-W02", "status": "complete", "evidence": "docs/stage-13/style-tile-attribution.md" },
-    { "id": "S13-W03", "status": "complete", "evidence": "docs/stage-13/viewport-camera-api.md" },
-    { "id": "S13-W04", "status": "complete", "evidence": "docs/stage-13/post-clustering.md" },
-    { "id": "S13-W05", "status": "complete", "evidence": "docs/stage-13/bounding-box-search.md" },
-    { "id": "S13-W06", "status": "complete", "evidence": "docs/stage-13/neighborhood-polygons.md" },
-    { "id": "S13-W07", "status": "complete", "evidence": "docs/stage-13/markers-preview.md" },
-    { "id": "S13-W08", "status": "complete", "evidence": "docs/stage-13/map-list-sync.md" },
-    { "id": "S13-W09", "status": "complete", "evidence": "docs/stage-13/spatial-performance.md" },
-    { "id": "S13-W10", "status": "complete", "evidence": "docs/stage-13/acceptance.md" }
+    { "id": "S14-W01", "status": "complete", "evidence": "docs/stage-14/state-machine.md" },
+    { "id": "S14-W02", "status": "complete", "evidence": "docs/stage-14/category-selection.md" },
+    { "id": "S14-W03", "status": "complete", "evidence": "docs/stage-14/dynamic-category-form.md" },
+    { "id": "S14-W04", "status": "complete", "evidence": "docs/stage-14/location-neighborhood.md" },
+    { "id": "S14-W05", "status": "complete", "evidence": "docs/stage-14/media-description.md" },
+    { "id": "S14-W06", "status": "complete", "evidence": "docs/stage-14/contact-privacy-consent.md" },
+    { "id": "S14-W07", "status": "complete", "evidence": "docs/stage-14/draft-autosave.md" },
+    { "id": "S14-W08", "status": "complete", "evidence": "docs/stage-14/preview.md" },
+    { "id": "S14-W09", "status": "complete", "evidence": "docs/stage-14/idempotent-submit.md" },
+    { "id": "S14-W10", "status": "complete", "evidence": "docs/stage-14/acceptance.md" }
   ],
-  "nextStage": "S14",
-  "updatedAt": "2026-11-01T15:30:00Z"
+  "nextStage": "S15",
+  "updatedAt": "2026-11-01T18:30:00Z"
 }

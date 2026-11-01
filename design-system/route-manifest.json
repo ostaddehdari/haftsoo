@@ -1,11 +1,11 @@
 {
-  "version": "0.5.0",
+  "version": "0.6.0",
   "basePath": "/haftsoo",
   "routes": [
     { "id": "home", "path": "/", "family": "discovery", "auth": false, "states": ["default", "city-search", "offline"] },
     { "id": "listing", "path": "/s/:city/:category?", "family": "search", "auth": false, "states": ["skeleton", "results", "no-result", "error", "map", "infinite", "pagination"] },
     { "id": "post", "path": "/v/:slug/:token", "family": "post", "auth": false, "states": ["loading", "ready", "expired", "removed", "contact-revealed"] },
-    { "id": "submit", "path": "/new", "family": "submission", "auth": true, "states": ["category", "form", "media", "preview", "success", "rejected"] },
+    { "id": "submit", "path": "/new", "family": "submission", "auth": true, "states": ["category", "details", "location", "media", "contact", "preview", "autosaving", "offline", "success", "rejected"] },
     { "id": "login", "path": "/auth", "family": "identity", "auth": false, "states": ["phone", "otp", "resend", "blocked", "success"] },
     { "id": "chat", "path": "/chat/:conversation?", "family": "communication", "auth": true, "states": ["list", "empty", "conversation", "sending", "offline", "blocked"] },
     { "id": "account", "path": "/my", "family": "account", "auth": true, "states": ["guest", "member"] },

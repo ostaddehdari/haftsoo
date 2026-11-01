@@ -1,0 +1,16 @@
+{
+  "stage": "S14",
+  "result": "pass",
+  "sampleCategories": ["apartment-sell", "cars", "mobile-phones"],
+  "checks": {
+    "stateMachine": true,
+    "catalogDrivenForm": true,
+    "nationalGeoSelector": true,
+    "privacyDefaults": true,
+    "optimisticAutosave": true,
+    "previewValidation": true,
+    "idempotentSubmit": true,
+    "transactionalOutbox": true,
+    "responsiveRtl": true
+  }
+}
