@@ -89,11 +89,11 @@
 
     <section class="view" data-view="search" hidden>
       <div class="listing-layout content-shell">
-        <aside class="filter-sidebar" aria-label="فیلترهای جست‌وجو">
-          <div class="sidebar-title"><h2>فیلترها</h2><button class="text-button clear-filters">پاک کردن</button></div>
-          <label class="field"><span>دسته‌بندی</span><select><option>همه دسته‌ها</option><option>املاک</option><option>وسایل نقلیه</option><option>کالای دیجیتال</option></select></label>
+        <aside class="filter-sidebar" aria-label="دسته‌بندی و فیلترهای جست‌وجو">
+          <div class="sidebar-title"><h2>دسته‌بندی‌ها</h2><button class="text-button clear-filters">همه</button></div>
+          <nav class="static-category-tree" id="listing-categories" aria-label="درخت دسته‌بندی‌ها"></nav>
           <label class="field"><span>محدوده قیمت</span><input type="text" inputmode="numeric" placeholder="حداقل قیمت"></label>
-          <label class="toggle-row"><span><strong>فقط عکس‌دار</strong><small>آگهی‌های دارای تصویر</small></span><input type="checkbox"></label>
+          <label class="toggle-row"><span><strong>فقط عکس‌دار</strong><small>آگهی‌های دارای تصویر</small></span><input id="photo-only" type="checkbox"></label>
           <label class="toggle-row"><span><strong>آگهی‌های فوری</strong><small>نمایش موارد ویژه</small></span><input type="checkbox"></label>
         </aside>
         <div class="listing-main">
@@ -101,8 +101,12 @@
             <div><nav class="breadcrumb" aria-label="مسیر صفحه"><a href="#/home">خانه</a><span>/</span><span>همه آگهی‌ها</span></nav><h1 id="listing-title">آگهی‌های اصفهان</h1><p><span id="result-count">۲۴</span> نتیجه تازه</p></div>
             <div class="toolbar-actions"><button class="secondary-button mobile-filter" data-open="filter-dialog"><svg aria-hidden="true"><use href="#i-filter"/></svg>فیلتر</button><button class="secondary-button"><svg aria-hidden="true"><use href="#i-map"/></svg>نقشه</button></div>
           </div>
-          <div class="active-filters"><button class="chip selected">اصفهان <span aria-hidden="true">×</span></button><button class="chip">مرتب‌سازی: جدیدترین</button></div>
-          <div class="post-grid" id="search-posts"></div>
+          <div class="listing-stage-controls"><label>مرتب‌سازی <select id="listing-sort"><option value="newest">جدیدترین</option><option value="price-asc">ارزان‌ترین</option><option value="price-desc">گران‌ترین</option></select></label><div class="static-view-switch" role="group" aria-label="حالت نمایش"><button class="active" type="button" data-view-mode="grid" aria-pressed="true">▦<span class="visually-hidden">شبکه‌ای</span></button><button type="button" data-view-mode="list" aria-pressed="false">☷<span class="visually-hidden">فهرستی</span></button></div></div>
+          <div class="static-listing-skeleton" id="listing-skeleton" aria-label="در حال دریافت آگهی‌ها" hidden><span></span><span></span><span></span><span></span></div>
+          <div class="post-grid" id="search-posts" aria-live="polite"></div>
+          <div class="static-no-result" id="listing-empty" hidden><span aria-hidden="true">⌕</span><h2>آگهی‌ای پیدا نشد</h2><p>عبارت جست‌وجو یا دسته‌بندی را تغییر دهید.</p><button class="secondary-button clear-filters" type="button">حذف فیلترها</button></div>
+          <div class="static-load-more"><button class="secondary-button" id="load-more" type="button">نمایش آگهی‌های بیشتر</button></div>
+          <nav class="static-pagination" id="listing-pagination" aria-label="صفحه‌بندی آگهی‌ها"></nav>
         </div>
       </div>
     </section>

@@ -1,10 +1,10 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
     { "name": "SelectRow", "variants": ["plain", "icon", "description", "active"], "states": ["default", "hover", "focus", "disabled"] },
-    { "name": "PostCard", "variants": ["grid", "list", "compact"], "states": ["loading", "ready", "bookmarked", "promoted"] },
+    { "name": "PostCard", "variants": ["grid", "list", "compact"], "states": ["loading", "ready", "bookmarked", "promoted", "without-image"] },
     { "name": "Chip", "variants": ["filter", "choice", "dismissible", "status"], "states": ["default", "selected", "disabled"] },
     { "name": "Modal", "variants": ["dialog", "sticky-footer", "fullscreen"], "states": ["opening", "open", "closing"] },
     { "name": "BottomSheet", "variants": ["content", "menu", "form"], "states": ["opening", "open", "dragging", "closing"] },
@@ -15,7 +15,10 @@
     { "name": "BottomNavigation", "variants": ["guest", "member"], "states": ["default", "active"] },
     { "name": "CitySelector", "variants": ["dialog", "bottom-sheet", "multi-city"], "states": ["loading", "ready", "empty", "limit"] },
     { "name": "Footer", "variants": ["desktop", "mobile"], "states": ["default"] },
-    { "name": "UiState", "variants": ["loading", "error", "empty"], "states": ["default", "compact"] }
+    { "name": "UiState", "variants": ["loading", "error", "empty"], "states": ["default", "compact", "actionable"] },
+    { "name": "CategorySidebar", "variants": ["desktop", "mobile-details"], "states": ["root", "branch", "selected"] },
+    { "name": "ListingToolbar", "variants": ["desktop", "mobile"], "states": ["grid", "list", "sorted"] },
+    { "name": "Pagination", "variants": ["pages", "load-more", "infinite"], "states": ["ready", "loading", "complete"] }
   ]
 }
 

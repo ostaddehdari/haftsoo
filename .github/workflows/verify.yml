@@ -20,7 +20,7 @@ jobs:
       - name: Validate shell scripts
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
-          scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh
+          scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh scripts/build-stage-11.sh
           scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
@@ -47,7 +47,7 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-10-package-lock
+          name: stage-11-package-lock
           path: package-lock.json
           retention-days: 7
 

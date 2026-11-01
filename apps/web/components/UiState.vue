@@ -15,5 +15,6 @@ defineEmits<{ retry: [] }>();
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
     <button v-if="kind === 'error'" class="button button-secondary" type="button" @click="$emit('retry')">تلاش دوباره</button>
+    <slot />
   </div>
 </template>

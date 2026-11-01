@@ -9,7 +9,7 @@ const cityLabel = computed(() => cities.value.length === 1 ? cities.value[0]?.na
 
 function search() {
   track("home_search", { query_length: query.value.trim().length, city_count: cities.value.length });
-  navigateTo({ path: "/", query: { q: query.value.trim() || undefined, city: cities.value.map((city) => city.slug).join(",") } });
+  navigateTo({ path: `/s/${cities.value[0]?.slug ?? "isfahan"}`, query: { q: query.value.trim() || undefined, cities: cities.value.map((city) => city.slug).join(",") } });
 }
 
 function updateCities(next: typeof cities.value) {
@@ -28,7 +28,7 @@ function updateCities(next: typeof cities.value) {
         <span aria-hidden="true">⌕</span><input id="global-search" v-model="query" type="search" placeholder="جست‌وجو در همه آگهی‌ها">
       </form>
       <nav class="desktop-navigation" aria-label="ناوبری اصلی">
-        <NuxtLink to="/">دسته‌ها</NuxtLink><NuxtLink to="/">چت</NuxtLink><NuxtLink to="/">هفت‌سوی من</NuxtLink>
+        <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/">چت</NuxtLink><NuxtLink to="/">هفت‌سوی من</NuxtLink>
       </nav>
       <button class="icon-button theme-toggle" type="button" :aria-label="theme === 'dark' ? 'فعال‌کردن پوسته روشن' : 'فعال‌کردن پوسته تیره'" @click="toggle">{{ theme === "dark" ? "☀" : "◐" }}</button>
       <button class="button button-primary submit-ad" type="button">ثبت آگهی</button>

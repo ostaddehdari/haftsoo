@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S10",
+  "currentStage": "S11",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -163,20 +163,36 @@
         { "id": "S10-W09", "status": "complete", "evidence": "docs/stage-10/seo-analytics.md" },
         { "id": "S10-W10", "status": "complete", "evidence": "docs/stage-10/acceptance.md" }
       ]
+    },
+    {
+      "id": "S11",
+      "status": "complete",
+      "works": [
+        { "id": "S11-W01", "status": "complete", "evidence": "docs/stage-11/routes.md" },
+        { "id": "S11-W02", "status": "complete", "evidence": "docs/stage-11/category-sidebar.md" },
+        { "id": "S11-W03", "status": "complete", "evidence": "docs/stage-11/post-card.md" },
+        { "id": "S11-W04", "status": "complete", "evidence": "docs/stage-11/pagination-infinite-scroll.md" },
+        { "id": "S11-W05", "status": "complete", "evidence": "docs/stage-11/sorting-view-mode.md" },
+        { "id": "S11-W06", "status": "complete", "evidence": "docs/stage-11/responsive-layout.md" },
+        { "id": "S11-W07", "status": "complete", "evidence": "docs/stage-11/badges-status.md" },
+        { "id": "S11-W08", "status": "complete", "evidence": "docs/stage-11/skeleton-lazy-loading.md" },
+        { "id": "S11-W09", "status": "complete", "evidence": "docs/stage-11/empty-no-result.md" },
+        { "id": "S11-W10", "status": "complete", "evidence": "docs/stage-11/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S10-W01", "status": "complete", "evidence": "docs/stage-10/ssr-layout.md" },
-    { "id": "S10-W02", "status": "complete", "evidence": "docs/stage-10/header-navigation.md" },
-    { "id": "S10-W03", "status": "complete", "evidence": "docs/stage-10/multi-city.md" },
-    { "id": "S10-W04", "status": "complete", "evidence": "docs/stage-10/home-city-search.md" },
-    { "id": "S10-W05", "status": "complete", "evidence": "docs/stage-10/popular-cities.md" },
-    { "id": "S10-W06", "status": "complete", "evidence": "docs/stage-10/footer-trust.md" },
-    { "id": "S10-W07", "status": "complete", "evidence": "docs/stage-10/themes.md" },
-    { "id": "S10-W08", "status": "complete", "evidence": "docs/stage-10/ui-states.md" },
-    { "id": "S10-W09", "status": "complete", "evidence": "docs/stage-10/seo-analytics.md" },
-    { "id": "S10-W10", "status": "complete", "evidence": "docs/stage-10/acceptance.md" }
+    { "id": "S11-W01", "status": "complete", "evidence": "docs/stage-11/routes.md" },
+    { "id": "S11-W02", "status": "complete", "evidence": "docs/stage-11/category-sidebar.md" },
+    { "id": "S11-W03", "status": "complete", "evidence": "docs/stage-11/post-card.md" },
+    { "id": "S11-W04", "status": "complete", "evidence": "docs/stage-11/pagination-infinite-scroll.md" },
+    { "id": "S11-W05", "status": "complete", "evidence": "docs/stage-11/sorting-view-mode.md" },
+    { "id": "S11-W06", "status": "complete", "evidence": "docs/stage-11/responsive-layout.md" },
+    { "id": "S11-W07", "status": "complete", "evidence": "docs/stage-11/badges-status.md" },
+    { "id": "S11-W08", "status": "complete", "evidence": "docs/stage-11/skeleton-lazy-loading.md" },
+    { "id": "S11-W09", "status": "complete", "evidence": "docs/stage-11/empty-no-result.md" },
+    { "id": "S11-W10", "status": "complete", "evidence": "docs/stage-11/acceptance.md" }
   ],
-  "nextStage": "S11",
-  "updatedAt": "2026-11-01T06:30:00Z"
+  "nextStage": "S12",
+  "updatedAt": "2026-11-01T10:30:00Z"
 }

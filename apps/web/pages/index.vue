@@ -31,7 +31,7 @@ useHead({ script: [{ type: "application/ld+json", innerHTML: JSON.stringify({ "@
 
 function submitSearch() {
   track("home_search", { query_length: query.value.trim().length, city_count: cities.value.length });
-  navigateTo({ path: "/", query: { q: query.value.trim() || undefined, city: cities.value.map((city) => city.slug).join(",") } });
+  navigateTo({ path: `/s/${cities.value[0]?.slug ?? "isfahan"}`, query: { q: query.value.trim() || undefined, cities: cities.value.map((city) => city.slug).join(",") } });
 }
 
 function chooseCity(city: (typeof popularCities)[number]) {
@@ -59,7 +59,7 @@ function chooseCity(city: (typeof popularCities)[number]) {
     <div class="content-container">
       <section class="home-section" aria-labelledby="category-title">
         <div class="section-heading"><div><p class="eyebrow">دسته‌بندی‌ها</p><h2 id="category-title">دنبال چه می‌گردید؟</h2></div><a href="#">همه دسته‌ها</a></div>
-        <div class="category-grid"><a v-for="category in categories" :key="category[2]" :href="`?category=${category[2]}`" class="category-card"><span aria-hidden="true">{{ category[1] }}</span><strong>{{ category[0] }}</strong><small>مشاهده آگهی‌ها</small></a></div>
+        <div class="category-grid"><NuxtLink v-for="category in categories" :key="category[2]" :to="`/s/${cities[0]?.slug ?? 'isfahan'}/${category[2]}`" class="category-card"><span aria-hidden="true">{{ category[1] }}</span><strong>{{ category[0] }}</strong><small>مشاهده آگهی‌ها</small></NuxtLink></div>
       </section>
 
       <section class="home-section city-section" aria-labelledby="city-title">

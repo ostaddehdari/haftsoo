@@ -4,11 +4,11 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S10",
+    "currentStage": "S11",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "tokens": "design-system/tokens.json",
     "routes": "design-system/route-manifest.json",
     "components": "design-system/component-manifest.json",
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.10.0",
+    "version": "0.11.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -45,7 +45,10 @@
     "nationalGeoSelector": "apps/web/components/GeoSelector.vue",
     "publicShell": "apps/web/layouts/default.vue",
     "publicHome": "apps/web/pages/index.vue",
-    "multiCitySelector": "apps/web/components/CitySelector.vue"
+    "multiCitySelector": "apps/web/components/CitySelector.vue",
+    "publicListing": "apps/web/pages/s/[city]/[[category]].vue",
+    "categorySidebar": "apps/web/components/CategorySidebar.vue",
+    "postCard": "apps/web/components/PostCard.vue"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }
