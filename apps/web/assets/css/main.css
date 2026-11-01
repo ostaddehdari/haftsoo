@@ -99,6 +99,34 @@ a { color: inherit; text-decoration: none; }
 .safety-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: var(--success); color: #fff; font-size: 22px; }
 .safety-banner h2 { margin: 0; font-size: 19px; }.safety-banner p { margin: 2px 0 0; color: var(--content-muted); }.safety-banner a { color: var(--success); font-weight: 800; }
 
+.my-posts-page { min-height: 72vh; padding-block: 48px 80px; }
+.my-posts-title { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.my-posts-title h1 { margin: 0; font-size: 34px; }.my-posts-title p:last-child { margin: 4px 0 0; color: var(--content-muted); }
+.my-post-tabs { display: flex; gap: 4px; margin-bottom: 22px; padding: 4px; overflow-x: auto; border-bottom: 1px solid var(--border); }
+.my-post-tabs button { min-width: max-content; padding: 10px 15px; border: 0; border-radius: 9px; background: transparent; color: var(--content-muted); font-weight: 700; }
+.my-post-tabs button[aria-current="page"] { background: var(--brand-soft); color: var(--brand); }
+.my-posts-list { display: grid; gap: 12px; }
+.my-post-card { display: grid; grid-template-columns: 132px minmax(0,1fr); gap: 18px; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface-raised); transition: border-color .18s ease, box-shadow .18s ease; }
+.my-post-card:hover { border-color: color-mix(in srgb, var(--brand) 35%, var(--border)); box-shadow: 0 10px 34px rgb(24 24 27 / 6%); }
+.my-post-thumb { min-height: 112px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(145deg, var(--brand-soft), var(--surface-muted)); color: var(--brand); font-size: 44px; font-weight: 900; }
+.my-post-heading { display: flex; align-items: start; justify-content: space-between; gap: 14px; }.my-post-heading h2 { margin: 0; font-size: 18px; }
+.my-post-meta { margin: 4px 0 10px; color: var(--content-muted); font-size: 13px; }
+.post-status-chip { padding: 3px 9px; border-radius: 999px; background: var(--surface-muted); color: var(--content-muted); font-size: 12px; white-space: nowrap; }
+.post-status-chip[data-status="published"] { background: color-mix(in srgb, var(--success) 12%, var(--surface)); color: var(--success); }
+.post-status-chip[data-status="needs_changes"],.post-status-chip[data-status="rejected"],.post-status-chip[data-status="expired"] { background: var(--brand-soft); color: var(--brand); }
+.moderation-message { display: flex; flex-direction: column; margin: 10px 0; padding: 10px 12px; border-right: 3px solid var(--brand); border-radius: 8px; background: var(--brand-soft); font-size: 13px; }.moderation-message span { color: var(--content-muted); }
+.my-post-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }.my-post-actions .button { min-height: 36px; padding-inline: 13px; font-size: 13px; }
+.text-button { padding: 6px 9px; border: 0; background: transparent; color: var(--content-muted); font: inherit; font-size: 13px; }.text-button:hover { color: var(--brand); }
+.inline-error { padding: 10px 14px; border-radius: 9px; background: var(--brand-soft); color: var(--brand); }
+.history-panel { width: min(520px, calc(100% - 28px)); max-height: 80vh; overflow-y: auto; padding: 22px; border-radius: 16px; background: var(--surface-raised); box-shadow: var(--shadow); }
+.history-panel header { display: flex; align-items: start; justify-content: space-between; }.history-panel h2 { margin: 0; font-size: 21px; }
+.version-timeline { margin: 22px 0 0; padding: 0 24px 0 0; border-right: 2px solid var(--border); list-style: none; }.version-timeline li { position: relative; display: flex; flex-direction: column; padding: 0 0 22px; }.version-timeline li::before { position: absolute; top: 5px; right: -31px; width: 12px; height: 12px; border: 3px solid var(--surface-raised); border-radius: 50%; background: var(--brand); content: ""; }.version-timeline span { color: var(--content-muted); font-size: 13px; }
+
+@media (max-width: 680px) {
+  .my-posts-page { padding-top: 24px; }.my-posts-title { align-items: stretch; flex-direction: column; }.my-posts-title .button { width: 100%; }
+  .my-post-card { grid-template-columns: 82px minmax(0,1fr); gap: 12px; padding: 12px; }.my-post-thumb { min-height: 82px; }.my-post-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+}
+
 .site-footer { border-top: 1px solid var(--border); background: var(--surface-muted); }
 .footer-inner { width: min(1180px, calc(100% - 32px)); margin: auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; padding: 56px 0 36px; }
 .footer-about p { max-width: 390px; color: var(--content-muted); }

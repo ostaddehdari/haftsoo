@@ -1,0 +1,2 @@
+import test from"node:test";import assert from"node:assert/strict";import{listingMaintenanceStatements,LISTING_MAINTENANCE_POLICY}from"../dist/listing/listing-expiration.worker.js";
+test("maintenance expires with skip locked and purges soft deletes",()=>{const jobs=listingMaintenanceStatements(new Date("2026-01-01T00:00:00Z"));assert.equal(jobs.length,2);assert.match(jobs[0].sql,/SKIP LOCKED/);assert.match(jobs[1].sql,/status='deleted'/);assert.equal(LISTING_MAINTENANCE_POLICY.archiveRetentionDays,90)});

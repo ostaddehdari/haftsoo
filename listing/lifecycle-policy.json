@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "statuses": ["pending_review", "needs_changes", "published", "paused", "rejected", "expired", "archived", "deleted"],
+  "ownerActions": ["pause", "resume", "renew", "republish", "archive", "delete"],
+  "publishedLifetimeDays": 30,
+  "softDeleteRetentionDays": 30,
+  "optimisticConcurrency": true,
+  "idempotentActions": true,
+  "history": { "snapshots": true, "moderationMessages": true, "transitionAudit": true }
+}

@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S15",
+  "currentStage": "S16",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -243,20 +243,36 @@
         { "id": "S15-W09", "status": "complete", "evidence": "docs/stage-15/media-ui.md" },
         { "id": "S15-W10", "status": "complete", "evidence": "docs/stage-15/acceptance.md" }
       ]
+    },
+    {
+      "id": "S16",
+      "status": "complete",
+      "works": [
+        { "id": "S16-W01", "status": "complete", "evidence": "docs/stage-16/lifecycle-states.md" },
+        { "id": "S16-W02", "status": "complete", "evidence": "docs/stage-16/active-posts.md" },
+        { "id": "S16-W03", "status": "complete", "evidence": "docs/stage-16/drafts-resume.md" },
+        { "id": "S16-W04", "status": "complete", "evidence": "docs/stage-16/review-rejected.md" },
+        { "id": "S16-W05", "status": "complete", "evidence": "docs/stage-16/edit-version-history.md" },
+        { "id": "S16-W06", "status": "complete", "evidence": "docs/stage-16/renewal-expiry-republish.md" },
+        { "id": "S16-W07", "status": "complete", "evidence": "docs/stage-16/archive-delete.md" },
+        { "id": "S16-W08", "status": "complete", "evidence": "docs/stage-16/moderation-messages.md" },
+        { "id": "S16-W09", "status": "complete", "evidence": "docs/stage-16/expiration-cleanup-jobs.md" },
+        { "id": "S16-W10", "status": "complete", "evidence": "docs/stage-16/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S15-W01", "status": "complete", "evidence": "docs/stage-15/media-domain-policy.md" },
-    { "id": "S15-W02", "status": "complete", "evidence": "docs/stage-15/presigned-upload.md" },
-    { "id": "S15-W03", "status": "complete", "evidence": "docs/stage-15/image-pipeline.md" },
-    { "id": "S15-W04", "status": "complete", "evidence": "docs/stage-15/video-pipeline.md" },
-    { "id": "S15-W05", "status": "complete", "evidence": "docs/stage-15/media-safety-duplicate.md" },
-    { "id": "S15-W06", "status": "complete", "evidence": "docs/stage-15/cover-ordering.md" },
-    { "id": "S15-W07", "status": "complete", "evidence": "docs/stage-15/cdn-delivery.md" },
-    { "id": "S15-W08", "status": "complete", "evidence": "docs/stage-15/retry-cleanup-observability.md" },
-    { "id": "S15-W09", "status": "complete", "evidence": "docs/stage-15/media-ui.md" },
-    { "id": "S15-W10", "status": "complete", "evidence": "docs/stage-15/acceptance.md" }
+    { "id": "S16-W01", "status": "complete", "evidence": "docs/stage-16/lifecycle-states.md" },
+    { "id": "S16-W02", "status": "complete", "evidence": "docs/stage-16/active-posts.md" },
+    { "id": "S16-W03", "status": "complete", "evidence": "docs/stage-16/drafts-resume.md" },
+    { "id": "S16-W04", "status": "complete", "evidence": "docs/stage-16/review-rejected.md" },
+    { "id": "S16-W05", "status": "complete", "evidence": "docs/stage-16/edit-version-history.md" },
+    { "id": "S16-W06", "status": "complete", "evidence": "docs/stage-16/renewal-expiry-republish.md" },
+    { "id": "S16-W07", "status": "complete", "evidence": "docs/stage-16/archive-delete.md" },
+    { "id": "S16-W08", "status": "complete", "evidence": "docs/stage-16/moderation-messages.md" },
+    { "id": "S16-W09", "status": "complete", "evidence": "docs/stage-16/expiration-cleanup-jobs.md" },
+    { "id": "S16-W10", "status": "complete", "evidence": "docs/stage-16/acceptance.md" }
   ],
-  "nextStage": "S16",
-  "updatedAt": "2026-11-01T19:20:00Z"
+  "nextStage": "S17",
+  "updatedAt": "2026-11-01T22:10:00Z"
 }

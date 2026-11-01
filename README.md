@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S14`؛ آخرین خروجی ویزارد کامل ثبت آگهی است
-- استیج بعدی: `S15 — رسانه، تصویر و ویدیو`
+- تکمیل‌شده: `S01` تا `S16`؛ آخرین خروجی چرخه کامل آگهی و «آگهی‌های من» است
+- استیج بعدی: `S17 — صفحه جزئیات آگهی و تماس`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -137,6 +137,18 @@ bash scripts/build-stage-13.sh
 
 ```bash
 bash scripts/build-stage-14.sh
+```
+
+گیت رسانه، تصویر و ویدیو در استیج ۱۵:
+
+```bash
+bash scripts/build-stage-15.sh
+```
+
+گیت چرخه‌عمر آگهی و آگهی‌های من در استیج ۱۶:
+
+```bash
+bash scripts/build-stage-16.sh
 ```
 
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
@@ -263,3 +275,20 @@ bash scripts/build-stage-14.sh
 | S15-W10 | Migration برگشت‌پذیر، Contract، Test و CI |
 
 گزارش پذیرش در [docs/stage-15/acceptance.md](docs/stage-15/acceptance.md)، سیاست ماشین‌خوان در [media/policy.json](media/policy.json) و گزارش کیفیت در [reports/media/stage-15-quality.json](reports/media/stage-15-quality.json) است.
+
+## خروجی استیج ۱۶
+
+| ورک | خروجی |
+|---|---|
+| S16-W01 | Stateها و Transitionهای مالک، ناظر و سیستم |
+| S16-W02 | فهرست Cursor-based آگهی‌های فعال من |
+| S16-W03 | پیش‌نویس‌ها و ادامه ثبت در Wizard |
+| S16-W04 | وضعیت بررسی، نیازمند اصلاح و ردشده |
+| S16-W05 | ویرایش Optimistic و تاریخچه نسخه‌ها |
+| S16-W06 | تمدید، انقضا و بازنشر کنترل‌شده |
+| S16-W07 | بایگانی و Soft Delete با دوره نگهداری |
+| S16-W08 | علت و پیام نسخه‌دار Moderation |
+| S16-W09 | Worker انقضا و پاک‌سازی چندReplicaای |
+| S16-W10 | Migration، Contract، تست، UI نصب‌شونده و CI |
+
+گزارش پذیرش در [docs/stage-16/acceptance.md](docs/stage-16/acceptance.md)، سیاست ماشین‌خوان در [listing/lifecycle-policy.json](listing/lifecycle-policy.json) و گزارش کیفیت در [reports/listing/stage-16-quality.json](reports/listing/stage-16-quality.json) است.

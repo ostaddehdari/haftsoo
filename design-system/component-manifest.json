@@ -24,7 +24,10 @@
     { "name": "SubmissionStepper", "variants": ["desktop", "mobile"], "states": ["pending", "active", "complete"] },
     { "name": "DynamicSubmissionForm", "variants": ["catalog-driven"], "states": ["ready", "invalid", "saving"] },
     { "name": "SubmissionPreview", "variants": ["with-media", "without-media"], "states": ["ready", "submitting", "success"] },
-    { "name": "MediaUploader", "variants": ["image", "video", "mixed"], "states": ["hashing", "uploading", "processing", "ready", "failed", "rejected"] }
+    { "name": "MediaUploader", "variants": ["image", "video", "mixed"], "states": ["hashing", "uploading", "processing", "ready", "failed", "rejected"] },
+    { "name": "MyPostCard", "variants": ["post", "draft"], "states": ["published", "paused", "review", "rejected", "expired", "archived"] },
+    { "name": "PostStatusChip", "variants": ["neutral", "success", "warning", "danger"], "states": ["ready"] },
+    { "name": "PostHistoryPanel", "variants": ["dialog", "drawer"], "states": ["loading", "ready", "empty"] }
   ]
 }
 

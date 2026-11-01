@@ -28,13 +28,13 @@ function updateCities(next: typeof cities.value) {
         <span aria-hidden="true">⌕</span><input id="global-search" v-model="query" type="search" placeholder="جست‌وجو در همه آگهی‌ها">
       </form>
       <nav class="desktop-navigation" aria-label="ناوبری اصلی">
-        <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/">چت</NuxtLink><NuxtLink to="/">هفت‌سوی من</NuxtLink>
+        <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/">چت</NuxtLink><NuxtLink to="/my/posts">هفت‌سوی من</NuxtLink>
       </nav>
       <button class="icon-button theme-toggle" type="button" :aria-label="theme === 'dark' ? 'فعال‌کردن پوسته روشن' : 'فعال‌کردن پوسته تیره'" @click="toggle">{{ theme === "dark" ? "☀" : "◐" }}</button>
       <NuxtLink class="button button-primary submit-ad" to="/new">ثبت آگهی</NuxtLink>
       <button class="icon-button menu-toggle" type="button" :aria-expanded="mobileOpen" aria-label="بازکردن منو" @click="mobileOpen = !mobileOpen">☰</button>
     </div>
-    <nav v-if="mobileOpen" class="mobile-navigation" aria-label="منوی موبایل"><NuxtLink to="/">خانه</NuxtLink><button type="button" @click="dialogOpen = true">{{ cityLabel }}</button><NuxtLink to="/new">ثبت آگهی</NuxtLink><NuxtLink to="/">هفت‌سوی من</NuxtLink></nav>
+    <nav v-if="mobileOpen" class="mobile-navigation" aria-label="منوی موبایل"><NuxtLink to="/">خانه</NuxtLink><button type="button" @click="dialogOpen = true">{{ cityLabel }}</button><NuxtLink to="/new">ثبت آگهی</NuxtLink><NuxtLink to="/my/posts">هفت‌سوی من</NuxtLink></nav>
     <div v-if="dialogOpen" class="dialog-backdrop" @click.self="dialogOpen = false">
       <CitySelector :model-value="cities" @update:model-value="updateCities" @close="dialogOpen = false" />
     </div>

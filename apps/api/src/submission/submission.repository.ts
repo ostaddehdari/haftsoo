@@ -59,6 +59,11 @@ export class SubmissionRepository {
       `INSERT INTO listing.submission_requests (tenant_id, actor_id, draft_id, idempotency_key, payload_checksum, post_id)
        VALUES (current_setting('app.current_tenant_id')::uuid, $1::uuid, $2::uuid, $3, $4, $5::uuid)`, [actorId, id, idempotencyKey, checksum, postId]
     );
+    await this.client.query(
+      `INSERT INTO listing.post_versions (tenant_id, post_id, version, snapshot, change_kind)
+       SELECT tenant_id, id, version, jsonb_build_object('status',status,'title',title,'description',description,'attributes',attributes,'contact',contact,'privacy',privacy), 'submitted'
+       FROM listing.posts WHERE id = $1::uuid ON CONFLICT (post_id, version) DO NOTHING`, [postId]
+    );
     await this.client.query(`UPDATE listing.submission_drafts SET status = 'submitted', submitted_at = clock_timestamp(), updated_at = clock_timestamp() WHERE id = $1::uuid`, [id]);
     return { postId, replayed: false };
   }

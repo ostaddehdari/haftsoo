@@ -209,3 +209,10 @@ export interface SubmissionDraft { id: string; status: "draft" | "ready" | "subm
 export interface SubmissionSaveRequest { revision: number; currentStep: SubmissionStep; payload: SubmissionPayload }
 export interface SubmissionPreview { valid: boolean; issues: Array<{ path: string; code: string; message: string }>; checksum: string; draft: SubmissionDraft }
 export interface SubmissionResult { postId: string; status: "pending_review"; replayed: boolean }
+
+export type PostLifecycleStatus = "pending_review" | "needs_changes" | "published" | "paused" | "rejected" | "expired" | "archived" | "deleted";
+export type MyPostsBucket = "active" | "drafts" | "review" | "rejected" | "expired" | "archived";
+export type OwnerPostAction = "pause" | "resume" | "renew" | "republish" | "archive" | "delete";
+export interface MyPostSummary { id: string; kind: "post" | "draft"; title: string; status: PostLifecycleStatus | "draft"; version: number; updatedAt: string; expiresAt?: string; moderation?: { reasonCode?: string | null; message?: string | null } }
+export interface PostLifecycleActionRequest { expectedVersion: number; action: OwnerPostAction; requestId: string }
+export interface PostVersionSnapshot { version: number; snapshot: Record<string, unknown>; changeKind: string; createdAt: string }

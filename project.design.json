@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S15",
+    "currentStage": "S16",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.15.0",
+    "version": "0.16.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -65,7 +65,11 @@
     "mediaModule": "apps/api/src/media/media.module.ts",
     "mediaUploader": "apps/web/composables/useMediaUpload.ts",
     "mediaPolicy": "media/policy.json",
-    "mediaQualityReport": "reports/media/stage-15-quality.json"
+    "mediaQualityReport": "reports/media/stage-15-quality.json",
+    "listingLifecycleModule": "apps/api/src/listing/listing.module.ts",
+    "myPostsPage": "apps/web/pages/my/posts.vue",
+    "listingLifecyclePolicy": "listing/lifecycle-policy.json",
+    "listingQualityReport": "reports/listing/stage-16-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }
