@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S11`؛ آخرین خروجی صفحات فهرست و دسته‌بندی بازارگاه است
-- استیج بعدی: `S12 — موتور جست‌وجو و OpenSearch`
+- تکمیل‌شده: `S01` تا `S12`؛ آخرین خروجی جست‌وجو و فیلتر پیشرفته است
+- استیج بعدی: `S13 — جست‌وجوی نقشه و GIS`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -121,6 +121,12 @@ bash scripts/build-stage-10.sh
 bash scripts/build-stage-11.sh
 ```
 
+گیت OpenSearch، Relevance و SLA در استیج ۱۲:
+
+```bash
+bash scripts/build-stage-12.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
 ## خروجی استیج ۸
@@ -190,3 +196,20 @@ bash scripts/build-stage-11.sh
 | S11-W10 | گیت پذیرش Nuxt و نسخهٔ نصب‌شونده Nginx |
 
 گزارش پذیرش در [docs/stage-11/acceptance.md](docs/stage-11/acceptance.md) است. مسیر نمونه `/s/isfahan/real-estate` و نسخهٔ نصب‌شونده با مسیرهای hash امکان بررسی بدون Backend جست‌وجو را فراهم می‌کنند.
+
+## خروجی استیج ۱۲
+
+| ورک | خروجی |
+|---|---|
+| S12-W01 | Index Template و Mapping سخت‌گیرانه OpenSearch |
+| S12-W02 | Pipeline تکرارپذیر Bulk برای همگام‌سازی آگهی |
+| S12-W03 | نرمال‌سازی یکسان فارسی در Ingest و Query |
+| S12-W04 | Query DSL محدود، امن و دارای Cursor |
+| S12-W05 | اتصال فیلدهای پویا و Facetها به Search |
+| S12-W06 | Suggestion و Autocomplete فارسی |
+| S12-W07 | Ranking متن، کیفیت و Freshness |
+| S12-W08 | Saved Search و Alert چندکاناله بدون تکرار |
+| S12-W09 | Fixtureهای Relevance و Performance gate |
+| S12-W10 | SLA، CI و گیت پذیرش Search |
+
+گزارش پذیرش در [docs/stage-12/acceptance.md](docs/stage-12/acceptance.md)، قرارداد SLA در [search/sla.json](search/sla.json) و گزارش ماشین‌خوان کیفیت در [reports/search/stage-12-quality.json](reports/search/stage-12-quality.json) قرار دارد.

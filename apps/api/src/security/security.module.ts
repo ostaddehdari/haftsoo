@@ -11,6 +11,7 @@ import { ServiceAuthGuard } from "./service-auth.guard";
     ServiceAuthGuard,
     SecurityRateLimitGuard,
     { provide: APP_INTERCEPTOR, useClass: SecurityHeadersInterceptor }
-  ]
+  ],
+  exports: [ServiceAuthGuard]
 })
 export class SecurityModule {}

@@ -114,3 +114,48 @@ export interface GeoResponseMeta {
   version: "v1";
   geoVersion: number;
 }
+
+export type SearchSort = "relevance" | "newest" | "price-asc" | "price-desc";
+
+export interface SearchFilterValue {
+  eq?: string | number | boolean;
+  any?: Array<string | number>;
+  gte?: number;
+  lte?: number;
+}
+
+export interface SearchRequest {
+  query?: string;
+  cityIds?: string[];
+  districtIds?: string[];
+  categorySlug?: string;
+  filters?: Record<string, SearchFilterValue>;
+  sort?: SearchSort;
+  cursor?: string;
+  limit?: number;
+}
+
+export interface SearchHit {
+  id: string;
+  title: string;
+  cityId: string;
+  districtId?: string;
+  categorySlug: string;
+  price?: number;
+  publishedAt: string;
+  thumbnailUrl?: string;
+}
+
+export interface SearchResponse {
+  items: SearchHit[];
+  total: number;
+  nextCursor?: string;
+  facets: Record<string, Array<{ value: string; count: number }>>;
+  tookMs: number;
+}
+
+export interface SearchSuggestion {
+  text: string;
+  categorySlug?: string;
+  score: number;
+}

@@ -10,7 +10,7 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@haftsoo/contracts": "0.3.0",
+    "@haftsoo/contracts": "0.4.0",
     "nuxt": "3.21.11"
   },
   "devDependencies": {

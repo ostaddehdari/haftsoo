@@ -29,6 +29,7 @@ services:
       POSTGRES_DB: haftsoo
       POSTGRES_USER: haftsoo
       POSTGRES_PASSWORD: haftsoo-local-only
+      OPENSEARCH_URL: http://opensearch:9200
     ports:
       - "3001:3001"
     healthcheck:
@@ -38,6 +39,8 @@ services:
       retries: 5
     depends_on:
       postgres:
+        condition: service_healthy
+      opensearch:
         condition: service_healthy
 
   chat:
@@ -71,5 +74,22 @@ services:
       timeout: 3s
       retries: 12
 
+  opensearch:
+    image: opensearchproject/opensearch:3.2.0
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: "true"
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
 volumes:
   postgres-data:
+  opensearch-data:

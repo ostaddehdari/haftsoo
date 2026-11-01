@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-11-01T15:49:28.663Z",
+  "fixtureCases": 4,
+  "normalizedDcgAt10": 1,
+  "queryPlanningP95Ms": 0.006,
+  "targets": {
+    "availabilityPercent": 99.9,
+    "latencyP95Ms": 250,
+    "latencyP99Ms": 600,
+    "suggestionP95Ms": 120,
+    "indexFreshnessP95Seconds": 30,
+    "zeroResultRatePercentMax": 8,
+    "normalizedDcgAt10Min": 0.75
+  },
+  "passed": true
+}

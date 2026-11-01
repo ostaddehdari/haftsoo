@@ -1,6 +1,6 @@
 {
   "name": "haftsoo",
-  "version": "0.11.0-stage.11",
+  "version": "0.12.0-stage.12",
   "private": true,
   "description": "Haftsoo national classifieds marketplace monorepo",
   "workspaces": [
@@ -30,6 +30,7 @@
     "verify:stage9": "node scripts/verify-stage-09.mjs",
     "verify:stage10": "node scripts/verify-stage-10.mjs",
     "verify:stage11": "node scripts/verify-stage-11.mjs",
+    "verify:stage12": "node scripts/verify-stage-12.mjs",
     "db:migrate": "node scripts/db-migrate.mjs up",
     "db:rollback": "node scripts/db-migrate.mjs down",
     "db:status": "node scripts/db-migrate.mjs status",
@@ -41,11 +42,14 @@
     "geo:national:build": "node scripts/geo-national-build.mjs",
     "geo:national:contract": "node scripts/geo-national-contract.mjs",
     "geo:national:qa": "node scripts/geo-national-qa.mjs --check",
+    "search:contract": "node scripts/search-contract.mjs",
+    "search:bootstrap": "node scripts/opensearch-bootstrap.mjs",
+    "search:quality": "node scripts/search-relevance-performance.mjs",
     "security:baseline": "node scripts/security-baseline.mjs",
     "test:security": "npm run test --workspace @haftsoo/api",
     "test:capacity": "node scripts/test-capacity.mjs",
     "verify:install": "node scripts/verify-install-assets.mjs",
-    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:stage10 && npm run verify:stage11 && npm run verify:install"
+    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:stage10 && npm run verify:stage11 && npm run verify:stage12 && npm run verify:install"
   },
   "engines": {
     "node": ">=22 <23",

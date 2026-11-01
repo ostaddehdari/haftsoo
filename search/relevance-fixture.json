@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "cases": [
+    { "query": "آپارتمان اجاره ای", "normalized": "اپارتمان اجاره ای", "expectedCategory": "real-estate" },
+    { "query": "گوشي سامسونگ", "normalized": "گوشی سامسونگ", "expectedCategory": "mobile-tablet" },
+    { "query": "خودروی كاركرده", "normalized": "خودروی کارکرده", "expectedCategory": "vehicles" },
+    { "query": "استخدام برنامه نویس", "normalized": "استخدام برنامه نویس", "expectedCategory": "jobs" }
+  ]
+}

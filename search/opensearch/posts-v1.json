@@ -1,0 +1,80 @@
+{
+  "index_patterns": ["haftsoo-posts-v1-*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 3,
+      "number_of_replicas": 1,
+      "refresh_interval": "5s",
+      "analysis": {
+        "char_filter": {
+          "haftsoo_persian_chars": {
+            "type": "mapping",
+            "mappings": ["ي => ی", "ى => ی", "ك => ک", "ة => ه", "ۀ => ه", "ؤ => و", "أ => ا", "إ => ا", "آ => ا"]
+          }
+        },
+        "filter": {
+          "haftsoo_stop": { "type": "stop", "stopwords": "_persian_" },
+          "haftsoo_shingle": { "type": "shingle", "min_shingle_size": 2, "max_shingle_size": 3 },
+          "haftsoo_edge": { "type": "edge_ngram", "min_gram": 2, "max_gram": 20 }
+        },
+        "analyzer": {
+          "haftsoo_fa": {
+            "type": "custom",
+            "char_filter": ["haftsoo_persian_chars"],
+            "tokenizer": "standard",
+            "filter": ["lowercase", "decimal_digit", "arabic_normalization", "persian_normalization", "haftsoo_stop"]
+          },
+          "haftsoo_fa_shingle": {
+            "type": "custom",
+            "char_filter": ["haftsoo_persian_chars"],
+            "tokenizer": "standard",
+            "filter": ["lowercase", "decimal_digit", "persian_normalization", "haftsoo_shingle"]
+          },
+          "haftsoo_autocomplete": {
+            "type": "custom",
+            "char_filter": ["haftsoo_persian_chars"],
+            "tokenizer": "standard",
+            "filter": ["lowercase", "decimal_digit", "persian_normalization", "haftsoo_edge"]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "properties": {
+        "tenant_id": { "type": "keyword" },
+        "title": {
+          "type": "text",
+          "analyzer": "haftsoo_fa",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 },
+            "shingle": { "type": "text", "analyzer": "haftsoo_fa_shingle" },
+            "autocomplete": { "type": "text", "analyzer": "haftsoo_autocomplete", "search_analyzer": "haftsoo_fa" }
+          }
+        },
+        "title_display": { "type": "keyword", "index": false },
+        "description": { "type": "text", "analyzer": "haftsoo_fa" },
+        "category_title": { "type": "text", "analyzer": "haftsoo_fa" },
+        "category_slug": { "type": "keyword" },
+        "city_id": { "type": "keyword" },
+        "district_id": { "type": "keyword" },
+        "price": { "type": "scaled_float", "scaling_factor": 1 },
+        "attributes": { "type": "object", "dynamic": true },
+        "status": { "type": "keyword" },
+        "published_at": { "type": "date" },
+        "updated_at": { "type": "date" },
+        "location": { "type": "geo_point" },
+        "thumbnail_url": { "type": "keyword", "index": false },
+        "quality_score": { "type": "half_float" },
+        "search_terms": { "type": "text", "analyzer": "haftsoo_fa" }
+      }
+    },
+    "aliases": {
+      "haftsoo-posts-read": {},
+      "haftsoo-posts-write": { "is_write_index": true }
+    }
+  },
+  "priority": 200,
+  "version": 1,
+  "_meta": { "owner": "search", "schema": "posts-v1" }
+}
