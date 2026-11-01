@@ -8,7 +8,7 @@ function tenant(headersTenant: string | undefined): string {
   return headersTenant ?? "";
 }
 
-@Controller("v1/catalog")
+@Controller("catalog")
 export class CatalogController {
   constructor(private readonly catalog: CatalogService) {}
 
@@ -29,7 +29,7 @@ export class CatalogController {
   }
 }
 
-@Controller("v1/admin/catalog")
+@Controller("admin/catalog")
 @UseGuards(ServiceAuthGuard)
 export class CatalogAdminController {
   constructor(private readonly catalog: CatalogService) {}

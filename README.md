@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S12`؛ آخرین خروجی جست‌وجو و فیلتر پیشرفته است
-- استیج بعدی: `S13 — جست‌وجوی نقشه و GIS`
+- تکمیل‌شده: `S01` تا `S13`؛ آخرین خروجی نقشه و جست‌وجوی GIS است
+- استیج بعدی: `S14 — جزئیات آگهی و تماس امن`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -127,6 +127,12 @@ bash scripts/build-stage-11.sh
 bash scripts/build-stage-12.sh
 ```
 
+گیت MapLibre، Viewport و GIS در استیج ۱۳:
+
+```bash
+bash scripts/build-stage-13.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
 ## خروجی استیج ۸
@@ -213,3 +219,20 @@ bash scripts/build-stage-12.sh
 | S12-W10 | SLA، CI و گیت پذیرش Search |
 
 گزارش پذیرش در [docs/stage-12/acceptance.md](docs/stage-12/acceptance.md)، قرارداد SLA در [search/sla.json](search/sla.json) و گزارش ماشین‌خوان کیفیت در [reports/search/stage-12-quality.json](reports/search/stage-12-quality.json) قرار دارد.
+
+## خروجی استیج ۱۳
+
+| ورک | خروجی |
+|---|---|
+| S13-W01 | راه‌اندازی lifecycle ایمن MapLibre GL JS در Nuxt |
+| S13-W02 | Style نسخه ۸، Tile قابل تنظیم و Attribution اجباری |
+| S13-W03 | API امن Viewport، Camera State و Hash پایدار |
+| S13-W04 | Cluster مکانی OpenSearch و تعامل سمت کاربر |
+| S13-W05 | Bounding Box Search همراه Tenant isolation |
+| S13-W06 | Polygon محله با GeoJSON مستقل |
+| S13-W07 | Marker انتخابی و Preview آگهی |
+| S13-W08 | همگام‌سازی Map/List، فیلترها و URL |
+| S13-W09 | بودجه Query، Render و Debounce مکانی |
+| S13-W10 | گیت چهار شهر و سه سطح Zoom |
+
+گزارش پذیرش در [docs/stage-13/acceptance.md](docs/stage-13/acceptance.md)، بودجه در [maps/performance-budget.json](maps/performance-budget.json) و گزارش کیفیت در [reports/map/stage-13-quality.json](reports/map/stage-13-quality.json) قرار دارد.

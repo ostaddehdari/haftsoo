@@ -1,0 +1,11 @@
+{
+  "viewportDebounceMs": 300,
+  "maximumClusters": 2000,
+  "defaultClusterRadius": 52,
+  "mapFirstInteractiveMsP75": 2500,
+  "viewportApiMsP95": 450,
+  "minimumZoom": 4,
+  "maximumZoom": 20,
+  "qualityCities": ["isfahan", "tehran", "mashhad", "shiraz"],
+  "qualityZooms": [7, 11, 15]
+}

@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S12",
+  "currentStage": "S13",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -195,20 +195,36 @@
         { "id": "S12-W09", "status": "complete", "evidence": "docs/stage-12/relevance-performance.md" },
         { "id": "S12-W10", "status": "complete", "evidence": "docs/stage-12/acceptance.md" }
       ]
+    },
+    {
+      "id": "S13",
+      "status": "complete",
+      "works": [
+        { "id": "S13-W01", "status": "complete", "evidence": "docs/stage-13/maplibre-setup.md" },
+        { "id": "S13-W02", "status": "complete", "evidence": "docs/stage-13/style-tile-attribution.md" },
+        { "id": "S13-W03", "status": "complete", "evidence": "docs/stage-13/viewport-camera-api.md" },
+        { "id": "S13-W04", "status": "complete", "evidence": "docs/stage-13/post-clustering.md" },
+        { "id": "S13-W05", "status": "complete", "evidence": "docs/stage-13/bounding-box-search.md" },
+        { "id": "S13-W06", "status": "complete", "evidence": "docs/stage-13/neighborhood-polygons.md" },
+        { "id": "S13-W07", "status": "complete", "evidence": "docs/stage-13/markers-preview.md" },
+        { "id": "S13-W08", "status": "complete", "evidence": "docs/stage-13/map-list-sync.md" },
+        { "id": "S13-W09", "status": "complete", "evidence": "docs/stage-13/spatial-performance.md" },
+        { "id": "S13-W10", "status": "complete", "evidence": "docs/stage-13/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S12-W01", "status": "complete", "evidence": "docs/stage-12/index-mapping.md" },
-    { "id": "S12-W02", "status": "complete", "evidence": "docs/stage-12/index-sync-pipeline.md" },
-    { "id": "S12-W03", "status": "complete", "evidence": "docs/stage-12/persian-normalization.md" },
-    { "id": "S12-W04", "status": "complete", "evidence": "docs/stage-12/query-dsl.md" },
-    { "id": "S12-W05", "status": "complete", "evidence": "docs/stage-12/dynamic-filters.md" },
-    { "id": "S12-W06", "status": "complete", "evidence": "docs/stage-12/suggestions.md" },
-    { "id": "S12-W07", "status": "complete", "evidence": "docs/stage-12/ranking-freshness.md" },
-    { "id": "S12-W08", "status": "complete", "evidence": "docs/stage-12/saved-search-alerts.md" },
-    { "id": "S12-W09", "status": "complete", "evidence": "docs/stage-12/relevance-performance.md" },
-    { "id": "S12-W10", "status": "complete", "evidence": "docs/stage-12/acceptance.md" }
+    { "id": "S13-W01", "status": "complete", "evidence": "docs/stage-13/maplibre-setup.md" },
+    { "id": "S13-W02", "status": "complete", "evidence": "docs/stage-13/style-tile-attribution.md" },
+    { "id": "S13-W03", "status": "complete", "evidence": "docs/stage-13/viewport-camera-api.md" },
+    { "id": "S13-W04", "status": "complete", "evidence": "docs/stage-13/post-clustering.md" },
+    { "id": "S13-W05", "status": "complete", "evidence": "docs/stage-13/bounding-box-search.md" },
+    { "id": "S13-W06", "status": "complete", "evidence": "docs/stage-13/neighborhood-polygons.md" },
+    { "id": "S13-W07", "status": "complete", "evidence": "docs/stage-13/markers-preview.md" },
+    { "id": "S13-W08", "status": "complete", "evidence": "docs/stage-13/map-list-sync.md" },
+    { "id": "S13-W09", "status": "complete", "evidence": "docs/stage-13/spatial-performance.md" },
+    { "id": "S13-W10", "status": "complete", "evidence": "docs/stage-13/acceptance.md" }
   ],
-  "nextStage": "S13",
-  "updatedAt": "2026-11-01T12:30:00Z"
+  "nextStage": "S14",
+  "updatedAt": "2026-11-01T15:30:00Z"
 }

@@ -6,7 +6,7 @@ import { GeoService } from "./geo.service";
 
 const tenant = (value: string | undefined) => value ?? "";
 
-@Controller("v1/geo")
+@Controller("geo")
 export class GeoController {
   constructor(private readonly geo: GeoService) {}
 
@@ -64,7 +64,7 @@ export class GeoController {
   }
 }
 
-@Controller("v1/admin/geo")
+@Controller("admin/geo")
 @UseGuards(ServiceAuthGuard)
 export class GeoAdminController {
   constructor(private readonly geo: GeoService) {}

@@ -1,0 +1,15 @@
+{
+  "stage": "S13",
+  "result": "pass",
+  "cities": ["isfahan", "tehran", "mashhad", "shiraz"],
+  "zooms": [7, 11, 15],
+  "checks": {
+    "styleAndAttribution": true,
+    "clusters": true,
+    "boundingBoxSearch": true,
+    "neighborhoodPolygons": true,
+    "markerPreview": true,
+    "mapListSynchronization": true,
+    "reducedMotion": true
+  }
+}

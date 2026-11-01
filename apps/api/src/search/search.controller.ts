@@ -8,7 +8,7 @@ function required(value: string | undefined, name: string): string {
   return value;
 }
 
-@Controller("v1/search")
+@Controller("search")
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 
@@ -24,7 +24,7 @@ export class SearchController {
 
 }
 
-@Controller("v1/search/saved")
+@Controller("search/saved")
 @UseGuards(ServiceAuthGuard)
 export class SavedSearchController {
   constructor(private readonly searchService: SearchService) {}

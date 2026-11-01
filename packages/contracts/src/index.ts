@@ -159,3 +159,32 @@ export interface SearchSuggestion {
   categorySlug?: string;
   score: number;
 }
+
+export interface MapBoundingBox {
+  minLongitude: number;
+  minLatitude: number;
+  maxLongitude: number;
+  maxLatitude: number;
+}
+
+export interface MapCameraState {
+  bbox: MapBoundingBox;
+  zoom: number;
+  center?: { longitude: number; latitude: number };
+}
+
+export interface MapCluster {
+  id: string;
+  longitude: number;
+  latitude: number;
+  count: number;
+  destinationZoom: number;
+  preview?: SearchHit;
+}
+
+export interface MapViewportResponse {
+  clusters: MapCluster[];
+  total: number;
+  cameraHash: string;
+  showSearchThisArea: boolean;
+}

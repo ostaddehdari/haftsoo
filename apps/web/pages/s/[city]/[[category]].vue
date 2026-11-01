@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { categoryLabel, listingCategories, listingPosts } from "~/composables/useListingData";
+import type { ListingPost } from "~/composables/useListingData";
 
 const route = useRoute();
 const city = computed(() => String(route.params.city || "isfahan"));
 const selectedCategory = computed(() => route.params.category ? String(route.params.category) : undefined);
+const selectedDistricts = computed(() => typeof route.query.districts === "string" ? route.query.districts.split(",").filter(Boolean) : []);
 const cityOption = computed(() => popularCities.find((item) => item.slug === city.value) ?? popularCities[2]!);
 const query = computed(() => typeof route.query.q === "string" ? route.query.q.trim() : "");
 const sort = ref<"newest" | "price-asc" | "price-desc">("newest");
@@ -15,6 +17,8 @@ const pageSize = 6;
 const requestedPage = computed(() => Math.max(1, Number(route.query.page) || 1));
 const visibleCount = ref(requestedPage.value * pageSize);
 const loadSentinel = ref<HTMLElement | null>(null);
+const { mapMode, selectedPostId, clusters: mapClusters, loading: mapLoading, error: mapError, setMapMode, selectPost, updateViewport } = useMapSearch(selectedCategory, selectedDistricts);
+const selectedMapPost = computed(() => visiblePosts.value.find((post: ListingPost) => post.listingId === selectedPostId.value));
 let observer: IntersectionObserver | undefined;
 let loadingTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -90,19 +94,25 @@ useHead(() => ({ link: [{ rel: "canonical", href: `https://srun.ir/haftsoo/s/${c
         <aside class="listing-aside"><CategorySidebar :categories="listingCategories" :selected="selectedCategory" :city="city" @select="selectCategory" /><label class="listing-toggle"><span><strong>فقط عکس‌دار</strong><small>حذف آگهی‌های بدون تصویر</small></span><input v-model="photoOnly" type="checkbox"></label></aside>
 
         <section class="listing-results" aria-labelledby="listing-heading">
-          <header class="listing-heading"><div><p class="eyebrow">بازار محلی {{ cityOption.name }}</p><h1 id="listing-heading">{{ title }}</h1><p><strong>{{ formatCount(filteredPosts.length) }}</strong> آگهی پیدا شد</p></div><NuxtLink class="button button-secondary map-link" :to="{ path: route.path, query: { ...route.query, map: '1' } }">نمایش روی نقشه</NuxtLink></header>
+          <header class="listing-heading"><div><p class="eyebrow">بازار محلی {{ cityOption.name }}</p><h1 id="listing-heading">{{ title }}</h1><p><strong>{{ formatCount(filteredPosts.length) }}</strong> آگهی پیدا شد</p></div><button class="button button-secondary map-link" type="button" :aria-pressed="mapMode" @click="setMapMode(!mapMode)">{{ mapMode ? "نمایش فهرست" : "نمایش روی نقشه" }}</button></header>
 
           <div class="listing-controls">
             <label><span>مرتب‌سازی</span><select v-model="sort" aria-label="مرتب‌سازی آگهی‌ها"><option value="newest">جدیدترین</option><option value="price-asc">ارزان‌ترین</option><option value="price-desc">گران‌ترین</option></select></label>
             <div class="view-switch" role="group" aria-label="حالت نمایش"><button type="button" :class="{ active: view === 'grid' }" :aria-pressed="view === 'grid'" @click="setView('grid')">▦<span class="visually-hidden">شبکه‌ای</span></button><button type="button" :class="{ active: view === 'list' }" :aria-pressed="view === 'list'" @click="setView('list')">☷<span class="visually-hidden">فهرستی</span></button></div>
           </div>
 
-          <ListingSkeleton v-if="loading" />
+          <section v-if="mapMode" class="map-workspace" aria-label="نمایش نقشه آگهی‌ها">
+            <ClientOnly><ClassifiedsMap :posts="visiblePosts" :city="city" :selected-post-id="selectedPostId" :neighborhood-keys="selectedDistricts" :server-clusters="mapClusters" @select="selectPost" @viewport="updateViewport" /><template #fallback><ListingSkeleton /></template></ClientOnly>
+            <div v-if="mapLoading" class="map-status" role="status">در حال جست‌وجوی این محدوده…</div>
+            <div v-if="mapError" class="map-status map-status--warning">{{ mapError }}</div>
+            <MapPostPreview v-if="selectedMapPost" :post="selectedMapPost" @close="selectPost(undefined)" />
+          </section>
+          <ListingSkeleton v-else-if="loading" />
           <div v-else-if="visiblePosts.length" class="listing-posts" :class="`listing-posts--${view}`" aria-live="polite"><PostCard v-for="post in visiblePosts" :key="post.listingId" :post="post" :view="view" /></div>
           <UiState v-else kind="empty" title="آگهی‌ای با این شرایط پیدا نشد" description="عبارت جست‌وجو یا دسته‌بندی را تغییر دهید و دوباره امتحان کنید."><button class="button button-secondary" type="button" @click="selectCategory()">حذف دسته‌بندی</button></UiState>
 
-          <div v-if="visiblePosts.length" ref="loadSentinel" class="load-more" :aria-busy="loading"><button v-if="hasMore" class="button button-secondary" type="button" @click="loadMore">نمایش آگهی‌های بیشتر</button><span v-else>همه آگهی‌های موجود نمایش داده شد.</span></div>
-          <nav v-if="filteredPosts.length > pageSize" class="pagination" aria-label="صفحه‌بندی آگهی‌ها"><NuxtLink v-for="page in pageCount" :key="page" :to="pageHref(page)" :aria-current="requestedPage === page ? 'page' : undefined">{{ formatCount(page) }}</NuxtLink></nav>
+          <div v-if="visiblePosts.length && !mapMode" ref="loadSentinel" class="load-more" :aria-busy="loading"><button v-if="hasMore" class="button button-secondary" type="button" @click="loadMore">نمایش آگهی‌های بیشتر</button><span v-else>همه آگهی‌های موجود نمایش داده شد.</span></div>
+          <nav v-if="filteredPosts.length > pageSize && !mapMode" class="pagination" aria-label="صفحه‌بندی آگهی‌ها"><NuxtLink v-for="page in pageCount" :key="page" :to="pageHref(page)" :aria-current="requestedPage === page ? 'page' : undefined">{{ formatCount(page) }}</NuxtLink></nav>
         </section>
       </div>
     </div>

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
@@ -18,7 +18,9 @@
     { "name": "UiState", "variants": ["loading", "error", "empty"], "states": ["default", "compact", "actionable"] },
     { "name": "CategorySidebar", "variants": ["desktop", "mobile-details"], "states": ["root", "branch", "selected"] },
     { "name": "ListingToolbar", "variants": ["desktop", "mobile"], "states": ["grid", "list", "sorted"] },
-    { "name": "Pagination", "variants": ["pages", "load-more", "infinite"], "states": ["ready", "loading", "complete"] }
+    { "name": "Pagination", "variants": ["pages", "load-more", "infinite"], "states": ["ready", "loading", "complete"] },
+    { "name": "ClassifiedsMap", "variants": ["desktop", "mobile", "embedded"], "states": ["loading", "ready", "moving", "offline"] },
+    { "name": "MapPostPreview", "variants": ["image", "without-image"], "states": ["opening", "selected", "closing"] }
   ]
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "basePath": "/haftsoo",
   "routes": [
     { "id": "home", "path": "/", "family": "discovery", "auth": false, "states": ["default", "city-search", "offline"] },

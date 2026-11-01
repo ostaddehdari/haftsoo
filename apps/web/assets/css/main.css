@@ -212,3 +212,19 @@ a { color: inherit; text-decoration: none; }
   .skeleton-card { min-height: 164px; grid-template-columns: 1fr 126px; }.skeleton-media { height: 140px; }
 }
 @media (prefers-reduced-motion: reduce) { .skeleton-block { animation: none; }.listing-card:hover { transform: none; } }
+
+.map-workspace { position: relative; min-height: 620px; overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-raised); box-shadow: 0 12px 30px rgb(24 24 27 / 8%); }
+.classifieds-map { width: 100%; height: 620px; direction: ltr; }
+.maplibregl-ctrl-attrib { direction: rtl; font-family: inherit; }
+.map-status { position: absolute; z-index: 5; top: 14px; right: 14px; max-width: calc(100% - 28px); padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--content-muted); font-size: 12px; background: color-mix(in srgb, var(--surface-raised) 92%, transparent); backdrop-filter: blur(10px); }
+.map-status--warning { top: 52px; color: #9f341d; border-color: #fed7aa; background: color-mix(in srgb, #fff7ed 94%, transparent); }
+.map-post-preview { position: absolute; z-index: 6; right: 16px; bottom: 16px; display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; width: min(420px, calc(100% - 32px)); min-height: 118px; padding: 10px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-raised); box-shadow: 0 16px 48px rgb(24 24 27 / 20%); animation: map-preview-in .2s ease-out; }
+.map-post-preview img { width: 104px; height: 96px; object-fit: cover; border-radius: 10px; }
+.map-preview-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; gap: 7px; padding-left: 20px; }
+.map-preview-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.map-preview-copy span { color: var(--content-strong); font-weight: 800; }
+.map-preview-copy small { color: var(--content-muted); }
+.map-preview-close { position: absolute; top: 8px; left: 8px; display: grid; width: 28px; height: 28px; place-items: center; border: 0; border-radius: 50%; color: var(--content-muted); background: var(--surface); cursor: pointer; }
+@keyframes map-preview-in { from { opacity: 0; transform: translateY(10px); } }
+@media (max-width: 760px) { .map-workspace, .classifieds-map { min-height: calc(100dvh - 210px); height: calc(100dvh - 210px); }.map-post-preview { bottom: 10px; right: 10px; width: calc(100% - 20px); }.listing-controls:has(+ .map-workspace) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .map-post-preview { animation: none; } }
