@@ -20,7 +20,7 @@ const state = JSON.parse(read("project.state.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S03");
 const works = stage?.works ?? (state.currentStage === "S03" ? state.works : []);
 
-if (!/^0\.[3-9]\./.test(rootPackage.version)) fail("root package version must not predate stage 3");
+if (Number(rootPackage.version.split(".")[1]) < 3) fail("root package version must not predate stage 3");
 if (!rootPackage.workspaces?.includes("apps/*") || !rootPackage.workspaces?.includes("packages/*")) fail("npm workspaces are incomplete");
 if (stage?.status !== "complete") fail("project state must retain completed S03 history");
 if (works.length !== 10 || works.some((work) => work.status !== "complete")) fail("S03 must have exactly 10 completed works");

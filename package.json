@@ -1,6 +1,6 @@
 {
   "name": "haftsoo",
-  "version": "0.9.0-stage.9",
+  "version": "0.10.0-stage.10",
   "private": true,
   "description": "Haftsoo national classifieds marketplace monorepo",
   "workspaces": [
@@ -28,6 +28,7 @@
     "verify:stage7": "node scripts/verify-stage-07.mjs",
     "verify:stage8": "node scripts/verify-stage-08.mjs",
     "verify:stage9": "node scripts/verify-stage-09.mjs",
+    "verify:stage10": "node scripts/verify-stage-10.mjs",
     "db:migrate": "node scripts/db-migrate.mjs up",
     "db:rollback": "node scripts/db-migrate.mjs down",
     "db:status": "node scripts/db-migrate.mjs status",
@@ -43,7 +44,7 @@
     "test:security": "npm run test --workspace @haftsoo/api",
     "test:capacity": "node scripts/test-capacity.mjs",
     "verify:install": "node scripts/verify-install-assets.mjs",
-    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:install"
+    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:stage10 && npm run verify:install"
   },
   "engines": {
     "node": ">=22 <23",

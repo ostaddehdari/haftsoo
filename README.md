@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S09`؛ آخرین خروجی دادهٔ ملی شهر، محله و Polygon است
-- استیج بعدی: `S10 — پوسته عمومی و صفحه نخست`
+- تکمیل‌شده: `S01` تا `S10`؛ آخرین خروجی پوسته عمومی و صفحه نخست بازارگاه است
+- استیج بعدی: `S11 — صفحات فهرست و دسته‌بندی`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -109,6 +109,12 @@ bash scripts/build-stage-09.sh
 RUN_DATABASE_DRILL=1 bash scripts/build-stage-09.sh
 ```
 
+گیت پوسته عمومی و صفحه نخست در استیج ۱۰:
+
+```bash
+bash scripts/build-stage-10.sh
+```
+
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.
 
 ## خروجی استیج ۸
@@ -144,3 +150,20 @@ RUN_DATABASE_DRILL=1 bash scripts/build-stage-09.sh
 | S09-W10 | گیت دقیق شمار، پوشش، checksum و CI |
 
 گزارش پذیرش در [docs/stage-09/acceptance.md](docs/stage-09/acceptance.md) و گزارش ماشین‌خوان در [reports/geo/national-quality.json](reports/geo/national-quality.json) است. دادهٔ مرجع برای بازتولید به قطعات Base64 فشرده و checksum‌شده تقسیم شده است؛ وضعیت مجوز بازتوزیع پیش از تولید باید بازبینی حقوقی شود.
+
+## خروجی استیج ۱۰
+
+| ورک | خروجی |
+|---|---|
+| S10-W01 | Nuxt SSR، RTL و Layout عمومی |
+| S10-W02 | Header، Navigation و منوی موبایل |
+| S10-W03 | انتخاب حداکثر ۱۰ شهر و ماندگاری انتخاب |
+| S10-W04 | صفحه نخست و جست‌وجوی وابسته به شهر |
+| S10-W05 | شهرهای پربازدید با جست‌وجوی محلی |
+| S10-W06 | Footer، لینک‌های پشتیبانی و جایگاه اعتماد |
+| S10-W07 | Light/Dark و پیروی از ترجیح سیستم |
+| S10-W08 | Loading، Error و Empty State دسترس‌پذیر |
+| S10-W09 | SEO، canonical، JSON-LD و Analytics حریم‌خصوصی‌محور |
+| S10-W10 | گیت بصری و هم‌ترازی Nuxt با نسخه نصب‌شونده |
+
+گزارش پذیرش در [docs/stage-10/acceptance.md](docs/stage-10/acceptance.md) است. نسخهٔ `deploy/web` همان قابلیت‌های صفحه نخست Nuxt را برای استقرار فعلی Nginx ارائه می‌کند.

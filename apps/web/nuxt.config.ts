@@ -8,8 +8,13 @@ export default defineNuxtConfig({
       title: "هفت‌سو | بازار آگهی ایران",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "theme-color", content: "#a62626" }
-      ]
+        { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+        { name: "theme-color", content: "#18181b", media: "(prefers-color-scheme: dark)" },
+        { name: "color-scheme", content: "light dark" },
+        { name: "format-detection", content: "telephone=no" },
+        { name: "referrer", content: "strict-origin-when-cross-origin" }
+      ],
+      link: [{ rel: "canonical", href: "https://srun.ir/haftsoo/" }]
     }
   },
   css: ["~/assets/css/main.css"],

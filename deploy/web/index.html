@@ -4,9 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="نمونه تعاملی بازار آگهی هفت‌سو">
-  <title>هفت‌سو — بازار آگهی</title>
+  <meta name="description" content="هفت‌سو؛ بازار آگهی‌های محلی ایران برای خرید و فروش بی‌واسطه کالا، خودرو، ملک و خدمات">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="هفت‌سو؛ بازار آگهی‌های محلی ایران">
+  <meta property="og:description" content="آگهی‌های نزدیک خود را پیدا کنید یا در چند دقیقه آگهی ثبت کنید.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:url" content="https://srun.ir/haftsoo/">
+  <link rel="canonical" href="https://srun.ir/haftsoo/">
+  <title>هفت‌سو؛ بازار آگهی‌های محلی ایران</title>
   <link rel="stylesheet" href="./app.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"هفت‌سو","url":"https://srun.ir/haftsoo/","inLanguage":"fa-IR","potentialAction":{"@type":"SearchAction","target":"https://srun.ir/haftsoo/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
@@ -68,6 +77,13 @@
         <div class="category-grid" id="category-grid"></div>
         <div class="section-heading"><div><span class="eyebrow">تازه‌ها</span><h2>آگهی‌های نزدیک شما</h2></div><a href="#/search">مشاهده همه آگهی‌ها</a></div>
         <div class="post-grid home-posts" id="home-posts"></div>
+        <section class="popular-city-section" aria-labelledby="popular-city-title">
+          <div class="section-heading"><div><span class="eyebrow">شهرهای پربازدید</span><h2 id="popular-city-title">آگهی‌های کدام شهر را می‌خواهید؟</h2></div></div>
+          <label class="popular-city-search"><svg aria-hidden="true"><use href="#i-search"/></svg><span class="visually-hidden">جست‌وجوی شهر</span><input id="popular-city-search" type="search" placeholder="نام شهر یا استان"></label>
+          <div class="popular-city-grid" id="popular-city-grid"></div>
+          <div class="city-empty" id="city-empty" hidden><span aria-hidden="true">⌕</span><strong>شهری پیدا نشد</strong><p>نام شهر را با املای دیگری جست‌وجو کنید.</p></div>
+        </section>
+        <section class="safety-banner" aria-labelledby="safety-title"><span class="safety-icon" aria-hidden="true">✓</span><div><h2 id="safety-title">خرید و فروش امن در هفت‌سو</h2><p>پیش از پرداخت، کالا را ببینید و گفتگو را داخل هفت‌سو ادامه دهید.</p></div><a href="#/system">راهنمای امنیت</a></section>
       </div>
     </section>
 
@@ -125,17 +141,22 @@
     </section>
 
     <section class="view" data-view="system" hidden>
-      <div class="system-page content-shell"><span class="eyebrow">Haftsoo Design System 0.2.0</span><h1>زبان مشترک محصول</h1><p>توکن‌ها و کنترل‌های پایه برای تجربه‌ای یکپارچه، فارسی و دسترس‌پذیر.</p>
+      <div class="system-page content-shell"><span class="eyebrow">Haftsoo Design System 0.3.0</span><h1>زبان مشترک محصول</h1><p>توکن‌ها و کنترل‌های پایه برای تجربه‌ای یکپارچه، فارسی و دسترس‌پذیر.</p>
         <section><h2>رنگ‌های اصلی</h2><div class="swatches"><div style="--swatch:#c93636"><span></span><strong>Brand</strong><small>#c93636</small></div><div style="--swatch:#15803d"><span></span><strong>Success</strong><small>#15803d</small></div><div style="--swatch:#b45309"><span></span><strong>Warning</strong><small>#b45309</small></div><div style="--swatch:#1d4ed8"><span></span><strong>Info</strong><small>#1d4ed8</small></div></div></section>
         <section><h2>کنترل‌ها</h2><div class="component-demo"><button class="primary-button">دکمه اصلی</button><button class="secondary-button">دکمه ثانویه</button><button class="text-button">دکمه متنی</button><label class="field"><span>ورودی نمونه</span><input placeholder="متن را وارد کنید"></label><button class="chip selected">فیلتر فعال</button></div></section>
       </div>
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-grid"><div class="footer-about"><a class="brand" href="#/home"><span class="brand-mark">۷</span><span>هفت‌سو</span></a><p>بازار آگهی‌های محلی ایران؛ برای پیدا کردن، فروختن و ارتباط امن میان مردم.</p></div><nav aria-label="درباره هفت‌سو"><strong>هفت‌سو</strong><a href="#/system">درباره ما</a><a href="#/system">فرصت‌های شغلی</a><a href="#/system">تماس با ما</a></nav><nav aria-label="پشتیبانی"><strong>پشتیبانی</strong><a href="#/system">راهنمای خرید امن</a><a href="#/system">قوانین انتشار</a><a href="#/system">گزارش تخلف</a></nav><div class="trust-marks" aria-label="نشان‌های اعتماد"><span>نماد اعتماد</span><span>کسب‌وکار مجاز</span></div></div>
+    <div class="footer-bottom"><span>© ۱۴۰۵ هفت‌سو</span><span>حریم خصوصی · شرایط استفاده</span></div>
+  </footer>
+
   <nav class="bottom-nav" aria-label="ناوبری موبایل"><a href="#/home"><svg><use href="#i-home"/></svg><span>خانه</span></a><a href="#/search"><svg><use href="#i-search"/></svg><span>جست‌وجو</span></a><button class="bottom-submit" aria-label="ثبت آگهی"><svg><use href="#i-plus"/></svg></button><a href="#/account"><svg><use href="#i-chat"/></svg><span>گفتگو</span></a><a href="#/account"><svg><use href="#i-user"/></svg><span>حساب</span></a></nav>
 
   <div class="dialog-backdrop" id="city-dialog" hidden>
-    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="city-title"><header><div><span class="eyebrow">موقعیت شما</span><h2 id="city-title">انتخاب شهر</h2></div><button class="icon-button dialog-close" aria-label="بستن"><svg><use href="#i-close"/></svg></button></header><label class="dialog-search"><svg><use href="#i-search"/></svg><input id="city-search" placeholder="جست‌وجوی شهر"></label><div class="city-list" role="listbox" aria-label="شهرها"></div></section>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="city-title"><header><div><span class="eyebrow">موقعیت آگهی‌ها</span><h2 id="city-title">انتخاب شهر</h2></div><button class="icon-button dialog-close" aria-label="بستن"><svg><use href="#i-close"/></svg></button></header><label class="dialog-search"><svg><use href="#i-search"/></svg><input id="city-search" placeholder="نام شهر یا استان"></label><p class="city-selection-help">تا ۱۰ شهر را هم‌زمان انتخاب کنید. <span id="selected-count">۱</span> شهر انتخاب شده است.</p><div class="city-list" aria-label="شهرها"></div><footer><button class="secondary-button dialog-close">انصراف</button><button class="primary-button apply-cities">تأیید شهرها</button></footer></section>
   </div>
   <div class="dialog-backdrop" id="filter-dialog" hidden>
     <section class="dialog bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="filter-title"><header><h2 id="filter-title">فیلترها</h2><button class="icon-button dialog-close" aria-label="بستن"><svg><use href="#i-close"/></svg></button></header><label class="field"><span>حداقل قیمت</span><input inputmode="numeric" placeholder="از ۱۰۰ میلیون"></label><label class="toggle-row"><span><strong>فقط عکس‌دار</strong><small>نتایج دارای تصویر</small></span><input type="checkbox"></label><footer><button class="secondary-button dialog-close">انصراف</button><button class="primary-button apply-filter">نمایش نتایج</button></footer></section>

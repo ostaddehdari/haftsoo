@@ -15,9 +15,18 @@ const posts = [
   {title:'دوربین عکاسی حرفه‌ای با لنز',price:'۴۹٬۰۰۰٬۰۰۰ تومان',meta:'ملک‌شهر، دیروز',image:'image-dark'}
 ];
 
-const cities = ['تهران','مشهد','اصفهان','شیراز','کرج','تبریز','اهواز','قم','کرمانشاه','رشت','ارومیه','یزد'];
+const cities = [
+  {name:'تهران',slug:'tehran',province:'تهران'},{name:'مشهد',slug:'mashhad',province:'خراسان رضوی'},
+  {name:'اصفهان',slug:'isfahan',province:'اصفهان'},{name:'شیراز',slug:'shiraz',province:'فارس'},
+  {name:'کرج',slug:'karaj',province:'البرز'},{name:'تبریز',slug:'tabriz',province:'آذربایجان شرقی'},
+  {name:'اهواز',slug:'ahvaz',province:'خوزستان'},{name:'قم',slug:'qom',province:'قم'},
+  {name:'کرمانشاه',slug:'kermanshah',province:'کرمانشاه'},{name:'رشت',slug:'rasht',province:'گیلان'},
+  {name:'ارومیه',slug:'urmia',province:'آذربایجان غربی'},{name:'یزد',slug:'yazd',province:'یزد'}
+];
 const routes = new Set(['home','search','post','account','system']);
 let lastFocused = null;
+let selectedCities = new Set(JSON.parse(localStorage.getItem('haftsoo-cities') || '["isfahan"]'));
+let draftCities = new Set(selectedCities);
 
 const icon = id => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 const categoryMarkup = ([name,id]) => `<a class="category-card" href="#/search" data-category="${name}"><span class="category-icon">${icon(id)}</span><strong>${name}</strong></a>`;
@@ -26,8 +35,22 @@ const postMarkup = (post,index) => `<article class="post-card"><div class="post-
 document.querySelector('#category-grid').innerHTML = categories.map(categoryMarkup).join('');
 document.querySelector('#home-posts').innerHTML = posts.slice(0,6).map(postMarkup).join('');
 document.querySelector('#search-posts').innerHTML = posts.map(postMarkup).join('');
-document.querySelector('.city-list').innerHTML = cities.map(city => `<button role="option" data-city="${city}">${city}</button>`).join('');
 document.querySelector('#my-posts').innerHTML = posts.slice(0,2).map(post => `<article class="my-post"><div class="post-image ${post.image}"></div><div><h3>${post.title}</h3><p>${post.price}</p><span class="status-pill">منتشرشده</span></div><button class="secondary-button">مدیریت آگهی</button></article>`).join('');
+
+function track(event,payload={}){if(navigator.globalPrivacyControl)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event,...payload})}
+function cityLabel(){const chosen=cities.filter(city=>selectedCities.has(city.slug));return chosen.length===1?chosen[0].name:`${chosen.length} شهر`}
+function updateCityLabels(){document.querySelector('#selected-city').textContent=cityLabel();document.querySelector('#listing-title').textContent=`آگهی‌های ${cityLabel()}`}
+function renderCityDialog(filter=''){
+  const visible=cities.filter(city=>`${city.name} ${city.province}`.includes(filter));
+  document.querySelector('.city-list').innerHTML=visible.map(city=>`<label class="${draftCities.has(city.slug)?'selected':''}" data-city-row="${city.slug}"><input type="checkbox" data-city="${city.slug}" ${draftCities.has(city.slug)?'checked':''} ${!draftCities.has(city.slug)&&draftCities.size>=10?'disabled':''}><span><strong>${city.name}</strong><small>${city.province}</small></span></label>`).join('');
+  document.querySelector('#selected-count').textContent=String(draftCities.size);
+}
+function renderPopularCities(filter=''){
+  const visible=cities.filter(city=>`${city.name} ${city.province}`.includes(filter));
+  document.querySelector('#popular-city-grid').innerHTML=visible.map(city=>`<button type="button" data-popular-city="${city.slug}"><strong>${city.name}</strong><small>${city.province}</small><span aria-hidden="true">‹</span></button>`).join('');
+  document.querySelector('#city-empty').hidden=visible.length>0;
+}
+renderCityDialog();renderPopularCities();updateCityLabels();
 
 function route(){
   const requested = location.hash.replace(/^#\//,'').split(/[/?]/)[0] || 'home';
@@ -43,6 +66,7 @@ window.addEventListener('hashchange',route); route();
 function submitSearch(value){
   const query = value.trim();
   document.querySelector('#listing-title').textContent = query ? `نتایج «${query}»` : `آگهی‌های ${document.querySelector('#selected-city').textContent}`;
+  track('home_search',{query_length:query.length,city_count:selectedCities.size});
   location.hash = '#/search';
 }
 document.querySelector('#header-search').addEventListener('submit',event => {event.preventDefault();submitSearch(document.querySelector('#q').value)});
@@ -50,14 +74,17 @@ document.querySelector('#hero-search').addEventListener('submit',event => {event
 document.querySelectorAll('[data-query]').forEach(button => button.addEventListener('click',()=>submitSearch(button.dataset.query)));
 
 const savedTheme = localStorage.getItem('haftsoo-theme');
-if(savedTheme) document.documentElement.dataset.theme = savedTheme;
+const initialTheme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.dataset.theme = initialTheme;
+document.querySelector('meta[name="theme-color"]').content=initialTheme==='dark'?'#18181b':'#ffffff';
 document.querySelector('.theme-button').addEventListener('click',()=>{
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = next; localStorage.setItem('haftsoo-theme',next); showToast(next === 'dark'?'پوسته تیره فعال شد':'پوسته روشن فعال شد');
+  document.documentElement.dataset.theme = next; localStorage.setItem('haftsoo-theme',next);document.querySelector('meta[name="theme-color"]').content=next==='dark'?'#18181b':'#ffffff';track('theme_change',{theme:next});showToast(next === 'dark'?'پوسته تیره فعال شد':'پوسته روشن فعال شد');
 });
 
 function openDialog(id,trigger){
   const backdrop = document.getElementById(id); if(!backdrop) return;
+  if(id==='city-dialog'){draftCities=new Set(selectedCities);renderCityDialog();}
   lastFocused = trigger; backdrop.hidden = false; document.body.style.overflow='hidden';
   requestAnimationFrame(()=>backdrop.querySelector('input,button').focus());
 }
@@ -76,15 +103,19 @@ document.querySelectorAll('.dialog-backdrop').forEach(backdrop=>{
   });
 });
 
-document.querySelector('.city-list').addEventListener('click',event=>{
-  const button=event.target.closest('[data-city]'); if(!button)return;
-  document.querySelector('#selected-city').textContent=button.dataset.city;
-  document.querySelector('#listing-title').textContent=`آگهی‌های ${button.dataset.city}`;
-  closeDialog(document.querySelector('#city-dialog')); showToast(`شهر ${button.dataset.city} انتخاب شد`);
+document.querySelector('.city-list').addEventListener('change',event=>{
+  const input=event.target.closest('[data-city]');if(!input)return;
+  if(input.checked&&draftCities.size<10)draftCities.add(input.dataset.city);else if(!input.checked)draftCities.delete(input.dataset.city);
+  renderCityDialog(document.querySelector('#city-search').value.trim());
 });
 document.querySelector('#city-search').addEventListener('input',event=>{
-  const value=event.target.value.trim(); document.querySelectorAll('[data-city]').forEach(button=>button.hidden=!button.dataset.city.includes(value));
+  renderCityDialog(event.target.value.trim());
 });
+document.querySelector('.apply-cities').addEventListener('click',()=>{
+  selectedCities=draftCities.size?new Set(draftCities):new Set(['isfahan']);localStorage.setItem('haftsoo-cities',JSON.stringify([...selectedCities]));updateCityLabels();closeDialog(document.querySelector('#city-dialog'));track('city_selection',{city_count:selectedCities.size});showToast(`${cityLabel()} انتخاب شد`);
+});
+document.querySelector('#popular-city-search').addEventListener('input',event=>renderPopularCities(event.target.value.trim()));
+document.querySelector('#popular-city-grid').addEventListener('click',event=>{const button=event.target.closest('[data-popular-city]');if(!button)return;selectedCities=new Set([button.dataset.popularCity]);localStorage.setItem('haftsoo-cities',JSON.stringify([...selectedCities]));updateCityLabels();track('popular_city_click',{city:button.dataset.popularCity});showToast(`${cityLabel()} انتخاب شد`)});
 document.querySelector('.apply-filter').addEventListener('click',()=>{closeDialog(document.querySelector('#filter-dialog'));document.querySelector('#result-count').textContent='۱۲';showToast('فیلترها اعمال شدند')});
 document.querySelector('.clear-filters').addEventListener('click',()=>showToast('فیلترها پاک شدند'));
 

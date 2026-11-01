@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S09",
+  "currentStage": "S10",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -147,20 +147,36 @@
         { "id": "S09-W09", "status": "complete", "evidence": "docs/stage-09/nationwide-polygon-qa.md" },
         { "id": "S09-W10", "status": "complete", "evidence": "docs/stage-09/acceptance.md" }
       ]
+    },
+    {
+      "id": "S10",
+      "status": "complete",
+      "works": [
+        { "id": "S10-W01", "status": "complete", "evidence": "docs/stage-10/ssr-layout.md" },
+        { "id": "S10-W02", "status": "complete", "evidence": "docs/stage-10/header-navigation.md" },
+        { "id": "S10-W03", "status": "complete", "evidence": "docs/stage-10/multi-city.md" },
+        { "id": "S10-W04", "status": "complete", "evidence": "docs/stage-10/home-city-search.md" },
+        { "id": "S10-W05", "status": "complete", "evidence": "docs/stage-10/popular-cities.md" },
+        { "id": "S10-W06", "status": "complete", "evidence": "docs/stage-10/footer-trust.md" },
+        { "id": "S10-W07", "status": "complete", "evidence": "docs/stage-10/themes.md" },
+        { "id": "S10-W08", "status": "complete", "evidence": "docs/stage-10/ui-states.md" },
+        { "id": "S10-W09", "status": "complete", "evidence": "docs/stage-10/seo-analytics.md" },
+        { "id": "S10-W10", "status": "complete", "evidence": "docs/stage-10/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S09-W01", "status": "complete", "evidence": "docs/stage-09/cities-reference-ids.md" },
-    { "id": "S09-W02", "status": "complete", "evidence": "docs/stage-09/neighborhoods-city-link.md" },
-    { "id": "S09-W03", "status": "complete", "evidence": "docs/stage-09/polyline-precision-5.md" },
-    { "id": "S09-W04", "status": "complete", "evidence": "docs/stage-09/geometry-validation-repair.md" },
-    { "id": "S09-W05", "status": "complete", "evidence": "docs/stage-09/province-city-district-relations.md" },
-    { "id": "S09-W06", "status": "complete", "evidence": "docs/stage-09/postgis-spatial-indexes.md" },
-    { "id": "S09-W07", "status": "complete", "evidence": "docs/stage-09/hierarchy-api.md" },
-    { "id": "S09-W08", "status": "complete", "evidence": "docs/stage-09/geo-selector.md" },
-    { "id": "S09-W09", "status": "complete", "evidence": "docs/stage-09/nationwide-polygon-qa.md" },
-    { "id": "S09-W10", "status": "complete", "evidence": "docs/stage-09/acceptance.md" }
+    { "id": "S10-W01", "status": "complete", "evidence": "docs/stage-10/ssr-layout.md" },
+    { "id": "S10-W02", "status": "complete", "evidence": "docs/stage-10/header-navigation.md" },
+    { "id": "S10-W03", "status": "complete", "evidence": "docs/stage-10/multi-city.md" },
+    { "id": "S10-W04", "status": "complete", "evidence": "docs/stage-10/home-city-search.md" },
+    { "id": "S10-W05", "status": "complete", "evidence": "docs/stage-10/popular-cities.md" },
+    { "id": "S10-W06", "status": "complete", "evidence": "docs/stage-10/footer-trust.md" },
+    { "id": "S10-W07", "status": "complete", "evidence": "docs/stage-10/themes.md" },
+    { "id": "S10-W08", "status": "complete", "evidence": "docs/stage-10/ui-states.md" },
+    { "id": "S10-W09", "status": "complete", "evidence": "docs/stage-10/seo-analytics.md" },
+    { "id": "S10-W10", "status": "complete", "evidence": "docs/stage-10/acceptance.md" }
   ],
-  "nextStage": "S10",
-  "updatedAt": "2026-10-31T23:30:00Z"
+  "nextStage": "S11",
+  "updatedAt": "2026-11-01T06:30:00Z"
 }

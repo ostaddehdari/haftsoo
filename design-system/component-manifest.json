@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
@@ -12,7 +12,10 @@
     { "name": "Skeleton", "variants": ["text", "card", "avatar", "image"], "states": ["loading"] },
     { "name": "EmptyState", "variants": ["search", "account", "network", "permission"], "states": ["ready"] },
     { "name": "Header", "variants": ["desktop", "mobile", "detail"], "states": ["top", "sticky", "searching"] },
-    { "name": "BottomNavigation", "variants": ["guest", "member"], "states": ["default", "active"] }
+    { "name": "BottomNavigation", "variants": ["guest", "member"], "states": ["default", "active"] },
+    { "name": "CitySelector", "variants": ["dialog", "bottom-sheet", "multi-city"], "states": ["loading", "ready", "empty", "limit"] },
+    { "name": "Footer", "variants": ["desktop", "mobile"], "states": ["default"] },
+    { "name": "UiState", "variants": ["loading", "error", "empty"], "states": ["default", "compact"] }
   ]
 }
 
