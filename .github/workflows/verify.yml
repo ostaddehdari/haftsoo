@@ -21,7 +21,7 @@ jobs:
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
           scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh scripts/build-stage-11.sh scripts/build-stage-12.sh
-          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/manage-secrets.sh scripts/test-secrets.sh
+          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
         run: npm ci --no-audit --no-fund
@@ -45,6 +45,8 @@ jobs:
         run: npm run media:contract
       - name: Validate listing lifecycle contracts
         run: npm run listing:contract
+      - name: Validate post detail and contact contracts
+        run: npm run post-detail:contract
       - name: Lint and formatting
         run: npm run lint && npm run format:check
       - name: Typecheck, test and build workspaces
@@ -57,7 +59,7 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-16-package-lock
+          name: stage-17-package-lock
           path: package-lock.json
           retention-days: 7
 

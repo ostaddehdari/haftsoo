@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S16",
+  "currentStage": "S17",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -259,20 +259,36 @@
         { "id": "S16-W09", "status": "complete", "evidence": "docs/stage-16/expiration-cleanup-jobs.md" },
         { "id": "S16-W10", "status": "complete", "evidence": "docs/stage-16/acceptance.md" }
       ]
+    },
+    {
+      "id": "S17",
+      "status": "complete",
+      "works": [
+        { "id": "S17-W01", "status": "complete", "evidence": "docs/stage-17/ssr-seo.md" },
+        { "id": "S17-W02", "status": "complete", "evidence": "docs/stage-17/gallery.md" },
+        { "id": "S17-W03", "status": "complete", "evidence": "docs/stage-17/dynamic-summary.md" },
+        { "id": "S17-W04", "status": "complete", "evidence": "docs/stage-17/description-expand.md" },
+        { "id": "S17-W05", "status": "complete", "evidence": "docs/stage-17/location-privacy.md" },
+        { "id": "S17-W06", "status": "complete", "evidence": "docs/stage-17/contact-action-log.md" },
+        { "id": "S17-W07", "status": "complete", "evidence": "docs/stage-17/chat-cta.md" },
+        { "id": "S17-W08", "status": "complete", "evidence": "docs/stage-17/bookmark-share-note.md" },
+        { "id": "S17-W09", "status": "complete", "evidence": "docs/stage-17/report-safety.md" },
+        { "id": "S17-W10", "status": "complete", "evidence": "docs/stage-17/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S16-W01", "status": "complete", "evidence": "docs/stage-16/lifecycle-states.md" },
-    { "id": "S16-W02", "status": "complete", "evidence": "docs/stage-16/active-posts.md" },
-    { "id": "S16-W03", "status": "complete", "evidence": "docs/stage-16/drafts-resume.md" },
-    { "id": "S16-W04", "status": "complete", "evidence": "docs/stage-16/review-rejected.md" },
-    { "id": "S16-W05", "status": "complete", "evidence": "docs/stage-16/edit-version-history.md" },
-    { "id": "S16-W06", "status": "complete", "evidence": "docs/stage-16/renewal-expiry-republish.md" },
-    { "id": "S16-W07", "status": "complete", "evidence": "docs/stage-16/archive-delete.md" },
-    { "id": "S16-W08", "status": "complete", "evidence": "docs/stage-16/moderation-messages.md" },
-    { "id": "S16-W09", "status": "complete", "evidence": "docs/stage-16/expiration-cleanup-jobs.md" },
-    { "id": "S16-W10", "status": "complete", "evidence": "docs/stage-16/acceptance.md" }
+    { "id": "S17-W01", "status": "complete", "evidence": "docs/stage-17/ssr-seo.md" },
+    { "id": "S17-W02", "status": "complete", "evidence": "docs/stage-17/gallery.md" },
+    { "id": "S17-W03", "status": "complete", "evidence": "docs/stage-17/dynamic-summary.md" },
+    { "id": "S17-W04", "status": "complete", "evidence": "docs/stage-17/description-expand.md" },
+    { "id": "S17-W05", "status": "complete", "evidence": "docs/stage-17/location-privacy.md" },
+    { "id": "S17-W06", "status": "complete", "evidence": "docs/stage-17/contact-action-log.md" },
+    { "id": "S17-W07", "status": "complete", "evidence": "docs/stage-17/chat-cta.md" },
+    { "id": "S17-W08", "status": "complete", "evidence": "docs/stage-17/bookmark-share-note.md" },
+    { "id": "S17-W09", "status": "complete", "evidence": "docs/stage-17/report-safety.md" },
+    { "id": "S17-W10", "status": "complete", "evidence": "docs/stage-17/acceptance.md" }
   ],
-  "nextStage": "S17",
-  "updatedAt": "2026-11-01T22:10:00Z"
+  "nextStage": "S18",
+  "updatedAt": "2026-11-01T23:45:00Z"
 }

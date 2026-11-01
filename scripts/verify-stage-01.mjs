@@ -38,10 +38,10 @@ const secretPatterns = [
   /-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----/,
   /gh[pousr]_[A-Za-z0-9_]{20,}/,
   /AKIA[0-9A-Z]{16}/,
-  /(?:password|passwd|secret|token)\s*[=:]\s*["'][^"']{8,}["']/i
+  /(?:password|passwd|secret|(?:access|refresh|auth|api)[_-]?token)\s*[=:]\s*["'][^"']{8,}["']/i
 ];
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-  if ([".git", "node_modules"].includes(entry.name)) return [];
+  if ([".git", "node_modules", ".nuxt", ".output", "dist", "coverage"].includes(entry.name)) return [];
   const full = path.join(dir, entry.name);
   return entry.isDirectory() ? walk(full) : [full];
 });

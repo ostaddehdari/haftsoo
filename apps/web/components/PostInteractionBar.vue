@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{bookmarked:boolean}>();const emit=defineEmits<{bookmark:[];share:[];note:[];report:[]}>();</script>
+<template><div class="post-interactions" aria-label="عملیات آگهی"><button type="button" :aria-pressed="bookmarked" @click="emit('bookmark')">{{ bookmarked?'★ نشان‌شده':'☆ نشان' }}</button><button type="button" @click="emit('share')">اشتراک‌گذاری</button><button type="button" @click="emit('note')">یادداشت خصوصی</button><button type="button" @click="emit('report')">گزارش آگهی</button></div></template>

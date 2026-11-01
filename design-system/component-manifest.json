@@ -27,7 +27,11 @@
     { "name": "MediaUploader", "variants": ["image", "video", "mixed"], "states": ["hashing", "uploading", "processing", "ready", "failed", "rejected"] },
     { "name": "MyPostCard", "variants": ["post", "draft"], "states": ["published", "paused", "review", "rejected", "expired", "archived"] },
     { "name": "PostStatusChip", "variants": ["neutral", "success", "warning", "danger"], "states": ["ready"] },
-    { "name": "PostHistoryPanel", "variants": ["dialog", "drawer"], "states": ["loading", "ready", "empty"] }
+    { "name": "PostHistoryPanel", "variants": ["dialog", "drawer"], "states": ["loading", "ready", "empty"] },
+    { "name": "PostGallery", "variants": ["image", "video", "without-media"], "states": ["ready", "lightbox", "selected"] },
+    { "name": "DynamicAttributeSummary", "variants": ["summary", "full"], "states": ["ready", "empty"] },
+    { "name": "ApproximateLocationMap", "variants": ["circle"], "states": ["loading", "ready", "offline"] },
+    { "name": "PostInteractionBar", "variants": ["desktop", "mobile"], "states": ["default", "bookmarked", "noted", "reported"] }
   ]
 }
 

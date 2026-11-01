@@ -5,5 +5,5 @@ const state=JSON.parse(readFileSync("project.state.json","utf8"));const design=J
 if(Number(state.currentStage.slice(1))<15||state.stageStatus!=="complete")fail("project state must retain completed S15");if(stage?.status!=="complete"||works.length!==10||works.some((work)=>work.status!=="complete"))fail("S15 must have exactly 10 completed works");if(works.some((work,index)=>work.id!==`S15-W${String(index+1).padStart(2,"0")}`))fail("S15 work identifiers are not sequential");for(const work of works)if(!existsSync(work.evidence))fail(`missing evidence for ${work.id}`);
 if(Number(design.delivery.currentStage.slice(1))<15||!design.engineering.mediaPolicy)fail("design manifest regressed below S15");
 const staticHtml=readFileSync("deploy/web/index.html","utf8");const staticJs=readFileSync("deploy/web/app.js","utf8");
-if(!/stage(?:15-media-1|16-lifecycle-1)/.test(staticHtml)||!staticHtml.includes('id="static-media-list"')||!staticJs.includes("media_staged"))fail("installable media UI is not wired");
+if(!/stage(?:15-media-1|16-lifecycle-1|17-detail-1)/.test(staticHtml)||!staticHtml.includes('id="static-media-list"')||!staticJs.includes("media_staged"))fail("installable media UI is not wired");
 console.log("Stage 15 verified: 10 works, presigned media upload, image/video pipelines, safety, duplicate control, cover, CDN and cleanup.");

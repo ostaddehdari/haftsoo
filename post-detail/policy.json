@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "publicStates": ["published", "expired"],
+  "location": { "exactCoordinatesPublic": false, "minimumRadiusMeters": 250, "defaultRadiusMeters": 700 },
+  "contact": { "authenticationRequired": true, "idempotentReveal": true, "actionLogRequired": true },
+  "privateNoteMaxLength": 500,
+  "reportReasons": ["fraud", "duplicate", "wrong_category", "sold", "prohibited", "other"],
+  "seo": { "ssr": true, "canonical": true, "structuredData": "Product" }
+}

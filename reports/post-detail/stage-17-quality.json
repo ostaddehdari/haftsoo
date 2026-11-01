@@ -1,0 +1,5 @@
+{
+  "stage": "S17",
+  "status": "passed",
+  "checks": { "ssrSeo": true, "gallery": true, "dynamicAttributes": true, "expandDescription": true, "approximateMap": true, "contactAudit": true, "chatCta": true, "bookmarkShareNote": true, "reportSafety": true, "responsiveUi": true }
+}

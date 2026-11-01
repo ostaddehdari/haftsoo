@@ -216,3 +216,16 @@ export type OwnerPostAction = "pause" | "resume" | "renew" | "republish" | "arch
 export interface MyPostSummary { id: string; kind: "post" | "draft"; title: string; status: PostLifecycleStatus | "draft"; version: number; updatedAt: string; expiresAt?: string; moderation?: { reasonCode?: string | null; message?: string | null } }
 export interface PostLifecycleActionRequest { expectedVersion: number; action: OwnerPostAction; requestId: string }
 export interface PostVersionSnapshot { version: number; snapshot: Record<string, unknown>; changeKind: string; createdAt: string }
+
+export interface PublicPostMedia { id: string; kind: "image" | "video"; url: string; position: number; cover: boolean }
+export interface ApproximatePostLocation { latitude: number; longitude: number; radiusMeters: number }
+export interface PublicPostDetail {
+  token: string; slug: string; state: "ready" | "expired"; title: string; description: string; categorySlug: string; cityKey: string;
+  neighborhoodKeys: string[]; attributes: Record<string, unknown>; media: PublicPostMedia[]; location: ApproximatePostLocation | null;
+  seller: { name: string; type: string; verified: boolean; memberSince: unknown };
+  contact: { canRevealPhone: boolean; chatEnabled: boolean; safeCallEnabled: boolean };
+  publishedAt?: string; expiresAt?: string; canonical: string; structuredData: Record<string, unknown>;
+}
+export type PostReportReason = "fraud" | "duplicate" | "wrong_category" | "sold" | "prohibited" | "other";
+export interface ContactRevealRequest { requestId: string }
+export interface ContactRevealResult { phone: string; safeCallEnabled: boolean; replayed: boolean }

@@ -1,0 +1,1 @@
+<template><aside class="post-safety" aria-labelledby="safety-heading"><span aria-hidden="true">✓</span><div><h2 id="safety-heading">معامله امن</h2><p>پیش از بازدید وجهی پرداخت نکنید؛ گفتگو را در هفت‌سو نگه دارید و اطلاعات بانکی یا کد تأیید را در اختیار دیگران نگذارید.</p><NuxtLink to="/safety">راهنمای مقابله با کلاهبرداری</NuxtLink></div></aside></template>
