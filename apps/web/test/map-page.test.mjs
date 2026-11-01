@@ -26,13 +26,24 @@ test("map and list share route state and viewport API", async () => {
 test("installable static shell exposes map mode and marker preview", async () => {
   const html = await readFile(new URL("../../../deploy/web/index.html", import.meta.url), "utf8");
   const script = await readFile(new URL("../../../deploy/web/app.js", import.meta.url), "utf8");
+  const vendorScript = await readFile(new URL("../../../deploy/web/vendor/maplibre-gl-5.14.0.js", import.meta.url), "utf8");
+  const vendorStyle = await readFile(new URL("../../../deploy/web/vendor/maplibre-gl-5.14.0.css", import.meta.url), "utf8");
   const nginx = await readFile(new URL("../../../deploy/nginx/container.conf", import.meta.url), "utf8");
   assert.match(html, /id="static-map"/);
+  assert.match(html, /id="static-map-canvas"/);
   assert.match(html, /OpenStreetMap contributors/);
-  assert.match(html, /app\.js\?v=stage14-map-1/);
-  assert.match(html, /app\.css\?v=stage14-map-1/);
+  assert.match(html, /maplibre-gl-5\.14\.0\.js/);
+  assert.match(html, /maplibre-gl-5\.14\.0\.css/);
+  assert.match(html, /app\.js\?v=stage14-map-2/);
+  assert.match(html, /app\.css\?v=stage14-map-2/);
   assert.match(script, /static-map-toggle/);
   assert.match(script, /renderStaticMap/);
   assert.match(script, /listingState\.map=!listingState\.map/);
+  assert.match(script, /new window\.maplibregl\.Map/);
+  assert.match(script, /tile\.openstreetmap\.org/);
+  assert.match(script, /static-post-clusters/);
+  assert.match(script, /getClusterExpansionZoom/);
+  assert.match(vendorScript, /MapLibre GL JS/);
+  assert.match(vendorStyle, /\.maplibregl-map/);
   assert.match(nginx, /max-age=0, must-revalidate/);
 });
