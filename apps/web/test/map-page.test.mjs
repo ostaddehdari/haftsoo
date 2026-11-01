@@ -34,8 +34,8 @@ test("installable static shell exposes map mode and marker preview", async () =>
   assert.match(html, /OpenStreetMap contributors/);
   assert.match(html, /maplibre-gl-5\.14\.0\.js/);
   assert.match(html, /maplibre-gl-5\.14\.0\.css/);
-  assert.match(html, /app\.js\?v=stage14-map-3/);
-  assert.match(html, /app\.css\?v=stage14-map-2/);
+  assert.match(html, /app\.js\?v=stage(?:14-map-3|15-media-1)/);
+  assert.match(html, /app\.css\?v=stage(?:14-map-2|15-media-1)/);
   assert.match(script, /static-map-toggle/);
   assert.match(script, /renderStaticMap/);
   assert.match(script, /listingState\.map=!listingState\.map/);

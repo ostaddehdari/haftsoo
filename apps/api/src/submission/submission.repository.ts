@@ -63,6 +63,14 @@ export class SubmissionRepository {
     return { postId, replayed: false };
   }
 
+  async mediaReadiness(id: string, actorId: string): Promise<{ total: number; pending: number }> {
+    const result = await this.client.query<{ total: string; pending: string }>(
+      `SELECT count(*)::text AS total, count(*) FILTER (WHERE status <> 'ready')::text AS pending
+       FROM media.assets WHERE draft_id = $1::uuid AND owner_id = $2::uuid AND status <> 'deleted'`, [id, actorId]
+    );
+    return { total: Number(result.rows[0]?.total ?? 0), pending: Number(result.rows[0]?.pending ?? 0) };
+  }
+
   private map(row: DraftRow | undefined): SubmissionDraft {
     if (!row) throw new Error("submission draft insert returned no row");
     return { id: row.id, status: row.status, currentStep: row.current_step, revision: Number(row.revision), payload: row.payload, updatedAt: row.updated_at.toISOString() };

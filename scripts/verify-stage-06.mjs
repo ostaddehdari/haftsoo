@@ -31,7 +31,7 @@ const conventions = JSON.parse(read("database/conventions.json"));
 const ownership = JSON.parse(read("database/ownership.json"));
 const budget = JSON.parse(read("database/query-budget.json"));
 if (conventions.spatial.srid !== 4326 || conventions.time.storageType !== "timestamptz") fail("spatial/time conventions are incomplete");
-if (ownership.schemas.length !== 9 || new Set(ownership.schemas.map((entry) => entry.name)).size !== 9) fail("nine unique owned schemas are required");
+if (ownership.schemas.length < 9 || new Set(ownership.schemas.map((entry) => entry.name)).size !== ownership.schemas.length) fail("at least nine unique owned schemas are required");
 if (budget.interactive.p95Ms > 200 || budget.defaultStatementTimeoutMs > 1000) fail("interactive query budget regressed");
 
 const migrations = readdirSync("database/migrations");

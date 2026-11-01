@@ -9,7 +9,7 @@ export type SubmissionPayload = {
   category?: { key: string; slug: string; title: string; path: string[] };
   fields: Record<string, string | number | boolean | string[]>;
   location: { provinceKey?: string; cityKey?: string; neighborhoodKeys: string[] };
-  media: Array<{ clientId: string; kind: "image" | "video"; name: string; size: number; contentType: string; status: "staged" }>;
+  media: Array<{ clientId: string; assetId?: string; kind: "image" | "video"; name: string; size: number; contentType: string; status: "staged" | "hashing" | "uploading" | "processing" | "ready" | "failed"; progress?: number; previewUrl?: string; error?: string; cover?: boolean }>;
   description: string;
   contact: { phone: string; chatEnabled: boolean; phoneVisible: boolean };
   privacy: { preciseLocationVisible: boolean };

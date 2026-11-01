@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "maximumItems": 10,
+  "image": { "types": ["image/jpeg", "image/png", "image/webp"], "maximumBytes": 20971520, "derivatives": ["thumbnail", "card", "detail"], "stripExif": true },
+  "video": { "types": ["video/mp4"], "maximumBytes": 209715200, "derivatives": ["poster", "stream"], "maximumOutputHeight": 720 },
+  "upload": { "transport": "s3-presigned-put", "ttlSeconds": 600, "checksum": "sha256", "tenantScopedKeys": true },
+  "moderation": { "malware": true, "aiSafetyThreshold": 0.85, "sameDayDuplicate": true },
+  "delivery": { "privateOrigin": true, "cdnSignedDelivery": true, "cacheImmutableDerivatives": true },
+  "retention": { "abandonedHours": 24, "rejectedDays": 7, "sourceDaysAfterDerivative": 30 },
+  "retry": { "maximumAttempts": 5, "strategy": "exponential-jitter", "deadLetter": true }
+}

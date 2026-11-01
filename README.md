@@ -242,3 +242,24 @@ bash scripts/build-stage-14.sh
 | S13-W10 | گیت چهار شهر و سه سطح Zoom |
 
 گزارش پذیرش در [docs/stage-13/acceptance.md](docs/stage-13/acceptance.md)، بودجه در [maps/performance-budget.json](maps/performance-budget.json) و گزارش کیفیت در [reports/map/stage-13-quality.json](reports/map/stage-13-quality.json) قرار دارد.
+
+## خروجی استیج ۱۴
+
+ویزارد شش‌مرحله‌ای ثبت آگهی، فرم پویا، انتخاب موقعیت ملی، ذخیرهٔ پیش‌نویس، حریم خصوصی، پیش‌نمایش و Submit تکرارپذیر در [docs/stage-14/acceptance.md](docs/stage-14/acceptance.md) مستند شده است.
+
+## خروجی استیج ۱۵
+
+| ورک | خروجی |
+|---|---|
+| S15-W01 | مدل Asset، سهمیه و سیاست نوع/اندازه |
+| S15-W02 | PUT مستقیم S3/MinIO با SigV4 و SHA-256 |
+| S15-W03 | حذف EXIF و سه خروجی WebP تصویر |
+| S15-W04 | Poster و خروجی 720p ویدیو |
+| S15-W05 | Malware، AI Safety و تصویر تکراری همان‌روز |
+| S15-W06 | ترتیب پایدار و کاور یکتا |
+| S15-W07 | Origin خصوصی و تحویل امضاشده CDN |
+| S15-W08 | Retry، Dead Letter، Cleanup و متریک‌ها |
+| S15-W09 | UI پیش‌نمایش، پیشرفت، خطا، حذف و کاور |
+| S15-W10 | Migration برگشت‌پذیر، Contract، Test و CI |
+
+گزارش پذیرش در [docs/stage-15/acceptance.md](docs/stage-15/acceptance.md)، سیاست ماشین‌خوان در [media/policy.json](media/policy.json) و گزارش کیفیت در [reports/media/stage-15-quality.json](reports/media/stage-15-quality.json) است.

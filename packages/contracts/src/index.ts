@@ -190,7 +190,11 @@ export interface MapViewportResponse {
 }
 
 export type SubmissionStep = "category" | "details" | "location" | "media" | "contact" | "preview";
-export interface SubmissionMediaDraft { clientId: string; kind: "image" | "video"; name: string; size: number; contentType: string; status: "staged" | "uploaded" }
+export type MediaStatus = "initiated" | "uploaded" | "scanning" | "processing" | "ready" | "rejected" | "failed" | "deleted";
+export interface SubmissionMediaDraft { clientId: string; assetId?: string; kind: "image" | "video"; name: string; size: number; contentType: string; status: "staged" | "hashing" | "uploading" | "processing" | "ready" | "failed"; cover?: boolean }
+export interface MediaUploadRequest { draftId: string; clientId: string; fileName: string; contentType: string; size: number; sha256: string; kind: "image" | "video" }
+export interface MediaUploadTicket { asset: { id: string; status: MediaStatus }; upload: { url: string; headers: Record<string, string>; expiresAt: string } }
+export interface MediaAsset { id: string; draftId: string; clientId: string; kind: "image" | "video"; status: MediaStatus; position: number; cover: boolean; url?: string; rejectionCode?: string }
 export interface SubmissionPayload {
   category?: { key: string; slug: string; path: string[] };
   fields?: Record<string, string | number | boolean | string[]>;

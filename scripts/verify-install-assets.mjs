@@ -26,7 +26,7 @@ if (!compose.includes('no-new-privileges:true')) throw new Error('Container hard
 if (!installer.includes('merge --ff-only')) throw new Error('Installer updates must be fast-forward only.');
 if (!nginx.includes('location /haftsoo/')) throw new Error('Base path route is missing.');
 if (!nginx.includes('max-age=0, must-revalidate')) throw new Error('Static release cache revalidation is missing.');
-if (!web.includes('maplibre-gl-5.14.0.js') || !web.includes('app.js?v=stage14-map-3')) throw new Error('Installable map assets are missing or stale.');
+if (!web.includes('maplibre-gl-5.14.0.js') || !/app\.js\?v=stage(?:14-map-3|15-media-1)/.test(web)) throw new Error('Installable map assets are missing or stale.');
 
 const forbidden = [/BEGIN (RSA |OPENSSH )?PRIVATE KEY/, /sAccessToken=/, /password\s*[:=]\s*[^$\s]/i];
 for (const file of required) {

@@ -6,6 +6,7 @@
     { "name": "catalog", "owner": "catalog", "purpose": "categories and dynamic fields" },
     { "name": "geo", "owner": "geo", "purpose": "cities, districts and boundaries" },
     { "name": "listing", "owner": "listing", "purpose": "classified ads and lifecycle" },
+    { "name": "media", "owner": "media", "purpose": "uploads, derivatives and processing state" },
     { "name": "messaging", "owner": "chat", "purpose": "conversation metadata" },
     { "name": "finance", "owner": "finance", "purpose": "ledger, payment and settlement" },
     { "name": "moderation", "owner": "moderation", "purpose": "review, duplicate and AI decisions" },

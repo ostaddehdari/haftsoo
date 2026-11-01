@@ -23,7 +23,8 @@
     { "name": "MapPostPreview", "variants": ["image", "without-image"], "states": ["opening", "selected", "closing"] },
     { "name": "SubmissionStepper", "variants": ["desktop", "mobile"], "states": ["pending", "active", "complete"] },
     { "name": "DynamicSubmissionForm", "variants": ["catalog-driven"], "states": ["ready", "invalid", "saving"] },
-    { "name": "SubmissionPreview", "variants": ["with-media", "without-media"], "states": ["ready", "submitting", "success"] }
+    { "name": "SubmissionPreview", "variants": ["with-media", "without-media"], "states": ["ready", "submitting", "success"] },
+    { "name": "MediaUploader", "variants": ["image", "video", "mixed"], "states": ["hashing", "uploading", "processing", "ready", "failed", "rejected"] }
   ]
 }
 

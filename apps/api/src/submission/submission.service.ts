@@ -54,6 +54,8 @@ export class SubmissionService {
       const repository = new SubmissionRepository(client);
       const draft = await repository.find(id, actorId, true);
       if (!draft) throw new NotFoundException("submission draft was not found");
+      const media = await repository.mediaReadiness(id, actorId);
+      if (media.pending > 0) throw new ConflictException({ code: "media_not_ready", pending: media.pending });
       const issues = validateSubmission(draft.payload);
       if (issues.length) throw new BadRequestException({ code: "submission_invalid", issues });
       let result: { postId: string; replayed: boolean };

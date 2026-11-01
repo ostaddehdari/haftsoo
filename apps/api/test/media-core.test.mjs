@@ -1,0 +1,9 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { derivativePlan, duplicateFingerprint, presignPut, safeObjectKey, validateMediaInput } from "../dist/media/media-core.js";
+
+const valid={draftId:"00000000-0000-4000-8000-000000000001",clientId:"00000000-0000-4000-8000-000000000002",fileName:"خانه.jpg",contentType:"image/jpeg",size:1024,sha256:"a".repeat(64),kind:"image"};
+test("media policy validates types, size and checksum",()=>{assert.deepEqual(validateMediaInput(valid),[]);assert.ok(validateMediaInput({...valid,size:30*1024*1024}).includes("size_out_of_range"));assert.ok(validateMediaInput({...valid,contentType:"image/svg+xml"}).includes("content_type_not_allowed"));});
+test("object keys are tenant scoped and derivative plans are deterministic",()=>{assert.match(safeObjectKey("tenant","actor","asset","image/jpeg"),/^tenant\/tenant\/owner\/actor\/.+\/asset\/original\.jpg$/);assert.deepEqual(derivativePlan("image").map((item)=>item.name),["thumbnail","card","detail"]);assert.deepEqual(derivativePlan("video").map((item)=>item.name),["poster","stream"]);});
+test("S3 presign binds content type and checksum without exposing secret",()=>{const result=presignPut({endpoint:"https://objects.example.test",region:"us-east-1",bucket:"media",accessKey:"access",secretKey:"never-leak",key:"a/original.jpg",contentType:"image/jpeg",checksum:"b".repeat(64),expires:600,now:new Date("2026-11-01T12:00:00Z")});assert.match(result.url,/X-Amz-Signature=/);assert.ok(!result.url.includes("never-leak"));assert.equal(result.headers["x-amz-checksum-sha256"],Buffer.from("b".repeat(64),"hex").toString("base64"));});
+test("same-day duplicate fingerprint is actor scoped",()=>{assert.equal(duplicateFingerprint("ab".repeat(8),"actor","2026-11-01"),duplicateFingerprint("AB".repeat(8),"actor","2026-11-01"));assert.notEqual(duplicateFingerprint("ab".repeat(8),"actor-a","2026-11-01"),duplicateFingerprint("ab".repeat(8),"actor-b","2026-11-01"));});
