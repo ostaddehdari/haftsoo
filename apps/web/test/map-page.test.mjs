@@ -26,8 +26,13 @@ test("map and list share route state and viewport API", async () => {
 test("installable static shell exposes map mode and marker preview", async () => {
   const html = await readFile(new URL("../../../deploy/web/index.html", import.meta.url), "utf8");
   const script = await readFile(new URL("../../../deploy/web/app.js", import.meta.url), "utf8");
+  const nginx = await readFile(new URL("../../../deploy/nginx/container.conf", import.meta.url), "utf8");
   assert.match(html, /id="static-map"/);
   assert.match(html, /OpenStreetMap contributors/);
+  assert.match(html, /app\.js\?v=stage14-map-1/);
+  assert.match(html, /app\.css\?v=stage14-map-1/);
   assert.match(script, /static-map-toggle/);
   assert.match(script, /renderStaticMap/);
+  assert.match(script, /listingState\.map=!listingState\.map/);
+  assert.match(nginx, /max-age=0, must-revalidate/);
 });

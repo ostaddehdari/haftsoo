@@ -18,4 +18,8 @@ if (stage?.status !== "complete" || works.length !== 10 || works.some((work) => 
 if (works.some((work, index) => work.id !== `S14-W${String(index + 1).padStart(2, "0")}`)) fail("S14 work identifiers are not sequential");
 for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence for ${work.id}: ${work.evidence}`);
 if (design.delivery.currentStage !== "S14" || design.engineering.version !== "0.14.0" || !design.engineering.submissionWizard) fail("design manifest is not at S14");
+const staticHtml = readFileSync("deploy/web/index.html", "utf8");
+const staticJs = readFileSync("deploy/web/app.js", "utf8");
+if (!staticHtml.includes("app.js?v=stage14-map-1") || !staticHtml.includes("app.css?v=stage14-map-1")) fail("installable shell assets must use a release cache key");
+if (!staticJs.includes("listingState.map=!listingState.map")) fail("installable shell map toggle is not wired");
 console.log("Stage 14 verified: 10 works, six-step submission wizard, dynamic forms, national geo, autosave, preview and idempotent submit.");
