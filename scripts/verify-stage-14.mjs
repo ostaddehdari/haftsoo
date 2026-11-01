@@ -21,7 +21,7 @@ for (const work of works) if (!existsSync(work.evidence)) fail(`missing evidence
 if (design.delivery.currentStage !== "S14" || design.engineering.version !== "0.14.0" || !design.engineering.submissionWizard) fail("design manifest is not at S14");
 const staticHtml = readFileSync("deploy/web/index.html", "utf8");
 const staticJs = readFileSync("deploy/web/app.js", "utf8");
-if (!staticHtml.includes("app.js?v=stage14-map-2") || !staticHtml.includes("app.css?v=stage14-map-2")) fail("installable shell assets must use a release cache key");
+if (!staticHtml.includes("app.js?v=stage14-map-3") || !staticHtml.includes("app.css?v=stage14-map-2")) fail("installable shell assets must use a release cache key");
 if (!staticHtml.includes("maplibre-gl-5.14.0.js") || !staticHtml.includes('id="static-map-canvas"')) fail("installable shell must load the self-hosted MapLibre runtime");
 if (!staticJs.includes("listingState.map=!listingState.map")) fail("installable shell map toggle is not wired");
 if (!staticJs.includes("new window.maplibregl.Map") || !staticJs.includes("getClusterExpansionZoom")) fail("installable shell real map and clusters are not wired");
