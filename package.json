@@ -1,6 +1,6 @@
 {
   "name": "haftsoo",
-  "version": "0.19.0-stage.19",
+  "version": "0.20.0-stage.20",
   "private": true,
   "description": "Haftsoo national classifieds marketplace monorepo",
   "workspaces": [
@@ -38,6 +38,7 @@
     "verify:stage17": "node scripts/verify-stage-17.mjs",
     "verify:stage18": "node scripts/verify-stage-18.mjs",
     "verify:stage19": "node scripts/verify-stage-19.mjs",
+    "verify:stage20": "node scripts/verify-stage-20.mjs",
     "db:migrate": "node scripts/db-migrate.mjs up",
     "db:rollback": "node scripts/db-migrate.mjs down",
     "db:status": "node scripts/db-migrate.mjs status",
@@ -59,11 +60,12 @@
     "post-detail:contract": "node scripts/post-detail-contract.mjs",
     "auth:contract": "node scripts/auth-session-contract.mjs",
     "account:contract": "node scripts/account-contract.mjs",
+    "chat:contract": "node scripts/chat-contract.mjs",
     "security:baseline": "node scripts/security-baseline.mjs",
     "test:security": "npm run test --workspace @haftsoo/api",
     "test:capacity": "node scripts/test-capacity.mjs",
     "verify:install": "node scripts/verify-install-assets.mjs",
-    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:stage10 && npm run verify:stage11 && npm run verify:stage12 && npm run verify:stage13 && npm run verify:stage14 && npm run verify:stage15 && npm run verify:stage16 && npm run verify:stage17 && npm run verify:stage18 && npm run verify:stage19 && npm run verify:install"
+    "verify:all": "npm run verify:stage1 && npm run verify:stage2 && npm run verify:stage3 && npm run verify:stage4 && npm run verify:stage5 && npm run verify:stage6 && npm run verify:stage7 && npm run verify:stage8 && npm run verify:stage9 && npm run verify:stage10 && npm run verify:stage11 && npm run verify:stage12 && npm run verify:stage13 && npm run verify:stage14 && npm run verify:stage15 && npm run verify:stage16 && npm run verify:stage17 && npm run verify:stage18 && npm run verify:stage19 && npm run verify:stage20 && npm run verify:install"
   },
   "engines": {
     "node": ">=22 <23",

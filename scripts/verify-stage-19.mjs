@@ -6,10 +6,10 @@ const required = [
 ];
 for (const file of required) if (!existsSync(file)) fail(`missing ${file}`);
 const state = JSON.parse(readFileSync("project.state.json", "utf8")), design = JSON.parse(readFileSync("project.design.json", "utf8")), stage = state.completedStages?.find(entry => entry.id === "S19"), works = stage?.works ?? [];
-if (state.currentStage !== "S19" || state.stageStatus !== "complete" || state.nextStage !== "S20") fail("state must close S19 and point to S20");
+if (Number(state.currentStage.slice(1)) < 19 || state.stageStatus !== "complete") fail("project state must retain completed S19");
 if (stage?.status !== "complete" || works.length !== 10 || works.some(work => work.status !== "complete")) fail("S19 must have ten completed works");
 if (works.some((work, index) => work.id !== `S19-W${String(index + 1).padStart(2, "0")}` || !existsSync(work.evidence))) fail("S19 evidence is incomplete");
-if (design.delivery.currentStage !== "S19" || design.engineering.version !== "0.19.0" || !design.engineering.accountPolicy) fail("design manifest not at S19");
+if (Number(design.delivery.currentStage.slice(1)) < 19 || !design.engineering.accountPolicy) fail("design manifest regressed below S19");
 const html = readFileSync("deploy/web/index.html", "utf8"), js = readFileSync("deploy/web/app.js", "utf8");
 for (const marker of ["stage19-account-1", "data-account-panel=\"overview\"", "static-consent-form", "static-export-data", "static-delete-account"]) if (!html.includes(marker)) fail(`installable account marker missing: ${marker}`);
 for (const marker of ["renderStaticAccount", "account_profile_updated", "privacy_consent_recorded", "account_data_export_requested", "account_deletion_requested"]) if (!js.includes(marker)) fail(`account interaction missing: ${marker}`);

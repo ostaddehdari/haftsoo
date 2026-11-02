@@ -16,6 +16,12 @@
     "requiresBoundingBox": true,
     "requiredIndex": "gist"
   },
+  "chat": {
+    "p95MessageWriteMs": 120,
+    "p95ConversationPageMs": 180,
+    "maximumMessagePageRows": 100,
+    "requiresSequenceCursor": true
+  },
   "review": {
     "explainFormat": "json",
     "requireAnalyzeOutsideProduction": true,

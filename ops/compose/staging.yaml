@@ -51,6 +51,7 @@ services:
       AUTH_TOKEN_HASH_KEY_FILE: /run/secrets/auth_token_hash_key
       AUTH_OTP_PEPPER_FILE: /run/secrets/auth_otp_pepper
       IDENTITY_ENCRYPTION_KEY_FILE: /run/secrets/identity_encryption_key
+      CHAT_TICKET_SIGNING_KEY_FILE: /run/secrets/app_signing_key
       AUTH_SMS_ENDPOINT: ${AUTH_SMS_ENDPOINT:-}
       AUTH_SMS_KEY_FILE: /run/secrets/auth_sms_provider_key
       AUTH_CALL_ENDPOINT: ${AUTH_CALL_ENDPOINT:-}
@@ -96,10 +97,12 @@ services:
       - "127.0.0.1:${HAFTSOO_CHAT_PORT:-3202}:3002"
     environment:
       CHAT_ADDRESS: :3002
+      HAFTSOO_ENV: staging
       HAFTSOO_REDIS_URL: redis://redis:6379
       HAFTSOO_KAFKA_BROKERS: kafka:9092
       HAFTSOO_SIGNING_KEY_FILE: /run/secrets/app_signing_key
       HAFTSOO_SERVICE_AUTH_KEY_FILE: /run/secrets/service_auth_key
+      HAFTSOO_ALLOWED_ORIGINS: ${HAFTSOO_CHAT_ALLOWED_ORIGINS:-https://staging.srun.ir}
     secrets:
       - app_signing_key
       - service_auth_key

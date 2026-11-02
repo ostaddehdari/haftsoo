@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S19`؛ آخرین خروجی «هفت‌سوی من»، پروفایل، تنظیمات، Consent و حقوق داده است
-- استیج بعدی: `S20 — هسته چت بلادرنگ Go`
+- تکمیل‌شده: `S01` تا `S20`؛ آخرین خروجی هسته چت Go، بلیت کوتاه‌عمر، WebSocket، ترتیب و رسید پیام است
+- استیج بعدی: `S21 — رابط کامل چت و صندوق مکالمه‌ها`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -61,6 +61,12 @@ docker compose -f compose.dev.yaml up --build
 
 ```bash
 bash scripts/build-stage-03.sh
+```
+
+گیت هسته چت بلادرنگ استیج ۲۰:
+
+```bash
+bash scripts/build-stage-20.sh
 ```
 
 گیت زیرساخت S04 (بدون بالا آوردن سرویس‌های Staging):

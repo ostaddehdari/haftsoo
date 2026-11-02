@@ -21,7 +21,7 @@ jobs:
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
           scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh scripts/build-stage-11.sh scripts/build-stage-12.sh
-          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/manage-secrets.sh scripts/test-secrets.sh
+          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/build-stage-20.sh scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
         run: npm ci --no-audit --no-fund
@@ -51,6 +51,8 @@ jobs:
         run: npm run auth:contract
       - name: Validate account and data-rights contracts
         run: npm run account:contract
+      - name: Validate realtime chat contracts
+        run: npm run chat:contract
       - name: Lint and formatting
         run: npm run lint && npm run format:check
       - name: Typecheck, test and build workspaces
@@ -63,7 +65,7 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-19-package-lock
+          name: stage-20-package-lock
           path: package-lock.json
           retention-days: 7
 
@@ -97,7 +99,7 @@ jobs:
       - name: Verify formatting
         run: test -z "$(gofmt -l .)"
       - name: Test
-        run: go test ./...
+        run: go test -race ./...
       - name: Build
         run: go build -trimpath ./cmd/server
 

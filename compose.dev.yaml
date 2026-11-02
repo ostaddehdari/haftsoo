@@ -39,6 +39,7 @@ services:
       AUTH_TOKEN_HASH_KEY: local-auth-token-hash-key-not-for-production
       AUTH_OTP_PEPPER: local-auth-otp-pepper-not-for-production
       IDENTITY_ENCRYPTION_KEY: local-identity-encryption-key-not-for-production
+      CHAT_TICKET_SIGNING_KEY: local-chat-ticket-signing-key-not-for-production-0001
     ports:
       - "3001:3001"
     healthcheck:
@@ -60,6 +61,9 @@ services:
       dockerfile: services/chat/Dockerfile
     environment:
       CHAT_ADDRESS: ":3002"
+      HAFTSOO_ENV: development
+      HAFTSOO_SIGNING_KEY: local-chat-ticket-signing-key-not-for-production-0001
+      HAFTSOO_ALLOWED_ORIGINS: http://localhost:3000
     ports:
       - "3002:3002"
     healthcheck:

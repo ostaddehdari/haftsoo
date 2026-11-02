@@ -1,0 +1,8 @@
+{
+  "stage": "S20",
+  "status": "pass",
+  "works": 10,
+  "protocolVersion": 1,
+  "checks": ["ticket-signature", "websocket-rfc6455", "message-idempotency", "monotonic-sequence", "read-receipt-clamp", "presence-fanout", "bidirectional-block", "tenant-rls", "partition-contract", "race-test-ci"],
+  "budgets": { "messageWriteP95Ms": 120, "conversationPageP95Ms": 180, "maxFrameBytes": 6144 }
+}

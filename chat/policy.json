@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "ticketTtlSeconds": 60,
+  "maxMessageBytes": 4096,
+  "messagePageMaximum": 100,
+  "clientMessageIdRequired": true,
+  "messageRateLimitPerMinute": 30,
+  "sequenceScope": "conversation",
+  "websocket": {
+    "protocolVersion": 1,
+    "clientFramesMasked": true,
+    "originAllowlistRequired": true,
+    "readDeadlineSeconds": 70
+  },
+  "presence": { "durable": false, "typingTtlSeconds": 8 },
+  "safety": { "bidirectionalBlock": true, "reportReasons": ["fraud", "harassment", "spam", "prohibited", "other"] },
+  "retention": { "hotDays": 90, "archiveAfterDays": 365, "purgeAfterDays": 1825 }
+}

@@ -265,3 +265,20 @@ export interface BookmarkCollection { id: string; name: string; isDefault: boole
 export interface AccountOverview { profile: AccountProfile; preferences: AccountPreferences; summary: { posts: number; bookmarks: number; recent: number; savedSearches: number; identityVerified: boolean; completionPercent: number; actions: string[] } }
 export interface ConsentRecord { purpose: "analytics" | "personalization" | "marketing"; granted: boolean; policyVersion: string; recordedAt: string }
 export interface AccountDataRequest { id: string; kind: "export" | "delete"; status: "queued" | "processing" | "ready" | "pending" | "completed" | "cancelled"; executeAfter: string }
+
+export interface ChatTicket { ticket: string; expiresAt: string; websocketPath: "/v1/chat/ws" }
+export interface ChatConversation { id: string; tenantId: string; postToken: string; participantIds: string[]; lastSequence: number; lastMessageAt: string; lastReadSequence: number; unreadCount: number }
+export interface ChatMessage { id: string; conversationId: string; senderId: string; clientMessageId: string; sequence: number; kind: "text"; body: string; createdAt: string }
+export type ChatClientCommand =
+  | { type: "send_message"; conversationId: string; clientMessageId: string; body: string }
+  | { type: "seen"; conversationId: string; sequence: number }
+  | { type: "typing"; conversationId: string; typing: boolean }
+  | { type: "ping" };
+export type ChatServerEvent =
+  | { type: "connection.ready"; actorId: string; occurredAt: string }
+  | { type: "conversation.created"; conversationId: string; occurredAt: string }
+  | { type: "message.created"; conversationId: string; sequence: number; message: ChatMessage; occurredAt: string }
+  | { type: "message.ack"; created: boolean; message: ChatMessage }
+  | { type: "message.seen"; conversationId: string; sequence: number; actorId: string; occurredAt: string }
+  | { type: "typing.changed"; conversationId: string; actorId: string; payload: { typing: boolean }; occurredAt: string }
+  | { type: "error"; code: string; clientMessageId?: string };
