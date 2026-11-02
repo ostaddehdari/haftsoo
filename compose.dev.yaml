@@ -44,6 +44,7 @@ services:
       AUTH_OTP_PEPPER: local-auth-otp-pepper-not-for-production
       IDENTITY_ENCRYPTION_KEY: local-identity-encryption-key-not-for-production
       CHAT_TICKET_SIGNING_KEY: local-chat-ticket-signing-key-not-for-production-0001
+      NOTIFICATION_CALLBACK_SECRET: local-notification-callback-secret-not-for-production
     ports:
       - "3001:3001"
     healthcheck:

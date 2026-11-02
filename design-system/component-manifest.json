@@ -1,5 +1,5 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
@@ -42,7 +42,9 @@
     { "name": "ChatConversationHeader", "variants": ["post-context"], "states": ["online", "offline", "typing", "reconnecting"] },
     { "name": "ChatMessageBubble", "variants": ["mine", "peer"], "states": ["pending", "sent", "seen", "failed"] },
     { "name": "ChatComposer", "variants": ["text"], "states": ["ready", "typing", "offline", "blocked", "disabled"] },
-    { "name": "ChatSafetyDialog", "variants": ["dialog", "bottom-sheet"], "states": ["ready", "blocked", "reporting", "reported"] }
+    { "name": "ChatSafetyDialog", "variants": ["dialog", "bottom-sheet"], "states": ["ready", "blocked", "reporting", "reported"] },
+    { "name": "NotificationBell", "variants": ["desktop", "mobile"], "states": ["empty", "unread", "open"] },
+    { "name": "NotificationItem", "variants": ["listing", "chat", "search", "security", "finance", "marketing", "system"], "states": ["unread", "read", "archived"] }
   ]
 }
 

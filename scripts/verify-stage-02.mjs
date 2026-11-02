@@ -18,7 +18,7 @@ const state = JSON.parse(read("project.state.json"));
 const stage = state.completedStages?.find((entry) => entry.id === "S02");
 const works = stage?.works ?? (state.currentStage === "S02" ? state.works : []);
 
-if (routes.routes.length !== 15) fail("route manifest must contain 15 route families");
+if (routes.routes.length < 15) fail("route manifest must retain at least 15 route families");
 if (routes.overlays.length !== 10) fail("overlay manifest must contain 10 overlays");
 if (new Set(routes.routes.map((route) => route.id)).size !== routes.routes.length) fail("route ids must be unique");
 if (components.components.length < 12) fail("component library must contain at least 12 components");

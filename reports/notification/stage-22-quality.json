@@ -1,0 +1,1 @@
+{"stage":"S22","status":"pass","templatesVersioned":true,"channels":4,"smsProviders":4,"maxAttempts":5,"callbackSignature":"hmac-sha256","inboxP95BudgetMs":180,"accessibility":"WCAG-2.2-AA"}

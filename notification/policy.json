@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "categories": ["listing", "chat", "search", "security", "finance", "marketing", "system"],
+  "channels": ["in_app", "sms", "email", "push"],
+  "securityCategoryMandatoryInApp": true,
+  "quietHoursTimezone": "Asia/Tehran",
+  "template": { "versioned": true, "maxVariables": 20, "maxBodyLength": 2000 },
+  "dispatch": { "maxAttempts": 5, "retrySeconds": [60, 300, 1800, 7200, 21600], "idempotent": true, "deadLetterAfterAttempts": 5 },
+  "smsRoutes": ["kavenegar", "melipayamak", "ghasedak", "local"],
+  "callbacks": { "signature": "hmac-sha256", "timestampSkewSeconds": 300 },
+  "budgets": { "inboxP95Ms": 180, "dispatchBatch": 100, "unreadP95Ms": 100 }
+}

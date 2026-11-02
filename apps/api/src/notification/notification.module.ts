@@ -1,0 +1,2 @@
+import{Module}from"@nestjs/common";import{AuthModule}from"../auth/auth.module";import{NotificationController}from"./notification.controller";import{NotificationDispatchWorker}from"./notification-dispatch.worker";import{NotificationProviderRegistry}from"./notification-provider";import{NotificationService}from"./notification.service";
+@Module({imports:[AuthModule],controllers:[NotificationController],providers:[NotificationProviderRegistry,NotificationService,NotificationDispatchWorker],exports:[NotificationService,NotificationDispatchWorker]})export class NotificationModule{}

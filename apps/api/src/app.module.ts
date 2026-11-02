@@ -8,10 +8,11 @@ import { GeoModule } from "./geo/geo.module";
 import { HealthModule } from "./health/health.module";
 import { ListingModule } from "./listing/listing.module";
 import { MediaModule } from "./media/media.module";
+import { NotificationModule } from "./notification/notification.module";
 import { PlatformModule } from "./platform/platform.module";
 import { SearchModule } from "./search/search.module";
 import { SecurityModule } from "./security/security.module";
 import { SubmissionModule } from "./submission/submission.module";
 
-@Module({ imports: [AccountModule, AuthModule, CatalogModule, ChatTicketModule, DatabaseModule, GeoModule, HealthModule, ListingModule, MediaModule, PlatformModule, SearchModule, SecurityModule, SubmissionModule] })
+@Module({ imports: [AccountModule, AuthModule, CatalogModule, ChatTicketModule, DatabaseModule, GeoModule, HealthModule, ListingModule, MediaModule, NotificationModule, PlatformModule, SearchModule, SecurityModule, SubmissionModule] })
 export class AppModule {}

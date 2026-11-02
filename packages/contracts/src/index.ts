@@ -289,3 +289,9 @@ export type ChatInboxFilter = "all" | "unread" | "my_post" | "others_post";
 export interface ChatPeerSummary { id: string; name: string; avatar?: string; online: boolean; lastSeenLabel?: string }
 export interface ChatConversationSummary extends ChatConversation { title: string; thumbnail?: string; peer: ChatPeerSummary; lastMessage?: string; context: "my_post" | "others_post" }
 export interface ChatQueuedCommand { command: ChatClientCommand; queuedAt: string; attempts: number }
+
+export type NotificationCategory = "listing" | "chat" | "search" | "security" | "finance" | "marketing" | "system";
+export type NotificationChannel = "in_app" | "sms" | "email" | "push";
+export interface NotificationItem { id: string; category: NotificationCategory; severity: "info" | "success" | "warning" | "critical"; title: string; body: string; actionUrl?: string | null; readAt?: string | null; createdAt: string }
+export interface NotificationPreference { inApp: boolean; sms: boolean; email: boolean; push: boolean; categories: Record<NotificationCategory, boolean>; quietStart: string | null; quietEnd: string | null; timezone: string }
+export interface NotificationDeliveryReceipt { provider: string; messageId: string; state: "delivered" | "failed"; occurredAt: string }

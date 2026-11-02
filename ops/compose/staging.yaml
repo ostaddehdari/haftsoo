@@ -60,6 +60,7 @@ services:
       AUTH_CALL_KEY_FILE: /run/secrets/auth_call_provider_key
       AUTH_MESSENGER_ENDPOINT: ${AUTH_MESSENGER_ENDPOINT:-}
       AUTH_MESSENGER_KEY_FILE: /run/secrets/auth_messenger_provider_key
+      NOTIFICATION_CALLBACK_SECRET_FILE: /run/secrets/notification_callback_secret
       TRUSTED_SERVICE_NAMES: web,api,chat
       CORS_ALLOWED_ORIGINS: https://staging.srun.ir
     secrets:
@@ -75,6 +76,7 @@ services:
       - auth_sms_provider_key
       - auth_call_provider_key
       - auth_messenger_provider_key
+      - notification_callback_secret
     depends_on:
       postgres:
         condition: service_healthy
@@ -252,6 +254,8 @@ secrets:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_call_provider_key
   auth_messenger_provider_key:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_messenger_provider_key
+  notification_callback_secret:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/notification_callback_secret
 
 networks:
   edge:

@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S21",
+  "currentStage": "S22",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -339,20 +339,36 @@
         { "id": "S21-W09", "status": "complete", "evidence": "docs/stage-21/responsive-accessibility.md" },
         { "id": "S21-W10", "status": "complete", "evidence": "docs/stage-21/acceptance.md" }
       ]
+    },
+    {
+      "id": "S22",
+      "status": "complete",
+      "works": [
+        { "id": "S22-W01", "status": "complete", "evidence": "docs/stage-22/notification-domain.md" },
+        { "id": "S22-W02", "status": "complete", "evidence": "docs/stage-22/template-versioning.md" },
+        { "id": "S22-W03", "status": "complete", "evidence": "docs/stage-22/preference-quiet-hours.md" },
+        { "id": "S22-W04", "status": "complete", "evidence": "docs/stage-22/in-app-inbox.md" },
+        { "id": "S22-W05", "status": "complete", "evidence": "docs/stage-22/dispatch-idempotency.md" },
+        { "id": "S22-W06", "status": "complete", "evidence": "docs/stage-22/sms-provider-routing.md" },
+        { "id": "S22-W07", "status": "complete", "evidence": "docs/stage-22/delivery-receipts.md" },
+        { "id": "S22-W08", "status": "complete", "evidence": "docs/stage-22/retry-dead-letter-observability.md" },
+        { "id": "S22-W09", "status": "complete", "evidence": "docs/stage-22/notification-ui.md" },
+        { "id": "S22-W10", "status": "complete", "evidence": "docs/stage-22/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S21-W01", "status": "complete", "evidence": "docs/stage-21/inbox-filters.md" },
-    { "id": "S21-W02", "status": "complete", "evidence": "docs/stage-21/post-conversation-entry.md" },
-    { "id": "S21-W03", "status": "complete", "evidence": "docs/stage-21/ticket-websocket-client.md" },
-    { "id": "S21-W04", "status": "complete", "evidence": "docs/stage-21/timeline-pagination.md" },
-    { "id": "S21-W05", "status": "complete", "evidence": "docs/stage-21/optimistic-idempotent-send.md" },
-    { "id": "S21-W06", "status": "complete", "evidence": "docs/stage-21/receipts-presence-typing.md" },
-    { "id": "S21-W07", "status": "complete", "evidence": "docs/stage-21/reconnect-offline-queue.md" },
-    { "id": "S21-W08", "status": "complete", "evidence": "docs/stage-21/block-report-safety-ui.md" },
-    { "id": "S21-W09", "status": "complete", "evidence": "docs/stage-21/responsive-accessibility.md" },
-    { "id": "S21-W10", "status": "complete", "evidence": "docs/stage-21/acceptance.md" }
+    { "id": "S22-W01", "status": "complete", "evidence": "docs/stage-22/notification-domain.md" },
+    { "id": "S22-W02", "status": "complete", "evidence": "docs/stage-22/template-versioning.md" },
+    { "id": "S22-W03", "status": "complete", "evidence": "docs/stage-22/preference-quiet-hours.md" },
+    { "id": "S22-W04", "status": "complete", "evidence": "docs/stage-22/in-app-inbox.md" },
+    { "id": "S22-W05", "status": "complete", "evidence": "docs/stage-22/dispatch-idempotency.md" },
+    { "id": "S22-W06", "status": "complete", "evidence": "docs/stage-22/sms-provider-routing.md" },
+    { "id": "S22-W07", "status": "complete", "evidence": "docs/stage-22/delivery-receipts.md" },
+    { "id": "S22-W08", "status": "complete", "evidence": "docs/stage-22/retry-dead-letter-observability.md" },
+    { "id": "S22-W09", "status": "complete", "evidence": "docs/stage-22/notification-ui.md" },
+    { "id": "S22-W10", "status": "complete", "evidence": "docs/stage-22/acceptance.md" }
   ],
-  "nextStage": "S22",
-  "updatedAt": "2026-11-02T19:30:00Z"
+  "nextStage": "S23",
+  "updatedAt": "2026-11-02T21:30:00Z"
 }

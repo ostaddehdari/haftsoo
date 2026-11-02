@@ -1,0 +1,11 @@
+import{Body,Controller,Delete,Get,Headers,Param,Patch,Post,Query}from"@nestjs/common";import{NotificationService}from"./notification.service";
+@Controller("notifications")export class NotificationController{constructor(private readonly notifications:NotificationService){}private wrap(data:unknown){return{data,meta:{version:"v1"}}}
+  @Get()async list(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization?:string,@Query("cursor")cursor?:string,@Query("limit")limit?:string){return this.wrap(await this.notifications.list(tenantId,authorization,cursor,Number(limit)));}
+  @Get("unread-count")async unread(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization?:string){return this.wrap(await this.notifications.unread(tenantId,authorization));}
+  @Patch(":id/read")async read(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization:string|undefined,@Param("id")id:string){return this.wrap(await this.notifications.read(tenantId,authorization,id));}
+  @Post("read-all")async readAll(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization?:string){return this.wrap(await this.notifications.readAll(tenantId,authorization));}
+  @Delete(":id")async archive(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization:string|undefined,@Param("id")id:string){return this.wrap(await this.notifications.archive(tenantId,authorization,id));}
+  @Get("preferences/me")async preferences(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization?:string){return this.wrap(await this.notifications.preferences(tenantId,authorization));}
+  @Patch("preferences/me")async savePreferences(@Headers("x-tenant-id")tenantId="",@Headers("authorization")authorization:string|undefined,@Body()body:Record<string,unknown>){return this.wrap(await this.notifications.savePreferences(tenantId,authorization,body));}
+  @Post("provider-callback/:provider")async callback(@Headers("x-tenant-id")tenantId="",@Headers("x-notification-timestamp")timestamp="",@Headers("x-notification-signature")signature="",@Headers("x-raw-body")rawBody="",@Param("provider")provider:string,@Body()body:{messageId?:string;state?:string;occurredAt?:string}){return this.wrap(await this.notifications.receipt(tenantId,provider,rawBody||JSON.stringify(body),timestamp,signature,body));}
+}

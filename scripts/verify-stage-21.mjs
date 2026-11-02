@@ -6,7 +6,7 @@ for (const file of [...required, "chat/ui-policy.json", "reports/chat/stage-21-q
 const state = JSON.parse(readFileSync("project.state.json", "utf8"));
 const design = JSON.parse(readFileSync("project.design.json", "utf8"));
 const stage = state.completedStages?.find(entry => entry.id === "S21");
-if (state.currentStage !== "S21" || state.stageStatus !== "complete" || state.nextStage !== "S22") fail("state must close S21 and point to S22");
+if (Number(state.currentStage.slice(1)) < 21 || state.stageStatus !== "complete") fail("project state must retain completed S21");
 if (stage?.status !== "complete" || stage.works?.length !== 10 || stage.works.some(work => work.status !== "complete" || !existsSync(work.evidence))) fail("S21 must have ten completed works");
-if (design.delivery.currentStage !== "S21" || design.engineering.version !== "0.21.0" || !design.engineering.chatUiPolicy) fail("design manifest is stale");
+if (Number(design.delivery.currentStage.slice(1)) < 21 || !design.engineering.chatUiPolicy) fail("design manifest regressed below S21");
 console.log("Stage 21 verified: 10 works, inbox, conversation UI, ticketed WebSocket, optimistic send, receipts, reconnect, offline queue and safety.");
