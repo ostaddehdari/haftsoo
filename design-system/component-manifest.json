@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.7.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
@@ -34,7 +34,10 @@
     { "name": "PostInteractionBar", "variants": ["desktop", "mobile"], "states": ["default", "bookmarked", "noted", "reported"] },
     { "name": "AuthLoginPanel", "variants": ["page", "modal"], "states": ["phone", "otp", "cooldown", "error", "success"] },
     { "name": "OtpCodeInput", "variants": ["six-digit"], "states": ["empty", "autofilled", "invalid", "complete", "disabled"] },
-    { "name": "ActiveSessionCard", "variants": ["desktop", "mobile"], "states": ["current", "active", "revoked", "busy"] }
+    { "name": "ActiveSessionCard", "variants": ["desktop", "mobile"], "states": ["current", "active", "revoked", "busy"] },
+    { "name": "AccountShell", "variants": ["desktop", "mobile"], "states": ["overview", "navigation", "loading"] },
+    { "name": "IdentityStatusCard", "variants": ["compact", "full"], "states": ["unverified", "pending", "verified", "rejected", "expired"] },
+    { "name": "BookmarkCollectionList", "variants": ["grid", "list"], "states": ["ready", "empty", "creating"] }
   ]
 }
 

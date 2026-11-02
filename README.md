@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S18`؛ آخرین خروجی ورود OTP، Token Rotation، دستگاه و نشست امن است
-- استیج بعدی: `S19 — هفت‌سوی من، پروفایل و تنظیمات`
+- تکمیل‌شده: `S01` تا `S19`؛ آخرین خروجی «هفت‌سوی من»، پروفایل، تنظیمات، Consent و حقوق داده است
+- استیج بعدی: `S20 — هسته چت بلادرنگ Go`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -161,6 +161,12 @@ bash scripts/build-stage-17.sh
 
 ```bash
 bash scripts/build-stage-18.sh
+```
+
+گیت «هفت‌سوی من»، پروفایل، تنظیمات و حریم خصوصی در استیج ۱۹:
+
+```bash
+bash scripts/build-stage-19.sh
 ```
 
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.

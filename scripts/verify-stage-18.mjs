@@ -6,10 +6,10 @@ const required = [
 ];
 for (const file of required) if (!existsSync(file)) fail(`missing ${file}`);
 const state = JSON.parse(readFileSync("project.state.json", "utf8")), design = JSON.parse(readFileSync("project.design.json", "utf8")), stage = state.completedStages?.find(entry => entry.id === "S18"), works = stage?.works ?? [];
-if (state.currentStage !== "S18" || state.stageStatus !== "complete" || state.nextStage !== "S19") fail("state must close S18 and point to S19");
+if (Number(state.currentStage.slice(1)) < 18 || state.stageStatus !== "complete") fail("project state must retain completed S18");
 if (stage?.status !== "complete" || works.length !== 10 || works.some(work => work.status !== "complete")) fail("S18 must have ten completed works");
 if (works.some((work, index) => work.id !== `S18-W${String(index + 1).padStart(2, "0")}` || !existsSync(work.evidence))) fail("S18 evidence is incomplete");
-if (design.delivery.currentStage !== "S18" || design.engineering.version !== "0.18.0" || !design.engineering.authPolicy) fail("design manifest not at S18");
+if (Number(design.delivery.currentStage.slice(1)) < 18 || Number(design.engineering.version.split(".")[1]) < 18 || !design.engineering.authPolicy) fail("design manifest regressed below S18");
 const html = readFileSync("deploy/web/index.html", "utf8"), js = readFileSync("deploy/web/app.js", "utf8");
-if (!html.includes("stage18-auth-1") || !html.includes("autocomplete=\"one-time-code\"") || !js.includes("auth_otp_consumed") || !js.includes("auth_session_revoked")) fail("installable auth UI not wired");
+if (!/stage(?:18-auth|19-account)-1/.test(html) || !html.includes("autocomplete=\"one-time-code\"") || !js.includes("auth_otp_consumed") || !js.includes("auth_session_revoked")) fail("installable auth UI not wired");
 console.log("Stage 18 verified: 10 works, server-driven OTP, three delivery methods, rotation, active sessions, anti-abuse, audit and login alerts.");

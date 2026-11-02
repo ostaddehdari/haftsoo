@@ -4,11 +4,11 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S18",
+    "currentStage": "S19",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
-    "version": "0.6.0",
+    "version": "0.7.0",
     "tokens": "design-system/tokens.json",
     "routes": "design-system/route-manifest.json",
     "components": "design-system/component-manifest.json",
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.18.0",
+    "version": "0.19.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -78,7 +78,13 @@
     "authLoginPage": "apps/web/pages/auth/login.vue",
     "activeSessionsPage": "apps/web/pages/my/settings/sessions.vue",
     "authPolicy": "auth/policy.json",
-    "authQualityReport": "reports/auth/stage-18-quality.json"
+    "authQualityReport": "reports/auth/stage-18-quality.json",
+    "accountModule": "apps/api/src/account/account.module.ts",
+    "accountOverviewPage": "apps/web/pages/my/index.vue",
+    "accountProfilePage": "apps/web/pages/my/profile.vue",
+    "accountPrivacyPage": "apps/web/pages/my/settings/privacy.vue",
+    "accountPolicy": "account/policy.json",
+    "accountQualityReport": "reports/account/stage-19-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

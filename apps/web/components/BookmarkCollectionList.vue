@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{collections:any[];items:any[]}>();</script>
+<template><div class="collection-grid"><article v-for="collection in collections" :key="collection.id" class="collection-card"><span aria-hidden="true">☆</span><div><strong>{{collection.name}}</strong><small>{{Number(collection.item_count).toLocaleString('fa-IR')}} آگهی</small></div></article><UiState v-if="!collections.length" kind="empty" title="هنوز مجموعه‌ای ندارید" description="آگهی‌های نشان‌شده را در مجموعه‌های دلخواه مرتب کنید."/></div></template>

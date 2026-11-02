@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.7.0",
   "basePath": "/haftsoo",
   "routes": [
     { "id": "home", "path": "/", "family": "discovery", "auth": false, "states": ["default", "city-search", "offline"] },
@@ -8,12 +8,12 @@
     { "id": "submit", "path": "/new", "family": "submission", "auth": true, "states": ["category", "details", "location", "media", "contact", "preview", "autosaving", "offline", "success", "rejected"] },
     { "id": "login", "path": "/auth/login", "family": "identity", "auth": false, "states": ["phone", "otp", "resend", "blocked", "success"] },
     { "id": "chat", "path": "/chat/:conversation?", "family": "communication", "auth": true, "states": ["list", "empty", "conversation", "sending", "offline", "blocked"] },
-    { "id": "account", "path": "/my", "family": "account", "auth": true, "states": ["guest", "member"] },
+    { "id": "account", "path": "/my", "family": "account", "auth": true, "states": ["overview", "profile", "preferences", "identity", "privacy", "export-pending", "deletion-pending"] },
     { "id": "my-posts", "path": "/my/posts", "family": "account", "auth": true, "states": ["active", "drafts", "review", "needs-changes", "rejected", "expired", "archived", "history", "empty"] },
-    { "id": "bookmarks", "path": "/my/bookmarks", "family": "account", "auth": true, "states": ["posts", "searches", "empty"] },
+    { "id": "bookmarks", "path": "/my/bookmarks", "family": "account", "auth": true, "states": ["collections", "posts", "creating", "empty"] },
     { "id": "recent", "path": "/my/recent", "family": "account", "auth": true, "states": ["ready", "empty"] },
     { "id": "wallet", "path": "/my/wallet", "family": "finance", "auth": true, "states": ["balance", "transactions", "payment", "failed"] },
-    { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["profile", "sessions", "active-session", "revoked-session", "privacy", "theme"] },
+    { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["preferences", "sessions", "active-session", "revoked-session", "privacy", "consent", "theme"] },
     { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
     { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },
     { "id": "design-system", "path": "/system", "family": "internal", "auth": false, "states": ["tokens", "components", "motion"] }

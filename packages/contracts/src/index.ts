@@ -257,3 +257,11 @@ export interface PublicPostDetail {
 export type PostReportReason = "fraud" | "duplicate" | "wrong_category" | "sold" | "prohibited" | "other";
 export interface ContactRevealRequest { requestId: string }
 export interface ContactRevealResult { phone: string; safeCallEnabled: boolean; replayed: boolean }
+
+export type AccountIdentityStatus = "unverified" | "pending" | "verified" | "rejected" | "expired";
+export interface AccountProfile { userId: string; phoneMasked: string; displayName: string; bio: string; avatarKey?: string | null; identityStatus: AccountIdentityStatus }
+export interface AccountPreferences { theme: "system" | "light" | "dark"; language: "fa-IR"; defaultCity?: string | null; alertFrequency: "instant" | "daily" | "weekly"; marketingMessages: boolean; safetyAlerts: boolean; searchAlerts: boolean }
+export interface BookmarkCollection { id: string; name: string; isDefault: boolean; itemCount: number }
+export interface AccountOverview { profile: AccountProfile; preferences: AccountPreferences; summary: { posts: number; bookmarks: number; recent: number; savedSearches: number; identityVerified: boolean; completionPercent: number; actions: string[] } }
+export interface ConsentRecord { purpose: "analytics" | "personalization" | "marketing"; granted: boolean; policyVersion: string; recordedAt: string }
+export interface AccountDataRequest { id: string; kind: "export" | "delete"; status: "queued" | "processing" | "ready" | "pending" | "completed" | "cancelled"; executeAfter: string }

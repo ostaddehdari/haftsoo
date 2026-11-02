@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "profile": { "displayNameMax": 80, "bioMax": 300, "avatarStorage": "media-key" },
+  "preferences": { "themes": ["system", "light", "dark"], "locale": "fa-IR", "alertFrequencies": ["instant", "daily", "weekly"] },
+  "bookmarks": { "collectionNameMax": 60, "defaultCollection": true, "softDelete": true },
+  "recentViews": { "maximumItems": 100, "retentionDays": 90, "userClearable": true },
+  "identity": { "states": ["unverified", "pending", "verified", "rejected", "expired"], "phoneSeparate": true },
+  "consent": { "purposes": ["analytics", "personalization", "marketing"], "appendOnly": true, "policyVersioned": true },
+  "dataRights": { "exportCooldownHours": 24, "deletionGraceDays": 30, "deletionCancellable": true },
+  "isolation": { "tenantRls": "forced", "ownerScoped": true }
+}

@@ -1,0 +1,11 @@
+ALTER TABLE search.alert_deliveries NO FORCE ROW LEVEL SECURITY;
+ALTER TABLE search.saved_searches NO FORCE ROW LEVEL SECURITY;
+DROP TABLE IF EXISTS identity.data_requests;
+DROP TABLE IF EXISTS identity.user_consents;
+DROP FUNCTION IF EXISTS identity.prevent_consent_mutation();
+DROP TABLE IF EXISTS identity.user_verifications;
+DROP TABLE IF EXISTS identity.recent_views;
+DROP TABLE IF EXISTS identity.bookmarks;
+DROP TABLE IF EXISTS identity.bookmark_collections;
+DROP TABLE IF EXISTS identity.user_preferences;
+DROP TABLE IF EXISTS identity.user_profiles;

@@ -16,6 +16,4 @@ async function revoke(id: string) {
 }
 </script>
 
-<template>
-  <main class="sessions-page"><header><NuxtLink to="/my/posts">بازگشت</NuxtLink><h1>دستگاه‌های فعال</h1><p>دسترسی حساب خود را روی مرورگرها و دستگاه‌های دیگر مدیریت کنید.</p></header><UiState v-if="auth.pending.value && !auth.sessions.value.length" kind="loading" title="در حال دریافت نشست‌ها" description="فهرست دستگاه‌های متصل در حال بارگذاری است." /><p v-if="auth.error.value" class="auth-error" role="alert">{{ auth.error.value }}</p><div class="session-list"><ActiveSessionCard v-for="session in auth.sessions.value" :key="session.id" :session="session" :busy="busyId === session.id" @revoke="revoke" /></div></main>
-</template>
+<template><AccountShell title="دستگاه‌های فعال" description="دسترسی حساب خود را روی مرورگرها و دستگاه‌های دیگر مدیریت کنید."><UiState v-if="auth.pending.value && !auth.sessions.value.length" kind="loading" title="در حال دریافت نشست‌ها" description="فهرست دستگاه‌های متصل در حال بارگذاری است."/><p v-if="auth.error.value" class="auth-error" role="alert">{{auth.error.value}}</p><div class="session-list"><ActiveSessionCard v-for="session in auth.sessions.value" :key="session.id" :session="session" :busy="busyId === session.id" @revoke="revoke"/></div></AccountShell></template>
