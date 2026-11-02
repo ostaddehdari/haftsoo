@@ -5,7 +5,7 @@ umask 077
 
 command_name="${1:-}"
 secret_directory="${2:-ops/secrets/runtime}"
-secret_names=(postgres_password minio_root_user minio_root_password app_signing_key service_auth_key audit_signing_key)
+secret_names=(postgres_password minio_root_user minio_root_password app_signing_key service_auth_key audit_signing_key auth_token_hash_key auth_otp_pepper identity_encryption_key auth_sms_provider_key auth_call_provider_key auth_messenger_provider_key)
 
 write_secret() {
   local name="$1"

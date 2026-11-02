@@ -41,6 +41,34 @@ export interface AuthorizationDecision {
   policyVersion: "1.0.0";
 }
 
+export type AuthDeliveryMethod = "sms" | "call" | "messenger";
+
+export interface AuthChallengeResponse {
+  preAuthSessionId: string;
+  maskedPhone: string;
+  expiresAt: string;
+  cooldownUntil: string;
+  delivery: { method: AuthDeliveryMethod; provider: string };
+}
+
+export interface AuthenticatedUser { id: string; phoneNumber: string }
+
+export interface AuthSessionToken {
+  user: AuthenticatedUser;
+  session: { id: string; deviceId: string; newDevice: boolean; accessExpiresAt: string };
+  accessToken: string;
+}
+
+export interface ActiveSession {
+  id: string;
+  status: "active" | "revoked" | "expired";
+  device_name: string;
+  device_kind: string;
+  last_ip_label: string;
+  last_seen_at: string;
+  current: boolean;
+}
+
 export type CatalogFieldType = "text" | "textarea" | "integer" | "decimal" | "boolean" | "single_select" | "multi_select" | "date" | "location" | "media";
 
 export interface CatalogCategoryNode {

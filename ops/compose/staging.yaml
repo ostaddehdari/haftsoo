@@ -48,6 +48,15 @@ services:
       APP_SIGNING_KEY_FILE: /run/secrets/app_signing_key
       SERVICE_AUTH_KEY_FILE: /run/secrets/service_auth_key
       AUDIT_SIGNING_KEY_FILE: /run/secrets/audit_signing_key
+      AUTH_TOKEN_HASH_KEY_FILE: /run/secrets/auth_token_hash_key
+      AUTH_OTP_PEPPER_FILE: /run/secrets/auth_otp_pepper
+      IDENTITY_ENCRYPTION_KEY_FILE: /run/secrets/identity_encryption_key
+      AUTH_SMS_ENDPOINT: ${AUTH_SMS_ENDPOINT:-}
+      AUTH_SMS_KEY_FILE: /run/secrets/auth_sms_provider_key
+      AUTH_CALL_ENDPOINT: ${AUTH_CALL_ENDPOINT:-}
+      AUTH_CALL_KEY_FILE: /run/secrets/auth_call_provider_key
+      AUTH_MESSENGER_ENDPOINT: ${AUTH_MESSENGER_ENDPOINT:-}
+      AUTH_MESSENGER_KEY_FILE: /run/secrets/auth_messenger_provider_key
       TRUSTED_SERVICE_NAMES: web,api,chat
       CORS_ALLOWED_ORIGINS: https://staging.srun.ir
     secrets:
@@ -57,6 +66,12 @@ services:
       - app_signing_key
       - service_auth_key
       - audit_signing_key
+      - auth_token_hash_key
+      - auth_otp_pepper
+      - identity_encryption_key
+      - auth_sms_provider_key
+      - auth_call_provider_key
+      - auth_messenger_provider_key
     depends_on:
       postgres:
         condition: service_healthy
@@ -220,6 +235,18 @@ secrets:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/service_auth_key
   audit_signing_key:
     file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/audit_signing_key
+  auth_token_hash_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_token_hash_key
+  auth_otp_pepper:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_otp_pepper
+  identity_encryption_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/identity_encryption_key
+  auth_sms_provider_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_sms_provider_key
+  auth_call_provider_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_call_provider_key
+  auth_messenger_provider_key:
+    file: ${HAFTSOO_SECRET_DIR:-/etc/haftsoo/secrets}/auth_messenger_provider_key
 
 networks:
   edge:

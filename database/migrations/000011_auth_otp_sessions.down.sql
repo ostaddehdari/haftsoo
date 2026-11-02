@@ -1,0 +1,10 @@
+DROP TRIGGER IF EXISTS auth_events_append_only ON identity.auth_events;
+DROP FUNCTION IF EXISTS identity.prevent_auth_event_mutation();
+DROP TABLE IF EXISTS identity.login_alerts;
+DROP TABLE IF EXISTS identity.auth_events;
+DROP TABLE IF EXISTS identity.refresh_tokens;
+DROP TABLE IF EXISTS identity.sessions;
+DROP TABLE IF EXISTS identity.devices;
+DROP TABLE IF EXISTS identity.otp_challenges;
+DROP TRIGGER IF EXISTS identity_users_touch ON identity.users;
+DROP TABLE IF EXISTS identity.users;

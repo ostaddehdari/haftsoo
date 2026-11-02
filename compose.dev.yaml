@@ -36,6 +36,9 @@ services:
       S3_BUCKET: haftsoo-media
       S3_ACCESS_KEY: haftsoo-local
       S3_SECRET_KEY: haftsoo-local-secret
+      AUTH_TOKEN_HASH_KEY: local-auth-token-hash-key-not-for-production
+      AUTH_OTP_PEPPER: local-auth-otp-pepper-not-for-production
+      IDENTITY_ENCRYPTION_KEY: local-identity-encryption-key-not-for-production
     ports:
       - "3001:3001"
     healthcheck:

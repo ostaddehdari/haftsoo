@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S17`؛ آخرین خروجی صفحه کامل تک‌آگهی، تماس امن و تعاملات اعتماد است
-- استیج بعدی: `S18 — ورود OTP، نشست و دستگاه`
+- تکمیل‌شده: `S01` تا `S18`؛ آخرین خروجی ورود OTP، Token Rotation، دستگاه و نشست امن است
+- استیج بعدی: `S19 — هفت‌سوی من، پروفایل و تنظیمات`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -149,6 +149,18 @@ bash scripts/build-stage-15.sh
 
 ```bash
 bash scripts/build-stage-16.sh
+```
+
+گیت صفحه تک‌آگهی و تماس امن در استیج ۱۷:
+
+```bash
+bash scripts/build-stage-17.sh
+```
+
+گیت ورود OTP، Token Rotation و نشست‌ها در استیج ۱۸:
+
+```bash
+bash scripts/build-stage-18.sh
 ```
 
 پورت‌های توسعه: Web روی `3000`، API روی `3001` و Chat روی `3002`.

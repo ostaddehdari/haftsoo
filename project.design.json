@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S17",
+    "currentStage": "S18",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.17.0",
+    "version": "0.18.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -73,7 +73,12 @@
     "postDetailPage": "apps/web/pages/v/[slug]/[token].vue",
     "postDetailModule": "apps/api/src/listing/post-detail.service.ts",
     "postDetailPolicy": "post-detail/policy.json",
-    "postDetailQualityReport": "reports/post-detail/stage-17-quality.json"
+    "postDetailQualityReport": "reports/post-detail/stage-17-quality.json",
+    "authModule": "apps/api/src/auth/auth.module.ts",
+    "authLoginPage": "apps/web/pages/auth/login.vue",
+    "activeSessionsPage": "apps/web/pages/my/settings/sessions.vue",
+    "authPolicy": "auth/policy.json",
+    "authQualityReport": "reports/auth/stage-18-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "otp": { "digits": 6, "ttlSeconds": 120, "resendCooldownSeconds": 30, "maximumAttempts": 5, "maximumSendsPerHour": 6, "storedAsHash": true },
+  "deliveryMethods": ["sms", "call", "messenger"],
+  "accessToken": { "format": "opaque", "ttlSeconds": 600, "storedAsHash": true },
+  "refreshToken": { "format": "opaque", "ttlSeconds": 2592000, "rotation": "one-time", "reuseDetection": "revoke-family", "cookie": "HttpOnly; Secure; SameSite=Lax" },
+  "session": { "idleTtlSeconds": 3600, "deviceBound": true, "userRevocable": true, "auditEventsAppendOnly": true },
+  "privacy": { "phoneEncrypted": true, "phoneLookupHash": true, "ipHashed": true }
+}

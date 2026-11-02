@@ -1,0 +1,2 @@
+import assert from"node:assert/strict";import test from"node:test";import{AuthProviderGateway}from"../dist/auth/auth-provider.js";
+test("development provider supports SMS, call and messenger without embedding credentials",async()=>{const previous=process.env.NODE_ENV;process.env.NODE_ENV="test";for(const method of["sms","call","messenger"]){const receipt=await new AuthProviderGateway().send({method,destination:"+989121234567",code:"123456",purpose:"login",locale:"fa-IR"});assert.equal(receipt.provider,`development-${method}`);}process.env.NODE_ENV=previous;});
