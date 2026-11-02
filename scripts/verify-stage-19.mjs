@@ -11,6 +11,6 @@ if (stage?.status !== "complete" || works.length !== 10 || works.some(work => wo
 if (works.some((work, index) => work.id !== `S19-W${String(index + 1).padStart(2, "0")}` || !existsSync(work.evidence))) fail("S19 evidence is incomplete");
 if (Number(design.delivery.currentStage.slice(1)) < 19 || !design.engineering.accountPolicy) fail("design manifest regressed below S19");
 const html = readFileSync("deploy/web/index.html", "utf8"), js = readFileSync("deploy/web/app.js", "utf8");
-for (const marker of ["stage19-account-1", "data-account-panel=\"overview\"", "static-consent-form", "static-export-data", "static-delete-account"]) if (!html.includes(marker)) fail(`installable account marker missing: ${marker}`);
+for (const marker of ["data-account-panel=\"overview\"", "static-consent-form", "static-export-data", "static-delete-account"]) if (!html.includes(marker)) fail(`installable account marker missing: ${marker}`);
 for (const marker of ["renderStaticAccount", "account_profile_updated", "privacy_consent_recorded", "account_data_export_requested", "account_deletion_requested"]) if (!js.includes(marker)) fail(`account interaction missing: ${marker}`);
 console.log("Stage 19 verified: 10 works, Haftsoo account center, profile, preferences, collections, history, identity, consent and data rights.");

@@ -21,6 +21,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE ?? "/api/v1",
+      chatHttpBase: process.env.NUXT_PUBLIC_CHAT_HTTP_BASE ?? "/chat-api/v1/chat",
+      chatWebSocketUrl: process.env.NUXT_PUBLIC_CHAT_WEBSOCKET_URL ?? "",
       mapStyleUrl: process.env.NUXT_PUBLIC_MAP_STYLE_URL ?? "/maps/style.json",
       tenantId: process.env.NUXT_PUBLIC_TENANT_ID ?? "00000000-0000-4000-8000-000000000001"
     }

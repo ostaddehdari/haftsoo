@@ -20,6 +20,8 @@ services:
     environment:
       NUXT_APP_BASE_URL: ${HAFTSOO_BASE_PATH:-/haftsoo/}
       NUXT_PUBLIC_API_BASE: /api/v1
+      NUXT_PUBLIC_CHAT_HTTP_BASE: /chat-api/v1/chat
+      NUXT_PUBLIC_CHAT_WEBSOCKET_URL: ${HAFTSOO_CHAT_WEBSOCKET_URL:-wss://staging.srun.ir/chat-api/v1/chat/ws}
     depends_on:
       api:
         condition: service_healthy

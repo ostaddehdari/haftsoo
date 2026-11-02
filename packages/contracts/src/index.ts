@@ -282,3 +282,10 @@ export type ChatServerEvent =
   | { type: "message.seen"; conversationId: string; sequence: number; actorId: string; occurredAt: string }
   | { type: "typing.changed"; conversationId: string; actorId: string; payload: { typing: boolean }; occurredAt: string }
   | { type: "error"; code: string; clientMessageId?: string };
+
+export type ChatConnectionState = "idle" | "connecting" | "online" | "reconnecting" | "offline";
+export type ChatDeliveryState = "pending" | "sent" | "seen" | "failed";
+export type ChatInboxFilter = "all" | "unread" | "my_post" | "others_post";
+export interface ChatPeerSummary { id: string; name: string; avatar?: string; online: boolean; lastSeenLabel?: string }
+export interface ChatConversationSummary extends ChatConversation { title: string; thumbnail?: string; peer: ChatPeerSummary; lastMessage?: string; context: "my_post" | "others_post" }
+export interface ChatQueuedCommand { command: ChatClientCommand; queuedAt: string; attempts: number }

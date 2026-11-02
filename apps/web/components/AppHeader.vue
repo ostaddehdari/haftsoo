@@ -30,13 +30,13 @@ function updateCities(next: typeof cities.value) {
         <span aria-hidden="true">⌕</span><input id="global-search" v-model="query" type="search" placeholder="جست‌وجو در همه آگهی‌ها">
       </form>
       <nav class="desktop-navigation" aria-label="ناوبری اصلی">
-        <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/">چت</NuxtLink><NuxtLink :to="authenticated ? '/my' : '/auth/login'">{{ authenticated ? "هفت‌سوی من" : "ورود" }}</NuxtLink>
+        <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/chat">چت</NuxtLink><NuxtLink :to="authenticated ? '/my' : '/auth/login'">{{ authenticated ? "هفت‌سوی من" : "ورود" }}</NuxtLink>
       </nav>
       <button class="icon-button theme-toggle" type="button" :aria-label="theme === 'dark' ? 'فعال‌کردن پوسته روشن' : 'فعال‌کردن پوسته تیره'" @click="toggle">{{ theme === "dark" ? "☀" : "◐" }}</button>
       <NuxtLink class="button button-primary submit-ad" to="/new">ثبت آگهی</NuxtLink>
       <button class="icon-button menu-toggle" type="button" :aria-expanded="mobileOpen" aria-label="بازکردن منو" @click="mobileOpen = !mobileOpen">☰</button>
     </div>
-    <nav v-if="mobileOpen" class="mobile-navigation" aria-label="منوی موبایل"><NuxtLink to="/">خانه</NuxtLink><button type="button" @click="dialogOpen = true">{{ cityLabel }}</button><NuxtLink to="/new">ثبت آگهی</NuxtLink><NuxtLink :to="authenticated ? '/my' : '/auth/login'">{{ authenticated ? "هفت‌سوی من" : "ورود" }}</NuxtLink></nav>
+    <nav v-if="mobileOpen" class="mobile-navigation" aria-label="منوی موبایل"><NuxtLink to="/">خانه</NuxtLink><button type="button" @click="dialogOpen = true">{{ cityLabel }}</button><NuxtLink to="/chat">گفتگوها</NuxtLink><NuxtLink to="/new">ثبت آگهی</NuxtLink><NuxtLink :to="authenticated ? '/my' : '/auth/login'">{{ authenticated ? "هفت‌سوی من" : "ورود" }}</NuxtLink></nav>
     <div v-if="dialogOpen" class="dialog-backdrop" @click.self="dialogOpen = false">
       <CitySelector :model-value="cities" @update:model-value="updateCities" @close="dialogOpen = false" />
     </div>

@@ -4,11 +4,11 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S20",
+    "currentStage": "S21",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "tokens": "design-system/tokens.json",
     "routes": "design-system/route-manifest.json",
     "components": "design-system/component-manifest.json",
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.20.0",
+    "version": "0.21.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -89,7 +89,11 @@
     "chatTicketModule": "apps/api/src/chat/chat-ticket.module.ts",
     "chatPolicy": "chat/policy.json",
     "chatMigration": "database/migrations/000013_chat_realtime_core.up.sql",
-    "chatQualityReport": "reports/chat/stage-20-quality.json"
+    "chatQualityReport": "reports/chat/stage-20-quality.json",
+    "chatUiPage": "apps/web/pages/chat/[[conversation]].vue",
+    "chatUiClient": "apps/web/composables/useChat.ts",
+    "chatUiPolicy": "chat/ui-policy.json",
+    "chatUiQualityReport": "reports/chat/stage-21-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

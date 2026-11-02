@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S20",
+  "currentStage": "S21",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -323,20 +323,36 @@
         { "id": "S20-W09", "status": "complete", "evidence": "docs/stage-20/persistence-observability.md" },
         { "id": "S20-W10", "status": "complete", "evidence": "docs/stage-20/acceptance.md" }
       ]
+    },
+    {
+      "id": "S21",
+      "status": "complete",
+      "works": [
+        { "id": "S21-W01", "status": "complete", "evidence": "docs/stage-21/inbox-filters.md" },
+        { "id": "S21-W02", "status": "complete", "evidence": "docs/stage-21/post-conversation-entry.md" },
+        { "id": "S21-W03", "status": "complete", "evidence": "docs/stage-21/ticket-websocket-client.md" },
+        { "id": "S21-W04", "status": "complete", "evidence": "docs/stage-21/timeline-pagination.md" },
+        { "id": "S21-W05", "status": "complete", "evidence": "docs/stage-21/optimistic-idempotent-send.md" },
+        { "id": "S21-W06", "status": "complete", "evidence": "docs/stage-21/receipts-presence-typing.md" },
+        { "id": "S21-W07", "status": "complete", "evidence": "docs/stage-21/reconnect-offline-queue.md" },
+        { "id": "S21-W08", "status": "complete", "evidence": "docs/stage-21/block-report-safety-ui.md" },
+        { "id": "S21-W09", "status": "complete", "evidence": "docs/stage-21/responsive-accessibility.md" },
+        { "id": "S21-W10", "status": "complete", "evidence": "docs/stage-21/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S20-W01", "status": "complete", "evidence": "docs/stage-20/chat-domain.md" },
-    { "id": "S20-W02", "status": "complete", "evidence": "docs/stage-20/chat-ticket-auth.md" },
-    { "id": "S20-W03", "status": "complete", "evidence": "docs/stage-20/conversation-initiation.md" },
-    { "id": "S20-W04", "status": "complete", "evidence": "docs/stage-20/websocket-transport.md" },
-    { "id": "S20-W05", "status": "complete", "evidence": "docs/stage-20/message-order-idempotency.md" },
-    { "id": "S20-W06", "status": "complete", "evidence": "docs/stage-20/delivery-read-receipts.md" },
-    { "id": "S20-W07", "status": "complete", "evidence": "docs/stage-20/presence-typing-reconnect.md" },
-    { "id": "S20-W08", "status": "complete", "evidence": "docs/stage-20/block-report-safety.md" },
-    { "id": "S20-W09", "status": "complete", "evidence": "docs/stage-20/persistence-observability.md" },
-    { "id": "S20-W10", "status": "complete", "evidence": "docs/stage-20/acceptance.md" }
+    { "id": "S21-W01", "status": "complete", "evidence": "docs/stage-21/inbox-filters.md" },
+    { "id": "S21-W02", "status": "complete", "evidence": "docs/stage-21/post-conversation-entry.md" },
+    { "id": "S21-W03", "status": "complete", "evidence": "docs/stage-21/ticket-websocket-client.md" },
+    { "id": "S21-W04", "status": "complete", "evidence": "docs/stage-21/timeline-pagination.md" },
+    { "id": "S21-W05", "status": "complete", "evidence": "docs/stage-21/optimistic-idempotent-send.md" },
+    { "id": "S21-W06", "status": "complete", "evidence": "docs/stage-21/receipts-presence-typing.md" },
+    { "id": "S21-W07", "status": "complete", "evidence": "docs/stage-21/reconnect-offline-queue.md" },
+    { "id": "S21-W08", "status": "complete", "evidence": "docs/stage-21/block-report-safety-ui.md" },
+    { "id": "S21-W09", "status": "complete", "evidence": "docs/stage-21/responsive-accessibility.md" },
+    { "id": "S21-W10", "status": "complete", "evidence": "docs/stage-21/acceptance.md" }
   ],
-  "nextStage": "S21",
-  "updatedAt": "2026-11-02T18:00:00Z"
+  "nextStage": "S22",
+  "updatedAt": "2026-11-02T19:30:00Z"
 }

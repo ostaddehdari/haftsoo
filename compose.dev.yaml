@@ -8,6 +8,8 @@ services:
     environment:
       NUXT_APP_BASE_URL: /
       NUXT_PUBLIC_API_BASE: http://localhost:3001/api/v1
+      NUXT_PUBLIC_CHAT_HTTP_BASE: http://localhost:3002/v1/chat
+      NUXT_PUBLIC_CHAT_WEBSOCKET_URL: ws://localhost:3002/v1/chat/ws
     ports:
       - "3000:3000"
     healthcheck:
@@ -17,6 +19,8 @@ services:
       retries: 5
     depends_on:
       api:
+        condition: service_healthy
+      chat:
         condition: service_healthy
 
   api:

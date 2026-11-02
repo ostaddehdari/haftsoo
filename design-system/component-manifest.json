@@ -1,5 +1,5 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "components": [
     { "name": "Button", "variants": ["primary", "secondary", "ghost", "danger", "icon"], "states": ["default", "hover", "focus", "pressed", "loading", "disabled"] },
     { "name": "TextField", "variants": ["text", "search", "phone", "number", "textarea"], "states": ["empty", "filled", "focus", "error", "disabled"] },
@@ -37,7 +37,12 @@
     { "name": "ActiveSessionCard", "variants": ["desktop", "mobile"], "states": ["current", "active", "revoked", "busy"] },
     { "name": "AccountShell", "variants": ["desktop", "mobile"], "states": ["overview", "navigation", "loading"] },
     { "name": "IdentityStatusCard", "variants": ["compact", "full"], "states": ["unverified", "pending", "verified", "rejected", "expired"] },
-    { "name": "BookmarkCollectionList", "variants": ["grid", "list"], "states": ["ready", "empty", "creating"] }
+    { "name": "BookmarkCollectionList", "variants": ["grid", "list"], "states": ["ready", "empty", "creating"] },
+    { "name": "ChatInbox", "variants": ["desktop", "mobile"], "states": ["loading", "ready", "filtered", "empty", "unread"] },
+    { "name": "ChatConversationHeader", "variants": ["post-context"], "states": ["online", "offline", "typing", "reconnecting"] },
+    { "name": "ChatMessageBubble", "variants": ["mine", "peer"], "states": ["pending", "sent", "seen", "failed"] },
+    { "name": "ChatComposer", "variants": ["text"], "states": ["ready", "typing", "offline", "blocked", "disabled"] },
+    { "name": "ChatSafetyDialog", "variants": ["dialog", "bottom-sheet"], "states": ["ready", "blocked", "reporting", "reported"] }
   ]
 }
 

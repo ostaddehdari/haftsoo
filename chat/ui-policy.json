@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "route": "/chat/:conversation?",
+  "filters": ["all", "unread", "my_post", "others_post"],
+  "message": { "maxBytes": 4000, "optimistic": true, "idempotencyKey": "clientMessageId", "offlineQueueLimit": 50 },
+  "reconnect": { "strategy": "exponential", "initialMs": 2000, "maximumMs": 15000 },
+  "safety": { "block": true, "reportReasons": ["fraud", "harassment", "spam", "prohibited", "other"] },
+  "accessibility": { "target": "WCAG-2.2-AA", "liveRegions": ["messages", "connection", "typing"], "reducedMotion": true }
+}

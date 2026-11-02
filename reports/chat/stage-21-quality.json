@@ -1,0 +1,8 @@
+{
+  "stage": "S21",
+  "works": 10,
+  "routes": ["/chat", "/chat/:conversation"],
+  "states": ["inbox", "empty", "conversation", "sending", "offline", "reconnecting", "blocked", "reported"],
+  "checks": { "responsive": true, "keyboard": true, "screenReader": true, "optimisticSend": true, "offlineQueue": true, "safety": true },
+  "status": "passed"
+}
