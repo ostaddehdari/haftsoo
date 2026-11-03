@@ -29,6 +29,14 @@
     "maximumDispatchBatch": 100,
     "requiresCursor": true
   },
+  "moderation": {
+    "p95EvaluationMs": 800,
+    "p95QueueMs": 200,
+    "maximumCandidateRows": 200,
+    "duplicateWindowHours": 24,
+    "requiresModelVersion": true,
+    "requiresExplainableSignals": true
+  },
   "review": {
     "explainFormat": "json",
     "requireAnalyzeOutsideProduction": true,

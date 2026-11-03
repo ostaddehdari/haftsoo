@@ -1,0 +1,7 @@
+{
+  "stage": "S23",
+  "status": "pass",
+  "fixtures": 8,
+  "duplicateMatrix": ["exact-text-exact-image", "similar-text-exact-image", "exact-text-no-image", "different-owner-device", "outside-24h"],
+  "gates": { "persianNormalization": true, "explainability": true, "humanAppeal": true, "tenantRls": true, "automaticRejectIsConservative": true }
+}

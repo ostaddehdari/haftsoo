@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "principles": ["human-accountability", "explainable-signals", "minimum-data", "appealable-decisions", "tenant-isolation"],
+  "actions": ["allow", "review", "reject"],
+  "riskThresholds": { "review": 0.55, "reject": 0.97 },
+  "duplicate": { "windowHours": 24, "candidateLimit": 200, "likelyThreshold": 0.82, "exactThreshold": 0.94, "signals": ["normalized_text", "perceptual_image_hash", "owner", "device", "category", "city"] },
+  "text": { "maxTitle": 160, "maxDescription": 5000, "persianNormalization": true, "contactBypassDetection": true },
+  "vision": { "safetyReviewThreshold": 0.85, "automaticRejectThreshold": 0.97, "exifStored": false },
+  "review": { "priorityRange": [0, 100], "claimLeaseMinutes": 15, "decisions": ["approve", "needs_changes", "reject"], "secondReviewForAppeal": true },
+  "retentionDays": { "rawModelEvidence": 30, "decisionAudit": 730, "deviceHash": 30 },
+  "budgets": { "evaluationP95Ms": 800, "queueP95Ms": 200, "falsePositiveTarget": 0.03, "appealSlaHours": 24 }
+}

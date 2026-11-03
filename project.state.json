@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S22",
+  "currentStage": "S23",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -355,20 +355,36 @@
         { "id": "S22-W09", "status": "complete", "evidence": "docs/stage-22/notification-ui.md" },
         { "id": "S22-W10", "status": "complete", "evidence": "docs/stage-22/acceptance.md" }
       ]
+    },
+    {
+      "id": "S23",
+      "status": "complete",
+      "works": [
+        { "id": "S23-W01", "status": "complete", "evidence": "docs/stage-23/moderation-domain-policy.md" },
+        { "id": "S23-W02", "status": "complete", "evidence": "docs/stage-23/persian-text-safety.md" },
+        { "id": "S23-W03", "status": "complete", "evidence": "docs/stage-23/image-ai-safety.md" },
+        { "id": "S23-W04", "status": "complete", "evidence": "docs/stage-23/multisignal-duplicate-24h.md" },
+        { "id": "S23-W05", "status": "complete", "evidence": "docs/stage-23/explainable-risk-scoring.md" },
+        { "id": "S23-W06", "status": "complete", "evidence": "docs/stage-23/review-queue-priority.md" },
+        { "id": "S23-W07", "status": "complete", "evidence": "docs/stage-23/human-decision-appeal.md" },
+        { "id": "S23-W08", "status": "complete", "evidence": "docs/stage-23/model-version-feedback.md" },
+        { "id": "S23-W09", "status": "complete", "evidence": "docs/stage-23/moderation-admin-ui.md" },
+        { "id": "S23-W10", "status": "complete", "evidence": "docs/stage-23/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S22-W01", "status": "complete", "evidence": "docs/stage-22/notification-domain.md" },
-    { "id": "S22-W02", "status": "complete", "evidence": "docs/stage-22/template-versioning.md" },
-    { "id": "S22-W03", "status": "complete", "evidence": "docs/stage-22/preference-quiet-hours.md" },
-    { "id": "S22-W04", "status": "complete", "evidence": "docs/stage-22/in-app-inbox.md" },
-    { "id": "S22-W05", "status": "complete", "evidence": "docs/stage-22/dispatch-idempotency.md" },
-    { "id": "S22-W06", "status": "complete", "evidence": "docs/stage-22/sms-provider-routing.md" },
-    { "id": "S22-W07", "status": "complete", "evidence": "docs/stage-22/delivery-receipts.md" },
-    { "id": "S22-W08", "status": "complete", "evidence": "docs/stage-22/retry-dead-letter-observability.md" },
-    { "id": "S22-W09", "status": "complete", "evidence": "docs/stage-22/notification-ui.md" },
-    { "id": "S22-W10", "status": "complete", "evidence": "docs/stage-22/acceptance.md" }
+    { "id": "S23-W01", "status": "complete", "evidence": "docs/stage-23/moderation-domain-policy.md" },
+    { "id": "S23-W02", "status": "complete", "evidence": "docs/stage-23/persian-text-safety.md" },
+    { "id": "S23-W03", "status": "complete", "evidence": "docs/stage-23/image-ai-safety.md" },
+    { "id": "S23-W04", "status": "complete", "evidence": "docs/stage-23/multisignal-duplicate-24h.md" },
+    { "id": "S23-W05", "status": "complete", "evidence": "docs/stage-23/explainable-risk-scoring.md" },
+    { "id": "S23-W06", "status": "complete", "evidence": "docs/stage-23/review-queue-priority.md" },
+    { "id": "S23-W07", "status": "complete", "evidence": "docs/stage-23/human-decision-appeal.md" },
+    { "id": "S23-W08", "status": "complete", "evidence": "docs/stage-23/model-version-feedback.md" },
+    { "id": "S23-W09", "status": "complete", "evidence": "docs/stage-23/moderation-admin-ui.md" },
+    { "id": "S23-W10", "status": "complete", "evidence": "docs/stage-23/acceptance.md" }
   ],
-  "nextStage": "S23",
-  "updatedAt": "2026-11-02T21:30:00Z"
+  "nextStage": "S24",
+  "updatedAt": "2026-11-03T10:30:00Z"
 }

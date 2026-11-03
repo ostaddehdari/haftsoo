@@ -295,3 +295,11 @@ export type NotificationChannel = "in_app" | "sms" | "email" | "push";
 export interface NotificationItem { id: string; category: NotificationCategory; severity: "info" | "success" | "warning" | "critical"; title: string; body: string; actionUrl?: string | null; readAt?: string | null; createdAt: string }
 export interface NotificationPreference { inApp: boolean; sms: boolean; email: boolean; push: boolean; categories: Record<NotificationCategory, boolean>; quietStart: string | null; quietEnd: string | null; timezone: string }
 export interface NotificationDeliveryReceipt { provider: string; messageId: string; state: "delivered" | "failed"; occurredAt: string }
+
+export type ModerationAction = "allow" | "review" | "reject";
+export type ModerationDecision = "approve" | "needs_changes" | "reject";
+export interface ModerationSignal { code: string; score: number; source: "rule" | "text_model" | "vision_model" | "duplicate" | "report"; explanation: string }
+export interface ModerationEvaluation { id: string; postId: string; action: ModerationAction; riskScore: number; reasonCodes: string[]; signals: ModerationSignal[]; modelVersion: string; duplicateOfPostId?: string | null }
+export interface ModerationCase { id: string; postId: string; state: "open" | "claimed" | "appealed" | "resolved" | "cancelled"; priority: number; reasonCodes: string[]; evaluation: ModerationEvaluation }
+export interface ModerationDecisionRequest { decision: ModerationDecision; reasonCode: string; note: string }
+export interface ModerationAppealRequest { statement: string }
