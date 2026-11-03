@@ -12,6 +12,7 @@
     { "id": "notifications", "path": "/my/notifications", "family": "communication", "auth": true, "states": ["loading", "ready", "unread", "empty", "archived"] },
     { "id": "notification-settings", "path": "/my/settings/notifications", "family": "communication", "auth": true, "states": ["channels", "categories", "quiet-hours", "saved"] },
     { "id": "moderation-admin", "path": "/admin/moderation", "family": "internal", "auth": true, "states": ["loading", "queue", "selected", "appeal", "resolved", "empty"] },
+    { "id": "moderation-operations", "path": "/admin/moderation/operations", "family": "internal", "auth": true, "states": ["loading", "healthy", "at-risk", "breached", "claimed", "escalated", "empty"] },
     { "id": "my-posts", "path": "/my/posts", "family": "account", "auth": true, "states": ["active", "drafts", "review", "needs-changes", "rejected", "expired", "archived", "history", "empty"] },
     { "id": "bookmarks", "path": "/my/bookmarks", "family": "account", "auth": true, "states": ["collections", "posts", "creating", "empty"] },
     { "id": "recent", "path": "/my/recent", "family": "account", "auth": true, "states": ["ready", "empty"] },

@@ -1,0 +1,3 @@
+<script setup lang="ts">import type{OperationsCase}from"~/composables/useContentOperations";defineProps<{items:OperationsCase[];activeId?:string}>();defineEmits<{select:[item:OperationsCase]}>();</script>
+<template><div class="operations-queue" role="listbox" aria-label="صف پرونده‌ها"><button v-for="item in items" :key="item.id" type="button" :class="{active:item.id===activeId}" @click="$emit('select',item)"><div><span class="risk-band" :data-risk="item.risk_band">{{item.risk_band}}</span><SlaClock :due-at="item.sla_due_at" :state="item.sla_state"/></div><strong>{{item.title}}</strong><small>{{item.report_count.toLocaleString('fa-IR')}} گزارش · اولویت {{item.priority.toLocaleString('fa-IR')}}</small></button></div></template>
+

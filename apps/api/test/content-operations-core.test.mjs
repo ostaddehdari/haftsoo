@@ -1,0 +1,7 @@
+import test from "node:test";import assert from "node:assert/strict";
+import{maskSensitiveText,reportFingerprint,requiresSecondReview,riskBandForReport,slaDeadline,slaStatus,validateClaim,validateUserReport}from"../dist/moderation/content-operations-core.js";
+const postId="11111111-1111-4111-8111-111111111111";
+test("validates reports and assigns risk",()=>{assert.equal(validateUserReport({postId,reason:"scam",description:""}).reason,"scam");assert.equal(riskBandForReport("prohibited"),"critical");assert.throws(()=>validateUserReport({postId,reason:"other",description:"کم"}),/description/);});
+test("deduplicates same reporter post reason and day",()=>{const input={tenantId:postId,reporterId:"22222222-2222-4222-8222-222222222222",postId,reason:"scam",now:new Date("2026-11-03T08:00:00Z")};assert.equal(reportFingerprint(input),reportFingerprint(input));assert.equal(reportFingerprint(input).length,64);});
+test("computes SLA and breach",()=>{const start=new Date("2026-11-03T08:00:00Z"),due=slaDeadline("critical",start);assert.equal(due.toISOString(),"2026-11-03T08:15:00.000Z");assert.equal(slaStatus(due,new Date("2026-11-03T08:16:00Z")).state,"breached");});
+test("leases, masking and four-eyes are guarded",()=>{assert.equal(validateClaim({leaseMinutes:20}).leaseMinutes,20);assert.throws(()=>validateClaim({leaseMinutes:60}),/lease/);assert.equal(maskSensitiveText("09121234567 a@b.com").includes("09121234567"),false);assert.equal(requiresSecondReview("critical","reject"),true);});

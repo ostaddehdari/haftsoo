@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "claimLeaseMinutes": 15,
+  "maximumLeaseMinutes": 30,
+  "reportReasons": ["scam", "prohibited", "duplicate", "harassment", "wrong_category", "sold", "misleading", "other"],
+  "slaMinutes": { "critical": 15, "high": 60, "normal": 240, "low": 1440 },
+  "escalationLevels": 3,
+  "criticalDecisionRequiresSecondReview": true,
+  "qualitySamplePercent": 5,
+  "piiMasking": ["phone", "email"],
+  "principles": ["least-privilege", "leased-claims", "append-only-timeline", "measurable-sla", "four-eyes-critical"]
+}
+

@@ -11,5 +11,5 @@ if (stage?.status !== "complete" || works.length !== 10 || works.some(work => wo
 if (works.some((work, index) => work.id !== `S18-W${String(index + 1).padStart(2, "0")}` || !existsSync(work.evidence))) fail("S18 evidence is incomplete");
 if (Number(design.delivery.currentStage.slice(1)) < 18 || Number(design.engineering.version.split(".")[1]) < 18 || !design.engineering.authPolicy) fail("design manifest regressed below S18");
 const html = readFileSync("deploy/web/index.html", "utf8"), js = readFileSync("deploy/web/app.js", "utf8");
-if (!/stage(?:18-auth-1|19-account-1|21-chat-1|22-notification-1|23-moderation-1)/.test(html) || !html.includes("autocomplete=\"one-time-code\"") || !js.includes("auth_otp_consumed") || !js.includes("auth_session_revoked")) fail("installable auth UI not wired");
+if (!/stage(?:18-auth-1|19-account-1|21-chat-1|22-notification-1|23-moderation-1|24-operations-1)/.test(html) || !html.includes("autocomplete=\"one-time-code\"") || !js.includes("auth_otp_consumed") || !js.includes("auth_session_revoked")) fail("installable auth UI not wired");
 console.log("Stage 18 verified: 10 works, server-driven OTP, three delivery methods, rotation, active sessions, anti-abuse, audit and login alerts.");

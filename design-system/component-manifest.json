@@ -48,7 +48,11 @@
     { "name": "RiskScoreBadge", "variants": ["safe", "review", "critical"], "states": ["ready"] },
     { "name": "ModerationQueue", "variants": ["desktop", "mobile"], "states": ["loading", "open", "appealed", "resolved", "empty"] },
     { "name": "ModerationCasePanel", "variants": ["text", "image", "duplicate"], "states": ["selected", "explained", "comparing"] },
-    { "name": "ModerationDecisionForm", "variants": ["human-review"], "states": ["ready", "submitting", "recorded"] }
+    { "name": "ModerationDecisionForm", "variants": ["human-review"], "states": ["ready", "submitting", "recorded"] },
+    { "name": "OperationsMetrics", "variants": ["staff-dashboard"], "states": ["healthy", "at-risk", "breached"] },
+    { "name": "OperationsQueue", "variants": ["leased-queue"], "states": ["open", "claimed", "escalated", "empty"] },
+    { "name": "SlaClock", "variants": ["countdown"], "states": ["healthy", "at-risk", "breached"] },
+    { "name": "OperationsCaseWorkspace", "variants": ["evidence-timeline"], "states": ["unclaimed", "claimed", "escalated"] }
   ]
 }
 

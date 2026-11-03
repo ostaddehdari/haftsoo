@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S23",
+  "currentStage": "S24",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -371,20 +371,36 @@
         { "id": "S23-W09", "status": "complete", "evidence": "docs/stage-23/moderation-admin-ui.md" },
         { "id": "S23-W10", "status": "complete", "evidence": "docs/stage-23/acceptance.md" }
       ]
+    },
+    {
+      "id": "S24",
+      "status": "complete",
+      "works": [
+        { "id": "S24-W01", "status": "complete", "evidence": "docs/stage-24/report-intake-deduplication.md" },
+        { "id": "S24-W02", "status": "complete", "evidence": "docs/stage-24/operations-queue-priority.md" },
+        { "id": "S24-W03", "status": "complete", "evidence": "docs/stage-24/claim-lease-concurrency.md" },
+        { "id": "S24-W04", "status": "complete", "evidence": "docs/stage-24/sla-policy-breach.md" },
+        { "id": "S24-W05", "status": "complete", "evidence": "docs/stage-24/evidence-timeline-pii.md" },
+        { "id": "S24-W06", "status": "complete", "evidence": "docs/stage-24/escalation-four-eyes.md" },
+        { "id": "S24-W07", "status": "complete", "evidence": "docs/stage-24/workforce-routing.md" },
+        { "id": "S24-W08", "status": "complete", "evidence": "docs/stage-24/quality-audit-metrics.md" },
+        { "id": "S24-W09", "status": "complete", "evidence": "docs/stage-24/operations-admin-ui.md" },
+        { "id": "S24-W10", "status": "complete", "evidence": "docs/stage-24/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S23-W01", "status": "complete", "evidence": "docs/stage-23/moderation-domain-policy.md" },
-    { "id": "S23-W02", "status": "complete", "evidence": "docs/stage-23/persian-text-safety.md" },
-    { "id": "S23-W03", "status": "complete", "evidence": "docs/stage-23/image-ai-safety.md" },
-    { "id": "S23-W04", "status": "complete", "evidence": "docs/stage-23/multisignal-duplicate-24h.md" },
-    { "id": "S23-W05", "status": "complete", "evidence": "docs/stage-23/explainable-risk-scoring.md" },
-    { "id": "S23-W06", "status": "complete", "evidence": "docs/stage-23/review-queue-priority.md" },
-    { "id": "S23-W07", "status": "complete", "evidence": "docs/stage-23/human-decision-appeal.md" },
-    { "id": "S23-W08", "status": "complete", "evidence": "docs/stage-23/model-version-feedback.md" },
-    { "id": "S23-W09", "status": "complete", "evidence": "docs/stage-23/moderation-admin-ui.md" },
-    { "id": "S23-W10", "status": "complete", "evidence": "docs/stage-23/acceptance.md" }
+    { "id": "S24-W01", "status": "complete", "evidence": "docs/stage-24/report-intake-deduplication.md" },
+    { "id": "S24-W02", "status": "complete", "evidence": "docs/stage-24/operations-queue-priority.md" },
+    { "id": "S24-W03", "status": "complete", "evidence": "docs/stage-24/claim-lease-concurrency.md" },
+    { "id": "S24-W04", "status": "complete", "evidence": "docs/stage-24/sla-policy-breach.md" },
+    { "id": "S24-W05", "status": "complete", "evidence": "docs/stage-24/evidence-timeline-pii.md" },
+    { "id": "S24-W06", "status": "complete", "evidence": "docs/stage-24/escalation-four-eyes.md" },
+    { "id": "S24-W07", "status": "complete", "evidence": "docs/stage-24/workforce-routing.md" },
+    { "id": "S24-W08", "status": "complete", "evidence": "docs/stage-24/quality-audit-metrics.md" },
+    { "id": "S24-W09", "status": "complete", "evidence": "docs/stage-24/operations-admin-ui.md" },
+    { "id": "S24-W10", "status": "complete", "evidence": "docs/stage-24/acceptance.md" }
   ],
-  "nextStage": "S24",
-  "updatedAt": "2026-11-03T10:30:00Z"
+  "nextStage": "S25",
+  "updatedAt": "2026-11-03T12:30:00Z"
 }

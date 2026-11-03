@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S23",
+    "currentStage": "S24",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.23.0",
+    "version": "0.24.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -103,7 +103,11 @@
     "moderationAdminPage": "apps/web/pages/admin/moderation/index.vue",
     "moderationPolicy": "moderation/policy.json",
     "moderationMigration": "database/migrations/000015_content_moderation_ai.up.sql",
-    "moderationQualityReport": "reports/moderation/stage-23-quality.json"
+    "moderationQualityReport": "reports/moderation/stage-23-quality.json",
+    "moderationOperationsPage": "apps/web/pages/admin/moderation/operations.vue",
+    "moderationOperationsPolicy": "moderation/operations-policy.json",
+    "moderationOperationsMigration": "database/migrations/000016_moderation_operations.up.sql",
+    "moderationOperationsQualityReport": "reports/moderation/stage-24-operations-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

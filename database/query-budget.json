@@ -35,7 +35,11 @@
     "maximumCandidateRows": 200,
     "duplicateWindowHours": 24,
     "requiresModelVersion": true,
-    "requiresExplainableSignals": true
+    "requiresExplainableSignals": true,
+    "p95OperationsQueueMs": 180,
+    "maximumOperationsRows": 100,
+    "claimLeaseMinutes": 15,
+    "requiresSlaIndex": true
   },
   "review": {
     "explainFormat": "json",
