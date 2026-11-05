@@ -25,6 +25,7 @@
     { "id": "business-team", "path": "/my/business/team", "family": "business", "auth": true, "states": ["members", "inviting", "accepted", "expired", "revoked"] },
     { "id": "storefront", "path": "/store/:slug", "family": "business", "auth": false, "states": ["loading", "published", "paused", "not-found"] },
     { "id": "business-admin", "path": "/admin/business", "family": "internal", "auth": true, "states": ["metrics", "verification-queue", "selected", "suspended", "empty"] },
+    { "id": "platform-admin", "path": "/admin", "family": "internal", "auth": true, "states": ["overview", "health", "alerts", "reports", "configuration", "audit", "permission-denied"] },
     { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["preferences", "sessions", "active-session", "revoked-session", "privacy", "consent", "theme"] },
     { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
     { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },

@@ -68,7 +68,12 @@
     { "name": "BusinessMetricCards", "variants": ["overview", "analytics"], "states": ["loading", "ready", "empty"] },
     { "name": "BusinessTeamTable", "variants": ["desktop", "mobile"], "states": ["active", "invited", "suspended", "revoked"] },
     { "name": "StorefrontHero", "variants": ["verified", "standard"], "states": ["published", "paused"] },
-    { "name": "BusinessAdminQueue", "variants": ["verification", "ownership"], "states": ["loading", "selected", "resolved", "empty"] }
+    { "name": "BusinessAdminQueue", "variants": ["verification", "ownership"], "states": ["loading", "selected", "resolved", "empty"] },
+    { "name": "AdminKpiGrid", "variants": ["executive", "operations"], "states": ["loading", "ready", "stale"] },
+    { "name": "ServiceHealthPanel", "variants": ["service-list"], "states": ["operational", "degraded", "incident"] },
+    { "name": "AdminAlertCenter", "variants": ["severity-queue"], "states": ["open", "acknowledged", "resolved"] },
+    { "name": "AdminConfigurationPanel", "variants": ["versioned-json"], "states": ["draft", "pending-approval", "published", "failed"] },
+    { "name": "AdminReportPanel", "variants": ["background-job"], "states": ["queued", "running", "ready", "failed"] }
   ]
 }
 

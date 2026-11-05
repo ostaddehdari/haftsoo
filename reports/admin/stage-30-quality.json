@@ -1,0 +1,1 @@
+{"stage":"S30","works":10,"status":"passed","publicHeaderLeaks":0,"adminRoutes":1,"fourEyes":true,"reversibleMigration":true,"contracts":["admin-control-plane","database","security","install-assets"]}

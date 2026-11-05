@@ -26,6 +26,7 @@
   "finance": { "p95WalletMs": 120, "p95LedgerPageMs": 180, "p95ReconciliationMs": 250, "maximumTransactionRows": 100, "requiresIdempotency": true },
   "monetization": { "p95CatalogMs": 120, "p95CheckoutMs": 200, "p95EntitlementMs": 120, "maximumProductRows": 100, "requiresIdempotency": true },
   "business": { "p95DashboardMs": 180, "p95TeamMs": 150, "p95StorefrontMs": 180, "maximumMemberRows": 100, "maximumLeadRows": 100, "requiresTenantScope": true },
+  "admin": { "p95OverviewMs": 180, "p95AlertQueueMs": 150, "p95ConfigurationMs": 150, "maximumAlertRows": 100, "maximumAuditRows": 100, "maximumReportDays": 92, "requiresFourEyes": true },
   "notifications": {
     "p95InboxMs": 180,
     "p95UnreadCountMs": 100,

@@ -21,7 +21,7 @@ jobs:
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
           scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh scripts/build-stage-11.sh scripts/build-stage-12.sh
-          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/build-stage-20.sh scripts/build-stage-21.sh scripts/build-stage-22.sh scripts/build-stage-23.sh scripts/build-stage-24.sh scripts/build-stage-25.sh scripts/build-stage-26.sh scripts/build-stage-27.sh scripts/build-stage-28.sh scripts/build-stage-29.sh scripts/manage-secrets.sh scripts/test-secrets.sh
+          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/build-stage-20.sh scripts/build-stage-21.sh scripts/build-stage-22.sh scripts/build-stage-23.sh scripts/build-stage-24.sh scripts/build-stage-25.sh scripts/build-stage-26.sh scripts/build-stage-27.sh scripts/build-stage-28.sh scripts/build-stage-29.sh scripts/build-stage-30.sh scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
         run: npm ci --no-audit --no-fund
@@ -71,6 +71,8 @@ jobs:
         run: npm run business:contract
       - name: Validate public shell and listing filters
         run: npm run public-ui:contract
+      - name: Validate platform control plane
+        run: npm run admin:contract
       - name: Lint and formatting
         run: npm run lint && npm run format:check
       - name: Typecheck, test and build workspaces

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "roles": ["platform_admin", "platform_observer", "security_admin"],
+  "publicNavigationExposure": false,
+  "overview": { "maximumAgeSeconds": 300, "tenantScoped": true },
+  "alerts": { "deduplicated": true, "acknowledgementAudited": true, "severities": ["info", "warning", "critical"] },
+  "reports": { "formats": ["csv", "json"], "maximumRangeDays": 92, "backgroundJobs": true, "signedDownload": true },
+  "configuration": { "versioned": true, "forbidRepositorySecrets": true, "productionFourEyes": true, "rollbackFromHistory": true },
+  "audit": { "appendOnly": true, "piiRedacted": true, "maximumPageRows": 100 }
+}

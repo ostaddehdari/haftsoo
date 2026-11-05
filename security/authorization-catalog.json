@@ -16,7 +16,9 @@
     { "id": "monetization_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:catalog:manage", "monetization:price:publish", "monetization:subscription:manage", "monetization:metrics:read"] },
     { "id": "marketing_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:campaign:manage", "monetization:coupon:manage", "monetization:metrics:read"] },
     { "id": "business_reviewer", "principalTypes": ["workforce"], "permissions": ["business:verification:read", "business:verification:decide", "business:ownership:review", "business:storefront:suspend", "business:audit:read"] },
-    { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:configuration:manage", "audit:read", "iam:assignment:manage"] },
+    { "id": "platform_observer", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:report:read", "audit:read"] },
+    { "id": "security_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:configuration:approve", "audit:read"] },
+    { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:report:read", "platform:report:create", "platform:configuration:read", "platform:configuration:manage", "platform:configuration:approve", "audit:read", "iam:assignment:manage"] },
     { "id": "service", "principalTypes": ["service"], "permissions": ["service:internal:invoke"] }
   ],
   "scopes": ["self", "business", "tenant", "assigned-queue", "platform"],
@@ -25,6 +27,7 @@
     ["finance_operator", "platform_admin"],
     ["finance_operator", "finance_lead"],
     ["monetization_manager", "finance_lead"],
-    ["moderator", "moderation_lead"]
+    ["moderator", "moderation_lead"],
+    ["platform_admin", "security_admin"]
   ]
 }

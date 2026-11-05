@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S29",
+    "currentStage": "S30",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.29.0",
+    "version": "0.30.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -134,7 +134,13 @@
     "businessMigration": "database/migrations/000020_business_storefront_team.up.sql",
     "businessQualityReport": "reports/business/stage-28-quality.json",
     "publicUiPolicy": "ui/public-shell-policy.json",
-    "publicUiQualityReport": "reports/ui/stage-29-quality.json"
+    "publicUiQualityReport": "reports/ui/stage-29-quality.json",
+    "adminModule": "apps/api/src/admin/admin.module.ts",
+    "adminDashboardPage": "apps/web/pages/admin/index.vue",
+    "adminLayout": "apps/web/layouts/admin.vue",
+    "adminPolicy": "admin/policy.json",
+    "adminMigration": "database/migrations/000021_admin_control_plane.up.sql",
+    "adminQualityReport": "reports/admin/stage-30-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

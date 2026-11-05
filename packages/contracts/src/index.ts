@@ -319,3 +319,10 @@ export interface BusinessInvitation { id: string; businessId: string; role: Excl
 export interface BusinessBranch { id: string; businessId: string; cityId?: string | null; neighborhoodId?: string | null; title: string; slug: string; publicPhone?: string | null; publicAddress?: string | null; state: "active" | "inactive" | "closed" }
 export interface BusinessStorefront { id: string; businessId: string; slug: string; headline: string; description: string; state: "draft" | "published" | "paused" | "archived"; branches: BusinessBranch[] }
 export interface BusinessDashboard { members: number; branches: number; listings: number; leadsToday: number; views30d: number; contacts30d: number }
+
+export type AdminRole = "platform_admin" | "platform_observer" | "security_admin";
+export interface AdminExecutiveMetrics { users: number; activeListings: number; contacts: number; views: number; revenueIrr: number; openCases: number; contactRateBps: number; revenuePerListingIrr: number }
+export interface AdminServiceHealth { service: string; status: "ok" | "degraded" | "down"; latencyMs: number; availabilityBps: number; version: string; checkedAt: string }
+export interface AdminAlert { id: string; severity: "info" | "warning" | "critical"; source: string; title: string; description: string; state: "open" | "acknowledged" | "resolved" | "suppressed"; occurrenceCount: number; lastSeenAt: string }
+export interface AdminReportJob { id: string; kind: "marketplace" | "trust" | "finance" | "operations"; format: "csv" | "json"; state: "queued" | "running" | "ready" | "failed" | "expired"; progress: number; objectKey?: string | null }
+export interface AdminConfiguration { key: string; environment: "development" | "staging" | "production"; value: Record<string, unknown>; version: number; checksum: string; publishedAt: string }
