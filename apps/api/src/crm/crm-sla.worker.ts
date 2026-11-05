@@ -1,0 +1,1 @@
+import{Injectable,Logger}from"@nestjs/common";@Injectable()export class CrmSlaWorker{private readonly logger=new Logger(CrmSlaWorker.name);record(result:{breached:number;released:number}){this.logger.log(JSON.stringify({event:"crm_sla_sweep",...result}));}}

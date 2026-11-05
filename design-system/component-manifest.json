@@ -52,7 +52,11 @@
     { "name": "OperationsMetrics", "variants": ["staff-dashboard"], "states": ["healthy", "at-risk", "breached"] },
     { "name": "OperationsQueue", "variants": ["leased-queue"], "states": ["open", "claimed", "escalated", "empty"] },
     { "name": "SlaClock", "variants": ["countdown"], "states": ["healthy", "at-risk", "breached"] },
-    { "name": "OperationsCaseWorkspace", "variants": ["evidence-timeline"], "states": ["unclaimed", "claimed", "escalated"] }
+    { "name": "OperationsCaseWorkspace", "variants": ["evidence-timeline"], "states": ["unclaimed", "claimed", "escalated"] },
+    { "name": "CrmMetrics", "variants": ["support-dashboard"], "states": ["healthy", "breached"] },
+    { "name": "CrmTicketQueue", "variants": ["multichannel"], "states": ["open", "assigned", "waiting", "resolved", "empty"] },
+    { "name": "CrmTicketWorkspace", "variants": ["conversation"], "states": ["unassigned", "assigned", "replying", "resolved"] },
+    { "name": "Customer360Panel", "variants": ["masked-profile"], "states": ["loading", "ready", "restricted"] }
   ]
 }
 

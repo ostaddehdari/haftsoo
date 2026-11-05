@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S24",
+  "currentStage": "S25",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -387,20 +387,36 @@
         { "id": "S24-W09", "status": "complete", "evidence": "docs/stage-24/operations-admin-ui.md" },
         { "id": "S24-W10", "status": "complete", "evidence": "docs/stage-24/acceptance.md" }
       ]
+    },
+    {
+      "id": "S25",
+      "status": "complete",
+      "works": [
+        { "id": "S25-W01", "status": "complete", "evidence": "docs/stage-25/crm-domain-customer.md" },
+        { "id": "S25-W02", "status": "complete", "evidence": "docs/stage-25/ticket-intake-channels.md" },
+        { "id": "S25-W03", "status": "complete", "evidence": "docs/stage-25/queue-assignment-sla.md" },
+        { "id": "S25-W04", "status": "complete", "evidence": "docs/stage-25/customer-360-timeline.md" },
+        { "id": "S25-W05", "status": "complete", "evidence": "docs/stage-25/notes-tasks-tags.md" },
+        { "id": "S25-W06", "status": "complete", "evidence": "docs/stage-25/macros-knowledge.md" },
+        { "id": "S25-W07", "status": "complete", "evidence": "docs/stage-25/privacy-rbac-audit.md" },
+        { "id": "S25-W08", "status": "complete", "evidence": "docs/stage-25/escalation-csat-quality.md" },
+        { "id": "S25-W09", "status": "complete", "evidence": "docs/stage-25/crm-admin-ui.md" },
+        { "id": "S25-W10", "status": "complete", "evidence": "docs/stage-25/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S24-W01", "status": "complete", "evidence": "docs/stage-24/report-intake-deduplication.md" },
-    { "id": "S24-W02", "status": "complete", "evidence": "docs/stage-24/operations-queue-priority.md" },
-    { "id": "S24-W03", "status": "complete", "evidence": "docs/stage-24/claim-lease-concurrency.md" },
-    { "id": "S24-W04", "status": "complete", "evidence": "docs/stage-24/sla-policy-breach.md" },
-    { "id": "S24-W05", "status": "complete", "evidence": "docs/stage-24/evidence-timeline-pii.md" },
-    { "id": "S24-W06", "status": "complete", "evidence": "docs/stage-24/escalation-four-eyes.md" },
-    { "id": "S24-W07", "status": "complete", "evidence": "docs/stage-24/workforce-routing.md" },
-    { "id": "S24-W08", "status": "complete", "evidence": "docs/stage-24/quality-audit-metrics.md" },
-    { "id": "S24-W09", "status": "complete", "evidence": "docs/stage-24/operations-admin-ui.md" },
-    { "id": "S24-W10", "status": "complete", "evidence": "docs/stage-24/acceptance.md" }
+    { "id": "S25-W01", "status": "complete", "evidence": "docs/stage-25/crm-domain-customer.md" },
+    { "id": "S25-W02", "status": "complete", "evidence": "docs/stage-25/ticket-intake-channels.md" },
+    { "id": "S25-W03", "status": "complete", "evidence": "docs/stage-25/queue-assignment-sla.md" },
+    { "id": "S25-W04", "status": "complete", "evidence": "docs/stage-25/customer-360-timeline.md" },
+    { "id": "S25-W05", "status": "complete", "evidence": "docs/stage-25/notes-tasks-tags.md" },
+    { "id": "S25-W06", "status": "complete", "evidence": "docs/stage-25/macros-knowledge.md" },
+    { "id": "S25-W07", "status": "complete", "evidence": "docs/stage-25/privacy-rbac-audit.md" },
+    { "id": "S25-W08", "status": "complete", "evidence": "docs/stage-25/escalation-csat-quality.md" },
+    { "id": "S25-W09", "status": "complete", "evidence": "docs/stage-25/crm-admin-ui.md" },
+    { "id": "S25-W10", "status": "complete", "evidence": "docs/stage-25/acceptance.md" }
   ],
-  "nextStage": "S25",
-  "updatedAt": "2026-11-03T12:30:00Z"
+  "nextStage": "S26",
+  "updatedAt": "2026-11-05T12:30:00Z"
 }

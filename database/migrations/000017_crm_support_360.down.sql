@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS crm.satisfaction,crm.macros,crm.tasks,crm.customer_tags,crm.tags,crm.interactions,crm.tickets,crm.customer_profiles CASCADE;DROP SEQUENCE IF EXISTS crm.ticket_public_id_seq;DROP SCHEMA IF EXISTS crm;

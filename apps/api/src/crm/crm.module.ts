@@ -1,0 +1,1 @@
+import{Module}from"@nestjs/common";import{SecurityModule}from"../security/security.module";import{CrmController}from"./crm.controller";import{CrmService}from"./crm.service";import{CrmSlaWorker}from"./crm-sla.worker";@Module({imports:[SecurityModule],controllers:[CrmController],providers:[CrmService,CrmSlaWorker],exports:[CrmService,CrmSlaWorker]})export class CrmModule{}
