@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S26",
+  "currentStage": "S27",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -419,20 +419,36 @@
         { "id": "S26-W09", "status": "complete", "evidence": "docs/stage-26/finance-admin-ui.md" },
         { "id": "S26-W10", "status": "complete", "evidence": "docs/stage-26/acceptance.md" }
       ]
+    },
+    {
+      "id": "S27",
+      "status": "complete",
+      "works": [
+        { "id": "S27-W01", "status": "complete", "evidence": "docs/stage-27/product-catalog-pricing.md" },
+        { "id": "S27-W02", "status": "complete", "evidence": "docs/stage-27/order-checkout-finance.md" },
+        { "id": "S27-W03", "status": "complete", "evidence": "docs/stage-27/entitlements-quotas.md" },
+        { "id": "S27-W04", "status": "complete", "evidence": "docs/stage-27/listing-promotions.md" },
+        { "id": "S27-W05", "status": "complete", "evidence": "docs/stage-27/packages-subscriptions.md" },
+        { "id": "S27-W06", "status": "complete", "evidence": "docs/stage-27/campaign-coupons.md" },
+        { "id": "S27-W07", "status": "complete", "evidence": "docs/stage-27/revenue-refunds.md" },
+        { "id": "S27-W08", "status": "complete", "evidence": "docs/stage-27/monetization-rbac-audit.md" },
+        { "id": "S27-W09", "status": "complete", "evidence": "docs/stage-27/user-promotion-ui.md" },
+        { "id": "S27-W10", "status": "complete", "evidence": "docs/stage-27/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S26-W01", "status": "complete", "evidence": "docs/stage-26/money-ledger-domain.md" },
-    { "id": "S26-W02", "status": "complete", "evidence": "docs/stage-26/wallet-holds.md" },
-    { "id": "S26-W03", "status": "complete", "evidence": "docs/stage-26/payment-provider-routing.md" },
-    { "id": "S26-W04", "status": "complete", "evidence": "docs/stage-26/refunds-chargebacks.md" },
-    { "id": "S26-W05", "status": "complete", "evidence": "docs/stage-26/settlement-reconciliation.md" },
-    { "id": "S26-W06", "status": "complete", "evidence": "docs/stage-26/installment-plans.md" },
-    { "id": "S26-W07", "status": "complete", "evidence": "docs/stage-26/finance-rbac-audit.md" },
-    { "id": "S26-W08", "status": "complete", "evidence": "docs/stage-26/wallet-user-ui.md" },
-    { "id": "S26-W09", "status": "complete", "evidence": "docs/stage-26/finance-admin-ui.md" },
-    { "id": "S26-W10", "status": "complete", "evidence": "docs/stage-26/acceptance.md" }
+    { "id": "S27-W01", "status": "complete", "evidence": "docs/stage-27/product-catalog-pricing.md" },
+    { "id": "S27-W02", "status": "complete", "evidence": "docs/stage-27/order-checkout-finance.md" },
+    { "id": "S27-W03", "status": "complete", "evidence": "docs/stage-27/entitlements-quotas.md" },
+    { "id": "S27-W04", "status": "complete", "evidence": "docs/stage-27/listing-promotions.md" },
+    { "id": "S27-W05", "status": "complete", "evidence": "docs/stage-27/packages-subscriptions.md" },
+    { "id": "S27-W06", "status": "complete", "evidence": "docs/stage-27/campaign-coupons.md" },
+    { "id": "S27-W07", "status": "complete", "evidence": "docs/stage-27/revenue-refunds.md" },
+    { "id": "S27-W08", "status": "complete", "evidence": "docs/stage-27/monetization-rbac-audit.md" },
+    { "id": "S27-W09", "status": "complete", "evidence": "docs/stage-27/user-promotion-ui.md" },
+    { "id": "S27-W10", "status": "complete", "evidence": "docs/stage-27/acceptance.md" }
   ],
-  "nextStage": "S27",
-  "updatedAt": "2026-11-05T15:30:00Z"
+  "nextStage": "S28",
+  "updatedAt": "2026-11-05T17:10:00Z"
 }

@@ -19,6 +19,8 @@
     { "id": "recent", "path": "/my/recent", "family": "account", "auth": true, "states": ["ready", "empty"] },
     { "id": "wallet", "path": "/my/wallet", "family": "finance", "auth": true, "states": ["balance", "transactions", "payment", "failed"] },
     { "id": "finance-admin", "path": "/admin/finance", "family": "internal", "auth": true, "states": ["metrics", "payments", "refunds", "reconciliation", "settlements", "empty"] },
+    { "id": "promotions", "path": "/my/promotions", "family": "monetization", "auth": true, "states": ["catalog", "entitlements", "checkout", "success", "failed"] },
+    { "id": "monetization-admin", "path": "/admin/monetization", "family": "internal", "auth": true, "states": ["metrics", "products", "prices", "campaigns", "subscriptions"] },
     { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["preferences", "sessions", "active-session", "revoked-session", "privacy", "consent", "theme"] },
     { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
     { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },

@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import ts from "typescript";
+import vm from "node:vm";
+import { readFileSync } from "node:fs";
+const source = readFileSync(new URL("../src/monetization/monetization-core.ts", import.meta.url), "utf8");
+const js = ts.transpile(source, { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 });
+const module = { exports: {} };
+vm.runInNewContext(js, { module, exports: module.exports, Date });
+const core = module.exports;
+test("pricing and coupons are deterministic", () => { const at = new Date("2026-11-05T00:00:00Z"); assert.equal(core.activePrice([{ amount: 1000, currency: "IRR", startsAt: new Date("2026-11-01T00:00:00Z") }], at).amount, 1000); assert.deepEqual(core.applyCoupon(1000, { code: "AUTUMN", kind: "percentage", value: 1000, minimumAmount: 500, maximumDiscount: 150, startsAt: new Date("2026-11-01T00:00:00Z"), endsAt: new Date("2026-12-01T00:00:00Z"), used: 0 }, at).payable, 900); });
+test("orders preserve exact IRR totals", () => { const totals = core.orderTotals([{ unitAmount: 1000, quantity: 2 }], 200, 1000); assert.equal(totals.subtotal, 2000); assert.equal(totals.discount, 200); assert.equal(totals.tax, 180); assert.equal(totals.total, 1980); assert.equal(totals.currency, "IRR"); });
+test("quota cannot be over-consumed", () => { assert.equal(core.consumeQuota({ granted: 5, consumed: 3 }).remaining, 1); assert.throws(() => core.consumeQuota({ granted: 5, consumed: 5 })); });
+test("promotion and subscription windows are bounded", () => { const at = new Date("2026-11-05T00:00:00Z"); assert.equal(core.promotionWindow(at, 60).endsAt.toISOString(), "2026-11-05T01:00:00.000Z"); assert.equal(core.subscriptionPeriod(at, 1).renewsAt.toISOString(), "2026-12-05T00:00:00.000Z"); });

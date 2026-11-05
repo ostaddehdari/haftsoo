@@ -60,7 +60,11 @@
     { "name": "WalletBalanceCard", "variants": ["personal", "business"], "states": ["loading", "ready", "held", "frozen"] },
     { "name": "WalletTransactionList", "variants": ["ledger"], "states": ["loading", "ready", "empty"] },
     { "name": "FinanceMetrics", "variants": ["operations-dashboard"], "states": ["healthy", "warning", "exception"] },
-    { "name": "ReconciliationQueue", "variants": ["provider-settlement"], "states": ["pending", "matched", "exception", "resolved"] }
+    { "name": "ReconciliationQueue", "variants": ["provider-settlement"], "states": ["pending", "matched", "exception", "resolved"] },
+    { "name": "MonetizationProductCard", "variants": ["promotion", "package", "subscription"], "states": ["available", "selected", "purchasing", "unavailable"] },
+    { "name": "EntitlementBalance", "variants": ["personal", "business"], "states": ["active", "exhausted", "expired", "empty"] },
+    { "name": "MonetizationMetrics", "variants": ["commercial-dashboard"], "states": ["healthy", "warning", "loading"] },
+    { "name": "ProductCatalogAdmin", "variants": ["products", "prices", "campaigns"], "states": ["draft", "active", "retired"] }
   ]
 }
 

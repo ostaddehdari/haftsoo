@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "currency": "IRR",
+  "products": { "kinds": ["bump", "urgent", "featured", "storefront", "package", "subscription"], "immutablePublishedPrices": true, "maximumPromotionDays": 30 },
+  "orders": { "idempotent": true, "exactIntegerMoney": true, "financePaymentIntentRequired": true, "maximumQuantity": 100 },
+  "coupons": { "atomicRedemption": true, "perUserLimit": true, "usageLimit": true, "maximumDiscountRequiredForPercentage": true },
+  "entitlements": { "atomicConsumption": true, "preventNegativeQuota": true, "expiryEnforced": true },
+  "subscriptions": { "maximumTermMonths": 12, "gracePeriodDays": 3, "renewalIdempotent": true },
+  "promotionScheduler": { "advisoryLock": true, "exactlyOnceActivation": true, "recoverySweepMinutes": 5 },
+  "refunds": { "revokeUnusedEntitlements": true, "prorateConsumedBenefits": true, "financeFourEyes": true },
+  "rbac": { "catalogManage": "monetization_manager", "campaignManage": "marketing_manager", "revenueRead": "finance_operator", "auditRequired": true }
+}

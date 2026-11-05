@@ -303,3 +303,10 @@ export interface ModerationEvaluation { id: string; postId: string; action: Mode
 export interface ModerationCase { id: string; postId: string; state: "open" | "claimed" | "appealed" | "resolved" | "cancelled"; priority: number; reasonCodes: string[]; evaluation: ModerationEvaluation }
 export interface ModerationDecisionRequest { decision: ModerationDecision; reasonCode: string; note: string }
 export interface ModerationAppealRequest { statement: string }
+
+export type MonetizationProductKind = "bump" | "urgent" | "featured" | "storefront" | "package" | "subscription";
+export interface MonetizationProduct { id: string; code: string; kind: MonetizationProductKind; title: string; description: string; audience: "personal" | "business" | "all"; durationMinutes: number; quota: number; price: { id: string; amount: number; currency: "IRR" } }
+export interface MonetizationOrderRequest { priceId: string; listingId?: string; quantity: number; coupon?: string; idempotencyKey: string }
+export interface MonetizationOrder { id: string; state: "pending" | "paid" | "fulfilled" | "partially_fulfilled" | "cancelled" | "refunded" | "failed"; subtotal: number; discount: number; tax: number; total: number; currency: "IRR"; paymentIntentId?: string | null }
+export interface MonetizationEntitlement { id: string; product: Pick<MonetizationProduct, "code" | "kind" | "title">; granted: number; consumed: number; remaining: number; startsAt: string; expiresAt?: string | null; state: "pending" | "active" | "exhausted" | "expired" | "revoked" }
+export interface ListingPromotion { id: string; listingId: string; kind: "bump" | "urgent" | "featured"; state: "scheduled" | "active" | "completed" | "cancelled" | "failed"; startsAt: string; endsAt: string }

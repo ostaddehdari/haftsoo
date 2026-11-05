@@ -1,0 +1,1 @@
+{"stage":"S27","works":10,"currency":"IRR","invariants":["versioned-price","idempotent-order","atomic-coupon","nonnegative-quota","bounded-promotion","idempotent-renewal","ledger-linked-revenue","tenant-rls"],"status":"passed"}

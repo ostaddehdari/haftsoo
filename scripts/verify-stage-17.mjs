@@ -7,5 +7,5 @@ if(stage?.status!=="complete"||works.length!==10||works.some(work=>work.status!=
 if(works.some((work,index)=>work.id!==`S17-W${String(index+1).padStart(2,"0")}`||!existsSync(work.evidence)))fail("S17 evidence is incomplete");
 if(Number(design.delivery.currentStage.slice(1))<17||!design.engineering.postDetailPolicy)fail("design manifest regressed below S17");
 const html=readFileSync("deploy/web/index.html","utf8"),js=readFileSync("deploy/web/app.js","utf8");
-if(!/stage(?:17-detail-1|18-auth-1|19-account-1|21-chat-1|22-notification-1|23-moderation-1|24-operations-1|25-crm-1|26-finance-1)/.test(html)||!html.includes("static-approx-map")||!js.includes("post_contact_reveal"))fail("installable detail UI not wired");
+if(!/stage(?:17-detail-1|18-auth-1|19-account-1|21-chat-1|22-notification-1|23-moderation-1|24-operations-1|25-crm-1|26-finance-1|27-monetization-1)/.test(html)||!html.includes("static-approx-map")||!js.includes("post_contact_reveal"))fail("installable detail UI not wired");
 console.log("Stage 17 verified: 10 works, SSR detail, gallery, dynamic data, private map, audited contact, chat, personal actions and safety reporting.");
