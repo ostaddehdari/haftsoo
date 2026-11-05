@@ -3,7 +3,6 @@ const dialogOpen = ref(false);
 const mobileOpen = ref(false);
 const query = ref("");
 const { cities, setCities } = useSelectedCities();
-const { theme, toggle } = useTheme();
 const { track } = useAnalytics();
 const { authenticated, restore } = useAuth();
 onMounted(() => { void restore(); });
@@ -32,8 +31,6 @@ function updateCities(next: typeof cities.value) {
       <nav class="desktop-navigation" aria-label="ناوبری اصلی">
         <NuxtLink :to="`/s/${cities[0]?.slug ?? 'isfahan'}`">دسته‌ها</NuxtLink><NuxtLink to="/chat">چت</NuxtLink><NuxtLink :to="authenticated ? '/my' : '/auth/login'">{{ authenticated ? "هفت‌سوی من" : "ورود" }}</NuxtLink>
       </nav>
-      <NotificationBell />
-      <button class="icon-button theme-toggle" type="button" :aria-label="theme === 'dark' ? 'فعال‌کردن پوسته روشن' : 'فعال‌کردن پوسته تیره'" @click="toggle">{{ theme === "dark" ? "☀" : "◐" }}</button>
       <NuxtLink class="button button-primary submit-ad" to="/new">ثبت آگهی</NuxtLink>
       <button class="icon-button menu-toggle" type="button" :aria-expanded="mobileOpen" aria-label="بازکردن منو" @click="mobileOpen = !mobileOpen">☰</button>
     </div>

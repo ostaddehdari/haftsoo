@@ -11,7 +11,10 @@ const query = computed(() => typeof route.query.q === "string" ? route.query.q.t
 const sort = ref<"newest" | "price-asc" | "price-desc">("newest");
 const viewCookie = useCookie<"grid" | "list">("hs-list-view", { default: () => "grid", sameSite: "lax" });
 const view = computed<"grid" | "list">({ get: () => viewCookie.value || "grid", set: (value: "grid" | "list") => { viewCookie.value = value; } });
-const photoOnly = ref(false);
+const photoOnly = ref(route.query.photo === "1");
+const urgentOnly = ref(route.query.urgent === "1");
+const minPrice = ref(typeof route.query.min === "string" ? Number(route.query.min) : undefined);
+const maxPrice = ref(typeof route.query.max === "string" ? Number(route.query.max) : undefined);
 const loading = ref(false);
 const pageSize = 6;
 const requestedPage = computed(() => Math.max(1, Number(route.query.page) || 1));
@@ -33,9 +36,11 @@ const filteredPosts = computed(() => {
   const normalizedQuery = query.value.toLocaleLowerCase("fa-IR");
   const result = listingPosts.filter((post) => {
     const cityMatch = post.city === city.value || city.value === "all";
-    const categoryMatch = !rootCategory.value || post.category === rootCategory.value;
+    const categoryMatch = !rootCategory.value || (selectedCategory.value === rootCategory.value ? post.category === rootCategory.value : post.subcategory === selectedCategory.value);
     const queryMatch = !normalizedQuery || `${post.title} ${post.district} ${post.priceLabel}`.toLocaleLowerCase("fa-IR").includes(normalizedQuery);
-    return cityMatch && categoryMatch && queryMatch && (!photoOnly.value || Boolean(post.thumbnail));
+    const minMatch = !Number.isFinite(minPrice.value) || post.price !== null && post.price >= Number(minPrice.value) * 1_000_000;
+    const maxMatch = !Number.isFinite(maxPrice.value) || post.price !== null && post.price <= Number(maxPrice.value) * 1_000_000;
+    return cityMatch && categoryMatch && queryMatch && minMatch && maxMatch && (!photoOnly.value || Boolean(post.thumbnail)) && (!urgentOnly.value || post.badges.includes("urgent"));
   });
   return [...result].sort((a, b) => sort.value === "price-asc" ? (a.price ?? Number.MAX_SAFE_INTEGER) - (b.price ?? Number.MAX_SAFE_INTEGER) : sort.value === "price-desc" ? (b.price ?? -1) - (a.price ?? -1) : a.publishedAt - b.publishedAt);
 });
@@ -53,14 +58,20 @@ function pulseLoading() {
 
 function selectCategory(slug?: string) {
   visibleCount.value = pageSize;
-  navigateTo({ path: slug ? `/s/${city.value}/${slug}` : `/s/${city.value}`, query: query.value ? { q: query.value } : undefined });
+  navigateTo({ path: slug ? `/s/${city.value}/${slug}` : `/s/${city.value}`, query: { ...route.query, page: undefined } });
 }
+
+function applyFilters() {
+  navigateTo({ path: route.path, query: { ...route.query, min: Number.isFinite(minPrice.value) ? String(minPrice.value) : undefined, max: Number.isFinite(maxPrice.value) ? String(maxPrice.value) : undefined, photo: photoOnly.value ? "1" : undefined, urgent: urgentOnly.value ? "1" : undefined, page: undefined } });
+}
+
+function clearFilters() { minPrice.value = undefined; maxPrice.value = undefined; photoOnly.value = false; urgentOnly.value = false; void applyFilters(); }
 
 function setView(next: "grid" | "list") { view.value = next; }
 function loadMore() { if (hasMore.value && !loading.value) visibleCount.value += pageSize; }
 function pageHref(page: number) { return { path: route.path, query: { ...route.query, page: page === 1 ? undefined : String(page) } }; }
 
-watch([sort, photoOnly], () => { visibleCount.value = pageSize; pulseLoading(); });
+watch([sort, photoOnly, urgentOnly, minPrice, maxPrice], () => { visibleCount.value = pageSize; pulseLoading(); });
 watch(requestedPage, (page: number) => { visibleCount.value = page * pageSize; });
 
 onMounted(() => {
@@ -87,11 +98,11 @@ useHead(() => ({ link: [{ rel: "canonical", href: `https://srun.ir/haftsoo/s/${c
 
       <div class="listing-mobile-categories">
         <details><summary>دسته‌بندی‌ها <span>{{ categoryLabel(selectedCategory) }}</span></summary><CategorySidebar :categories="listingCategories" :selected="selectedCategory" :city="city" @select="selectCategory" /></details>
-        <label class="listing-toggle listing-toggle--mobile"><span><strong>فقط عکس‌دار</strong><small>حذف آگهی‌های بدون تصویر</small></span><input v-model="photoOnly" type="checkbox"></label>
+        <div class="listing-filter-panel listing-filter-panel--mobile"><label><span>حداقل قیمت (میلیون تومان)</span><input v-model.number="minPrice" inputmode="numeric"></label><label><span>حداکثر قیمت (میلیون تومان)</span><input v-model.number="maxPrice" inputmode="numeric"></label><label class="listing-toggle"><span><strong>فقط عکس‌دار</strong></span><input v-model="photoOnly" type="checkbox"></label><label class="listing-toggle"><span><strong>فقط فوری</strong></span><input v-model="urgentOnly" type="checkbox"></label><button class="button button-primary" type="button" @click="applyFilters">اعمال فیلترها</button></div>
       </div>
 
       <div class="listing-grid-shell">
-        <aside class="listing-aside"><CategorySidebar :categories="listingCategories" :selected="selectedCategory" :city="city" @select="selectCategory" /><label class="listing-toggle"><span><strong>فقط عکس‌دار</strong><small>حذف آگهی‌های بدون تصویر</small></span><input v-model="photoOnly" type="checkbox"></label></aside>
+        <aside class="listing-aside"><CategorySidebar :categories="listingCategories" :selected="selectedCategory" :city="city" @select="selectCategory" /><div class="listing-filter-panel"><label><span>حداقل قیمت (میلیون تومان)</span><input v-model.number="minPrice" inputmode="numeric" placeholder="از"></label><label><span>حداکثر قیمت (میلیون تومان)</span><input v-model.number="maxPrice" inputmode="numeric" placeholder="تا"></label><label class="listing-toggle"><span><strong>فقط عکس‌دار</strong><small>حذف آگهی‌های بدون تصویر</small></span><input v-model="photoOnly" type="checkbox"></label><label class="listing-toggle"><span><strong>فقط فوری</strong><small>آگهی‌های دارای نشان فوری</small></span><input v-model="urgentOnly" type="checkbox"></label><button class="button button-primary" type="button" @click="applyFilters">اعمال فیلترها</button><button class="button button-ghost" type="button" @click="clearFilters">پاک‌کردن فیلترها</button></div></aside>
 
         <section class="listing-results" aria-labelledby="listing-heading">
           <header class="listing-heading"><div><p class="eyebrow">بازار محلی {{ cityOption.name }}</p><h1 id="listing-heading">{{ title }}</h1><p><strong>{{ formatCount(filteredPosts.length) }}</strong> آگهی پیدا شد</p></div><button class="button button-secondary map-link" type="button" :aria-pressed="mapMode" @click="setMapMode(!mapMode)">{{ mapMode ? "نمایش فهرست" : "نمایش روی نقشه" }}</button></header>

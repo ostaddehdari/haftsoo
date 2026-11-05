@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "publicHeader": ["categories", "chat", "account", "submit"],
+  "forbiddenPublicHeader": ["moderation", "operations", "crm", "finance", "monetization"],
+  "listingFilters": ["category", "subcategory", "minPrice", "maxPrice", "photoOnly", "urgentOnly"],
+  "persistence": "url-query",
+  "responsiveParity": true,
+  "accessibilityTarget": "WCAG-2.2-AA"
+}
