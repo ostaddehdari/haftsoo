@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S25`؛ آخرین خروجی CRM، تیکت چندکاناله، صف SLAدار، تعاملات قابل ممیزی و نمای ۳۶۰ درجه کاربر است
-- استیج بعدی: `S26 — مالی، کیف پول و دفترکل دوطرفه`
+- تکمیل‌شده: `S01` تا `S26`؛ آخرین خروجی دفترکل دوطرفه تغییرناپذیر، کیف‌پول، چنددرگاهی، بازپرداخت، تطبیق و اقساط است
+- استیج بعدی: `S27 — درآمدزایی، ارتقای آگهی و بسته‌های تجاری`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -340,3 +340,7 @@ bash scripts/build-stage-19.sh
 | S16-W10 | Migration، Contract، تست، UI نصب‌شونده و CI |
 
 گزارش پذیرش در [docs/stage-16/acceptance.md](docs/stage-16/acceptance.md)، سیاست ماشین‌خوان در [listing/lifecycle-policy.json](listing/lifecycle-policy.json) و گزارش کیفیت در [reports/listing/stage-16-quality.json](reports/listing/stage-16-quality.json) است.
+
+## خروجی استیج ۲۶
+
+دفترکل دوطرفه تغییرناپذیر ریالی، کیف‌پول و رزرو وجه، پرداخت چنددرگاهی با Callback امضاشده، بازپرداخت چهارضشمی، تسویه و تطبیق، برنامه اقساط و رابط‌های کاربر/عملیات مالی در [docs/stage-26/acceptance.md](docs/stage-26/acceptance.md) تکمیل شده‌اند.

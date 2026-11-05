@@ -1,0 +1,1 @@
+{"stage":"S26","currency":"IRR","balancedLedger":true,"immutableLedger":true,"idempotentPayments":true,"signedCallbacks":true,"providerFailover":true,"reconciliationTolerance":0,"fourEyesRefunds":true,"status":"passed"}

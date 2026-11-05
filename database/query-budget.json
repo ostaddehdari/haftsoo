@@ -23,6 +23,7 @@
     "requiresSequenceCursor": true
   },
   "crm": { "p95TicketQueueMs": 120, "p95Customer360Ms": 180, "maximumTicketRows": 100, "maximumTimelineRows": 50 },
+  "finance": { "p95WalletMs": 120, "p95LedgerPageMs": 180, "p95ReconciliationMs": 250, "maximumTransactionRows": 100, "requiresIdempotency": true },
   "notifications": {
     "p95InboxMs": 180,
     "p95UnreadCountMs": 100,

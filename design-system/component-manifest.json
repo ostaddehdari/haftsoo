@@ -56,7 +56,11 @@
     { "name": "CrmMetrics", "variants": ["support-dashboard"], "states": ["healthy", "breached"] },
     { "name": "CrmTicketQueue", "variants": ["multichannel"], "states": ["open", "assigned", "waiting", "resolved", "empty"] },
     { "name": "CrmTicketWorkspace", "variants": ["conversation"], "states": ["unassigned", "assigned", "replying", "resolved"] },
-    { "name": "Customer360Panel", "variants": ["masked-profile"], "states": ["loading", "ready", "restricted"] }
+    { "name": "Customer360Panel", "variants": ["masked-profile"], "states": ["loading", "ready", "restricted"] },
+    { "name": "WalletBalanceCard", "variants": ["personal", "business"], "states": ["loading", "ready", "held", "frozen"] },
+    { "name": "WalletTransactionList", "variants": ["ledger"], "states": ["loading", "ready", "empty"] },
+    { "name": "FinanceMetrics", "variants": ["operations-dashboard"], "states": ["healthy", "warning", "exception"] },
+    { "name": "ReconciliationQueue", "variants": ["provider-settlement"], "states": ["pending", "matched", "exception", "resolved"] }
   ]
 }
 
