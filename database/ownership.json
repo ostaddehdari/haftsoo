@@ -10,6 +10,7 @@
     { "name": "messaging", "owner": "messaging", "purpose": "chat, notifications and delivery receipts" },
     { "name": "finance", "owner": "finance", "purpose": "ledger, payment and settlement" },
     { "name": "monetization", "owner": "commercial-platform", "purpose": "products, orders, entitlements, promotions and subscriptions" },
+    { "name": "business", "owner": "business-platform", "purpose": "verified accounts, teams, branches, storefronts and lead analytics" },
     { "name": "moderation", "owner": "moderation", "purpose": "review, duplicate and AI decisions" },
     { "name": "crm", "owner": "crm-support", "purpose": "support tickets, interactions and customer 360" },
     { "name": "audit", "owner": "security", "purpose": "append-only audit evidence" }

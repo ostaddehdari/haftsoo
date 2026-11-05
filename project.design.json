@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S27",
+    "currentStage": "S28",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.27.0",
+    "version": "0.28.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -124,7 +124,15 @@
     "monetizationAdminPage": "apps/web/pages/admin/monetization/index.vue",
     "monetizationPolicy": "monetization/policy.json",
     "monetizationMigration": "database/migrations/000019_monetization_promotions.up.sql",
-    "monetizationQualityReport": "reports/monetization/stage-27-quality.json"
+    "monetizationQualityReport": "reports/monetization/stage-27-quality.json",
+    "businessModule": "apps/api/src/business/business.module.ts",
+    "businessCenterPage": "apps/web/pages/my/business/index.vue",
+    "businessTeamPage": "apps/web/pages/my/business/team.vue",
+    "storefrontPage": "apps/web/pages/store/[slug].vue",
+    "businessAdminPage": "apps/web/pages/admin/business/index.vue",
+    "businessPolicy": "business/policy.json",
+    "businessMigration": "database/migrations/000020_business_storefront_team.up.sql",
+    "businessQualityReport": "reports/business/stage-28-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

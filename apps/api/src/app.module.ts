@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { AccountModule } from "./account/account.module";
 import { AuthModule } from "./auth/auth.module";
+import { BusinessModule } from "./business/business.module";
 import { CatalogModule } from "./catalog/catalog.module";
 import { ChatTicketModule } from "./chat/chat-ticket.module";
 import { CrmModule } from "./crm/crm.module";
@@ -18,5 +19,5 @@ import { SearchModule } from "./search/search.module";
 import { SecurityModule } from "./security/security.module";
 import { SubmissionModule } from "./submission/submission.module";
 
-@Module({ imports: [AccountModule, AuthModule, CatalogModule, ChatTicketModule, CrmModule, DatabaseModule, FinanceModule, GeoModule, HealthModule, ListingModule, MediaModule, MonetizationModule, ModerationModule, NotificationModule, PlatformModule, SearchModule, SecurityModule, SubmissionModule] })
+@Module({ imports: [AccountModule, AuthModule, BusinessModule, CatalogModule, ChatTicketModule, CrmModule, DatabaseModule, FinanceModule, GeoModule, HealthModule, ListingModule, MediaModule, MonetizationModule, ModerationModule, NotificationModule, PlatformModule, SearchModule, SecurityModule, SubmissionModule] })
 export class AppModule {}

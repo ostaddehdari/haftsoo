@@ -1,0 +1,2 @@
+import{Controller,Get,Headers,Param}from"@nestjs/common";import{BusinessService}from"./business.service";
+@Controller("businesses/store")export class BusinessPublicController{constructor(private readonly service:BusinessService){}@Get(":slug")store(@Headers("x-tenant-id")tenant="",@Param("slug")slug:string){return this.service.storefront(tenant,slug).then(data=>({data,meta:{version:"v1",cache:"public"}}));}}

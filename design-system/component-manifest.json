@@ -64,7 +64,11 @@
     { "name": "MonetizationProductCard", "variants": ["promotion", "package", "subscription"], "states": ["available", "selected", "purchasing", "unavailable"] },
     { "name": "EntitlementBalance", "variants": ["personal", "business"], "states": ["active", "exhausted", "expired", "empty"] },
     { "name": "MonetizationMetrics", "variants": ["commercial-dashboard"], "states": ["healthy", "warning", "loading"] },
-    { "name": "ProductCatalogAdmin", "variants": ["products", "prices", "campaigns"], "states": ["draft", "active", "retired"] }
+    { "name": "ProductCatalogAdmin", "variants": ["products", "prices", "campaigns"], "states": ["draft", "active", "retired"] },
+    { "name": "BusinessMetricCards", "variants": ["overview", "analytics"], "states": ["loading", "ready", "empty"] },
+    { "name": "BusinessTeamTable", "variants": ["desktop", "mobile"], "states": ["active", "invited", "suspended", "revoked"] },
+    { "name": "StorefrontHero", "variants": ["verified", "standard"], "states": ["published", "paused"] },
+    { "name": "BusinessAdminQueue", "variants": ["verification", "ownership"], "states": ["loading", "selected", "resolved", "empty"] }
   ]
 }
 

@@ -310,3 +310,12 @@ export interface MonetizationOrderRequest { priceId: string; listingId?: string;
 export interface MonetizationOrder { id: string; state: "pending" | "paid" | "fulfilled" | "partially_fulfilled" | "cancelled" | "refunded" | "failed"; subtotal: number; discount: number; tax: number; total: number; currency: "IRR"; paymentIntentId?: string | null }
 export interface MonetizationEntitlement { id: string; product: Pick<MonetizationProduct, "code" | "kind" | "title">; granted: number; consumed: number; remaining: number; startsAt: string; expiresAt?: string | null; state: "pending" | "active" | "exhausted" | "expired" | "revoked" }
 export interface ListingPromotion { id: string; listingId: string; kind: "bump" | "urgent" | "featured"; state: "scheduled" | "active" | "completed" | "cancelled" | "failed"; startsAt: string; endsAt: string }
+
+export type BusinessVerificationState = "unverified" | "pending" | "verified" | "rejected" | "expired";
+export type BusinessRole = "owner" | "admin" | "listing_manager" | "support" | "analyst" | "billing";
+export interface BusinessAccount { id: string; slug: string; displayName: string; legalName: string; logoUrl?: string | null; verificationState: BusinessVerificationState; state: "active" | "suspended" | "closed"; version: number }
+export interface BusinessMembership { id: string; businessId: string; userId: string; role: BusinessRole; permissions: string[]; state: "invited" | "active" | "suspended" | "revoked"; joinedAt?: string | null }
+export interface BusinessInvitation { id: string; businessId: string; role: Exclude<BusinessRole, "owner">; expiresAt: string; state: "pending" | "accepted" | "revoked" | "expired" }
+export interface BusinessBranch { id: string; businessId: string; cityId?: string | null; neighborhoodId?: string | null; title: string; slug: string; publicPhone?: string | null; publicAddress?: string | null; state: "active" | "inactive" | "closed" }
+export interface BusinessStorefront { id: string; businessId: string; slug: string; headline: string; description: string; state: "draft" | "published" | "paused" | "archived"; branches: BusinessBranch[] }
+export interface BusinessDashboard { members: number; branches: number; listings: number; leadsToday: number; views30d: number; contacts30d: number }

@@ -5,7 +5,8 @@
   "roles": [
     { "id": "guest", "principalTypes": ["anonymous", "user"], "permissions": ["listing:read"] },
     { "id": "member", "principalTypes": ["user"], "permissions": ["listing:read", "listing:create", "profile:self:read", "profile:self:update", "chat:self:use", "monetization:self:purchase", "entitlement:self:use"] },
-    { "id": "business_owner", "principalTypes": ["business"], "permissions": ["listing:read", "listing:create", "listing:business:manage", "profile:self:read", "profile:self:update", "monetization:business:purchase", "entitlement:business:use"] },
+    { "id": "business_owner", "principalTypes": ["business"], "permissions": ["listing:read", "listing:create", "listing:business:manage", "profile:self:read", "profile:self:update", "monetization:business:purchase", "entitlement:business:use", "business:read", "business:update", "business:member:invite", "business:member:manage", "business:branch:manage", "business:storefront:manage", "business:analytics:read", "business:billing:manage"] },
+    { "id": "business_member", "principalTypes": ["business"], "permissions": ["listing:read", "listing:create", "business:read", "business:listing:manage"] },
     { "id": "moderator", "principalTypes": ["workforce"], "permissions": ["listing:read", "moderation:queue:read", "moderation:evidence:read", "moderation:decision:create", "moderation:appeal:read", "moderation:case:claim", "moderation:case:release", "moderation:report:read"] },
     { "id": "moderation_lead", "principalTypes": ["workforce"], "permissions": ["listing:read", "moderation:queue:read", "moderation:evidence:read", "moderation:decision:create", "moderation:appeal:decide", "moderation:model:read", "moderation:metrics:read", "moderation:case:claim", "moderation:case:release", "moderation:case:escalate", "moderation:report:read", "moderation:sla:read", "moderation:quality:review"] },
     { "id": "support_agent", "principalTypes": ["workforce"], "permissions": ["listing:read", "support:case:read", "support:case:update", "support:case:assign", "support:interaction:create", "support:task:manage", "profile:masked:read"] },
@@ -14,6 +15,7 @@
     { "id": "finance_lead", "principalTypes": ["workforce"], "permissions": ["finance:ledger:read", "finance:payment:read", "finance:reconciliation:execute", "finance:refund:request", "finance:refund:approve", "finance:provider:manage", "finance:metrics:read"] },
     { "id": "monetization_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:catalog:manage", "monetization:price:publish", "monetization:subscription:manage", "monetization:metrics:read"] },
     { "id": "marketing_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:campaign:manage", "monetization:coupon:manage", "monetization:metrics:read"] },
+    { "id": "business_reviewer", "principalTypes": ["workforce"], "permissions": ["business:verification:read", "business:verification:decide", "business:ownership:review", "business:storefront:suspend", "business:audit:read"] },
     { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:configuration:manage", "audit:read", "iam:assignment:manage"] },
     { "id": "service", "principalTypes": ["service"], "permissions": ["service:internal:invoke"] }
   ],

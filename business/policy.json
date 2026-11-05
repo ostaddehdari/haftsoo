@@ -1,0 +1,8 @@
+{
+  "version":"1.0.0","verification":{"requiredForPublish":true,"documentRefsOnly":true,"fourEyesForOwnershipTransfer":true},
+  "team":{"roles":["owner","admin","listing_manager","support","analyst","billing"],"leastPrivilege":true,"singleActiveOwner":true},
+  "invitations":{"token":"sha256-only","ttlHours":72,"singleUse":true,"reissuable":true},
+  "branches":{"nationalGeo":true,"maximumPerBusiness":100},"storefront":{"verifiedOnly":true,"ssrSeo":true,"uniqueSlug":true},
+  "listings":{"assignmentHistory":true,"memberScoped":true},"analytics":{"visitorPseudonymized":true,"partitionedEvents":true,"dailySnapshots":true},
+  "billing":{"stage27Entitlements":true,"stage26Ledger":true},"audit":{"appendOnly":true,"piiMasked":true}
+}

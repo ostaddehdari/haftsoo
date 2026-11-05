@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S27",
+  "currentStage": "S28",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -435,20 +435,36 @@
         { "id": "S27-W09", "status": "complete", "evidence": "docs/stage-27/user-promotion-ui.md" },
         { "id": "S27-W10", "status": "complete", "evidence": "docs/stage-27/acceptance.md" }
       ]
+    },
+    {
+      "id": "S28",
+      "status": "complete",
+      "works": [
+        { "id": "S28-W01", "status": "complete", "evidence": "docs/stage-28/business-account-verification.md" },
+        { "id": "S28-W02", "status": "complete", "evidence": "docs/stage-28/team-roles-permissions.md" },
+        { "id": "S28-W03", "status": "complete", "evidence": "docs/stage-28/secure-invitations.md" },
+        { "id": "S28-W04", "status": "complete", "evidence": "docs/stage-28/branches-national-geo.md" },
+        { "id": "S28-W05", "status": "complete", "evidence": "docs/stage-28/professional-storefront.md" },
+        { "id": "S28-W06", "status": "complete", "evidence": "docs/stage-28/listing-team-workflow.md" },
+        { "id": "S28-W07", "status": "complete", "evidence": "docs/stage-28/leads-analytics.md" },
+        { "id": "S28-W08", "status": "complete", "evidence": "docs/stage-28/business-billing-entitlements.md" },
+        { "id": "S28-W09", "status": "complete", "evidence": "docs/stage-28/business-user-admin-ui.md" },
+        { "id": "S28-W10", "status": "complete", "evidence": "docs/stage-28/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S27-W01", "status": "complete", "evidence": "docs/stage-27/product-catalog-pricing.md" },
-    { "id": "S27-W02", "status": "complete", "evidence": "docs/stage-27/order-checkout-finance.md" },
-    { "id": "S27-W03", "status": "complete", "evidence": "docs/stage-27/entitlements-quotas.md" },
-    { "id": "S27-W04", "status": "complete", "evidence": "docs/stage-27/listing-promotions.md" },
-    { "id": "S27-W05", "status": "complete", "evidence": "docs/stage-27/packages-subscriptions.md" },
-    { "id": "S27-W06", "status": "complete", "evidence": "docs/stage-27/campaign-coupons.md" },
-    { "id": "S27-W07", "status": "complete", "evidence": "docs/stage-27/revenue-refunds.md" },
-    { "id": "S27-W08", "status": "complete", "evidence": "docs/stage-27/monetization-rbac-audit.md" },
-    { "id": "S27-W09", "status": "complete", "evidence": "docs/stage-27/user-promotion-ui.md" },
-    { "id": "S27-W10", "status": "complete", "evidence": "docs/stage-27/acceptance.md" }
+    { "id": "S28-W01", "status": "complete", "evidence": "docs/stage-28/business-account-verification.md" },
+    { "id": "S28-W02", "status": "complete", "evidence": "docs/stage-28/team-roles-permissions.md" },
+    { "id": "S28-W03", "status": "complete", "evidence": "docs/stage-28/secure-invitations.md" },
+    { "id": "S28-W04", "status": "complete", "evidence": "docs/stage-28/branches-national-geo.md" },
+    { "id": "S28-W05", "status": "complete", "evidence": "docs/stage-28/professional-storefront.md" },
+    { "id": "S28-W06", "status": "complete", "evidence": "docs/stage-28/listing-team-workflow.md" },
+    { "id": "S28-W07", "status": "complete", "evidence": "docs/stage-28/leads-analytics.md" },
+    { "id": "S28-W08", "status": "complete", "evidence": "docs/stage-28/business-billing-entitlements.md" },
+    { "id": "S28-W09", "status": "complete", "evidence": "docs/stage-28/business-user-admin-ui.md" },
+    { "id": "S28-W10", "status": "complete", "evidence": "docs/stage-28/acceptance.md" }
   ],
-  "nextStage": "S28",
-  "updatedAt": "2026-11-05T17:10:00Z"
+  "nextStage": "S29",
+  "updatedAt": "2026-11-05T18:20:00Z"
 }

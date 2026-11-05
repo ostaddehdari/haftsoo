@@ -1,0 +1,1 @@
+{"stage":"S28","works":10,"status":"pass","checks":["tenant-rls","single-owner","least-privilege","hashed-invitations","verified-storefront","geo-branches","listing-assignment","pseudonymous-leads","entitlement-link","accessible-ui"]}

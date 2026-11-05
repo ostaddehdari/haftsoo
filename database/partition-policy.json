@@ -18,6 +18,15 @@
       "hotRetentionDays": 90,
       "archiveAfterDays": 365,
       "purgeAfterDays": 1825
+    },
+    {
+      "name": "business.lead_events",
+      "strategy": "range",
+      "key": "occurred_at",
+      "interval": "month",
+      "hotRetentionDays": 180,
+      "archiveAfterDays": 730,
+      "purgeAfterDays": 1825
     }
   ],
   "archive": {

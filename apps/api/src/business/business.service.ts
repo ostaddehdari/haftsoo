@@ -1,0 +1,17 @@
+import { BadRequestException, Inject, Injectable, NotFoundException } from "@nestjs/common";
+import type { PostgresUnitOfWork } from "../database/database-core";
+import { UNIT_OF_WORK } from "../database/database.module";
+import { createInvitationToken, hashInvitationToken, invitationWindow, normalizeBusiness, rolePermissions, storefrontSlug } from "./business-core";
+import { BusinessRepository } from "./business.repository";
+const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+@Injectable() export class BusinessService {
+  constructor(@Inject(UNIT_OF_WORK)private readonly uow:PostgresUnitOfWork){}
+  private id(value:string){if(!UUID.test(value))throw new BadRequestException({code:"business_identity_invalid"});return value;}
+  list(tenantId:string,userId:string){this.id(tenantId);this.id(userId);return this.uow.run({tenantId},client=>new BusinessRepository(client).list(userId));}
+  create(tenantId:string,userId:string,raw:Record<string,unknown>){this.id(tenantId);this.id(userId);let profile;try{profile=normalizeBusiness({slug:raw.slug,displayName:raw.displayName,legalName:raw.legalName,nationalId:raw.nationalId});}catch(error){throw new BadRequestException({code:(error as Error).message});}return this.uow.run({tenantId,isolationLevel:"serializable"},client=>new BusinessRepository(client).create({userId,...profile}));}
+  members(tenantId:string,businessId:string){this.id(tenantId);this.id(businessId);return this.uow.run({tenantId},client=>new BusinessRepository(client).members(businessId));}
+  async invite(tenantId:string,businessId:string,inviterId:string,raw:Record<string,unknown>){this.id(tenantId);this.id(businessId);this.id(inviterId);const destination=String(raw.destination??"").trim().toLowerCase();if(!destination||destination.length>180)throw new BadRequestException({code:"business_invitation_destination_invalid"});let permissions:string[];try{permissions=rolePermissions(raw.role,raw.permissions);}catch(error){throw new BadRequestException({code:(error as Error).message});}const{token,tokenHash}=createInvitationToken(),{expiresAt}=invitationWindow(new Date(),72);const invitation=await this.uow.run({tenantId,isolationLevel:"serializable"},client=>new BusinessRepository(client).invite({businessId,inviterId,destination,role:String(raw.role),permissions,tokenHash,expiresAt}));return{...invitation,token};}
+  accept(tenantId:string,userId:string,token:string){this.id(tenantId);this.id(userId);let hash:string;try{hash=hashInvitationToken(token);}catch(error){throw new BadRequestException({code:(error as Error).message});}return this.uow.run({tenantId,isolationLevel:"serializable"},async client=>{const result=await new BusinessRepository(client).accept(userId,hash);if(!result)throw new NotFoundException({code:"business_invitation_unavailable"});return result;});}
+  storefront(tenantId:string,slugValue:string){this.id(tenantId);let slug:string;try{slug=storefrontSlug(slugValue);}catch(error){throw new BadRequestException({code:(error as Error).message});}return this.uow.run({tenantId},async client=>{const result=await new BusinessRepository(client).storefront(slug);if(!result)throw new NotFoundException({code:"business_storefront_not_found"});return result;});}
+  dashboard(tenantId:string,businessId:string){this.id(tenantId);this.id(businessId);return this.uow.run({tenantId},async client=>{const result=await new BusinessRepository(client).dashboard(businessId);if(!result)throw new NotFoundException({code:"business_not_found"});return result;});}
+}
