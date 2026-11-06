@@ -27,6 +27,15 @@
       "hotRetentionDays": 180,
       "archiveAfterDays": 730,
       "purgeAfterDays": 1825
+    },
+    {
+      "name": "analytics.events",
+      "strategy": "range",
+      "key": "occurred_at",
+      "interval": "month",
+      "hotRetentionDays": 30,
+      "archiveAfterDays": 90,
+      "purgeAfterDays": 365
     }
   ],
   "archive": {

@@ -326,3 +326,16 @@ export interface AdminServiceHealth { service: string; status: "ok" | "degraded"
 export interface AdminAlert { id: string; severity: "info" | "warning" | "critical"; source: string; title: string; description: string; state: "open" | "acknowledged" | "resolved" | "suppressed"; occurrenceCount: number; lastSeenAt: string }
 export interface AdminReportJob { id: string; kind: "marketplace" | "trust" | "finance" | "operations"; format: "csv" | "json"; state: "queued" | "running" | "ready" | "failed" | "expired"; progress: number; objectKey?: string | null }
 export interface AdminConfiguration { key: string; environment: "development" | "staging" | "production"; value: Record<string, unknown>; version: number; checksum: string; publishedAt: string }
+
+export interface ProductAnalyticsEvent {
+  id: string; eventName: string; schemaVersion: number; anonymousId?: string; userId?: string; sessionId: string;
+  occurredAt: string; receivedAt: string; properties: Record<string, unknown>; consent: "analytics";
+}
+export interface AnalyticsFunnelStep { key: string; title: string; count: number; conversionBps: number }
+export interface AnalyticsFunnelSnapshot { key: string; version: number; windowStart: string; windowEnd: string; steps: AnalyticsFunnelStep[] }
+export interface AnalyticsCohortRow { cohort: string; size: number; retentionBps: number[] }
+export interface AnalyticsExperimentVariant { key: string; title: string; weightBps: number; exposures: number; conversions: number }
+export interface AnalyticsExperiment {
+  id: string; key: string; title: string; state: "draft" | "pending_approval" | "running" | "paused" | "completed" | "cancelled";
+  primaryMetric: string; variants: AnalyticsExperimentVariant[]; startsAt?: string | null; endsAt?: string | null;
+}

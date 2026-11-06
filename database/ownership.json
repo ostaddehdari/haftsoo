@@ -14,7 +14,8 @@
     { "name": "moderation", "owner": "moderation", "purpose": "review, duplicate and AI decisions" },
     { "name": "crm", "owner": "crm-support", "purpose": "support tickets, interactions and customer 360" },
     { "name": "audit", "owner": "security", "purpose": "append-only audit evidence" },
-    { "name": "admin", "owner": "platform-operations", "purpose": "control plane, executive metrics, alerts, reports and versioned configuration" }
+    { "name": "admin", "owner": "platform-operations", "purpose": "control plane, executive metrics, alerts, reports and versioned configuration" },
+    { "name": "analytics", "owner": "data-platform", "purpose": "privacy-aware product events, funnels, cohorts and controlled experiments" }
   ],
   "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
   "directWrites": "A service may write only to schemas it owns."

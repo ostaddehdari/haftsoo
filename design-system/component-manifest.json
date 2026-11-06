@@ -73,7 +73,11 @@
     { "name": "ServiceHealthPanel", "variants": ["service-list"], "states": ["operational", "degraded", "incident"] },
     { "name": "AdminAlertCenter", "variants": ["severity-queue"], "states": ["open", "acknowledged", "resolved"] },
     { "name": "AdminConfigurationPanel", "variants": ["versioned-json"], "states": ["draft", "pending-approval", "published", "failed"] },
-    { "name": "AdminReportPanel", "variants": ["background-job"], "states": ["queued", "running", "ready", "failed"] }
+    { "name": "AdminReportPanel", "variants": ["background-job"], "states": ["queued", "running", "ready", "failed"] },
+    { "name": "AnalyticsKpiGrid", "variants": ["product", "experiment"], "states": ["loading", "ready", "stale"] },
+    { "name": "FunnelAnalysisPanel", "variants": ["conversion-funnel"], "states": ["loading", "ready", "empty"] },
+    { "name": "RetentionCohortPanel", "variants": ["weekly", "monthly"], "states": ["loading", "ready", "empty"] },
+    { "name": "ExperimentWorkspace", "variants": ["draft", "running", "decision"], "states": ["ready", "guardrail-breached", "completed"] }
   ]
 }
 

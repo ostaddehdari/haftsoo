@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S30",
+  "currentStage": "S31",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -483,20 +483,36 @@
         { "id": "S30-W09", "status": "complete", "evidence": "docs/stage-30/admin-ui.md" },
         { "id": "S30-W10", "status": "complete", "evidence": "docs/stage-30/acceptance.md" }
       ]
+    },
+    {
+      "id": "S31",
+      "status": "complete",
+      "works": [
+        { "id": "S31-W01", "status": "complete", "evidence": "docs/stage-31/event-taxonomy.md" },
+        { "id": "S31-W02", "status": "complete", "evidence": "docs/stage-31/consent-identity-privacy.md" },
+        { "id": "S31-W03", "status": "complete", "evidence": "docs/stage-31/idempotent-ingestion.md" },
+        { "id": "S31-W04", "status": "complete", "evidence": "docs/stage-31/versioned-funnels.md" },
+        { "id": "S31-W05", "status": "complete", "evidence": "docs/stage-31/cohort-retention.md" },
+        { "id": "S31-W06", "status": "complete", "evidence": "docs/stage-31/sticky-assignment.md" },
+        { "id": "S31-W07", "status": "complete", "evidence": "docs/stage-31/exposure-guardrails.md" },
+        { "id": "S31-W08", "status": "complete", "evidence": "docs/stage-31/aggregation-quality.md" },
+        { "id": "S31-W09", "status": "complete", "evidence": "docs/stage-31/analytics-admin-ui.md" },
+        { "id": "S31-W10", "status": "complete", "evidence": "docs/stage-31/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S30-W01", "status": "complete", "evidence": "docs/stage-30/control-plane-domain.md" },
-    { "id": "S30-W02", "status": "complete", "evidence": "docs/stage-30/executive-kpis.md" },
-    { "id": "S30-W03", "status": "complete", "evidence": "docs/stage-30/service-health.md" },
-    { "id": "S30-W04", "status": "complete", "evidence": "docs/stage-30/alert-center.md" },
-    { "id": "S30-W05", "status": "complete", "evidence": "docs/stage-30/report-jobs.md" },
-    { "id": "S30-W06", "status": "complete", "evidence": "docs/stage-30/versioned-configuration.md" },
-    { "id": "S30-W07", "status": "complete", "evidence": "docs/stage-30/four-eyes-change-control.md" },
-    { "id": "S30-W08", "status": "complete", "evidence": "docs/stage-30/admin-rbac-audit.md" },
-    { "id": "S30-W09", "status": "complete", "evidence": "docs/stage-30/admin-ui.md" },
-    { "id": "S30-W10", "status": "complete", "evidence": "docs/stage-30/acceptance.md" }
+    { "id": "S31-W01", "status": "complete", "evidence": "docs/stage-31/event-taxonomy.md" },
+    { "id": "S31-W02", "status": "complete", "evidence": "docs/stage-31/consent-identity-privacy.md" },
+    { "id": "S31-W03", "status": "complete", "evidence": "docs/stage-31/idempotent-ingestion.md" },
+    { "id": "S31-W04", "status": "complete", "evidence": "docs/stage-31/versioned-funnels.md" },
+    { "id": "S31-W05", "status": "complete", "evidence": "docs/stage-31/cohort-retention.md" },
+    { "id": "S31-W06", "status": "complete", "evidence": "docs/stage-31/sticky-assignment.md" },
+    { "id": "S31-W07", "status": "complete", "evidence": "docs/stage-31/exposure-guardrails.md" },
+    { "id": "S31-W08", "status": "complete", "evidence": "docs/stage-31/aggregation-quality.md" },
+    { "id": "S31-W09", "status": "complete", "evidence": "docs/stage-31/analytics-admin-ui.md" },
+    { "id": "S31-W10", "status": "complete", "evidence": "docs/stage-31/acceptance.md" }
   ],
-  "nextStage": "S31",
-  "updatedAt": "2026-11-05T21:45:00Z"
+  "nextStage": "S32",
+  "updatedAt": "2026-11-06T12:00:00Z"
 }
