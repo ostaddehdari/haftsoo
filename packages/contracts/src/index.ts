@@ -352,3 +352,9 @@ export interface ServiceLevelObjective { id: string; serviceKey: string; objecti
 export interface ErrorBudgetSnapshot { serviceKey: string; availabilityBps: number; remainingBps: number; burnRate: number; state: "healthy" | "at_risk" | "exhausted"; calculatedAt: string }
 export interface IncidentTimelineEvent { type: string; actorId?: string | null; summary: string; createdAt: string }
 export interface SreIncident { id: string; number: number; title: string; severity: IncidentSeverity; state: IncidentState; serviceKey: string; impactSummary: string; commanderId?: string | null; publicStatus: "investigating" | "identified" | "monitoring" | "resolved"; events: IncidentTimelineEvent[] }
+
+export type LoadRunState = "queued" | "running" | "passed" | "failed" | "aborted";
+export interface PerformanceBudget { serviceKey: string; operationKey: string; p95Ms: number; p99Ms: number; errorBudgetBps: number; version: number; active: boolean }
+export interface LoadRun { id: string; scenario: string; environment: string; state: LoadRunState; virtualUsers: number; durationSeconds: number; p95Ms?: number | null; p99Ms?: number | null; errorRateBps?: number | null; createdAt: string }
+export interface CapacitySnapshot { serviceKey: string; currentRps: number; peakRps: number; utilizationBps: number; projectedRps: number; requiresScale: boolean; calculatedAt: string }
+export interface WebVitalsRating { lcpMs: number; inpMs: number; clsMilli: number; rating: "good" | "needs_improvement" | "poor"; releaseGate: boolean }

@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S33",
+  "currentStage": "S34",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -531,20 +531,36 @@
         { "id": "S33-W09", "status": "complete", "evidence": "docs/stage-33/sre-admin-ui.md" },
         { "id": "S33-W10", "status": "complete", "evidence": "docs/stage-33/acceptance.md" }
       ]
+    },
+    {
+      "id": "S34",
+      "status": "complete",
+      "works": [
+        { "id": "S34-W01", "status": "complete", "evidence": "docs/stage-34/performance-budgets.md" },
+        { "id": "S34-W02", "status": "complete", "evidence": "docs/stage-34/load-model-workloads.md" },
+        { "id": "S34-W03", "status": "complete", "evidence": "docs/stage-34/k6-test-suite.md" },
+        { "id": "S34-W04", "status": "complete", "evidence": "docs/stage-34/api-backpressure.md" },
+        { "id": "S34-W05", "status": "complete", "evidence": "docs/stage-34/database-search-capacity.md" },
+        { "id": "S34-W06", "status": "complete", "evidence": "docs/stage-34/chat-realtime-load.md" },
+        { "id": "S34-W07", "status": "complete", "evidence": "docs/stage-34/frontend-web-vitals.md" },
+        { "id": "S34-W08", "status": "complete", "evidence": "docs/stage-34/autoscaling-cost-guardrails.md" },
+        { "id": "S34-W09", "status": "complete", "evidence": "docs/stage-34/performance-admin-ui.md" },
+        { "id": "S34-W10", "status": "complete", "evidence": "docs/stage-34/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S33-W01", "status": "complete", "evidence": "docs/stage-33/telemetry-contract.md" },
-    { "id": "S33-W02", "status": "complete", "evidence": "docs/stage-33/metrics-cardinality.md" },
-    { "id": "S33-W03", "status": "complete", "evidence": "docs/stage-33/traces-logs-privacy.md" },
-    { "id": "S33-W04", "status": "complete", "evidence": "docs/stage-33/slo-error-budgets.md" },
-    { "id": "S33-W05", "status": "complete", "evidence": "docs/stage-33/alert-routing-noise.md" },
-    { "id": "S33-W06", "status": "complete", "evidence": "docs/stage-33/incident-lifecycle.md" },
-    { "id": "S33-W07", "status": "complete", "evidence": "docs/stage-33/runbooks-status-comms.md" },
-    { "id": "S33-W08", "status": "complete", "evidence": "docs/stage-33/postmortem-change-governance.md" },
-    { "id": "S33-W09", "status": "complete", "evidence": "docs/stage-33/sre-admin-ui.md" },
-    { "id": "S33-W10", "status": "complete", "evidence": "docs/stage-33/acceptance.md" }
+    { "id": "S34-W01", "status": "complete", "evidence": "docs/stage-34/performance-budgets.md" },
+    { "id": "S34-W02", "status": "complete", "evidence": "docs/stage-34/load-model-workloads.md" },
+    { "id": "S34-W03", "status": "complete", "evidence": "docs/stage-34/k6-test-suite.md" },
+    { "id": "S34-W04", "status": "complete", "evidence": "docs/stage-34/api-backpressure.md" },
+    { "id": "S34-W05", "status": "complete", "evidence": "docs/stage-34/database-search-capacity.md" },
+    { "id": "S34-W06", "status": "complete", "evidence": "docs/stage-34/chat-realtime-load.md" },
+    { "id": "S34-W07", "status": "complete", "evidence": "docs/stage-34/frontend-web-vitals.md" },
+    { "id": "S34-W08", "status": "complete", "evidence": "docs/stage-34/autoscaling-cost-guardrails.md" },
+    { "id": "S34-W09", "status": "complete", "evidence": "docs/stage-34/performance-admin-ui.md" },
+    { "id": "S34-W10", "status": "complete", "evidence": "docs/stage-34/acceptance.md" }
   ],
-  "nextStage": "S34",
+  "nextStage": "S35",
   "updatedAt": "2026-11-07T00:00:00Z"
 }

@@ -24,8 +24,8 @@ sudo bash /opt/haftsoo/scripts/update.sh
 ## وضعیت تحویل
 
 - برنامه اجرایی: ۴۰ استیج، هر استیج دقیقاً ۱۰ ورک
-- تکمیل‌شده: `S01` تا `S33`؛ آخرین خروجی رصدپذیری، SLO، SRE و مدیریت رخداد است
-- استیج بعدی: `S34 — کارایی، ظرفیت و مهندسی بار`
+- تکمیل‌شده: `S01` تا `S34`؛ آخرین خروجی کارایی، ظرفیت و مهندسی بار است
+- استیج بعدی: `S35 — تاب‌آوری، Chaos Engineering و بازیابی سرویس`
 - Prototype پایدار: [https://srun.ir/haftsoo/](https://srun.ir/haftsoo/)
 
 ## ساختار Monorepo
@@ -373,4 +373,8 @@ bash scripts/build-stage-19.sh
 
 قرارداد OpenTelemetry بدون PII، متریک‌های RED/USE با Cardinality محدود، Trace و لاگ همبسته، SLO و بودجه خطا، هشدارهای Burn Rate چندپنجره‌ای، چرخه فرماندهی رخداد، Runbook نسخه‌دار و Postmortem مستقل در [docs/stage-33/acceptance.md](docs/stage-33/acceptance.md) تکمیل شده‌اند. پنل SRE داخلی است و هدر عمومی و فیلترهای آگهی را تغییر نمی‌دهد.
 
-استیج بعدی: `S34 — کارایی، ظرفیت و مهندسی بار`.
+### استیج ۳۴ — کارایی، ظرفیت و مهندسی بار
+
+بودجه‌های عملکرد نسخه‌دار، مدل بار آگهی و چت، سناریوهای k6، کنترل Backpressure، ظرفیت PostgreSQL/OpenSearch، ارزیابی Web Vitals، پیشنهاد Autoscaling با سقف هزینه و پنل داخلی عملکرد در [docs/stage-34/acceptance.md](docs/stage-34/acceptance.md) تکمیل شده‌اند. این قابلیت صرفاً داخلی است و هدر عمومی و فیلترهای آگهی را تغییر نمی‌دهد.
+
+استیج بعدی: `S35 — تاب‌آوری، Chaos Engineering و بازیابی سرویس`.

@@ -1,0 +1,1 @@
+{"stage":"S34","status":"pass","budgets":{"apiP95Ms":250,"searchP95Ms":350,"mapP95Ms":500,"chatP95Ms":180,"lcpMs":2500,"inpMs":200,"clsMilli":100},"scenarios":["smoke","average","stress","spike","soak"],"gates":{"errorRate":true,"latency":true,"webVitals":true,"capacityHeadroom":true,"publicUiRegression":true}}

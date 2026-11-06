@@ -30,6 +30,7 @@
   "analytics": { "p95IngestMs": 120, "p95DashboardMs": 250, "maximumDashboardRows": 500, "maximumRawEventDays": 90, "requiresIdempotency": true, "requiresConsent": true },
   "risk": { "p95EvaluationMs": 120, "p95QueueMs": 180, "p95GraphMs": 250, "maximumQueueRows": 100, "maximumGraphHops": 2, "requiresExplainability": true },
   "observability": { "p95OverviewMs": 180, "p95IncidentQueueMs": 150, "p95TimelineMs": 180, "maximumIncidentRows": 100, "maximumTimelineRows": 500, "requiresSloWindow": true },
+  "performance": { "p95OverviewMs": 180, "p95LoadRunMs": 200, "p95CapacityMs": 220, "maximumLoadRunRows": 100, "maximumCapacityRows": 500, "requiresReleaseBudget": true },
   "notifications": {
     "p95InboxMs": 180,
     "p95UnreadCountMs": 100,

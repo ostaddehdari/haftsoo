@@ -85,7 +85,11 @@
     { "name": "SreMetricGrid", "variants": ["reliability", "incident"], "states": ["loading", "healthy", "at-risk", "stale"] },
     { "name": "IncidentQueue", "variants": ["severity", "service"], "states": ["loading", "active", "selected", "empty"] },
     { "name": "ErrorBudgetPanel", "variants": ["service", "objective"], "states": ["healthy", "at-risk", "exhausted"] },
-    { "name": "IncidentWorkspace", "variants": ["timeline", "command"], "states": ["triaged", "mitigating", "monitoring", "resolved", "closed"] }
+    { "name": "IncidentWorkspace", "variants": ["timeline", "command"], "states": ["triaged", "mitigating", "monitoring", "resolved", "closed"] },
+    { "name": "PerformanceMetricGrid", "variants": ["latency", "capacity"], "states": ["loading", "healthy", "warning", "breached"] },
+    { "name": "LoadRunTable", "variants": ["release", "soak"], "states": ["queued", "running", "passed", "failed", "aborted"] },
+    { "name": "CapacityForecastPanel", "variants": ["service", "platform"], "states": ["healthy", "scale-required", "cost-capped"] },
+    { "name": "PerformanceBudgetPanel", "variants": ["api", "web", "realtime"], "states": ["passing", "at-risk", "breached"] }
   ]
 }
 

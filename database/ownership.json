@@ -17,7 +17,8 @@
     { "name": "admin", "owner": "platform-operations", "purpose": "control plane, executive metrics, alerts, reports and versioned configuration" },
     { "name": "analytics", "owner": "data-platform", "purpose": "privacy-aware product events, funnels, cohorts and controlled experiments" },
     { "name": "risk", "owner": "trust-safety", "purpose": "fraud signals, trust profiles, graph evidence, cases and decisions" },
-    { "name": "observability", "owner": "site-reliability", "purpose": "service objectives, alerts, incidents, runbooks and postmortems" }
+    { "name": "observability", "owner": "site-reliability", "purpose": "service objectives, alerts, incidents, runbooks and postmortems" },
+    { "name": "performance", "owner": "performance-engineering", "purpose": "load profiles, performance budgets, capacity snapshots and load-run evidence" }
   ],
   "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
   "directWrites": "A service may write only to schemas it owns."
