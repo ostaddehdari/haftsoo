@@ -77,7 +77,11 @@
     { "name": "AnalyticsKpiGrid", "variants": ["product", "experiment"], "states": ["loading", "ready", "stale"] },
     { "name": "FunnelAnalysisPanel", "variants": ["conversion-funnel"], "states": ["loading", "ready", "empty"] },
     { "name": "RetentionCohortPanel", "variants": ["weekly", "monthly"], "states": ["loading", "ready", "empty"] },
-    { "name": "ExperimentWorkspace", "variants": ["draft", "running", "decision"], "states": ["ready", "guardrail-breached", "completed"] }
+    { "name": "ExperimentWorkspace", "variants": ["draft", "running", "decision"], "states": ["ready", "guardrail-breached", "completed"] },
+    { "name": "RiskMetricGrid", "variants": ["operations", "executive"], "states": ["loading", "ready", "stale"] },
+    { "name": "TrustScoreCard", "variants": ["compact", "full"], "states": ["trusted", "review", "restricted"] },
+    { "name": "RiskCaseQueue", "variants": ["leased-priority"], "states": ["loading", "open", "claimed", "empty"] },
+    { "name": "RiskCaseWorkspace", "variants": ["evidence", "decision"], "states": ["unclaimed", "claimed", "pending-approval", "resolved"] }
   ]
 }
 

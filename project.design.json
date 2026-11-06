@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S31",
+    "currentStage": "S32",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.31.0",
+    "version": "0.32.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -145,7 +145,12 @@
     "analyticsAdminPage": "apps/web/pages/admin/analytics.vue",
     "analyticsPolicy": "analytics/policy.json",
     "analyticsMigration": "database/migrations/000022_product_analytics_experiments.up.sql",
-    "analyticsQualityReport": "reports/analytics/stage-31-quality.json"
+    "analyticsQualityReport": "reports/analytics/stage-31-quality.json",
+    "riskModule": "apps/api/src/risk/risk.module.ts",
+    "riskAdminPage": "apps/web/pages/admin/risk.vue",
+    "riskPolicy": "risk/policy.json",
+    "riskMigration": "database/migrations/000023_risk_trust_fraud.up.sql",
+    "riskQualityReport": "reports/risk/stage-32-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

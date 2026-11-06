@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S31",
+  "currentStage": "S32",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -499,20 +499,36 @@
         { "id": "S31-W09", "status": "complete", "evidence": "docs/stage-31/analytics-admin-ui.md" },
         { "id": "S31-W10", "status": "complete", "evidence": "docs/stage-31/acceptance.md" }
       ]
+    },
+    {
+      "id": "S32",
+      "status": "complete",
+      "works": [
+        { "id": "S32-W01", "status": "complete", "evidence": "docs/stage-32/risk-domain-signals.md" },
+        { "id": "S32-W02", "status": "complete", "evidence": "docs/stage-32/device-network-graph.md" },
+        { "id": "S32-W03", "status": "complete", "evidence": "docs/stage-32/velocity-rule-engine.md" },
+        { "id": "S32-W04", "status": "complete", "evidence": "docs/stage-32/explainable-trust-score.md" },
+        { "id": "S32-W05", "status": "complete", "evidence": "docs/stage-32/step-up-challenges.md" },
+        { "id": "S32-W06", "status": "complete", "evidence": "docs/stage-32/risk-case-queue.md" },
+        { "id": "S32-W07", "status": "complete", "evidence": "docs/stage-32/four-eyes-decisions.md" },
+        { "id": "S32-W08", "status": "complete", "evidence": "docs/stage-32/model-rule-governance.md" },
+        { "id": "S32-W09", "status": "complete", "evidence": "docs/stage-32/risk-admin-ui.md" },
+        { "id": "S32-W10", "status": "complete", "evidence": "docs/stage-32/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S31-W01", "status": "complete", "evidence": "docs/stage-31/event-taxonomy.md" },
-    { "id": "S31-W02", "status": "complete", "evidence": "docs/stage-31/consent-identity-privacy.md" },
-    { "id": "S31-W03", "status": "complete", "evidence": "docs/stage-31/idempotent-ingestion.md" },
-    { "id": "S31-W04", "status": "complete", "evidence": "docs/stage-31/versioned-funnels.md" },
-    { "id": "S31-W05", "status": "complete", "evidence": "docs/stage-31/cohort-retention.md" },
-    { "id": "S31-W06", "status": "complete", "evidence": "docs/stage-31/sticky-assignment.md" },
-    { "id": "S31-W07", "status": "complete", "evidence": "docs/stage-31/exposure-guardrails.md" },
-    { "id": "S31-W08", "status": "complete", "evidence": "docs/stage-31/aggregation-quality.md" },
-    { "id": "S31-W09", "status": "complete", "evidence": "docs/stage-31/analytics-admin-ui.md" },
-    { "id": "S31-W10", "status": "complete", "evidence": "docs/stage-31/acceptance.md" }
+    { "id": "S32-W01", "status": "complete", "evidence": "docs/stage-32/risk-domain-signals.md" },
+    { "id": "S32-W02", "status": "complete", "evidence": "docs/stage-32/device-network-graph.md" },
+    { "id": "S32-W03", "status": "complete", "evidence": "docs/stage-32/velocity-rule-engine.md" },
+    { "id": "S32-W04", "status": "complete", "evidence": "docs/stage-32/explainable-trust-score.md" },
+    { "id": "S32-W05", "status": "complete", "evidence": "docs/stage-32/step-up-challenges.md" },
+    { "id": "S32-W06", "status": "complete", "evidence": "docs/stage-32/risk-case-queue.md" },
+    { "id": "S32-W07", "status": "complete", "evidence": "docs/stage-32/four-eyes-decisions.md" },
+    { "id": "S32-W08", "status": "complete", "evidence": "docs/stage-32/model-rule-governance.md" },
+    { "id": "S32-W09", "status": "complete", "evidence": "docs/stage-32/risk-admin-ui.md" },
+    { "id": "S32-W10", "status": "complete", "evidence": "docs/stage-32/acceptance.md" }
   ],
-  "nextStage": "S32",
-  "updatedAt": "2026-11-06T12:00:00Z"
+  "nextStage": "S33",
+  "updatedAt": "2026-11-06T16:00:00Z"
 }

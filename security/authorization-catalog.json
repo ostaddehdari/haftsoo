@@ -16,9 +16,11 @@
     { "id": "monetization_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:catalog:manage", "monetization:price:publish", "monetization:subscription:manage", "monetization:metrics:read"] },
     { "id": "marketing_manager", "principalTypes": ["workforce"], "permissions": ["monetization:catalog:read", "monetization:campaign:manage", "monetization:coupon:manage", "monetization:metrics:read", "analytics:dashboard:read", "analytics:funnel:read", "analytics:experiment:read", "analytics:experiment:manage"] },
     { "id": "business_reviewer", "principalTypes": ["workforce"], "permissions": ["business:verification:read", "business:verification:decide", "business:ownership:review", "business:storefront:suspend", "business:audit:read"] },
+    { "id": "risk_analyst", "principalTypes": ["workforce"], "permissions": ["risk:dashboard:read", "risk:case:read", "risk:case:claim", "risk:evidence:read", "risk:decision:propose"] },
+    { "id": "risk_lead", "principalTypes": ["workforce"], "permissions": ["risk:dashboard:read", "risk:case:read", "risk:case:claim", "risk:evidence:read", "risk:decision:propose", "risk:decision:approve", "risk:rule:read", "risk:rule:manage", "risk:model:read", "risk:metrics:read"] },
     { "id": "platform_observer", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:report:read", "analytics:dashboard:read", "analytics:funnel:read", "analytics:experiment:read", "audit:read"] },
     { "id": "security_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:configuration:approve", "audit:read"] },
-    { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:report:read", "platform:report:create", "platform:configuration:read", "platform:configuration:manage", "platform:configuration:approve", "analytics:dashboard:read", "analytics:funnel:read", "analytics:experiment:read", "analytics:experiment:manage", "analytics:experiment:approve", "audit:read", "iam:assignment:manage"] },
+    { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:report:read", "platform:report:create", "platform:configuration:read", "platform:configuration:manage", "platform:configuration:approve", "analytics:dashboard:read", "analytics:funnel:read", "analytics:experiment:read", "analytics:experiment:manage", "analytics:experiment:approve", "risk:dashboard:read", "risk:case:read", "risk:decision:approve", "risk:metrics:read", "audit:read", "iam:assignment:manage"] },
     { "id": "service", "principalTypes": ["service"], "permissions": ["service:internal:invoke"] }
   ],
   "scopes": ["self", "business", "tenant", "assigned-queue", "platform"],
@@ -28,6 +30,7 @@
     ["finance_operator", "finance_lead"],
     ["monetization_manager", "finance_lead"],
     ["moderator", "moderation_lead"],
-    ["platform_admin", "security_admin"]
+    ["platform_admin", "security_admin"],
+    ["risk_analyst", "risk_lead"]
   ]
 }

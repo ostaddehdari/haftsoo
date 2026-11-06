@@ -15,7 +15,8 @@
     { "name": "crm", "owner": "crm-support", "purpose": "support tickets, interactions and customer 360" },
     { "name": "audit", "owner": "security", "purpose": "append-only audit evidence" },
     { "name": "admin", "owner": "platform-operations", "purpose": "control plane, executive metrics, alerts, reports and versioned configuration" },
-    { "name": "analytics", "owner": "data-platform", "purpose": "privacy-aware product events, funnels, cohorts and controlled experiments" }
+    { "name": "analytics", "owner": "data-platform", "purpose": "privacy-aware product events, funnels, cohorts and controlled experiments" },
+    { "name": "risk", "owner": "trust-safety", "purpose": "fraud signals, trust profiles, graph evidence, cases and decisions" }
   ],
   "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
   "directWrites": "A service may write only to schemas it owns."

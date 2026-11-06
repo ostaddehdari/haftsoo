@@ -1,0 +1,3 @@
+import { Injectable } from "@nestjs/common";
+import { graphRisk, riskDecision, trustScore, velocitySignals } from "./risk-core";
+@Injectable() export class RiskEvaluationWorker { evaluate(input:{attempts10m:number;accounts24h:number;listings1h:number;payments1h:number;nodes:number;sharedDevices:number;sharedPayments:number;blockedNeighbors:number;previousBlocks:number;accountAgeDays:number;verifiedIdentity:boolean;successfulTrades:number;upheldReports:number}){const signals=velocitySignals(input),graphScore=graphRisk(input),decision=riskDecision({signals,graphScore,previousBlocks:input.previousBlocks}),trust=trustScore({...input,riskScore:decision.riskScore});return{signals,graphScore,decision,trust};} }

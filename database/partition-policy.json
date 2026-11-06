@@ -36,6 +36,15 @@
       "hotRetentionDays": 30,
       "archiveAfterDays": 90,
       "purgeAfterDays": 365
+    },
+    {
+      "name": "risk.signals",
+      "strategy": "range",
+      "key": "occurred_at",
+      "interval": "month",
+      "hotRetentionDays": 30,
+      "archiveAfterDays": 90,
+      "purgeAfterDays": 365
     }
   ],
   "archive": {

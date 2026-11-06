@@ -339,3 +339,9 @@ export interface AnalyticsExperiment {
   id: string; key: string; title: string; state: "draft" | "pending_approval" | "running" | "paused" | "completed" | "cancelled";
   primaryMetric: string; variants: AnalyticsExperimentVariant[]; startsAt?: string | null; endsAt?: string | null;
 }
+
+export interface RiskSignal { code: string; score: number; source: "rule" | "velocity" | "device" | "graph" | "model"; explanation: string; evidenceHash: string; occurredAt: string }
+export interface TrustProfile { subjectId: string; trustScore: number; riskScore: number; level: "trusted" | "standard" | "review" | "restricted"; reasons: string[]; evaluatedAt: string }
+export interface RiskEvaluation { id: string; subjectId: string; action: "allow" | "review" | "challenge" | "block"; score: number; signals: RiskSignal[]; ruleVersion: string; modelVersion?: string | null; createdAt: string }
+export interface RiskCase { id: string; subjectId: string; state: "open" | "claimed" | "pending_approval" | "resolved" | "cancelled"; severity: "low" | "medium" | "high" | "critical"; score: number; leaseExpiresAt?: string | null; signalSummary: RiskSignal[] }
+export interface RiskDecision { id: string; caseId: string; action: "allow" | "review" | "challenge" | "block"; reason: string; proposedBy: string; approvedBy?: string | null; createdAt: string }
