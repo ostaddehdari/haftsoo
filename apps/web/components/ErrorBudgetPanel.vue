@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{remaining:number;service:string}>();</script>
+<template><article><header><h3>بودجه خطای {{service}}</h3><b>{{(remaining/100).toLocaleString('fa-IR')}}٪ باقی‌مانده</b></header><div class="sre-budget" role="progressbar" :aria-valuenow="remaining" aria-valuemin="0" aria-valuemax="10000"><i :class="{'at-risk':remaining<2500}" :style="{width:`${remaining/100}%`}"/></div><small>در صورت اتمام بودجه، انتشار پرریسک متوقف می‌شود.</small></article></template>

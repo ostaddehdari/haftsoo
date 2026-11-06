@@ -45,6 +45,15 @@
       "hotRetentionDays": 30,
       "archiveAfterDays": 90,
       "purgeAfterDays": 365
+    },
+    {
+      "name": "observability.incident_events",
+      "strategy": "range",
+      "key": "created_at",
+      "interval": "month",
+      "hotRetentionDays": 90,
+      "archiveAfterDays": 365,
+      "purgeAfterDays": 1825
     }
   ],
   "archive": {

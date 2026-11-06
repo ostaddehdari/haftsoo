@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       link: [{ rel: "canonical", href: "https://srun.ir/haftsoo/" }]
     }
   },
-  css: ["maplibre-gl/dist/maplibre-gl.css", "~/assets/css/main.css", "~/assets/css/analytics.css", "~/assets/css/risk.css"],
+  css: ["maplibre-gl/dist/maplibre-gl.css", "~/assets/css/main.css", "~/assets/css/analytics.css", "~/assets/css/risk.css", "~/assets/css/observability.css"],
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE ?? "/api/v1",

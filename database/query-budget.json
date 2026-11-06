@@ -29,6 +29,7 @@
   "admin": { "p95OverviewMs": 180, "p95AlertQueueMs": 150, "p95ConfigurationMs": 150, "maximumAlertRows": 100, "maximumAuditRows": 100, "maximumReportDays": 92, "requiresFourEyes": true },
   "analytics": { "p95IngestMs": 120, "p95DashboardMs": 250, "maximumDashboardRows": 500, "maximumRawEventDays": 90, "requiresIdempotency": true, "requiresConsent": true },
   "risk": { "p95EvaluationMs": 120, "p95QueueMs": 180, "p95GraphMs": 250, "maximumQueueRows": 100, "maximumGraphHops": 2, "requiresExplainability": true },
+  "observability": { "p95OverviewMs": 180, "p95IncidentQueueMs": 150, "p95TimelineMs": 180, "maximumIncidentRows": 100, "maximumTimelineRows": 500, "requiresSloWindow": true },
   "notifications": {
     "p95InboxMs": 180,
     "p95UnreadCountMs": 100,

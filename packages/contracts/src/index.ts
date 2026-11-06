@@ -345,3 +345,10 @@ export interface TrustProfile { subjectId: string; trustScore: number; riskScore
 export interface RiskEvaluation { id: string; subjectId: string; action: "allow" | "review" | "challenge" | "block"; score: number; signals: RiskSignal[]; ruleVersion: string; modelVersion?: string | null; createdAt: string }
 export interface RiskCase { id: string; subjectId: string; state: "open" | "claimed" | "pending_approval" | "resolved" | "cancelled"; severity: "low" | "medium" | "high" | "critical"; score: number; leaseExpiresAt?: string | null; signalSummary: RiskSignal[] }
 export interface RiskDecision { id: string; caseId: string; action: "allow" | "review" | "challenge" | "block"; reason: string; proposedBy: string; approvedBy?: string | null; createdAt: string }
+
+export type IncidentSeverity = "sev1" | "sev2" | "sev3" | "sev4";
+export type IncidentState = "detected" | "triaged" | "mitigating" | "monitoring" | "resolved" | "closed";
+export interface ServiceLevelObjective { id: string; serviceKey: string; objectiveKey: string; indicatorType: "availability" | "latency" | "correctness" | "freshness"; targetBps: number; windowDays: number; version: number }
+export interface ErrorBudgetSnapshot { serviceKey: string; availabilityBps: number; remainingBps: number; burnRate: number; state: "healthy" | "at_risk" | "exhausted"; calculatedAt: string }
+export interface IncidentTimelineEvent { type: string; actorId?: string | null; summary: string; createdAt: string }
+export interface SreIncident { id: string; number: number; title: string; severity: IncidentSeverity; state: IncidentState; serviceKey: string; impactSummary: string; commanderId?: string | null; publicStatus: "investigating" | "identified" | "monitoring" | "resolved"; events: IncidentTimelineEvent[] }

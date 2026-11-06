@@ -81,7 +81,11 @@
     { "name": "RiskMetricGrid", "variants": ["operations", "executive"], "states": ["loading", "ready", "stale"] },
     { "name": "TrustScoreCard", "variants": ["compact", "full"], "states": ["trusted", "review", "restricted"] },
     { "name": "RiskCaseQueue", "variants": ["leased-priority"], "states": ["loading", "open", "claimed", "empty"] },
-    { "name": "RiskCaseWorkspace", "variants": ["evidence", "decision"], "states": ["unclaimed", "claimed", "pending-approval", "resolved"] }
+    { "name": "RiskCaseWorkspace", "variants": ["evidence", "decision"], "states": ["unclaimed", "claimed", "pending-approval", "resolved"] },
+    { "name": "SreMetricGrid", "variants": ["reliability", "incident"], "states": ["loading", "healthy", "at-risk", "stale"] },
+    { "name": "IncidentQueue", "variants": ["severity", "service"], "states": ["loading", "active", "selected", "empty"] },
+    { "name": "ErrorBudgetPanel", "variants": ["service", "objective"], "states": ["healthy", "at-risk", "exhausted"] },
+    { "name": "IncidentWorkspace", "variants": ["timeline", "command"], "states": ["triaged", "mitigating", "monitoring", "resolved", "closed"] }
   ]
 }
 
