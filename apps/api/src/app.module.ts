@@ -24,6 +24,7 @@ import { ResilienceModule } from "./resilience/resilience.module";
 import { SearchModule } from "./search/search.module";
 import { SecurityModule } from "./security/security.module";
 import { SubmissionModule } from "./submission/submission.module";
+import { VulnerabilityModule } from "./vulnerability/vulnerability.module";
 
-@Module({ imports: [AccountModule, AdminModule, AnalyticsModule, AuthModule, BusinessModule, CatalogModule, ChatTicketModule, CrmModule, DatabaseModule, FinanceModule, GeoModule, HealthModule, ListingModule, MediaModule, MonetizationModule, ModerationModule, NotificationModule, ObservabilityModule, PerformanceModule, PlatformModule, ResilienceModule, RiskModule, SearchModule, SecurityModule, SubmissionModule] })
+@Module({ imports: [AccountModule, AdminModule, AnalyticsModule, AuthModule, BusinessModule, CatalogModule, ChatTicketModule, CrmModule, DatabaseModule, FinanceModule, GeoModule, HealthModule, ListingModule, MediaModule, MonetizationModule, ModerationModule, NotificationModule, ObservabilityModule, PerformanceModule, PlatformModule, ResilienceModule, RiskModule, SearchModule, SecurityModule, SubmissionModule, VulnerabilityModule] })
 export class AppModule {}

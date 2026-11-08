@@ -1,0 +1,1 @@
+{"stage":"S36","works":10,"status":"passed","controls":{"assetInventory":true,"sast":true,"sca":true,"secretScan":true,"containerScan":true,"iacScan":true,"dast":true,"sbom":true,"provenance":true,"vulnerabilitySla":true,"pentestGovernance":true},"publicUiChanged":false}

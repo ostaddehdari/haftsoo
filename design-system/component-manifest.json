@@ -93,7 +93,11 @@
     { "name": "ResilienceMetricGrid", "variants": ["service", "platform"], "states": ["loading", "healthy", "degraded", "recovering"] },
     { "name": "ChaosExperimentList", "variants": ["scheduled", "history"], "states": ["draft", "approved", "running", "passed", "failed", "aborted"] },
     { "name": "RecoveryDrillPanel", "variants": ["service", "disaster"], "states": ["planned", "running", "verified", "failed"] },
-    { "name": "ResilienceGuardPanel", "variants": ["policy", "dependency"], "states": ["protected", "at-risk", "blocked"] }
+    { "name": "ResilienceGuardPanel", "variants": ["policy", "dependency"], "states": ["protected", "at-risk", "blocked"] },
+    { "name": "SecurityMetricGrid", "variants": ["application", "supply-chain"], "states": ["loading", "healthy", "warning", "blocked"] },
+    { "name": "VulnerabilityQueue", "variants": ["priority", "sla"], "states": ["open", "triaged", "fixing", "verification", "resolved"] },
+    { "name": "SupplyChainCoverage", "variants": ["sbom", "provenance"], "states": ["complete", "partial", "blocked"] },
+    { "name": "SecurityScanPanel", "variants": ["code", "artifact", "dynamic"], "states": ["queued", "running", "passed", "failed"] }
   ]
 }
 

@@ -1,0 +1,1 @@
+{"version":"1.0.0","hours":{"knownExploited":4,"critical":24,"high":72,"medium":720,"low":2160,"informational":4320},"verificationRequired":true,"overdueEscalation":["security_lead","service_owner","platform_admin"]}

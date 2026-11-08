@@ -19,7 +19,8 @@
     { "name": "risk", "owner": "trust-safety", "purpose": "fraud signals, trust profiles, graph evidence, cases and decisions" },
     { "name": "observability", "owner": "site-reliability", "purpose": "service objectives, alerts, incidents, runbooks and postmortems" },
     { "name": "performance", "owner": "performance-engineering", "purpose": "load profiles, performance budgets, capacity snapshots and load-run evidence" },
-    { "name": "resilience", "owner": "site-reliability", "purpose": "dependency policies, chaos experiments, failover evidence and recovery drills" }
+    { "name": "resilience", "owner": "site-reliability", "purpose": "dependency policies, chaos experiments, failover evidence and recovery drills" },
+    { "name": "security_ops", "owner": "application-security", "purpose": "asset inventory, security scans, vulnerabilities, SBOM, provenance and penetration-test evidence" }
   ],
   "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
   "directWrites": "A service may write only to schemas it owns."
