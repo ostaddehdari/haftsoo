@@ -81,6 +81,15 @@
       "hotRetentionDays": 90,
       "archiveAfterDays": 365,
       "purgeAfterDays": 1825
+    },
+    {
+      "name": "privacy_ops.compliance_evidence",
+      "strategy": "range",
+      "key": "recorded_at",
+      "interval": "month",
+      "hotRetentionDays": 365,
+      "archiveAfterDays": 1825,
+      "purgeAfterDays": 3650
     }
   ],
   "archive": {

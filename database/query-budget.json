@@ -33,6 +33,7 @@
   "performance": { "p95OverviewMs": 180, "p95LoadRunMs": 200, "p95CapacityMs": 220, "maximumLoadRunRows": 100, "maximumCapacityRows": 500, "requiresReleaseBudget": true },
   "resilience": { "p95OverviewMs": 180, "p95ExperimentQueueMs": 180, "p95RecoveryDrillMs": 250, "maximumExperimentRows": 100, "maximumDrillRows": 100, "requiresSafetyGuard": true },
   "securityOperations": { "p95OverviewMs": 180, "p95FindingQueueMs": 180, "p95ScanHistoryMs": 200, "maximumFindingRows": 100, "maximumScanRows": 100, "requiresTenantScope": true },
+  "privacyOperations": { "p95OverviewMs": 180, "p95RightsQueueMs": 180, "p95RetentionMs": 200, "maximumRequestRows": 100, "maximumProcessorRows": 100, "requiresPurposeScope": true },
   "notifications": {
     "p95InboxMs": 180,
     "p95UnreadCountMs": 100,

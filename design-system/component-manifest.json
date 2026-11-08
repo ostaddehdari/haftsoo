@@ -97,7 +97,11 @@
     { "name": "SecurityMetricGrid", "variants": ["application", "supply-chain"], "states": ["loading", "healthy", "warning", "blocked"] },
     { "name": "VulnerabilityQueue", "variants": ["priority", "sla"], "states": ["open", "triaged", "fixing", "verification", "resolved"] },
     { "name": "SupplyChainCoverage", "variants": ["sbom", "provenance"], "states": ["complete", "partial", "blocked"] },
-    { "name": "SecurityScanPanel", "variants": ["code", "artifact", "dynamic"], "states": ["queued", "running", "passed", "failed"] }
+    { "name": "SecurityScanPanel", "variants": ["code", "artifact", "dynamic"], "states": ["queued", "running", "passed", "failed"] },
+    { "name": "PrivacyMetricGrid", "variants": ["privacy", "compliance"], "states": ["loading", "healthy", "warning", "overdue"] },
+    { "name": "DataRightsQueue", "variants": ["deadline", "right-type"], "states": ["queued", "verifying", "processing", "blocked", "completed"] },
+    { "name": "RetentionCoveragePanel", "variants": ["domain", "rule"], "states": ["covered", "partial", "legal-hold", "purging"] },
+    { "name": "ProcessorRegisterPanel", "variants": ["residency", "risk"], "states": ["pending", "approved", "suspended", "terminated"] }
   ]
 }
 

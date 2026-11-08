@@ -369,3 +369,8 @@ export type VulnerabilityState = "open" | "triaged" | "fixing" | "verification" 
 export interface SecurityFinding { id: string; source: "sast" | "sca" | "secret" | "container" | "iac" | "dast" | "pentest"; component: string; componentVersion: string; severity: VulnerabilitySeverity; cve?: string | null; cvss: number; state: VulnerabilityState; knownExploited: boolean; internetExposed: boolean; dueAt: string; detectedAt: string }
 export interface SecurityScanRun { id: string; scanner: string; scope: string; state: "queued" | "running" | "passed" | "failed" | "cancelled"; sourceRevision: string; findingsCount: number; criticalCount: number; highCount: number; evidenceHash?: string | null }
 export interface SupplyChainAttestation { releaseVersion: string; sourceRevision: string; subjectDigest: string; sbomFormat: "CycloneDX"; sbomSpecVersion: "1.6"; componentCount: number; signatureValid: boolean; materialsVerified: boolean }
+export type DataClassification = "public" | "internal" | "personal" | "sensitive" | "restricted";
+export type DataSubjectRight = "access" | "export" | "correct" | "delete" | "restrict" | "object";
+export interface DataSubjectRequest { id: string; subjectId: string; type: DataSubjectRight; status: "queued" | "verifying" | "processing" | "blocked" | "ready" | "completed" | "rejected" | "cancelled"; verified: boolean; submittedAt: string; dueAt: string }
+export interface RetentionRule { key: string; domain: string; retentionDays: number; action: "delete" | "anonymize" | "archive"; active: boolean }
+export interface ProcessorRecord { id: string; name: string; country: string; status: "pending" | "approved" | "suspended" | "terminated"; dpaSigned: boolean; transferAssessment: boolean }

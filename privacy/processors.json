@@ -1,0 +1,1 @@
+{"version":"1.0.0","requirements":{"dpa":true,"subprocessorRegister":true,"annualReview":true,"transferAssessmentForSensitive":true,"minimumNoticeDays":30},"approvedRegions":["IR","DE","FI"],"prohibitedData":["plaintext_password","otp_code","raw_payment_card","private_key"]}

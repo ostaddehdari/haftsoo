@@ -1,0 +1,1 @@
+import{Injectable}from"@nestjs/common";import{retentionDecision}from"./privacy-core";@Injectable()export class PrivacyRetentionWorker{evaluate(input:Parameters<typeof retentionDecision>[0]){return retentionDecision(input)}}

@@ -32,6 +32,7 @@
     { "id": "performance-operations", "path": "/admin/performance", "family": "internal", "auth": true, "states": ["overview", "healthy", "budget-breached", "load-running", "capacity-warning", "permission-denied"] },
     { "id": "resilience-operations", "path": "/admin/resilience", "family": "internal", "auth": true, "states": ["overview", "healthy", "degraded", "experiment-running", "failover", "recovery-drill", "permission-denied"] },
     { "id": "security-operations", "path": "/admin/security", "family": "internal", "auth": true, "states": ["overview", "scan-running", "finding-open", "sla-overdue", "release-blocked", "exception-review", "permission-denied"] },
+    { "id": "privacy-operations", "path": "/admin/privacy", "family": "internal", "auth": true, "states": ["overview", "rights-queue", "retention", "legal-hold", "processor-review", "breach-clock", "permission-denied"] },
     { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["preferences", "sessions", "active-session", "revoked-session", "privacy", "consent", "theme"] },
     { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
     { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },

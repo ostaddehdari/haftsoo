@@ -1,0 +1,4 @@
+<script setup lang="ts">
+defineProps<{ metrics: { assets_total: number; personal_assets: number; sensitive_assets: number; retention_coverage_bps: number; open_requests: number; overdue_requests: number; approved_processors: number; open_breaches: number } }>()
+</script>
+<template><section class="privacy-kpis" aria-label="شاخص‌های حریم خصوصی"><article><span>دارایی‌های داده</span><strong>{{ metrics.assets_total }}</strong><small>{{ metrics.personal_assets }} دارایی شخصی</small></article><article><span>درخواست‌های باز</span><strong>{{ metrics.open_requests }}</strong><small>{{ metrics.overdue_requests }} سررسید گذشته</small></article><article><span>پوشش نگهداری</span><strong>{{ Math.round(metrics.retention_coverage_bps / 100) }}٪</strong><small>قانون ماشین‌خوان</small></article><article><span>نقض دادهٔ باز</span><strong>{{ metrics.open_breaches }}</strong><small>ساعت اعلان ۷۲ ساعته</small></article></section></template>
