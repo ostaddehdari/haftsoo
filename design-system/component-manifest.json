@@ -101,7 +101,11 @@
     { "name": "PrivacyMetricGrid", "variants": ["privacy", "compliance"], "states": ["loading", "healthy", "warning", "overdue"] },
     { "name": "DataRightsQueue", "variants": ["deadline", "right-type"], "states": ["queued", "verifying", "processing", "blocked", "completed"] },
     { "name": "RetentionCoveragePanel", "variants": ["domain", "rule"], "states": ["covered", "partial", "legal-hold", "purging"] },
-    { "name": "ProcessorRegisterPanel", "variants": ["residency", "risk"], "states": ["pending", "approved", "suspended", "terminated"] }
+    { "name": "ProcessorRegisterPanel", "variants": ["residency", "risk"], "states": ["pending", "approved", "suspended", "terminated"] },
+    { "name": "QualityMetricGrid", "variants": ["release", "regression"], "states": ["loading", "passing", "warning", "blocked"] },
+    { "name": "QualityRunList", "variants": ["suite", "browser"], "states": ["empty", "queued", "running", "passed", "failed"] },
+    { "name": "QualityCoveragePanel", "variants": ["browser", "accessibility"], "states": ["empty", "partial", "complete", "blocked"] },
+    { "name": "ReleaseGatePanel", "variants": ["revision", "environment"], "states": ["empty", "allow", "block"] }
   ]
 }
 

@@ -374,3 +374,9 @@ export type DataSubjectRight = "access" | "export" | "correct" | "delete" | "res
 export interface DataSubjectRequest { id: string; subjectId: string; type: DataSubjectRight; status: "queued" | "verifying" | "processing" | "blocked" | "ready" | "completed" | "rejected" | "cancelled"; verified: boolean; submittedAt: string; dueAt: string }
 export interface RetentionRule { key: string; domain: string; retentionDays: number; action: "delete" | "anonymize" | "archive"; active: boolean }
 export interface ProcessorRecord { id: string; name: string; country: string; status: "pending" | "approved" | "suspended" | "terminated"; dpaSigned: boolean; transferAssessment: boolean }
+
+export type QualitySuite = "e2e" | "api" | "accessibility" | "visual" | "browser" | "mobile";
+export type QualityRunState = "queued" | "running" | "passed" | "failed" | "cancelled";
+export interface QualityRun { id: string; suite: QualitySuite; revision: string; environment: "ci" | "staging"; state: QualityRunState; browsers: string[]; testsTotal: number; testsPassed: number; testsFailed: number; startedAt?: string | null; finishedAt?: string | null }
+export interface AccessibilityFinding { id: string; runId: string; ruleId: string; impact: "critical" | "serious" | "moderate" | "minor"; route: string; browser: string; status: "open" | "accepted" | "resolved"; selectorHash: string }
+export interface QualityReleaseGate { revision: string; environment: "ci" | "staging" | "production"; decision: "allow" | "block"; reasons: string[]; evidenceHash: string; decidedAt: string }

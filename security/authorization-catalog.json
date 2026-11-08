@@ -28,6 +28,9 @@
     { "id": "privacy_analyst", "principalTypes": ["workforce"], "permissions": ["privacy:dashboard:read", "privacy:inventory:read", "privacy:request:read", "privacy:retention:read", "privacy:processor:read", "privacy:breach:read"] },
     { "id": "privacy_officer", "principalTypes": ["workforce"], "permissions": ["privacy:dashboard:read", "privacy:inventory:read", "privacy:inventory:manage", "privacy:purpose:manage", "privacy:request:read", "privacy:request:manage", "privacy:retention:read", "privacy:retention:manage", "privacy:processor:read", "privacy:processor:review", "privacy:breach:read", "privacy:breach:manage"] },
     { "id": "compliance_admin", "principalTypes": ["workforce"], "permissions": ["privacy:dashboard:read", "privacy:inventory:read", "privacy:request:read", "privacy:retention:read", "privacy:legal-hold:approve", "privacy:processor:read", "privacy:processor:approve", "privacy:breach:read", "privacy:breach:approve-notification", "privacy:evidence:read", "audit:read"] },
+    { "id": "qa_engineer", "principalTypes": ["workforce"], "permissions": ["quality:dashboard:read", "quality:run:read", "quality:run:execute", "quality:finding:read", "quality:finding:manage", "quality:artifact:read"] },
+    { "id": "qa_lead", "principalTypes": ["workforce"], "permissions": ["quality:dashboard:read", "quality:run:read", "quality:run:execute", "quality:finding:read", "quality:finding:manage", "quality:artifact:read", "quality:baseline:approve", "quality:quarantine:approve"] },
+    { "id": "release_manager", "principalTypes": ["workforce"], "permissions": ["quality:dashboard:read", "quality:run:read", "quality:finding:read", "quality:artifact:read", "quality:gate:read", "quality:gate:decide", "audit:read"] },
     { "id": "platform_admin", "principalTypes": ["workforce"], "permissions": ["platform:dashboard:read", "platform:health:read", "platform:alert:read", "platform:alert:acknowledge", "platform:report:read", "platform:report:create", "platform:configuration:read", "platform:configuration:manage", "platform:configuration:approve", "analytics:dashboard:read", "analytics:funnel:read", "analytics:experiment:read", "analytics:experiment:manage", "analytics:experiment:approve", "risk:dashboard:read", "risk:case:read", "risk:decision:approve", "risk:metrics:read", "sre:dashboard:read", "sre:slo:read", "sre:incident:read", "sre:incident:command", "sre:postmortem:review", "performance:dashboard:read", "performance:budget:read", "performance:budget:manage", "performance:load:read", "performance:load:execute", "performance:capacity:read", "performance:autoscaling:recommend", "resilience:dashboard:read", "resilience:policy:read", "resilience:policy:manage", "resilience:chaos:read", "resilience:chaos:execute", "resilience:recovery:read", "resilience:recovery:execute", "resilience:failover:propose", "resilience:failover:approve", "audit:read", "iam:assignment:manage"] },
     { "id": "service", "principalTypes": ["service"], "permissions": ["service:internal:invoke"] }
   ],
@@ -45,6 +48,8 @@
     ["resilience_engineer", "platform_admin"],
     ["security_engineer", "security_admin"],
     ["privacy_analyst", "privacy_officer"],
-    ["privacy_officer", "compliance_admin"]
+    ["privacy_officer", "compliance_admin"],
+    ["qa_engineer", "release_manager"],
+    ["qa_lead", "release_manager"]
   ]
 }

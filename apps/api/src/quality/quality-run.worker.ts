@@ -1,0 +1,1 @@
+import{Injectable}from"@nestjs/common";import{calculateQualityGate}from"./quality-core";@Injectable()export class QualityRunWorker{evaluateRelease(input:Parameters<typeof calculateQualityGate>[0]){return calculateQualityGate(input)}}

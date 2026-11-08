@@ -21,7 +21,8 @@
     { "name": "performance", "owner": "performance-engineering", "purpose": "load profiles, performance budgets, capacity snapshots and load-run evidence" },
     { "name": "resilience", "owner": "site-reliability", "purpose": "dependency policies, chaos experiments, failover evidence and recovery drills" },
     { "name": "security_ops", "owner": "application-security", "purpose": "asset inventory, security scans, vulnerabilities, SBOM, provenance and penetration-test evidence" },
-    { "name": "privacy_ops", "owner": "privacy-compliance", "purpose": "data inventory, processing purposes, retention, data rights, processors and breach evidence" }
+    { "name": "privacy_ops", "owner": "privacy-compliance", "purpose": "data inventory, processing purposes, retention, data rights, processors and breach evidence" },
+    { "name": "quality_ops", "owner": "quality-engineering", "purpose": "test runs, accessibility findings, visual evidence and release gates" }
   ],
   "crossSchemaRule": "Only stable IDs and versioned events cross ownership boundaries.",
   "directWrites": "A service may write only to schemas it owns."

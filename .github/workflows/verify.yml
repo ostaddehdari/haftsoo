@@ -21,7 +21,7 @@ jobs:
         run: >-
           bash -n install.sh scripts/configure-nginx.sh scripts/update.sh
           scripts/build-stage-03.sh scripts/build-stage-04.sh scripts/build-stage-05.sh scripts/build-stage-06.sh scripts/build-stage-07.sh scripts/build-stage-08.sh scripts/build-stage-09.sh scripts/build-stage-10.sh scripts/build-stage-11.sh scripts/build-stage-12.sh
-          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/build-stage-20.sh scripts/build-stage-21.sh scripts/build-stage-22.sh scripts/build-stage-23.sh scripts/build-stage-24.sh scripts/build-stage-25.sh scripts/build-stage-26.sh scripts/build-stage-27.sh scripts/build-stage-28.sh scripts/build-stage-29.sh scripts/build-stage-30.sh scripts/build-stage-31.sh scripts/build-stage-32.sh scripts/build-stage-33.sh scripts/build-stage-34.sh scripts/build-stage-35.sh scripts/build-stage-36.sh scripts/build-stage-37.sh scripts/manage-secrets.sh scripts/test-secrets.sh
+          scripts/build-stage-13.sh scripts/build-stage-14.sh scripts/build-stage-15.sh scripts/build-stage-16.sh scripts/build-stage-17.sh scripts/build-stage-18.sh scripts/build-stage-19.sh scripts/build-stage-20.sh scripts/build-stage-21.sh scripts/build-stage-22.sh scripts/build-stage-23.sh scripts/build-stage-24.sh scripts/build-stage-25.sh scripts/build-stage-26.sh scripts/build-stage-27.sh scripts/build-stage-28.sh scripts/build-stage-29.sh scripts/build-stage-30.sh scripts/build-stage-31.sh scripts/build-stage-32.sh scripts/build-stage-33.sh scripts/build-stage-34.sh scripts/build-stage-35.sh scripts/build-stage-36.sh scripts/build-stage-37.sh scripts/build-stage-38.sh scripts/manage-secrets.sh scripts/test-secrets.sh
           scripts/backup-postgres.sh scripts/recovery-drill.sh
       - name: Install frozen dependency graph
         run: npm ci --no-audit --no-fund
@@ -87,6 +87,8 @@ jobs:
         run: npm run vulnerability:contract
       - name: Validate privacy, retention and data-rights governance
         run: npm run privacy:contract
+      - name: Validate end-to-end quality and release gates
+        run: npm run quality:contract
       - name: Lint and formatting
         run: npm run lint && npm run format:check
       - name: Typecheck, test and build workspaces
@@ -99,9 +101,33 @@ jobs:
       - name: Preserve generated dependency graph
         uses: actions/upload-artifact@v4
         with:
-          name: stage-37-package-lock
+          name: stage-38-package-lock
           path: package-lock.json
           retention-days: 7
+
+  browser:
+    name: Browser, accessibility and responsive journeys
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install frozen dependency graph
+        run: npm ci --no-audit --no-fund
+      - name: Install browser engines
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run five-project Playwright matrix
+        run: npm run test:e2e
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage-38-playwright-evidence
+          path: reports/playwright
+          if-no-files-found: ignore
+          retention-days: 30
 
   security:
     name: Security baseline

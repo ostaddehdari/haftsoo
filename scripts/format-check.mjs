@@ -1,11 +1,21 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
-const ignored = new Set([".git", "node_modules", ".nuxt", ".output", "dist", "coverage"]);
+const ignored = new Set([
+  ".git",
+  "node_modules",
+  ".nuxt",
+  ".output",
+  "dist",
+  "coverage",
+  "playwright-report",
+  "test-results",
+]);
 const checked = new Set([".css", ".go", ".html", ".js", ".json", ".md", ".mjs", ".ts", ".vue", ".yaml", ".yml"]);
 const failures = [];
 
 function walk(directory) {
+  if (path.relative(process.cwd(), directory) === path.join("reports", "playwright")) return;
   for (const name of readdirSync(directory)) {
     if (ignored.has(name)) continue;
     const file = path.join(directory, name);

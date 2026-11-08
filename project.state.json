@@ -1,7 +1,7 @@
 {
   "project": "haftsoo",
   "planVersion": "1.0.0",
-  "currentStage": "S37",
+  "currentStage": "S38",
   "stageStatus": "complete",
   "completedStages": [
     {
@@ -595,20 +595,36 @@
         { "id": "S37-W09", "status": "complete", "evidence": "docs/stage-37/privacy-admin-ui.md" },
         { "id": "S37-W10", "status": "complete", "evidence": "docs/stage-37/acceptance.md" }
       ]
+    },
+    {
+      "id": "S38",
+      "status": "complete",
+      "works": [
+        { "id": "S38-W01", "status": "complete", "evidence": "docs/stage-38/quality-strategy-release-gate.md" },
+        { "id": "S38-W02", "status": "complete", "evidence": "docs/stage-38/critical-user-journeys.md" },
+        { "id": "S38-W03", "status": "complete", "evidence": "docs/stage-38/api-integration-contracts.md" },
+        { "id": "S38-W04", "status": "complete", "evidence": "docs/stage-38/accessibility-wcag22.md" },
+        { "id": "S38-W05", "status": "complete", "evidence": "docs/stage-38/cross-browser-matrix.md" },
+        { "id": "S38-W06", "status": "complete", "evidence": "docs/stage-38/responsive-mobile-touch.md" },
+        { "id": "S38-W07", "status": "complete", "evidence": "docs/stage-38/visual-regression.md" },
+        { "id": "S38-W08", "status": "complete", "evidence": "docs/stage-38/localization-rtl.md" },
+        { "id": "S38-W09", "status": "complete", "evidence": "docs/stage-38/flake-quarantine-ci.md" },
+        { "id": "S38-W10", "status": "complete", "evidence": "docs/stage-38/acceptance.md" }
+      ]
     }
   ],
   "works": [
-    { "id": "S37-W01", "status": "complete", "evidence": "docs/stage-37/privacy-domain-inventory.md" },
-    { "id": "S37-W02", "status": "complete", "evidence": "docs/stage-37/lawful-basis-purpose-limitation.md" },
-    { "id": "S37-W03", "status": "complete", "evidence": "docs/stage-37/consent-preferences.md" },
-    { "id": "S37-W04", "status": "complete", "evidence": "docs/stage-37/retention-legal-holds.md" },
-    { "id": "S37-W05", "status": "complete", "evidence": "docs/stage-37/data-rights-workflows.md" },
-    { "id": "S37-W06", "status": "complete", "evidence": "docs/stage-37/deletion-anonymization.md" },
-    { "id": "S37-W07", "status": "complete", "evidence": "docs/stage-37/processor-residency.md" },
-    { "id": "S37-W08", "status": "complete", "evidence": "docs/stage-37/breach-compliance-evidence.md" },
-    { "id": "S37-W09", "status": "complete", "evidence": "docs/stage-37/privacy-admin-ui.md" },
-    { "id": "S37-W10", "status": "complete", "evidence": "docs/stage-37/acceptance.md" }
+    { "id": "S38-W01", "status": "complete", "evidence": "docs/stage-38/quality-strategy-release-gate.md" },
+    { "id": "S38-W02", "status": "complete", "evidence": "docs/stage-38/critical-user-journeys.md" },
+    { "id": "S38-W03", "status": "complete", "evidence": "docs/stage-38/api-integration-contracts.md" },
+    { "id": "S38-W04", "status": "complete", "evidence": "docs/stage-38/accessibility-wcag22.md" },
+    { "id": "S38-W05", "status": "complete", "evidence": "docs/stage-38/cross-browser-matrix.md" },
+    { "id": "S38-W06", "status": "complete", "evidence": "docs/stage-38/responsive-mobile-touch.md" },
+    { "id": "S38-W07", "status": "complete", "evidence": "docs/stage-38/visual-regression.md" },
+    { "id": "S38-W08", "status": "complete", "evidence": "docs/stage-38/localization-rtl.md" },
+    { "id": "S38-W09", "status": "complete", "evidence": "docs/stage-38/flake-quarantine-ci.md" },
+    { "id": "S38-W10", "status": "complete", "evidence": "docs/stage-38/acceptance.md" }
   ],
-  "nextStage": "S38",
+  "nextStage": "S39",
   "updatedAt": "2026-11-08T00:00:00Z"
 }

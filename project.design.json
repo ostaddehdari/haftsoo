@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S37",
+    "currentStage": "S38",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.37.0",
+    "version": "0.38.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -182,7 +182,15 @@
     "retentionPolicy": "privacy/retention.json",
     "processorPolicy": "privacy/processors.json",
     "privacyMigration": "database/migrations/000028_privacy_compliance_retention.up.sql",
-    "privacyQualityReport": "reports/privacy/stage-37-quality.json"
+    "privacyQualityReport": "reports/privacy/stage-37-quality.json",
+    "qualityModule": "apps/api/src/quality/quality.module.ts",
+    "qualityAdminPage": "apps/web/pages/admin/quality.vue",
+    "qualityPolicy": "quality/policy.json",
+    "qualityBrowserMatrix": "quality/browser-matrix.json",
+    "qualityJourneys": "quality/journeys.json",
+    "playwrightConfig": "playwright.config.mjs",
+    "qualityMigration": "database/migrations/000029_quality_assurance_release.up.sql",
+    "qualityReport": "reports/quality/stage-38-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

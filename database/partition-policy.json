@@ -90,6 +90,15 @@
       "hotRetentionDays": 365,
       "archiveAfterDays": 1825,
       "purgeAfterDays": 3650
+    },
+    {
+      "name": "quality_ops.test_results",
+      "strategy": "range",
+      "key": "created_at",
+      "interval": "month",
+      "hotRetentionDays": 30,
+      "archiveAfterDays": 90,
+      "purgeAfterDays": 365
     }
   ],
   "archive": {

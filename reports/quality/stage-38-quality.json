@@ -1,0 +1,1 @@
+{"stage":"S38","status":"passed","works":10,"unitTests":true,"integrationContracts":true,"e2eProjects":5,"criticalJourneys":5,"wcag":"2.2-AA","browserMatrix":["chromium","firefox","webkit","mobile-chrome","mobile-safari"],"visualToleranceBps":20,"publicHeaderRegression":false,"listingFilterRegression":false,"generatedBy":"scripts/quality-contract.mjs"}
