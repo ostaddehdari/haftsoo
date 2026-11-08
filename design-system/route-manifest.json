@@ -30,6 +30,7 @@
     { "id": "risk-operations", "path": "/admin/risk", "family": "internal", "auth": true, "states": ["overview", "queue", "claimed", "challenge", "pending-approval", "resolved", "permission-denied"] },
     { "id": "sre-operations", "path": "/admin/sre", "family": "internal", "auth": true, "states": ["overview", "healthy", "budget-at-risk", "incident", "mitigating", "monitoring", "resolved", "permission-denied"] },
     { "id": "performance-operations", "path": "/admin/performance", "family": "internal", "auth": true, "states": ["overview", "healthy", "budget-breached", "load-running", "capacity-warning", "permission-denied"] },
+    { "id": "resilience-operations", "path": "/admin/resilience", "family": "internal", "auth": true, "states": ["overview", "healthy", "degraded", "experiment-running", "failover", "recovery-drill", "permission-denied"] },
     { "id": "settings", "path": "/my/settings", "family": "account", "auth": true, "states": ["preferences", "sessions", "active-session", "revoked-session", "privacy", "consent", "theme"] },
     { "id": "safety", "path": "/safety", "family": "trust", "auth": false, "states": ["index", "article", "report"] },
     { "id": "help", "path": "/help", "family": "support", "auth": false, "states": ["index", "search", "article", "ticket"] },

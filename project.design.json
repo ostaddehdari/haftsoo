@@ -4,7 +4,7 @@
   "delivery": {
     "stageCount": 40,
     "worksPerStage": 10,
-    "currentStage": "S34",
+    "currentStage": "S35",
     "definitionOfDone": ["acceptance-criteria-met", "relevant-tests-pass", "diff-reviewed", "secret-review-pass", "documentation-updated", "commit-pushed", "github-sha-verified"]
   },
   "designSystem": {
@@ -16,7 +16,7 @@
     "accessibilityTarget": "WCAG-2.2-AA"
   },
   "engineering": {
-    "version": "0.34.0",
+    "version": "0.35.0",
     "monorepo": "npm-workspaces",
     "node": "22",
     "go": "1.24",
@@ -161,7 +161,14 @@
     "performancePolicy": "performance/policy.json",
     "performanceMigration": "database/migrations/000025_performance_capacity_load.up.sql",
     "performanceWorkloads": "performance/workloads.json",
-    "performanceQualityReport": "reports/performance/stage-34-quality.json"
+    "performanceQualityReport": "reports/performance/stage-34-quality.json",
+    "resilienceModule": "apps/api/src/resilience/resilience.module.ts",
+    "resilienceAdminPage": "apps/web/pages/admin/resilience.vue",
+    "resiliencePolicy": "resilience/policy.json",
+    "resilienceMigration": "database/migrations/000026_resilience_chaos_recovery.up.sql",
+    "resilienceExperiments": "resilience/experiments.json",
+    "resilienceRunbooks": "resilience/runbooks.json",
+    "resilienceQualityReport": "reports/resilience/stage-35-quality.json"
   },
   "architecture": { "frontend": "Nuxt 3", "coreBackend": "NestJS", "realtimeChat": "Go", "primaryDatabase": "PostgreSQL + PostGIS", "search": "OpenSearch", "mapEngine": "MapLibre GL JS", "cache": "Redis", "eventBus": "Kafka", "objectStorage": "S3-compatible" },
   "deploymentTarget": { "publicUrl": "https://srun.ir/haftsoo/", "host": "5.61.27.185", "sshPort": 2233, "sshUser": "root", "deployPath": "/opt/haftsoo", "servicePrefix": "haftsoo", "secretsStoredInRepository": false }

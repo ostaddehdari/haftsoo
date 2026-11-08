@@ -89,7 +89,11 @@
     { "name": "PerformanceMetricGrid", "variants": ["latency", "capacity"], "states": ["loading", "healthy", "warning", "breached"] },
     { "name": "LoadRunTable", "variants": ["release", "soak"], "states": ["queued", "running", "passed", "failed", "aborted"] },
     { "name": "CapacityForecastPanel", "variants": ["service", "platform"], "states": ["healthy", "scale-required", "cost-capped"] },
-    { "name": "PerformanceBudgetPanel", "variants": ["api", "web", "realtime"], "states": ["passing", "at-risk", "breached"] }
+    { "name": "PerformanceBudgetPanel", "variants": ["api", "web", "realtime"], "states": ["passing", "at-risk", "breached"] },
+    { "name": "ResilienceMetricGrid", "variants": ["service", "platform"], "states": ["loading", "healthy", "degraded", "recovering"] },
+    { "name": "ChaosExperimentList", "variants": ["scheduled", "history"], "states": ["draft", "approved", "running", "passed", "failed", "aborted"] },
+    { "name": "RecoveryDrillPanel", "variants": ["service", "disaster"], "states": ["planned", "running", "verified", "failed"] },
+    { "name": "ResilienceGuardPanel", "variants": ["policy", "dependency"], "states": ["protected", "at-risk", "blocked"] }
   ]
 }
 

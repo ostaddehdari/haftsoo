@@ -358,3 +358,8 @@ export interface PerformanceBudget { serviceKey: string; operationKey: string; p
 export interface LoadRun { id: string; scenario: string; environment: string; state: LoadRunState; virtualUsers: number; durationSeconds: number; p95Ms?: number | null; p99Ms?: number | null; errorRateBps?: number | null; createdAt: string }
 export interface CapacitySnapshot { serviceKey: string; currentRps: number; peakRps: number; utilizationBps: number; projectedRps: number; requiresScale: boolean; calculatedAt: string }
 export interface WebVitalsRating { lcpMs: number; inpMs: number; clsMilli: number; rating: "good" | "needs_improvement" | "poor"; releaseGate: boolean }
+
+export type ChaosExperimentState = "draft" | "pending_approval" | "approved" | "running" | "passed" | "failed" | "aborted";
+export interface ChaosExperiment { id: string; name: string; serviceKey: string; faultType: "latency" | "error" | "dependency" | "resource" | "network"; state: ChaosExperimentState; blastRadiusBps: number; durationSeconds: number; abortThresholdBps: number; approvedBy?: string | null; createdAt: string }
+export interface RecoveryDrill { id: string; scenario: string; serviceKey: string; state: "planned" | "running" | "verified" | "failed"; targetRtoSeconds: number; actualRtoSeconds?: number | null; targetRpoSeconds: number; actualRpoSeconds?: number | null; evidenceHash?: string | null; executedAt?: string | null }
+export interface ResilienceMetric { serviceKey: string; availabilityBps: number; recoveryReadinessBps: number; circuitState: "closed" | "open" | "half_open"; degradationMode: "normal" | "read_only" | "cached" | "limited"; measuredAt: string }
